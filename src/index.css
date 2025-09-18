@@ -2,57 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* HISTORIAS DE LA MENTE - Premium Apple-like Design System
+All colors MUST be HSL. Black background with golden accents.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Black background with golden accents */
+    --background: 0 0% 0%;
+    --foreground: 45 100% 85%;
+    
+    /* Golden palette */
+    --golden: 45 100% 51%;        /* #FFC107 */
+    --golden-light: 45 100% 65%;  /* #FFD54F */
+    --golden-dark: 45 100% 35%;   /* Darker golden */
+    
+    /* Card system */
+    --card: 0 0% 3%;
+    --card-foreground: 45 100% 85%;
+    --card-border: 45 100% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Primary golden theme */
+    --primary: 45 100% 51%;
+    --primary-foreground: 0 0% 0%;
+    
+    /* Secondary with subtle golden tint */
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 45 100% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Muted elements */
+    --muted: 0 0% 5%;
+    --muted-foreground: 45 20% 65%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Accent golden */
+    --accent: 45 100% 51%;
+    --accent-foreground: 0 0% 0%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* CTA Hero button */
+    --cta-primary: 45 100% 51%;
+    --cta-primary-foreground: 0 0% 0%;
+    --cta-secondary: transparent;
+    --cta-secondary-foreground: 45 100% 51%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Interactive states */
+    --hover-glow: 45 100% 51%;
+    --hover-scale: 1.05;
+    
+    /* Gradients */
+    --gradient-golden: linear-gradient(135deg, hsl(45 100% 51%), hsl(45 100% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 1%), hsl(0 0% 3%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 2%), hsl(0 0% 5%));
+    
+    /* Shadows and glows */
+    --shadow-golden: 0 20px 40px -10px hsl(45 100% 51% / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(0 0% 0% / 0.5);
+    --glow-golden: 0 0 30px hsl(45 100% 51% / 0.4);
+    --glow-subtle: 0 0 20px hsl(45 100% 51% / 0.2);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Borders */
+    --border: 45 100% 15%;
+    --input: 45 100% 15%;
+    --ring: 45 100% 51%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Spacing and sizing */
+    --radius: 1rem;
+    --radius-large: 1.5rem;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
@@ -101,5 +119,62 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Custom utility classes for Historias de la Mente */
+  .golden-glow {
+    box-shadow: var(--glow-golden);
+  }
+  
+  .golden-text {
+    background: var(--gradient-golden);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-premium {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--card-border));
+    box-shadow: var(--shadow-card);
+  }
+  
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(var(--hover-scale));
+    box-shadow: var(--shadow-golden);
+  }
+  
+  .btn-cta-primary {
+    background: hsl(var(--cta-primary));
+    color: hsl(var(--cta-primary-foreground));
+    border: none;
+    box-shadow: var(--glow-subtle);
+    transition: var(--transition-bounce);
+  }
+  
+  .btn-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-golden);
+  }
+  
+  .btn-cta-secondary {
+    background: hsl(var(--cta-secondary));
+    color: hsl(var(--cta-secondary-foreground));
+    border: 2px solid hsl(var(--cta-secondary-foreground));
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-cta-secondary:hover {
+    background: hsl(var(--cta-secondary-foreground));
+    color: hsl(var(--background));
+    box-shadow: var(--glow-subtle);
   }
 }
