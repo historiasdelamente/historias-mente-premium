@@ -65,6 +65,11 @@ const HeroSection = () => {
             </a>
           </Button>
         </div>
+
+        {/* Community caption */}
+        <p className="mt-4 text-sm sm:text-base text-emerald-300/90 font-apple max-w-2xl mx-auto">
+          Comunidad Mujeres Sanadoras: te avisamos de lives y de nuestros eventos VIP
+        </p>
       </div>
     </section>
   );

@@ -54,7 +54,7 @@ const SocialMediaSection = () => {
   const socialPlatforms = [
     {
       title: "Mujeres Sanadoras",
-      description: "Comunidad oficial: recibe info de nuestros en vivo y eventos especiales.",
+      description: "Comunidad Mujeres Sanadoras: te avisamos de lives y de nuestros eventos VIP",
       icon: "/mujeres-sanadoras.png",
       href: WHATSAPP_COMMUNITY_URL,
     },
