@@ -79,14 +79,14 @@ const SocialMediaSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-gradient-card">
+    <section className="py-16 md:py-24 px-6 bg-gradient-card">
       <div className="container max-w-6xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold golden-text mb-6 font-apple">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold golden-text mb-4 md:mb-6 font-apple leading-tight">
             AQUÍ NACE TU PODER SIN ÉL
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-apple">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-apple leading-relaxed">
             Entra a Kick y vive el taller de 21 días gratis: paso a paso para soltar al narcisista y levantarte.
           </p>
         </div>
