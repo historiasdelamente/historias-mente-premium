@@ -1,0 +1,44 @@
+name: Deploy to Hostinger (FTP)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL }} # ftp or ftps or sftp
+          port: ${{ secrets.FTP_PORT }} # e.g. 21 for ftp/ftps, 22 for sftp
+          local-dir: dist/
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }} # e.g. public_html/
+          # WARNING: cleans the target directory before upload
+          dangerous-clean-slate: true
+          # Only keep built assets on the server
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.github/**

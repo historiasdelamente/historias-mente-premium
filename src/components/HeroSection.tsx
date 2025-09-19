@@ -33,7 +33,7 @@ const HeroSection = () => {
           <Button 
             asChild
             size="lg"
-            className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] animate-glow-pulse"
+            className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] animate-glow-pulse bg-emerald-500 hover:bg-emerald-600 text-black shadow-[0_0_20px_rgba(16,185,129,0.6)] ring-2 ring-emerald-300"
           >
             <a 
               href="https://wa.me/573044737168?text=Taller%20gratis%3A%20dejar%20al%20narcisista"
@@ -42,7 +42,7 @@ const HeroSection = () => {
               className="flex items-center gap-3"
             >
               <Phone className="w-5 h-5" />
-              RESERVA TU CUPO GRATIS · HOY
+              HÁBLAME PARA RESERVAR HOY
             </a>
           </Button>
 
