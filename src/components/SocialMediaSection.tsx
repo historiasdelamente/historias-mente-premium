@@ -55,7 +55,7 @@ const SocialMediaSection = () => {
       title: "WhatsApp",
       description: "Accede a tu inscripción gratuita y mensajes directos para no quedarte fuera.",
       icon: whatsappIcon,
-      href: "https://wa.me/573044737168?text=Taller%20gratis%3A%20dejar%20al%20narcisista",
+      href: "https://chat.whatsapp.com/KzR5MR6ewB42NcSg8kwpQb?mode=ac_t",
     },
     {
       title: "LinkedIn",

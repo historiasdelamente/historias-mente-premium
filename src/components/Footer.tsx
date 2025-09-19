@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Contact Information */}
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
             <a 
-              href="https://wa.me/573001681053"
+              href="https://chat.whatsapp.com/KzR5MR6ewB42NcSg8kwpQb?mode=ac_t"
               className="flex items-center gap-3 text-golden hover:text-golden-light transition-colors font-apple text-lg"
             >
               <Phone className="w-5 h-5" />

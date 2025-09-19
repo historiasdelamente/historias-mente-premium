@@ -36,7 +36,7 @@ const HeroSection = () => {
             className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] animate-glow-pulse bg-emerald-500 hover:bg-emerald-600 text-black shadow-[0_0_20px_rgba(16,185,129,0.6)] ring-2 ring-emerald-300"
           >
             <a 
-              href="https://wa.me/573044737168?text=Taller%20gratis%3A%20dejar%20al%20narcisista"
+              href="https://chat.whatsapp.com/KzR5MR6ewB42NcSg8kwpQb?mode=ac_t"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3"
@@ -60,7 +60,7 @@ const HeroSection = () => {
               className="flex items-center gap-3"
             >
               <Play className="w-5 h-5" />
-              VÉN EN VIVO EN KICK
+              ver en vivo en kick
             </a>
           </Button>
         </div>
