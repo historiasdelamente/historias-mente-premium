@@ -59,10 +59,10 @@ const BenefitsSection = () => {
         {/* Section Title */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold golden-text mb-6 font-apple">
-            ¿POR QUÉ UNIRTE A ESTA CONFERENCIA?
+            ¿POR QUÉ VIVIR ESTA EXPERIENCIA TRANSFORMADORA?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-apple">
-            Descubre lo que nos hace únicos en el mundo del desarrollo personal y la psicología
+            Porque vivirás una experiencia que te transformará, acompañada de mujeres que viven lo mismo que tú
           </p>
         </div>
 

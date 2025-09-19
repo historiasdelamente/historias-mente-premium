@@ -60,9 +60,9 @@ const SocialMediaSection = () => {
     },
     {
       title: "LinkedIn",
-      description: "Contenido profesional y networking",
+      description: "Conoce más sobre Javier Vieira, psicólogo",
       icon: linkedinIcon,
-      href: "https://co.linkedin.com/in/javier-vieira-calle",
+      href: "https://co.linkedin.com/in/javier-vieira-calleal",
     },
     {
       title: "TikTok",
@@ -84,10 +84,10 @@ const SocialMediaSection = () => {
         {/* Section Title */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold golden-text mb-6 font-apple">
-            TU FUERZA COMIENZA AQUÍ
+            AQUÍ NACE TU PODER SIN ÉL
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-apple">
-            Conéctate y recibe recordatorios, mensajes que hablan a tu corazón y herramientas que te devuelven tu voz.
+            Entra a Kick y vive el taller de 21 días gratis: paso a paso para soltar al narcisista y levantarte.
           </p>
         </div>
 
