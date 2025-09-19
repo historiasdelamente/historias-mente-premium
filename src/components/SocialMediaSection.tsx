@@ -3,6 +3,7 @@ import whatsappIcon from "@/assets/whatsapp-icon.png";
 import linkedinIcon from "@/assets/linkedin-icon.png";
 import tiktokIcon from "@/assets/tiktok-icon.png";
 import kickIcon from "@/assets/kick-icon.png";
+import { WHATSAPP_COMMUNITY_URL } from "@/config/links";
 
 interface SocialCardProps {
   title: string;
@@ -52,10 +53,10 @@ const SocialCard = ({ title, description, icon, href, delay = "0ms" }: SocialCar
 const SocialMediaSection = () => {
   const socialPlatforms = [
     {
-      title: "WhatsApp",
-      description: "Accede a tu inscripción gratuita y mensajes directos para no quedarte fuera.",
-      icon: whatsappIcon,
-      href: "https://chat.whatsapp.com/KzR5MR6ewB42NcSg8kwpQb?mode=ac_t",
+      title: "Mujeres Sanadoras",
+      description: "Comunidad oficial: recibe info de nuestros en vivo y eventos especiales.",
+      icon: "/mujeres-sanadoras.png",
+      href: WHATSAPP_COMMUNITY_URL,
     },
     {
       title: "LinkedIn",
