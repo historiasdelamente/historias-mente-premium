@@ -6,14 +6,19 @@ const Footer = () => {
       <div className="container max-w-6xl mx-auto">
         {/* Main Footer Content */}
         <div className="text-center space-y-8 mb-12">
+          {/* Empathetic message */}
+          <p className="text-lg text-muted-foreground font-apple max-w-3xl mx-auto">
+            Si sientes que ya no puedes más, este es el momento de extender tu mano. Escríbeme y recibe tu acceso gratuito. No estás sola.
+          </p>
+
           {/* Contact Information */}
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
             <a 
-              href="tel:+573044737168"
+              href="https://wa.me/573001681053"
               className="flex items-center gap-3 text-golden hover:text-golden-light transition-colors font-apple text-lg"
             >
               <Phone className="w-5 h-5" />
-              +57 304 473 7168
+              WhatsApp: +57 300 1681053
             </a>
             
             <a 
@@ -46,7 +51,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-golden/20 text-center">
           <p className="text-muted-foreground font-apple">
-            © 2024 Historias de la Mente. Todos los derechos reservados.
+            © 2025 Historias de la Mente. Todos los derechos reservados.
           </p>
         </div>
       </div>

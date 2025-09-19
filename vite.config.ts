@@ -5,6 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Necesario para GitHub Pages: ajusta rutas relativas al subpath del repo
+  base: "/historias-mente-premium/",
   server: {
     host: "::",
     port: 8080,

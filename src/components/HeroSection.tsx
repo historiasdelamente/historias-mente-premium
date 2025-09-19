@@ -4,10 +4,10 @@ import { Phone, Play } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-subtle">
-      <div className="container max-w-6xl mx-auto text-center space-y-12 animate-fade-in">
+    <section className="min-h-[80vh] md:min-h-screen flex items-center justify-center px-6 py-12 md:py-20 bg-gradient-subtle">
+      <div className="container max-w-6xl mx-auto text-center space-y-8 md:space-y-12 animate-fade-in">
         {/* Banner Image */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-md sm:max-w-lg md:max-w-3xl lg:max-w-4xl mx-auto">
           <img 
             src={bannerImage} 
             alt="Historias de la Mente - Conferencia exclusiva"
@@ -17,18 +17,18 @@ const HeroSection = () => {
 
         {/* Main Title */}
         <div className="space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold font-apple golden-text leading-tight">
-            Historias de la Mente
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-apple golden-text leading-tight break-words max-w-5xl mx-auto">
+            CUANDO EL NARCISISTA TE ROMPE, NO ES EL FINAL… ES TU RENACER
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-apple">
-            Descubre los secretos de la mente humana en nuestra conferencia exclusiva
+          <p className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-3xl md:max-w-4xl mx-auto leading-relaxed font-apple">
+            Sé lo que significa llorar en silencio, sentir que tu valor se pierde en manos equivocadas. Pero dentro de ti hay una fuerza intacta, esperando levantarse. Este encuentro es tu oportunidad de romper el ciclo.
           </p>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center pt-6 md:pt-8">
           {/* Primary CTA */}
           <Button 
             asChild
@@ -42,7 +42,7 @@ const HeroSection = () => {
               className="flex items-center gap-3"
             >
               <Phone className="w-5 h-5" />
-              INSCRÍBETE GRATIS AHORA
+              RESERVA TU CUPO GRATIS · HOY
             </a>
           </Button>
 
@@ -60,7 +60,7 @@ const HeroSection = () => {
               className="flex items-center gap-3"
             >
               <Play className="w-5 h-5" />
-              Únete en Vivo en KICK
+              VÉN EN VIVO EN KICK
             </a>
           </Button>
         </div>

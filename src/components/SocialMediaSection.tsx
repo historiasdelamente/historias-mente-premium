@@ -53,7 +53,7 @@ const SocialMediaSection = () => {
   const socialPlatforms = [
     {
       title: "WhatsApp",
-      description: "Contacto directo y talleres gratuitos",
+      description: "Accede a tu inscripción gratuita y mensajes directos para no quedarte fuera.",
       icon: whatsappIcon,
       href: "https://wa.me/573044737168?text=Taller%20gratis%3A%20dejar%20al%20narcisista",
     },
@@ -65,13 +65,13 @@ const SocialMediaSection = () => {
     },
     {
       title: "TikTok",
-      description: "Videos virales sobre psicología",
+      description: "Clips con claves sobre apego, señales de manipulación y recuperación.",
       icon: tiktokIcon,
       href: "https://www.tiktok.com/@historias.de.la.mente",
     },
     {
-      title: "Kick Live",
-      description: "Transmisiones en vivo exclusivas",
+      title: "EN VIVO EN KICK",
+      description: "La conferencia completa, en vivo, con espacio para tus preguntas.",
       icon: kickIcon,
       href: "https://kick.com/historiasdelamente",
     },
@@ -83,10 +83,10 @@ const SocialMediaSection = () => {
         {/* Section Title */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold golden-text mb-6 font-apple">
-            Síguenos en Todas las Plataformas
+            TU FUERZA COMIENZA AQUÍ
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-apple">
-            Conecta con nosotros y mantente al día con el mejor contenido sobre psicología
+            Conéctate y recibe recordatorios, mensajes que hablan a tu corazón y herramientas que te devuelven tu voz.
           </p>
         </div>
 
