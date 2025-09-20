@@ -34,7 +34,7 @@ const HeroSection = () => {
           <Button 
             asChild
             size="lg"
-            className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] animate-glow-pulse bg-emerald-500 hover:bg-emerald-600 text-black shadow-[0_0_20px_rgba(16,185,129,0.6)] ring-2 ring-emerald-300"
+            className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] animate-glow-pulse bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-500 hover:to-emerald-500 text-black shadow-[0_6px_24px_rgba(16,185,129,0.45)] ring-2 ring-emerald-300/70 hover:ring-emerald-200"
           >
             <a 
               href={WHATSAPP_COMMUNITY_URL}
@@ -42,7 +42,7 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-3"
             >
-              <img src="/mujeres-sanadoras.png" alt="Mujeres Sanadoras" className="w-5 h-5 rounded-full" />
+              <img src="/mujeres-sanadoras.png" alt="Mujeres Sanadoras" className="w-6 h-6 rounded-full ring-2 ring-emerald-200/80 shadow-sm" />
               HÁBLAME PARA RESERVAR HOY
             </a>
           </Button>
@@ -67,7 +67,7 @@ const HeroSection = () => {
         </div>
 
         {/* Community caption */}
-        <p className="mt-4 text-sm sm:text-base text-emerald-300/90 font-apple max-w-2xl mx-auto">
+        <p className="mt-4 text-sm sm:text-base text-emerald-200/95 font-apple max-w-2xl mx-auto leading-6">
           Comunidad Mujeres Sanadoras: te avisamos de lives y de nuestros eventos VIP
         </p>
       </div>

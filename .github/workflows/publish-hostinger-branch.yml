@@ -1,0 +1,45 @@
+name: Publish Hostinger Deploy Branch
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Ensure .htaccess exists in dist
+        shell: bash
+        run: |
+          if [ ! -f "dist/.htaccess" ] && [ -f "public/.htaccess" ]; then
+            cp public/.htaccess dist/.htaccess
+            echo "Copied public/.htaccess to dist/.htaccess"
+          fi
+
+      - name: Publish dist/ to hostinger-deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: hostinger-deploy
+          publish_dir: dist
+          force_orphan: true
+          enable_jekyll: false

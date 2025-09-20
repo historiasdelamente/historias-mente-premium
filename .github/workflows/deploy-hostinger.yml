@@ -1,8 +1,6 @@
 name: Deploy to Hostinger (FTP)
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -30,8 +28,21 @@ jobs:
           [ -z "${{ secrets.FTP_SERVER }}" ] && echo "Missing required secret: FTP_SERVER" && missing=1
           [ -z "${{ secrets.FTP_USERNAME }}" ] && echo "Missing required secret: FTP_USERNAME" && missing=1
           [ -z "${{ secrets.FTP_PASSWORD }}" ] && echo "Missing required secret: FTP_PASSWORD" && missing=1
-          [ -z "${{ secrets.FTP_PROTOCOL }}" ] && echo "Missing required secret: FTP_PROTOCOL (ftp|ftps|sftp)" && missing=1
-          [ -z "${{ secrets.FTP_PORT }}" ] && echo "Missing required secret: FTP_PORT (21 for ftp/ftps, 22 for sftp)" && missing=1
+          # Set safe defaults if not provided
+          PROTOCOL=${{ secrets.FTP_PROTOCOL }}
+          PORT=${{ secrets.FTP_PORT }}
+          if [ -z "$PROTOCOL" ]; then
+            echo "FTP_PROTOCOL not set. Defaulting to sftp.";
+            echo "FTP_PROTOCOL=sftp" >> $GITHUB_ENV
+          else
+            echo "FTP_PROTOCOL=$PROTOCOL" >> $GITHUB_ENV
+          fi
+          if [ -z "$PORT" ]; then
+            echo "FTP_PORT not set. Defaulting to 22.";
+            echo "FTP_PORT=22" >> $GITHUB_ENV
+          else
+            echo "FTP_PORT=$PORT" >> $GITHUB_ENV
+          fi
           [ -z "${{ secrets.FTP_REMOTE_DIR }}" ] && echo "Missing required secret: FTP_REMOTE_DIR (e.g. public_html/ or domains/tu-dominio/public_html/)" && missing=1
           if [ "$missing" -ne 0 ]; then
             echo "One or more required secrets are missing. Configure them in GitHub → Settings → Secrets and variables → Actions." >&2
@@ -44,12 +55,12 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ${{ secrets.FTP_PROTOCOL }} # ftp or ftps or sftp
-          port: ${{ secrets.FTP_PORT }} # e.g. 21 for ftp/ftps, 22 for sftp
+          protocol: ${{ env.FTP_PROTOCOL }} # ftp or ftps or sftp
+          port: ${{ env.FTP_PORT }} # e.g. 21 for ftp/ftps, 22 for sftp
           local-dir: dist/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }} # e.g. public_html/
-          # WARNING: cleans the target directory before upload
-          dangerous-clean-slate: true
+          # Safer: do not clean the target directory before upload
+          dangerous-clean-slate: false
           # Only keep built assets on the server
           exclude: |
             **/.git*

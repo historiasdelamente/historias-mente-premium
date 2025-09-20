@@ -1,0 +1,43 @@
+name: Build Dist Artifact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Ensure .htaccess exists in dist
+        shell: bash
+        run: |
+          if [ ! -f "dist/.htaccess" ] && [ -f "public/.htaccess" ]; then
+            cp public/.htaccess dist/.htaccess
+            echo "Copied public/.htaccess to dist/.htaccess"
+          fi
+
+      - name: Create dist.zip
+        run: |
+          cd dist
+          zip -r ../dist.zip .
+
+      - name: Upload artifact (dist.zip)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-zip
+          path: dist.zip
+          if-no-files-found: error
