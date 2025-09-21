@@ -1,1 +1,1 @@
-export const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/KzR5MR6ewB42NcSg8kwpQb?mode=ac_t";
+export const WHATSAPP_COMMUNITY_URL = "https://wa.me/573044737168?text=Quiero%20ir%20al%20taller%20de%2021%20d%C3%ADas%20gratuito%20que%20me%20ayuda%20a%20liberarme%20del%20narcisista%20y%20del%20apego%20afectivo";
