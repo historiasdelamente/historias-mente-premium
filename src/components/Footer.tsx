@@ -1,5 +1,4 @@
-import { Phone, Mail } from "lucide-react";
-import { WHATSAPP_COMMUNITY_URL } from "@/config/links";
+import { Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -13,21 +12,13 @@ const Footer = () => {
           </p>
 
           {/* Contact Information */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+          <div className="flex justify-center items-center">
             <a 
-              href={WHATSAPP_COMMUNITY_URL}
-              className="flex items-center gap-3 text-golden hover:text-golden-light transition-colors font-apple text-lg"
-            >
-              <Phone className="w-5 h-5" />
-              WhatsApp: +57 300 1681053
-            </a>
-            
-            <a 
-              href="mailto:contacto@historiasdelamente.com"
+              href="mailto:info@historiasdelamente.com"
               className="flex items-center gap-3 text-golden hover:text-golden-light transition-colors font-apple text-lg"
             >
               <Mail className="w-5 h-5" />
-              contacto@historiasdelamente.com
+              info@historiasdelamente.com
             </a>
           </div>
 
