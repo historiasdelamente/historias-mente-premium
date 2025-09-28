@@ -1,6 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import whatsappIcon from "@/assets/whatsapp-icon.png";
-import linkedinIcon from "@/assets/linkedin-icon.png";
 import tiktokIcon from "@/assets/tiktok-icon.png";
 import kickIcon from "@/assets/kick-icon.png";
 import { WHATSAPP_COMMUNITY_URL } from "@/config/links";
@@ -61,12 +59,6 @@ const SocialMediaSection = () => {
       href: "https://chat.whatsapp.com/KzR5MR6ewB42NcSg8kwpQb?mode=ac_t",
     },
     {
-      title: "LinkedIn",
-      description: "Conoce más sobre Javier Vieira, psicólogo",
-      icon: linkedinIcon,
-      href: "https://co.linkedin.com/in/javier-vieira-calle",
-    },
-    {
       title: "TikTok",
       description: "Clips con claves sobre apego, señales de manipulación y recuperación.",
       icon: tiktokIcon,
@@ -94,7 +86,7 @@ const SocialMediaSection = () => {
         </div>
 
         {/* Social Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {socialPlatforms.map((platform, index) => (
             <SocialCard
               key={platform.title}

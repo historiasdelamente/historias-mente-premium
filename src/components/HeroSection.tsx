@@ -1,7 +1,27 @@
 import { Button } from "@/components/ui/button";
 import bannerImage from "@/assets/banner-historias-mente.png";
 import { Play } from "lucide-react";
-import whatsappIcon from "@/assets/whatsapp-icon.png";
+
+// Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
+const WhatsAppLogo = ({ className = "" }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 256 256"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <defs>
+      <linearGradient id="waShadow" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stopColor="#25D366" />
+        <stop offset="100%" stopColor="#20BD5A" />
+      </linearGradient>
+    </defs>
+    <circle cx="128" cy="128" r="118" fill="url(#waShadow)" />
+    <circle cx="128" cy="128" r="96" fill="#25D366" />
+    <path fill="#FFFFFF" d="M175.7 150.3c-2.7-1.4-16-7.9-18.5-8.8-2.5-.9-4.3-1.4-6.1 1.4-1.8 2.7-7 8.8-8.6 10.6-1.6 1.8-3.2 2-5.9.7-2.7-1.4-11.5-4.2-21.9-13.5-8.1-7.2-13.6-16.1-15.2-18.8-1.6-2.7-.2-4.2 1.2-5.5 1.3-1.3 2.7-3.2 4.1-4.8 1.4-1.6 1.8-2.7 2.7-4.5.9-1.8.5-3.4-.2-4.8-.7-1.4-6.1-14.8-8.4-20.2-2.2-5.3-4.5-4.6-6.1-4.7-1.6-.1-3.4-.1-5.2-.1-1.8 0-4.8.7-7.3 3.4-2.5 2.7-9.6 9.4-9.6 22.9 0 13.5 9.8 26.5 11.1 28.3 1.4 1.8 19.2 29.2 46.5 41 6.5 2.8 11.5 4.5 15.5 5.8 6.5 2.1 12.5 1.8 17.2 1.1 5.3-.8 16-6.5 18.2-12.7 2.2-6.2 2.2-11.5 1.5-12.7-.7-1.1-2.5-1.8-5.2-3.2z" />
+  </svg>
+);
 
 const HeroSection = () => {
   return (
@@ -44,11 +64,7 @@ const HeroSection = () => {
               title="Reserva por WhatsApp hoy"
               className="group flex items-center gap-3"
             >
-              <img 
-                src={whatsappIcon} 
-                alt="WhatsApp" 
-                className="w-7 h-7 object-contain transition-transform duration-300 ease-out group-hover:scale-110"
-              />
+              <WhatsAppLogo className="w-10 h-10 transition-transform duration-300 ease-out group-hover:scale-110 shrink-0" />
               <span className="tracking-tight">Reserva por WhatsApp hoy</span>
             </a>
           </Button>
