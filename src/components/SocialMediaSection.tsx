@@ -41,9 +41,11 @@ const SocialCard = ({ title, description, icon, href, delay = "0ms" }: SocialCar
           </h3>
           
           {/* Description */}
-          <p className="text-muted-foreground leading-relaxed font-apple">
-            {description}
-          </p>
+          {description && (
+            <p className="text-muted-foreground leading-relaxed font-apple">
+              {description}
+            </p>
+          )}
         </a>
       </CardContent>
     </Card>
@@ -54,15 +56,15 @@ const SocialMediaSection = () => {
   const socialPlatforms = [
     {
       title: "Mujeres Sanadoras",
-      description: "Comunidad Mujeres Sanadoras: te avisamos de lives y de nuestros eventos VIP",
+      description: "Únete ahora al círculo de mujeres que transforman su vida.",
       icon: "/mujeres-sanadoras.png",
-      href: WHATSAPP_COMMUNITY_URL,
+      href: "https://chat.whatsapp.com/KzR5MR6ewB42NcSg8kwpQb?mode=ac_t",
     },
     {
       title: "LinkedIn",
       description: "Conoce más sobre Javier Vieira, psicólogo",
       icon: linkedinIcon,
-      href: "https://co.linkedin.com/in/javier-vieira-calleal",
+      href: "https://co.linkedin.com/in/javier-vieira-calle",
     },
     {
       title: "TikTok",

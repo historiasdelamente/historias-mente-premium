@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import bannerImage from "@/assets/banner-historias-mente.png";
-import { Phone, Play } from "lucide-react";
-import { WHATSAPP_COMMUNITY_URL } from "@/config/links";
+import { Play } from "lucide-react";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 
 const HeroSection = () => {
   return (
@@ -34,16 +34,22 @@ const HeroSection = () => {
           <Button 
             asChild
             size="lg"
-            className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] animate-glow-pulse bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-500 hover:to-emerald-500 text-black shadow-[0_6px_24px_rgba(16,185,129,0.45)] ring-2 ring-emerald-300/70 hover:ring-emerald-200"
+            className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-black shadow-[0_6px_24px_rgba(251,191,36,0.45)] ring-2 ring-amber-300/70 hover:ring-amber-200 transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300/70"
           >
             <a 
-              href={WHATSAPP_COMMUNITY_URL}
+              href="https://wa.me/573044737168?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20del%20Taller%20del%20Apego."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3"
+              aria-label="Reserva por WhatsApp hoy"
+              title="Reserva por WhatsApp hoy"
+              className="group flex items-center gap-3"
             >
-              <img src="/mujeres-sanadoras.png" alt="Mujeres Sanadoras" className="w-6 h-6 rounded-full ring-2 ring-emerald-200/80 shadow-sm" />
-              HÁBLAME PARA RESERVAR HOY
+              <img 
+                src={whatsappIcon} 
+                alt="WhatsApp" 
+                className="w-6 h-6 rounded-sm shadow-sm transition-transform duration-300 ease-out group-hover:scale-110"
+              />
+              <span className="tracking-tight">Reserva por WhatsApp hoy</span>
             </a>
           </Button>
 
@@ -65,11 +71,21 @@ const HeroSection = () => {
             </a>
           </Button>
         </div>
-
-        {/* Community caption */}
-        <p className="mt-4 text-sm sm:text-base text-emerald-200/95 font-apple max-w-2xl mx-auto leading-6">
-          Comunidad Mujeres Sanadoras: te avisamos de lives y de nuestros eventos VIP
-        </p>
+        {/* Video Embed */}
+        <div className="w-full pt-4 md:pt-6">
+          <div className="max-w-3xl mx-auto w-full">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-golden ring-2 ring-amber-300/50">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/rk3UpCY5CGM?si=-7byeWC2TlxF7Fzt"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
