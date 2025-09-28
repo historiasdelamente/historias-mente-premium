@@ -25,17 +25,24 @@ const Footer = () => {
           {/* Legal Links */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-muted-foreground">
             <a 
-              href="#privacy"
+              href="/privacy"
               className="hover:text-golden transition-colors font-apple"
             >
-              Políticas de Privacidad
+              Política de Privacidad
             </a>
             <span className="hidden sm:inline text-golden/40">|</span>
             <a 
-              href="#terms"
+              href="/terms"
               className="hover:text-golden transition-colors font-apple"
             >
               Términos y Condiciones
+            </a>
+            <span className="hidden sm:inline text-golden/40">|</span>
+            <a 
+              href="/cookies"
+              className="hover:text-golden transition-colors font-apple"
+            >
+              Política de Cookies
             </a>
           </div>
         </div>
