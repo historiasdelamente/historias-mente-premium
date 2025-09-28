@@ -47,27 +47,9 @@ const HeroSection = () => {
               <img 
                 src={whatsappIcon} 
                 alt="WhatsApp" 
-                className="w-6 h-6 rounded-sm shadow-sm transition-transform duration-300 ease-out group-hover:scale-110"
+                className="w-7 h-7 object-contain transition-transform duration-300 ease-out group-hover:scale-110"
               />
               <span className="tracking-tight">Reserva por WhatsApp hoy</span>
-            </a>
-          </Button>
-
-          {/* Secondary CTA */}
-          <Button 
-            asChild
-            variant="outline"
-            size="lg"
-            className="btn-cta-secondary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px]"
-          >
-            <a 
-              href="https://kick.com/historiasdelamente"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3"
-            >
-              <Play className="w-5 h-5" />
-              ver en vivo en kick
             </a>
           </Button>
         </div>
