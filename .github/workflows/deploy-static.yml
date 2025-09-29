@@ -43,3 +43,6 @@ jobs:
           git commit -m "Publish static build"
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${REPO}.git
           git push --force origin deploy
+          # Also publish to hostinger-deploy branch (for Hostinger setups expecting that name)
+          git branch -M hostinger-deploy
+          git push --force origin hostinger-deploy
