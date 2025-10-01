@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import bannerImage from "@/assets/banner-historias-mente.png";
+import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import { Play } from "lucide-react";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
@@ -82,6 +83,25 @@ const HeroSection = () => {
                 allowFullScreen
               />
             </div>
+          </div>
+        </div>
+
+        {/* Guía Práctica CTA */}
+        <div className="w-full pt-8 md:pt-12">
+          <div className="max-w-2xl mx-auto w-full">
+            <a 
+              href="https://libronarcisimo.historiasdelamente.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block hover-lift"
+              aria-label="Guía práctica para salir del narcisismo"
+            >
+              <img 
+                src={guiaNarcisismo} 
+                alt="Guía práctica para salir del narcisismo - Consigue tu copia ahora"
+                className="w-full h-auto rounded-xl shadow-golden ring-2 ring-amber-300/50 hover:ring-amber-200 transition-all duration-300"
+              />
+            </a>
           </div>
         </div>
       </div>
