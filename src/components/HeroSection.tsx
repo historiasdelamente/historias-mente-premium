@@ -95,7 +95,7 @@ const HeroSection = () => {
             <Card className="card-premium hover-lift group cursor-pointer border-golden/20 hover:border-golden/40 animate-scale-in relative overflow-hidden">
               <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-2 shadow-golden transform rotate-3">
                 <p className="font-bold text-sm md:text-base font-apple tracking-wide">
-                  📚 TU LIBERACIÓN COMIENZA AQUÍ
+                  <span className="font-extrabold">LIBRO</span> - TU LIBERACIÓN COMIENZA AQUÍ
                 </p>
               </div>
               <CardContent className="p-6 md:p-8">
@@ -129,7 +129,7 @@ const HeroSection = () => {
             <Card className="card-premium hover-lift group cursor-pointer border-golden/20 hover:border-golden/40 animate-scale-in relative overflow-hidden" style={{ animationDelay: "100ms" }}>
               <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-2 shadow-golden transform rotate-3">
                 <p className="font-bold text-sm md:text-base font-apple tracking-wide">
-                  ✨ SANACIÓN PROFUNDA, NUEVO COMIENZO
+                  <span className="font-extrabold">LIBRO</span> - SANACIÓN PROFUNDA, NUEVO COMIENZO
                 </p>
               </div>
               <CardContent className="p-6 md:p-8">
