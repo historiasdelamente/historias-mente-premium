@@ -106,11 +106,11 @@ const HeroSection = () => {
                   className="block space-y-4"
                   aria-label="Guía Definitiva para Salir del Narcisismo"
                 >
-                  <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-golden ring-2 ring-amber-300/50 group-hover:ring-amber-200 transition-all duration-300 bg-gradient-to-br from-background to-muted/20">
+                  <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-golden ring-2 ring-amber-300/50 group-hover:ring-amber-200 transition-all duration-300">
                     <img 
                       src={guiaNarcisismo} 
                       alt="Guía Definitiva para Salir del Narcisismo"
-                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <div className="text-center space-y-2 pt-2">
