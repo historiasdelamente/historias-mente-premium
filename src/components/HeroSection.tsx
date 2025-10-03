@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import bannerImage from "@/assets/banner-historias-mente.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
+import apagonEmocional from "@/assets/apagon-emocional.png";
 import { Play } from "lucide-react";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
@@ -86,22 +88,76 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Guía Práctica CTA */}
+        {/* Libros Exclusivos */}
         <div className="w-full pt-8 md:pt-12">
-          <div className="max-w-2xl mx-auto w-full">
-            <a 
-              href="https://libronarcisimo.historiasdelamente.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block hover-lift"
-              aria-label="Guía práctica para salir del narcisismo"
-            >
-              <img 
-                src={guiaNarcisismo} 
-                alt="Guía práctica para salir del narcisismo - Consigue tu copia ahora"
-                className="w-full h-auto rounded-xl shadow-golden ring-2 ring-amber-300/50 hover:ring-amber-200 transition-all duration-300"
-              />
-            </a>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Guía Narcisismo */}
+            <Card className="card-premium hover-lift group cursor-pointer border-golden/20 hover:border-golden/40 animate-scale-in relative overflow-hidden">
+              <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-2 shadow-golden transform rotate-3">
+                <p className="font-bold text-sm md:text-base font-apple tracking-wide">
+                  📚 LIBRO EXCLUSIVO - INICIA TU TRANSFORMACIÓN HOY
+                </p>
+              </div>
+              <CardContent className="p-6 md:p-8">
+                <a 
+                  href="https://libronarcisimo.historiasdelamente.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block space-y-4"
+                  aria-label="Guía Definitiva para Salir del Narcisismo"
+                >
+                  <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-golden ring-2 ring-amber-300/50 group-hover:ring-amber-200 transition-all duration-300">
+                    <img 
+                      src={guiaNarcisismo} 
+                      alt="Guía Definitiva para Salir del Narcisismo"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="text-center space-y-2 pt-2">
+                    <h3 className="text-xl md:text-2xl font-bold golden-text font-apple">
+                      Guía Definitiva para Salir del Narcisismo
+                    </h3>
+                    <p className="text-sm md:text-base text-muted-foreground font-apple">
+                      Transforma tu vida con las herramientas definitivas para liberarte
+                    </p>
+                  </div>
+                </a>
+              </CardContent>
+            </Card>
+
+            {/* Apagón Emocional */}
+            <Card className="card-premium hover-lift group cursor-pointer border-golden/20 hover:border-golden/40 animate-scale-in relative overflow-hidden" style={{ animationDelay: "100ms" }}>
+              <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-2 shadow-golden transform rotate-3">
+                <p className="font-bold text-sm md:text-base font-apple tracking-wide">
+                  ✨ LIBRO EXCLUSIVO - ROMPE EL CICLO
+                </p>
+              </div>
+              <CardContent className="p-6 md:p-8">
+                <a 
+                  href="https://apagonemocional.historiasdelamente.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block space-y-4"
+                  aria-label="Apagón Emocional - Contacto Cero"
+                >
+                  <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-golden ring-2 ring-amber-300/50 group-hover:ring-amber-200 transition-all duration-300">
+                    <img 
+                      src={apagonEmocional} 
+                      alt="Apagón Emocional - Contacto Cero"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="text-center space-y-2 pt-2">
+                    <h3 className="text-xl md:text-2xl font-bold golden-text font-apple">
+                      Apagón Emocional
+                    </h3>
+                    <p className="text-sm md:text-base text-muted-foreground font-apple">
+                      Contacto Cero
+                    </p>
+                  </div>
+                </a>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
