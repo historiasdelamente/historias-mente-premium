@@ -93,7 +93,7 @@ const HeroSection = () => {
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Guía Narcisismo */}
             <Card className="card-premium hover-lift group cursor-pointer border-golden/20 hover:border-golden/40 animate-scale-in relative overflow-hidden">
-              <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-2 shadow-golden transform rotate-3">
+              <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-2 shadow-golden transform rotate-3">
                 <p className="font-bold text-sm md:text-base font-apple tracking-wide">
                   <span className="font-extrabold">LIBRO</span> - TU LIBERACIÓN COMIENZA AQUÍ
                 </p>
@@ -127,7 +127,7 @@ const HeroSection = () => {
 
             {/* Apagón Emocional */}
             <Card className="card-premium hover-lift group cursor-pointer border-golden/20 hover:border-golden/40 animate-scale-in relative overflow-hidden" style={{ animationDelay: "100ms" }}>
-              <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-2 shadow-golden transform rotate-3">
+              <div className="absolute top-6 right-0 z-10 bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-2 shadow-golden transform rotate-3">
                 <p className="font-bold text-sm md:text-base font-apple tracking-wide">
                   <span className="font-extrabold">LIBRO</span> - SANACIÓN PROFUNDA, NUEVO COMIENZO
                 </p>
