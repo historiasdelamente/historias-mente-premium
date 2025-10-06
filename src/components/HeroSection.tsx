@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import bannerImage from "@/assets/banner-historias-mente.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import apagonEmocional from "@/assets/apagon-emocional.png";
+import { EmbeddedChatWidget } from "@/components/EmbeddedChatWidget";
 import { Play } from "lucide-react";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
@@ -68,10 +69,13 @@ const HeroSection = () => {
               className="group flex items-center gap-3"
             >
               <WhatsAppLogo className="w-10 h-10 transition-transform duration-300 ease-out group-hover:scale-110 shrink-0" />
-              <span className="tracking-tight">Asegurar mi cupo: basta de dolor</span>
+              <span className="tracking-tight">Asegurar mi cupo en el taller del apego</span>
             </a>
           </Button>
         </div>
+
+        {/* Chat Widget - Embedded below WhatsApp button */}
+        <EmbeddedChatWidget />
 
         {/* Libros Exclusivos */}
         <div className="w-full pt-8 md:pt-12">

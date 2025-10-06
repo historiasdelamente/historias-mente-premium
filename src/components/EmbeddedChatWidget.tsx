@@ -14,7 +14,7 @@ export const EmbeddedChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "bot",
-      content: "Hola, soy la Dra. [Nombre], psicóloga clínica.\n\nTe haré 9 preguntas sobre tu pareja basadas en criterios DSM-5.\n\nSolo necesito tu honestidad. No hay respuestas incorrectas.\n\n¿Cómo te llamas?"
+      content: "Hola, soy Javier Vieira, psicólogo especialista.\n\nTe haré 9 preguntas sobre tu pareja basadas en criterios DSM-5.\n\nSolo necesito tu honestidad. No hay respuestas incorrectas.\n\n¿Cómo te llamas?"
     }
   ]);
   const [step, setStep] = useState(0);

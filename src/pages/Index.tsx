@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
-import { EmbeddedChatWidget } from "@/components/EmbeddedChatWidget";
 import BenefitsSection from "@/components/BenefitsSection";
 import Footer from "@/components/Footer";
 
@@ -9,7 +8,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <HeroSection />
       <SocialMediaSection />
-      <EmbeddedChatWidget />
       <BenefitsSection />
       <Footer />
     </div>
