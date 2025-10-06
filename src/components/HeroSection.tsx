@@ -68,24 +68,9 @@ const HeroSection = () => {
               className="group flex items-center gap-3"
             >
               <WhatsAppLogo className="w-10 h-10 transition-transform duration-300 ease-out group-hover:scale-110 shrink-0" />
-              <span className="tracking-tight">Reserva por WhatsApp hoy</span>
+              <span className="tracking-tight">Asegurar mi cupo: basta de dolor</span>
             </a>
           </Button>
-        </div>
-        {/* Video Embed */}
-        <div className="w-full pt-4 md:pt-6">
-          <div className="max-w-3xl mx-auto w-full">
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-golden ring-2 ring-amber-300/50">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/rk3UpCY5CGM?si=-7byeWC2TlxF7Fzt"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-          </div>
         </div>
 
         {/* Libros Exclusivos */}
