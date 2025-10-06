@@ -250,14 +250,14 @@ export const EmbeddedChatWidget = () => {
   const progreso = step === 0 ? 1 : step === 1 ? 2 : step === 2 ? 3 : step === 3 ? 3 + respuestas.length : 10;
 
   return (
-    <section className="py-6 md:py-12 px-3 md:px-6 bg-gradient-subtle">
-      <div className="container max-w-4xl mx-auto">
+    <section className="py-6 md:py-12 px-2 md:px-6 bg-gradient-subtle">
+      <div className="container max-w-full md:max-w-4xl mx-auto">
         {/* Texto Introductorio */}
-        <div className="text-center mb-6 md:mb-8 space-y-3 md:space-y-4">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold golden-text font-apple px-2">
+        <div className="text-center mb-6 md:mb-8 space-y-3 md:space-y-4 px-2 md:px-0">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold golden-text font-apple">
             ¿Sientes que algo no está bien en tu relación o contigo mismo/a?
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-apple px-2">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-apple">
             Descubre en pocos pasos si el narcisismo es la causa de tu dolor.
           </p>
         </div>
@@ -284,14 +284,14 @@ export const EmbeddedChatWidget = () => {
             </div>
 
             {/* Messages */}
-            <div className="p-4 md:p-6 space-y-3 md:space-y-4 min-h-[300px] max-h-[450px] md:max-h-[500px] overflow-y-auto scroll-smooth">
+            <div className="p-3 md:p-6 space-y-3 md:space-y-4 min-h-[300px] max-h-[450px] md:max-h-[500px] overflow-y-auto scroll-smooth">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[90%] md:max-w-[80%] rounded-2xl px-4 py-3 md:px-4 md:py-3 ${
+                    className={`max-w-[85%] md:max-w-[80%] rounded-2xl px-4 py-3 ${
                       msg.role === "bot"
                         ? "bg-gradient-to-r from-golden/20 to-golden-light/20 text-foreground border border-golden/30"
                         : "bg-muted text-foreground"
@@ -305,12 +305,12 @@ export const EmbeddedChatWidget = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 md:p-4 border-t border-border bg-muted/30">
+            <div className="p-3 md:p-4 border-t border-border bg-muted/30">
               {renderInput()}
             </div>
 
             {/* Legal Notice */}
-            <div className="px-4 md:px-4 pb-4 md:pb-4">
+            <div className="px-3 md:px-4 pb-3 md:pb-4">
               <p className="text-[10px] sm:text-xs text-muted-foreground text-center font-apple leading-relaxed">
                 Al continuar, aceptas nuestra Política de Privacidad. Esta evaluación es orientativa, no reemplaza diagnóstico profesional.
               </p>
