@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,6 +25,12 @@ export const EmbeddedChatWidget = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll cuando se agreguen nuevos mensajes
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [messages]);
 
   const preguntas = [
     "¿Tu pareja tiene un sentido grandioso de auto-importancia?\n\n(Exagera logros, espera reconocimiento sin respaldo)",
@@ -195,24 +201,24 @@ export const EmbeddedChatWidget = () => {
 
     if (step === 3) {
       return (
-        <div className="space-y-3">
-          <div className="flex gap-2 justify-between">
+        <div className="space-y-2 md:space-y-3">
+          <div className="flex gap-1.5 md:gap-2 justify-between">
             {[1, 2, 3, 4, 5].map((valor) => (
               <Button
                 key={valor}
                 onClick={() => handleRespuesta(valor)}
-                className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border"
+                className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border text-sm md:text-base px-2 md:px-4"
                 variant="outline"
               >
                 {valor}
               </Button>
             ))}
           </div>
-          <div className="grid grid-cols-5 gap-1 text-xs text-muted-foreground text-center">
+          <div className="grid grid-cols-5 gap-0.5 md:gap-1 text-[10px] sm:text-xs text-muted-foreground text-center">
             <span>Nunca</span>
-            <span>Raramente</span>
+            <span>Rara-mente</span>
             <span>A veces</span>
-            <span>Frecuentemente</span>
+            <span>Frecuen-temente</span>
             <span>Siempre</span>
           </div>
         </div>
@@ -242,14 +248,14 @@ export const EmbeddedChatWidget = () => {
   const progreso = step === 0 ? 1 : step === 1 ? 2 : step === 2 ? 3 : step === 3 ? 3 + respuestas.length : 10;
 
   return (
-    <section className="py-12 md:py-16 px-6 bg-gradient-subtle">
+    <section className="py-8 md:py-12 px-4 md:px-6 bg-gradient-subtle">
       <div className="container max-w-4xl mx-auto">
         {/* Texto Introductorio */}
-        <div className="text-center mb-8 space-y-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold golden-text font-apple">
+        <div className="text-center mb-6 md:mb-8 space-y-3 md:space-y-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold golden-text font-apple px-2">
             ¿Sientes que algo no está bien en tu relación o contigo mismo/a?
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto font-apple">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-apple px-2">
             Descubre en pocos pasos si el narcisismo es la causa de tu dolor.
           </p>
         </div>
@@ -276,33 +282,34 @@ export const EmbeddedChatWidget = () => {
             </div>
 
             {/* Messages */}
-            <div className="p-6 space-y-4 max-h-[500px] overflow-y-auto">
+            <div className="p-4 md:p-6 space-y-4 max-h-[400px] md:max-h-[500px] overflow-y-auto scroll-smooth">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+                    className={`max-w-[85%] md:max-w-[80%] rounded-2xl px-3 py-2 md:px-4 md:py-3 ${
                       msg.role === "bot"
                         ? "bg-gradient-to-r from-golden/20 to-golden-light/20 text-foreground border border-golden/30"
                         : "bg-muted text-foreground"
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-line font-apple">{msg.content}</p>
+                    <p className="text-sm md:text-base whitespace-pre-line font-apple">{msg.content}</p>
                   </div>
                 </div>
               ))}
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Input Area */}
-            <div className="p-4 border-t border-border bg-muted/30">
+            <div className="p-3 md:p-4 border-t border-border bg-muted/30">
               {renderInput()}
             </div>
 
             {/* Legal Notice */}
-            <div className="px-4 pb-4">
-              <p className="text-xs text-muted-foreground text-center font-apple">
+            <div className="px-3 md:px-4 pb-3 md:pb-4">
+              <p className="text-[10px] sm:text-xs text-muted-foreground text-center font-apple">
                 Al continuar, aceptas nuestra Política de Privacidad. Esta evaluación es orientativa, no reemplaza diagnóstico profesional.
               </p>
             </div>
