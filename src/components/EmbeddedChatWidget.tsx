@@ -27,9 +27,11 @@ export const EmbeddedChatWidget = () => {
   const navigate = useNavigate();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll cuando se agreguen nuevos mensajes
+  // Auto-scroll cuando se agreguen nuevos mensajes (más lento)
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 300);
   }, [messages]);
 
   const preguntas = [
@@ -201,24 +203,24 @@ export const EmbeddedChatWidget = () => {
 
     if (step === 3) {
       return (
-        <div className="space-y-2 md:space-y-3">
-          <div className="flex gap-1.5 md:gap-2 justify-between">
+        <div className="space-y-3">
+          <div className="flex gap-2 justify-between">
             {[1, 2, 3, 4, 5].map((valor) => (
               <Button
                 key={valor}
                 onClick={() => handleRespuesta(valor)}
-                className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border text-sm md:text-base px-2 md:px-4"
+                className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border text-base md:text-base h-12 md:h-10"
                 variant="outline"
               >
                 {valor}
               </Button>
             ))}
           </div>
-          <div className="grid grid-cols-5 gap-0.5 md:gap-1 text-[10px] sm:text-xs text-muted-foreground text-center">
+          <div className="grid grid-cols-5 gap-1 text-[9px] sm:text-xs text-muted-foreground text-center leading-tight">
             <span>Nunca</span>
-            <span>Rara-mente</span>
-            <span>A veces</span>
-            <span>Frecuen-temente</span>
+            <span>Rara-<br/>mente</span>
+            <span>A<br/>veces</span>
+            <span>Frecuen-<br/>temente</span>
             <span>Siempre</span>
           </div>
         </div>
@@ -248,7 +250,7 @@ export const EmbeddedChatWidget = () => {
   const progreso = step === 0 ? 1 : step === 1 ? 2 : step === 2 ? 3 : step === 3 ? 3 + respuestas.length : 10;
 
   return (
-    <section className="py-8 md:py-12 px-4 md:px-6 bg-gradient-subtle">
+    <section className="py-6 md:py-12 px-3 md:px-6 bg-gradient-subtle">
       <div className="container max-w-4xl mx-auto">
         {/* Texto Introductorio */}
         <div className="text-center mb-6 md:mb-8 space-y-3 md:space-y-4">
@@ -268,34 +270,34 @@ export const EmbeddedChatWidget = () => {
           {/* Chat Box */}
           <div className="relative bg-card border border-golden/30 rounded-2xl shadow-golden overflow-hidden">
             {/* Progress Bar */}
-            <div className="bg-muted/50 p-4 border-b border-border">
+            <div className="bg-muted/50 p-3 md:p-4 border-b border-border">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-foreground">Progreso</span>
-                <span className="text-sm text-muted-foreground">{progreso}/{totalPreguntas}</span>
+                <span className="text-xs md:text-sm font-medium text-foreground">Progreso</span>
+                <span className="text-xs md:text-sm text-muted-foreground">{progreso}/{totalPreguntas}</span>
               </div>
-              <div className="w-full bg-muted rounded-full h-2">
+              <div className="w-full bg-muted rounded-full h-1.5 md:h-2">
                 <div
-                  className="bg-gradient-to-r from-golden to-golden-light h-2 rounded-full transition-all duration-500"
+                  className="bg-gradient-to-r from-golden to-golden-light h-1.5 md:h-2 rounded-full transition-all duration-500"
                   style={{ width: `${(progreso / totalPreguntas) * 100}%` }}
                 />
               </div>
             </div>
 
             {/* Messages */}
-            <div className="p-4 md:p-6 space-y-4 max-h-[400px] md:max-h-[500px] overflow-y-auto scroll-smooth">
+            <div className="p-4 md:p-6 space-y-3 md:space-y-4 min-h-[300px] max-h-[450px] md:max-h-[500px] overflow-y-auto scroll-smooth">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] md:max-w-[80%] rounded-2xl px-3 py-2 md:px-4 md:py-3 ${
+                    className={`max-w-[90%] md:max-w-[80%] rounded-2xl px-4 py-3 md:px-4 md:py-3 ${
                       msg.role === "bot"
                         ? "bg-gradient-to-r from-golden/20 to-golden-light/20 text-foreground border border-golden/30"
                         : "bg-muted text-foreground"
                     }`}
                   >
-                    <p className="text-sm md:text-base whitespace-pre-line font-apple">{msg.content}</p>
+                    <p className="text-sm md:text-base whitespace-pre-line font-apple leading-relaxed">{msg.content}</p>
                   </div>
                 </div>
               ))}
@@ -303,13 +305,13 @@ export const EmbeddedChatWidget = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-3 md:p-4 border-t border-border bg-muted/30">
+            <div className="p-4 md:p-4 border-t border-border bg-muted/30">
               {renderInput()}
             </div>
 
             {/* Legal Notice */}
-            <div className="px-3 md:px-4 pb-3 md:pb-4">
-              <p className="text-[10px] sm:text-xs text-muted-foreground text-center font-apple">
+            <div className="px-4 md:px-4 pb-4 md:pb-4">
+              <p className="text-[10px] sm:text-xs text-muted-foreground text-center font-apple leading-relaxed">
                 Al continuar, aceptas nuestra Política de Privacidad. Esta evaluación es orientativa, no reemplaza diagnóstico profesional.
               </p>
             </div>
