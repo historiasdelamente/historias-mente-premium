@@ -276,10 +276,11 @@ export const FloatingChatWidget = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-golden to-golden-light text-black rounded-full shadow-golden hover:shadow-xl transition-all duration-300 hover:scale-105 p-5 flex items-center justify-center animate-pulse"
+          className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-golden to-golden-light text-black rounded-2xl shadow-golden hover:shadow-xl transition-all duration-300 hover:scale-105 p-4 flex flex-col items-center justify-center gap-2 w-24 h-24 animate-pulse"
           aria-label="Abrir chat de evaluación"
         >
           <MessageCircle className="w-8 h-8" />
+          <span className="text-xs font-bold text-center leading-tight">¿Eres narcisista?</span>
         </button>
       )}
 
