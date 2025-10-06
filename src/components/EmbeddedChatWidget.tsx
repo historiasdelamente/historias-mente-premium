@@ -23,6 +23,7 @@ export const EmbeddedChatWidget = () => {
   const [respuestas, setRespuestas] = useState<number[]>([]);
   const [notasAdicionales, setNotasAdicionales] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isLoadingNext, setIsLoadingNext] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -99,10 +100,12 @@ export const EmbeddedChatWidget = () => {
     const nuevasRespuestas = [...respuestas, valor];
     setRespuestas(nuevasRespuestas);
     addUserMessage(valor.toString());
+    setIsLoadingNext(true);
 
     const preguntaActual = nuevasRespuestas.length - 1;
 
     setTimeout(() => {
+      setIsLoadingNext(false);
       if (preguntaActual < 8) {
         const emojis = ["2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"];
         addBotMessage(`${emojis[preguntaActual]} ${preguntas[preguntaActual + 1]}`);
@@ -110,7 +113,7 @@ export const EmbeddedChatWidget = () => {
         addBotMessage("¡Listo!\n\n¿Algo más que quieras agregar? (Opcional)");
         setStep(4);
       }
-    }, 500);
+    }, 800);
   };
 
   const handleNotasSubmit = async () => {
@@ -204,25 +207,34 @@ export const EmbeddedChatWidget = () => {
     if (step === 3) {
       return (
         <div className="space-y-3">
-          <div className="flex gap-3 md:gap-3 justify-between">
-            {[1, 2, 3, 4, 5].map((valor) => (
-              <Button
-                key={valor}
-                onClick={() => handleRespuesta(valor)}
-                className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border text-2xl md:text-2xl font-bold h-16 md:h-16"
-                variant="outline"
-              >
-                {valor}
-              </Button>
-            ))}
-          </div>
-          <div className="grid grid-cols-5 gap-1 text-sm sm:text-sm text-muted-foreground text-center leading-tight">
-            <span>Nunca</span>
-            <span>Rara-<br/>mente</span>
-            <span>A<br/>veces</span>
-            <span>Frecuen-<br/>temente</span>
-            <span>Siempre</span>
-          </div>
+          {isLoadingNext ? (
+            <div className="text-center py-4">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-golden"></div>
+              <p className="text-sm text-muted-foreground mt-2 font-apple">Cargando siguiente pregunta...</p>
+            </div>
+          ) : (
+            <>
+              <div className="flex gap-2 md:gap-3 justify-between">
+                {[1, 2, 3, 4, 5].map((valor) => (
+                  <Button
+                    key={valor}
+                    onClick={() => handleRespuesta(valor)}
+                    className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border text-xl md:text-2xl font-bold h-14 md:h-16"
+                    variant="outline"
+                  >
+                    {valor}
+                  </Button>
+                ))}
+              </div>
+              <div className="grid grid-cols-5 gap-1 text-xs sm:text-sm text-muted-foreground text-center leading-tight">
+                <span>Nunca</span>
+                <span>Rara-<br/>mente</span>
+                <span>A<br/>veces</span>
+                <span>Frecuen-<br/>temente</span>
+                <span>Siempre</span>
+              </div>
+            </>
+          )}
         </div>
       );
     }
