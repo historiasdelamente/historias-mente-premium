@@ -52,7 +52,7 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center pt-6 md:pt-8">
+        <div className="flex flex-col gap-6 md:gap-8 justify-center items-center pt-6 md:pt-8">
           {/* Primary CTA - WhatsApp */}
           <Button 
             asChild
@@ -72,14 +72,29 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
             </a>
           </Button>
 
+          {/* Textos persuasivos */}
+          <div className="text-center space-y-3 max-w-2xl mx-auto py-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold golden-text font-apple leading-tight animate-pulse">
+              TE DIREMOS SI TÚ O TU PAREJA ES NARCISISTA
+            </h3>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-apple">
+              Rellena el cuestionario y lo descubrirás
+            </p>
+          </div>
+
           {/* Secondary CTA - Test Narcisismo */}
-          <Button 
-            onClick={onOpenChat}
-            size="lg"
-            className="px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] bg-gradient-to-r from-golden to-golden-light hover:from-golden-light hover:to-golden text-black shadow-golden ring-2 ring-golden/70 hover:ring-golden transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-golden/70"
-          >
-            Descubre acá si eres narcisista
-          </Button>
+          <div className="relative">
+            {/* Glow effect */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-golden via-golden-light to-golden rounded-xl opacity-30 blur-lg animate-pulse"></div>
+            
+            <Button 
+              onClick={onOpenChat}
+              size="lg"
+              className="relative px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] bg-gradient-to-r from-golden to-golden-light hover:from-golden-light hover:to-golden text-black shadow-golden ring-2 ring-golden/70 hover:ring-golden transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-golden/70"
+            >
+              Descubre acá si eres narcisista
+            </Button>
+          </div>
         </div>
 
         {/* Libros Exclusivos */}
