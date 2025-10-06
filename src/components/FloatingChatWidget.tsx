@@ -144,7 +144,7 @@ export const FloatingChatWidget = forwardRef<FloatingChatWidgetRef>((props, ref)
       setIsProcessing(true);
 
       try {
-        const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook-test/evaluacion-narcisismo", {
+        const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/evaluacion-narcisismo", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
