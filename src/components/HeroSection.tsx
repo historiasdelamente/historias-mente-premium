@@ -26,7 +26,7 @@ const WhatsAppLogo = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-const HeroSection = () => {
+const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
   return (
     <section className="min-h-[80vh] md:min-h-screen flex items-center justify-center px-6 py-12 md:py-20 bg-gradient-subtle">
       <div className="container max-w-6xl mx-auto text-center space-y-8 md:space-y-12 animate-fade-in">
@@ -53,7 +53,7 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center pt-6 md:pt-8">
-          {/* Primary CTA */}
+          {/* Primary CTA - WhatsApp */}
           <Button 
             asChild
             size="lg"
@@ -70,6 +70,15 @@ const HeroSection = () => {
               <WhatsAppLogo className="w-10 h-10 transition-transform duration-300 ease-out group-hover:scale-110 shrink-0" />
               <span className="tracking-tight">Asegurar mi cupo en el taller del apego</span>
             </a>
+          </Button>
+
+          {/* Secondary CTA - Test Narcisismo */}
+          <Button 
+            onClick={onOpenChat}
+            size="lg"
+            className="px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] bg-gradient-to-r from-golden to-golden-light hover:from-golden-light hover:to-golden text-black shadow-golden ring-2 ring-golden/70 hover:ring-golden transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-golden/70"
+          >
+            Descubre acá si eres narcisista
           </Button>
         </div>
 

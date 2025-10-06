@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import { X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,11 @@ type Message = {
   content: string;
 };
 
-export const FloatingChatWidget = () => {
+export interface FloatingChatWidgetRef {
+  openChat: () => void;
+}
+
+export const FloatingChatWidget = forwardRef<FloatingChatWidgetRef>((props, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [step, setStep] = useState(0);
@@ -24,6 +28,11 @@ export const FloatingChatWidget = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Exponer método para abrir el chat desde componentes externos
+  useImperativeHandle(ref, () => ({
+    openChat: () => setIsOpen(true)
+  }));
 
   const preguntas = [
     "¿Tu pareja tiene un sentido grandioso de auto-importancia?\n\n(Exagera logros, espera reconocimiento sin respaldo)",
@@ -358,4 +367,4 @@ export const FloatingChatWidget = () => {
       )}
     </>
   );
-};
+});
