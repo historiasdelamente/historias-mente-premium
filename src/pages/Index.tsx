@@ -2,6 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import Footer from "@/components/Footer";
+import { FloatingChatWidget } from "@/components/FloatingChatWidget";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       <SocialMediaSection />
       <BenefitsSection />
       <Footer />
+      <FloatingChatWidget />
     </div>
   );
 };

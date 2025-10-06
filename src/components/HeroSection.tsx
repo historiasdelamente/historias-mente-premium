@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import bannerImage from "@/assets/banner-historias-mente.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import apagonEmocional from "@/assets/apagon-emocional.png";
-import { EmbeddedChatWidget } from "@/components/EmbeddedChatWidget";
 import { Play } from "lucide-react";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
@@ -73,9 +72,6 @@ const HeroSection = () => {
             </a>
           </Button>
         </div>
-
-        {/* Chat Widget - Embedded below WhatsApp button */}
-        <EmbeddedChatWidget />
 
         {/* Libros Exclusivos */}
         <div className="w-full pt-8 md:pt-12">
