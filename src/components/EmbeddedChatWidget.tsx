@@ -160,7 +160,7 @@ export const EmbeddedChatWidget = () => {
   const renderInput = () => {
     if (step === 0) {
       return (
-        <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row gap-3">
           <Input
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
@@ -168,7 +168,7 @@ export const EmbeddedChatWidget = () => {
             className="flex-1 bg-muted border-border text-foreground text-lg md:text-lg h-14 md:h-14"
             onKeyPress={(e) => e.key === "Enter" && handleNombreSubmit()}
           />
-          <Button onClick={handleNombreSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 md:px-8 text-lg md:text-lg h-14 md:h-14">
+          <Button onClick={handleNombreSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full md:w-auto px-8 md:px-8 text-lg md:text-lg h-14 md:h-14">
             Enviar
           </Button>
         </div>
@@ -177,7 +177,7 @@ export const EmbeddedChatWidget = () => {
 
     if (step === 1) {
       return (
-        <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row gap-3">
           <Input
             type="email"
             value={email}
@@ -186,7 +186,7 @@ export const EmbeddedChatWidget = () => {
             className="flex-1 bg-muted border-border text-foreground text-lg md:text-lg h-14 md:h-14"
             onKeyPress={(e) => e.key === "Enter" && handleEmailSubmit()}
           />
-          <Button onClick={handleEmailSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 md:px-8 text-lg md:text-lg h-14 md:h-14">
+          <Button onClick={handleEmailSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full md:w-auto px-8 md:px-8 text-lg md:text-lg h-14 md:h-14">
             Enviar
           </Button>
         </div>
