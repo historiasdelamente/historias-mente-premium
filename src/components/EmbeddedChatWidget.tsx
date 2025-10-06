@@ -165,10 +165,10 @@ export const EmbeddedChatWidget = () => {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             placeholder="Tu nombre..."
-            className="flex-1 bg-muted border-border text-foreground"
+            className="flex-1 bg-muted border-border text-foreground text-base md:text-lg h-12 md:h-14"
             onKeyPress={(e) => e.key === "Enter" && handleNombreSubmit()}
           />
-          <Button onClick={handleNombreSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button onClick={handleNombreSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 md:px-8 text-base md:text-lg h-12 md:h-14">
             Enviar
           </Button>
         </div>
@@ -183,10 +183,10 @@ export const EmbeddedChatWidget = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="tu@email.com"
-            className="flex-1 bg-muted border-border text-foreground"
+            className="flex-1 bg-muted border-border text-foreground text-base md:text-lg h-12 md:h-14"
             onKeyPress={(e) => e.key === "Enter" && handleEmailSubmit()}
           />
-          <Button onClick={handleEmailSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button onClick={handleEmailSubmit} className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 md:px-8 text-base md:text-lg h-12 md:h-14">
             Enviar
           </Button>
         </div>
@@ -195,7 +195,7 @@ export const EmbeddedChatWidget = () => {
 
     if (step === 2) {
       return (
-        <Button onClick={handleReady} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+        <Button onClick={handleReady} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg h-12 md:h-14">
           Estoy lista
         </Button>
       );
@@ -204,19 +204,19 @@ export const EmbeddedChatWidget = () => {
     if (step === 3) {
       return (
         <div className="space-y-3">
-          <div className="flex gap-2 justify-between">
+          <div className="flex gap-2 md:gap-3 justify-between">
             {[1, 2, 3, 4, 5].map((valor) => (
               <Button
                 key={valor}
                 onClick={() => handleRespuesta(valor)}
-                className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border text-base md:text-base h-12 md:h-10"
+                className="flex-1 bg-muted hover:bg-primary hover:text-primary-foreground border-border text-lg md:text-xl font-bold h-14 md:h-16"
                 variant="outline"
               >
                 {valor}
               </Button>
             ))}
           </div>
-          <div className="grid grid-cols-5 gap-1 text-[9px] sm:text-xs text-muted-foreground text-center leading-tight">
+          <div className="grid grid-cols-5 gap-1 text-xs sm:text-sm text-muted-foreground text-center leading-tight">
             <span>Nunca</span>
             <span>Rara-<br/>mente</span>
             <span>A<br/>veces</span>
@@ -234,9 +234,9 @@ export const EmbeddedChatWidget = () => {
             value={notasAdicionales}
             onChange={(e) => setNotasAdicionales(e.target.value)}
             placeholder="Escribe aquí (opcional)..."
-            className="bg-muted border-border text-foreground min-h-[80px]"
+            className="bg-muted border-border text-foreground min-h-[100px] text-base md:text-lg"
           />
-          <Button onClick={handleNotasSubmit} className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={isProcessing}>
+          <Button onClick={handleNotasSubmit} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-base md:text-lg h-12 md:h-14" disabled={isProcessing}>
             {isProcessing ? "Procesando..." : "Enviar"}
           </Button>
         </div>
@@ -250,20 +250,20 @@ export const EmbeddedChatWidget = () => {
   const progreso = step === 0 ? 1 : step === 1 ? 2 : step === 2 ? 3 : step === 3 ? 3 + respuestas.length : 10;
 
   return (
-    <section className="py-6 md:py-12 px-2 md:px-6 bg-gradient-subtle">
-      <div className="container max-w-full md:max-w-4xl mx-auto">
+    <section className="w-full">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Texto Introductorio */}
-        <div className="text-center mb-6 md:mb-8 space-y-3 md:space-y-4 px-2 md:px-0">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold golden-text font-apple">
+        <div className="text-center mb-6 md:mb-8 space-y-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold golden-text font-apple leading-tight">
             ¿Sientes que algo no está bien en tu relación o contigo mismo/a?
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-apple">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-apple leading-relaxed">
             Descubre en pocos pasos si el narcisismo es la causa de tu dolor.
           </p>
         </div>
 
         {/* Chat Container con Glow Effect */}
-        <div className="relative">
+        <div className="relative max-w-4xl mx-auto">
           {/* Glow effect */}
           <div className="absolute -inset-1 bg-gradient-to-r from-golden via-golden-light to-golden rounded-2xl opacity-20 blur-xl"></div>
           
@@ -284,20 +284,20 @@ export const EmbeddedChatWidget = () => {
             </div>
 
             {/* Messages */}
-            <div className="p-3 md:p-6 space-y-3 md:space-y-4 min-h-[300px] max-h-[450px] md:max-h-[500px] overflow-y-auto scroll-smooth">
+            <div className="p-4 md:p-6 space-y-4 min-h-[350px] max-h-[500px] overflow-y-auto scroll-smooth">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] md:max-w-[80%] rounded-2xl px-4 py-3 ${
+                    className={`max-w-[85%] md:max-w-[75%] rounded-2xl px-4 py-3 md:px-5 md:py-4 ${
                       msg.role === "bot"
                         ? "bg-gradient-to-r from-golden/20 to-golden-light/20 text-foreground border border-golden/30"
                         : "bg-muted text-foreground"
                     }`}
                   >
-                    <p className="text-sm md:text-base whitespace-pre-line font-apple leading-relaxed">{msg.content}</p>
+                    <p className="text-base md:text-lg whitespace-pre-line font-apple leading-relaxed">{msg.content}</p>
                   </div>
                 </div>
               ))}
@@ -305,13 +305,13 @@ export const EmbeddedChatWidget = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-3 md:p-4 border-t border-border bg-muted/30">
+            <div className="p-4 md:p-5 border-t border-border bg-muted/30">
               {renderInput()}
             </div>
 
             {/* Legal Notice */}
-            <div className="px-3 md:px-4 pb-3 md:pb-4">
-              <p className="text-[10px] sm:text-xs text-muted-foreground text-center font-apple leading-relaxed">
+            <div className="px-4 md:px-5 pb-4 md:pb-5">
+              <p className="text-xs sm:text-sm text-muted-foreground text-center font-apple leading-relaxed">
                 Al continuar, aceptas nuestra Política de Privacidad. Esta evaluación es orientativa, no reemplaza diagnóstico profesional.
               </p>
             </div>
