@@ -36,15 +36,15 @@ export const EmbeddedChatWidget = () => {
   }, [messages]);
 
   const preguntas = [
-    "¿Tu pareja tiene un sentido grandioso de auto-importancia?\n\n(Exagera logros, espera reconocimiento sin respaldo)",
-    "¿Está obsesionado con fantasías de éxito ilimitado, poder o amor ideal?",
-    "¿Cree que es especial y solo debe relacionarse con personas de alto estatus?",
-    "¿Requiere admiración excesiva constantemente?",
-    "¿Tiene sentido de privilegio y expectativas irrazonables de tratamiento especial?",
-    "¿Es explotador? ¿Se aprovecha de otros para sus fines?",
-    "¿Carece de empatía? ¿No reconoce sentimientos de otros?",
-    "¿Siente envidia o cree que otros le envidian?",
-    "¿Muestra arrogancia y actitudes altivas?"
+    "¿Sientes que tu pareja cree que es superior o más importante que los demás?",
+    "¿Tu pareja vive en un mundo de fantasías donde es exitoso, poderoso o el amor perfecto?",
+    "¿Tu pareja solo se relaciona con personas 'importantes' y te hace sentir que no eres suficiente?",
+    "¿Necesita constantemente que le digas lo increíble que es o se enoja si no le prestas atención?",
+    "¿Espera que todos, incluyéndote a ti, le den un trato especial sin cuestionarlo?",
+    "¿Sientes que te usa para conseguir lo que quiere, sin importarle cómo te sientes?",
+    "¿Ignora completamente tus emociones cuando intentas expresar cómo te sientes?",
+    "¿Se pone celoso del éxito de otros o cree que todos le tienen envidia?",
+    "¿Te trata con arrogancia o desprecio, haciéndote sentir pequeña?"
   ];
 
   const addBotMessage = (content: string) => {
