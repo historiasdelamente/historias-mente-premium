@@ -92,7 +92,7 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
               size="lg"
               className="relative px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] bg-gradient-to-r from-golden to-golden-light hover:from-golden-light hover:to-golden text-black shadow-golden ring-2 ring-golden/70 hover:ring-golden transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-golden/70"
             >
-              Averigua aquí si tú eres narcisista
+              Averigua si él es el narcisista
             </Button>
           </div>
         </div>
