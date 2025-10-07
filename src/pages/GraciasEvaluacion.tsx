@@ -21,8 +21,8 @@ const GraciasEvaluacion = () => {
     window.open('https://wa.me/573001681053?text=Quiero%20una%20cita%20psicol%C3%B3gica%2C%20necesito%20recuperarme', '_blank');
   };
 
-  const handleAmazonClick = () => {
-    window.open('https://www.amazon.com/dp/B0DJSSK8YN', '_blank');
+  const handleLibroClick = () => {
+    window.open('https://apagonemocional.historiasdelamente.com/', '_blank');
   };
 
   return (
@@ -185,10 +185,10 @@ const GraciasEvaluacion = () => {
             </div>
 
             <Button 
-              onClick={handleAmazonClick}
+              onClick={handleLibroClick}
               className="w-full bg-orange-600 hover:bg-orange-700 text-white text-lg py-6 font-apple font-bold"
             >
-              📖 Ver en Amazon →
+              🔥 Comienza Tu Sanación Ahora
             </Button>
           </div>
         </div>
