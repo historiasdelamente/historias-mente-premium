@@ -75,7 +75,7 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
           {/* Textos persuasivos */}
           <div className="text-center space-y-3 max-w-2xl mx-auto py-4">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold golden-text font-apple leading-tight animate-pulse">
-              TE DIREMOS SI TÚ O TU PAREJA ES NARCISISTA
+              TE DIREMOS SI TU PAREJA ES NARCISISTA
             </h3>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-apple">
               Rellena el cuestionario y lo descubrirás
@@ -92,7 +92,7 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
               size="lg"
               className="relative px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] bg-gradient-to-r from-golden to-golden-light hover:from-golden-light hover:to-golden text-black shadow-golden ring-2 ring-golden/70 hover:ring-golden transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-golden/70"
             >
-              Descubre acá si eres narcisista
+              Averigua aquí si tú eres narcisista
             </Button>
           </div>
         </div>

@@ -289,7 +289,7 @@ export const FloatingChatWidget = forwardRef<FloatingChatWidgetRef>((props, ref)
           aria-label="Abrir chat de evaluación"
         >
           <MessageCircle className="w-8 h-8" />
-          <span className="text-xs font-bold text-center leading-tight">¿Eres narcisista?</span>
+          <span className="text-xs font-bold text-center leading-tight">¿Él es narcisista?</span>
         </button>
       )}
 
