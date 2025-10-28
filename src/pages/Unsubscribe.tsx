@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo-historias-mente.png";
+import heroImage from "@/assets/unsubscribe-hero.jpg";
+import { Heart, Sparkles } from "lucide-react";
 
 const Unsubscribe = () => {
   const navigate = useNavigate();
@@ -25,88 +27,120 @@ const Unsubscribe = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 py-12">
-      <div className="w-full max-w-3xl mx-auto space-y-12">
-        {/* Header */}
-        <header className="text-center">
-          <img 
-            src={logoImage} 
-            alt="Historias de la Mente" 
-            className="h-16 md:h-20 mx-auto golden-glow"
-          />
-        </header>
-
-        {/* Main Image */}
-        <div className="flex justify-center">
-          <div className="relative inline-block">
-            <img
-              src="/mujeres-sanadoras.png"
-              alt="Sanación"
-              className="w-full max-w-md rounded-2xl shadow-[0_0_40px_rgba(255,215,0,0.3)] border border-golden/20"
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-golden/5" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-golden/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-golden/10 rounded-full blur-[100px]" />
+      
+      <div className="relative z-10 flex flex-col items-center justify-center px-4 py-16 md:py-20">
+        <div className="w-full max-w-5xl mx-auto space-y-16 md:space-y-20">
+          {/* Header */}
+          <header className="text-center animate-fade-in">
+            <img 
+              src={logoImage} 
+              alt="Historias de la Mente" 
+              className="h-16 md:h-24 mx-auto golden-glow hover-scale transition-all duration-300"
             />
+          </header>
+
+          {/* Hero Section with Image and Title */}
+          <div className="space-y-8 md:space-y-12">
+            {/* Main Image - Epic presentation */}
+            <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-b from-golden/30 via-golden/10 to-transparent rounded-3xl blur-2xl transform scale-105 group-hover:scale-110 transition-transform duration-500" />
+                <img
+                  src={heroImage}
+                  alt="Historias de la Mente"
+                  className="relative w-full max-w-2xl rounded-3xl shadow-[0_0_60px_rgba(255,215,0,0.4)] border-2 border-golden/30 transform group-hover:scale-[1.02] transition-all duration-500"
+                />
+                <div className="absolute -bottom-6 -right-6 opacity-50">
+                  <Sparkles className="w-12 h-12 text-golden animate-pulse" />
+                </div>
+              </div>
+            </div>
+
+            {/* Title with dramatic effect */}
+            <div className="text-center space-y-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <div className="h-px w-12 md:w-24 bg-gradient-to-r from-transparent to-golden" />
+                <Heart className="w-6 h-6 text-golden animate-pulse" />
+                <div className="h-px w-12 md:w-24 bg-gradient-to-l from-transparent to-golden" />
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-bold golden-text leading-tight px-4">
+                ¿Estás segura de que<br />quieres irte?
+              </h1>
+            </div>
           </div>
-        </div>
 
-        {/* Main Message */}
-        <div className="text-center space-y-6 px-4">
-          <h1 className="text-3xl md:text-4xl font-bold golden-text">
-            ¿Estás segura de que quieres irte?
-          </h1>
-          
-          <div className="text-base md:text-lg text-muted-foreground leading-relaxed space-y-4 max-w-2xl mx-auto">
-            <p>
-              Entiendo que este camino de sanación puede sentirse agotador. A veces los emails, las historias, los recordatorios... pueden ser demasiado.
-            </p>
-            
-            <p>
-              Y está bien si necesitas espacio.
-            </p>
-            
-            <p>
-              Pero si hay una parte de ti que todavía quiere recuperar quien realmente eres, que quiere liberarse de las cadenas del abuso narcisista, que quiere volver a confiar en sí misma...
-            </p>
-            
-            <p className="font-semibold text-golden">
-              Estoy aquí para acompañarte.
-            </p>
-            
-            <p>
-              Sin juicios. Sin presión. A tu ritmo.
-            </p>
-            
-            <p>
-              La sanación no es lineal. Está bien dar pasos atrás. Está bien tomarse un respiro.
-            </p>
-            
-            <p className="font-semibold text-foreground">
-              Pero no te rindas contigo misma.
-            </p>
+          {/* Main Message */}
+          <div className="text-center space-y-6 px-4 animate-fade-in max-w-3xl mx-auto" style={{ animationDelay: '0.6s' }}>
+            <div className="text-lg md:text-xl text-foreground/90 leading-relaxed space-y-5">
+              <p className="text-muted-foreground">
+                Entiendo que este camino de sanación puede sentirse agotador. A veces los emails, las historias, los recordatorios... pueden ser demasiado.
+              </p>
+              
+              <p className="text-muted-foreground font-medium">
+                Y está bien si necesitas espacio.
+              </p>
+              
+              <p className="text-foreground">
+                Pero si hay una parte de ti que todavía quiere recuperar quien realmente eres, que quiere liberarse de las cadenas del abuso narcisista, que quiere volver a confiar en sí misma...
+              </p>
+              
+              <p className="text-2xl md:text-3xl font-bold golden-text my-8">
+                Estoy aquí para acompañarte.
+              </p>
+              
+              <p className="text-muted-foreground">
+                Sin juicios. Sin presión. A tu ritmo.
+              </p>
+              
+              <p className="text-muted-foreground">
+                La sanación no es lineal. Está bien dar pasos atrás. Está bien tomarse un respiro.
+              </p>
+              
+              <p className="text-xl md:text-2xl font-bold text-foreground mt-8">
+                Pero no te rindas contigo misma.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-          <Button
-            onClick={handleStay}
-            className="btn-cta-primary text-base md:text-lg px-8 py-6 h-auto w-full sm:w-auto"
-          >
-            Quiero quedarme y seguir sanando
-          </Button>
-          
-          <Button
-            onClick={handleUnsubscribe}
-            disabled={isProcessing}
-            variant="outline"
-            className="btn-cta-secondary text-base md:text-lg px-8 py-6 h-auto w-full sm:w-auto"
-          >
-            {isProcessing ? "Procesando..." : "Desuscribirme"}
-          </Button>
-        </div>
+          {/* Buttons with epic styling */}
+          <div className="flex flex-col items-center gap-6 px-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <Button
+              onClick={handleStay}
+              className="btn-cta-primary text-lg md:text-xl px-10 py-7 h-auto w-full sm:w-auto min-w-[300px] shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_50px_rgba(255,215,0,0.5)] transition-all duration-300 transform hover:scale-105"
+            >
+              <Heart className="mr-2 w-5 h-5" />
+              Quiero quedarme y seguir sanando
+            </Button>
+            
+            <div className="relative">
+              <div className="text-sm text-muted-foreground/60 mb-3">o si realmente necesitas irte...</div>
+              <Button
+                onClick={handleUnsubscribe}
+                disabled={isProcessing}
+                variant="outline"
+                className="btn-cta-secondary text-base md:text-lg px-8 py-5 h-auto w-full sm:w-auto min-w-[280px] hover:shadow-[0_0_20px_rgba(255,215,0,0.2)] transition-all duration-300"
+              >
+                {isProcessing ? "Procesando..." : "Desuscribirme"}
+              </Button>
+            </div>
+          </div>
 
-        {/* Footer */}
-        <footer className="text-center text-sm text-muted-foreground/70 px-4 pt-8">
-          <p>Pase lo que pase, te deseo sanación y paz. Mereces ser feliz.</p>
-        </footer>
+          {/* Footer with heart */}
+          <footer className="text-center text-base md:text-lg text-muted-foreground/80 px-4 pt-12 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="h-px w-8 bg-golden/30" />
+              <Sparkles className="w-4 h-4 text-golden/50" />
+              <div className="h-px w-8 bg-golden/30" />
+            </div>
+            <p className="italic">Pase lo que pase, te deseo sanación y paz.<br />Mereces ser feliz.</p>
+          </footer>
+        </div>
       </div>
     </div>
   );
