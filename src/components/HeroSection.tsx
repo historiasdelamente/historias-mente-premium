@@ -95,24 +95,29 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
                   </div>
 
                   {/* Formulario de Airtable */}
-                  <div className="bg-background/50 backdrop-blur-sm rounded-xl p-1 shadow-inner">
+                  <div className="rounded-xl overflow-hidden">
                     <style dangerouslySetInnerHTML={{__html: `
+                      .airtable-embed-container {
+                        background: transparent !important;
+                      }
+                      .airtable-embed {
+                        background: transparent !important;
+                      }
                       .airtable-embed iframe {
                         background: transparent !important;
                       }
-                      /* Intentar personalizar el botón de Airtable */
-                      .airtable-embed button[type="submit"],
-                      .airtable-embed .submitButton {
-                        background: linear-gradient(135deg, hsl(var(--golden)), hsl(var(--golden-light))) !important;
-                        color: black !important;
-                        border: none !important;
+                      /* Personalizar el formulario de Airtable para que sea transparente */
+                      @media (max-width: 640px) {
+                        .airtable-embed {
+                          min-height: 450px !important;
+                        }
                       }
                     `}} />
                     <iframe 
-                      className="airtable-embed w-full h-[420px] sm:h-[450px] md:h-[480px] bg-transparent border-0 rounded-lg"
+                      className="airtable-embed w-full h-[450px] sm:h-[480px] md:h-[500px] bg-transparent border-0"
                       src="https://airtable.com/embed/appnoVJ3z22gyaX9p/pagwkR4Bs7DJaxpiO/form"
                       width="100%"
-                      height="480"
+                      height="500"
                       style={{ background: 'transparent', border: 'none' }}
                       title="Formulario de descarga del libro Apagón Emocional"
                     />
