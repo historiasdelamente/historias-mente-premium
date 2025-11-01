@@ -3,8 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import bannerImage from "@/assets/banner-historias-mente.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import apagonEmocional from "@/assets/apagon-emocional.png";
-import libroApagon from "@/assets/libro-apagon-emocional.png";
-import { Download, Sparkles } from "lucide-react";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
 const WhatsAppLogo = ({ className = "" }: { className?: string }) => (
@@ -52,91 +50,6 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
           </p>
         </div>
 
-        {/* Formulario de Descarga Gratis */}
-        <div className="max-w-5xl mx-auto pt-6 md:pt-8">
-          <Card className="card-premium border-golden/30 shadow-golden overflow-hidden relative">
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-golden/10 rounded-full blur-3xl -z-0"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl -z-0"></div>
-            
-            <CardContent className="p-6 md:p-10 relative z-10">
-              <div className="space-y-8">
-                {/* Fila superior - Badge, título e imagen del libro */}
-                <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
-                  <div className="space-y-4 flex-1">
-                    {/* Badge de oferta */}
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-orange-700 text-white px-4 py-2 rounded-full shadow-lg">
-                      <Sparkles className="w-4 h-4" />
-                      <span className="font-bold text-sm font-apple">OFERTA EXCLUSIVA DE HOY</span>
-                    </div>
-
-                    {/* Título principal */}
-                    <div className="space-y-3">
-                      <h2 className="text-3xl md:text-4xl font-extrabold golden-text font-apple leading-tight">
-                        Descarga tu Muestra GRATIS
-                      </h2>
-                      <p className="text-xl md:text-2xl font-bold text-foreground font-apple">
-                        del Libro Apagón Emocional
-                      </p>
-                      <p className="text-base md:text-lg text-muted-foreground font-apple">
-                        Descubre los primeros pasos hacia tu libertad emocional. Solo por hoy.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Imagen del libro - más pequeña al lado */}
-                  <div className="flex justify-center animate-fade-in">
-                    <div className="relative group">
-                      <div className="absolute -inset-3 bg-gradient-to-r from-golden via-amber-400 to-golden rounded-2xl opacity-30 blur-xl group-hover:opacity-40 transition-opacity duration-300"></div>
-                      <img 
-                        src={libroApagon} 
-                        alt="Libro Apagón Emocional"
-                        className="relative w-48 md:w-56 h-auto rounded-lg shadow-2xl transform group-hover:scale-105 transition-all duration-300 ring-2 ring-golden/50"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Formulario de Airtable - Ancho completo */}
-                <div className="space-y-4">
-                  <div className="rounded-xl overflow-hidden">
-                    <style dangerouslySetInnerHTML={{__html: `
-                      .airtable-embed-container {
-                        background: transparent !important;
-                      }
-                      .airtable-embed {
-                        background: transparent !important;
-                      }
-                      .airtable-embed iframe {
-                        background: transparent !important;
-                      }
-                      /* Formato horizontal - más ancho y menos alto */
-                      @media (max-width: 640px) {
-                        .airtable-embed {
-                          min-height: 320px !important;
-                        }
-                      }
-                    `}} />
-                    <iframe 
-                      className="airtable-embed w-full h-[300px] sm:h-[320px] md:h-[340px] bg-transparent border-0"
-                      src="https://airtable.com/embed/appnoVJ3z22gyaX9p/pagwkR4Bs7DJaxpiO/form"
-                      width="100%"
-                      height="340"
-                      style={{ background: 'transparent', border: 'none' }}
-                      title="Formulario de descarga del libro Apagón Emocional"
-                    />
-                  </div>
-
-                  {/* Call to action adicional */}
-                  <div className="flex items-center gap-3 text-muted-foreground text-sm font-apple justify-center">
-                    <Download className="w-5 h-5 text-golden" />
-                    <p>Completa el formulario y recibe tu muestra instantáneamente</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
 
         {/* Test Narcisismo Section */}
         <div className="flex flex-col gap-6 justify-center items-center pt-6 md:pt-8">
