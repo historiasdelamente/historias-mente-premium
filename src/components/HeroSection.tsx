@@ -106,18 +106,18 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
                       .airtable-embed iframe {
                         background: transparent !important;
                       }
-                      /* Personalizar el formulario de Airtable para que sea transparente */
+                      /* Hacer el formulario más compacto */
                       @media (max-width: 640px) {
                         .airtable-embed {
-                          min-height: 450px !important;
+                          min-height: 380px !important;
                         }
                       }
                     `}} />
                     <iframe 
-                      className="airtable-embed w-full h-[450px] sm:h-[480px] md:h-[500px] bg-transparent border-0"
+                      className="airtable-embed w-full h-[380px] sm:h-[400px] md:h-[420px] bg-transparent border-0"
                       src="https://airtable.com/embed/appnoVJ3z22gyaX9p/pagwkR4Bs7DJaxpiO/form"
                       width="100%"
-                      height="500"
+                      height="420"
                       style={{ background: 'transparent', border: 'none' }}
                       title="Formulario de descarga del libro Apagón Emocional"
                     />
