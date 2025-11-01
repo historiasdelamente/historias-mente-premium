@@ -60,15 +60,15 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl -z-0"></div>
             
             <CardContent className="p-6 md:p-10 relative z-10">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-8 items-start">
                 {/* Lado izquierdo - Imagen del libro */}
-                <div className="flex justify-center md:justify-end animate-fade-in">
+                <div className="flex justify-center animate-fade-in">
                   <div className="relative group">
                     <div className="absolute -inset-4 bg-gradient-to-r from-golden via-amber-400 to-golden rounded-2xl opacity-30 blur-xl group-hover:opacity-40 transition-opacity duration-300"></div>
                     <img 
                       src={libroApagon} 
                       alt="Libro Apagón Emocional"
-                      className="relative w-64 md:w-80 h-auto rounded-lg shadow-2xl transform group-hover:scale-105 transition-all duration-300 ring-2 ring-golden/50"
+                      className="relative w-64 lg:w-full h-auto rounded-lg shadow-2xl transform group-hover:scale-105 transition-all duration-300 ring-2 ring-golden/50"
                     />
                   </div>
                 </div>
