@@ -3,7 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import bannerImage from "@/assets/banner-historias-mente.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import apagonEmocional from "@/assets/apagon-emocional.png";
-import { Play } from "lucide-react";
+import libroApagon from "@/assets/libro-apagon-emocional.png";
+import { Download, Sparkles } from "lucide-react";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
 const WhatsAppLogo = ({ className = "" }: { className?: string }) => (
@@ -51,27 +52,73 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
           </p>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col gap-6 md:gap-8 justify-center items-center pt-6 md:pt-8">
-          {/* Primary CTA - WhatsApp */}
-          <Button 
-            asChild
-            size="lg"
-            className="btn-cta-primary px-8 py-6 text-lg font-semibold rounded-xl font-apple min-w-[280px] bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-black shadow-[0_6px_24px_rgba(251,191,36,0.45)] ring-2 ring-amber-300/70 hover:ring-amber-200 transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300/70"
-          >
-            <a 
-              href="https://wa.me/573044737168?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20del%20Taller%20del%20Apego."
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Reserva por WhatsApp hoy"
-              title="Reserva por WhatsApp hoy"
-              className="group flex items-center gap-3"
-            >
-              <WhatsAppLogo className="w-10 h-10 transition-transform duration-300 ease-out group-hover:scale-110 shrink-0" />
-              <span className="tracking-tight">Asegurar mi cupo en el taller del apego</span>
-            </a>
-          </Button>
+        {/* Formulario de Descarga Gratis */}
+        <div className="max-w-5xl mx-auto pt-6 md:pt-8">
+          <Card className="card-premium border-golden/30 shadow-golden overflow-hidden relative">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-golden/10 rounded-full blur-3xl -z-0"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl -z-0"></div>
+            
+            <CardContent className="p-6 md:p-10 relative z-10">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Lado izquierdo - Imagen del libro */}
+                <div className="flex justify-center md:justify-end animate-fade-in">
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-golden via-amber-400 to-golden rounded-2xl opacity-30 blur-xl group-hover:opacity-40 transition-opacity duration-300"></div>
+                    <img 
+                      src={libroApagon} 
+                      alt="Libro Apagón Emocional"
+                      className="relative w-64 md:w-80 h-auto rounded-lg shadow-2xl transform group-hover:scale-105 transition-all duration-300 ring-2 ring-golden/50"
+                    />
+                  </div>
+                </div>
 
+                {/* Lado derecho - Título y Formulario */}
+                <div className="space-y-6 animate-fade-in" style={{ animationDelay: "150ms" }}>
+                  {/* Badge de oferta */}
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-orange-700 text-white px-4 py-2 rounded-full shadow-lg">
+                    <Sparkles className="w-4 h-4" />
+                    <span className="font-bold text-sm font-apple">OFERTA EXCLUSIVA DE HOY</span>
+                  </div>
+
+                  {/* Título principal */}
+                  <div className="space-y-3">
+                    <h2 className="text-3xl md:text-4xl font-extrabold golden-text font-apple leading-tight">
+                      Descarga tu Muestra GRATIS
+                    </h2>
+                    <p className="text-xl md:text-2xl font-bold text-foreground font-apple">
+                      del Libro Apagón Emocional
+                    </p>
+                    <p className="text-base md:text-lg text-muted-foreground font-apple">
+                      Descubre los primeros pasos hacia tu libertad emocional. Solo por hoy.
+                    </p>
+                  </div>
+
+                  {/* Formulario de Airtable */}
+                  <div className="bg-background/50 backdrop-blur-sm rounded-xl p-1 shadow-inner">
+                    <iframe 
+                      className="airtable-embed w-full h-[420px] bg-transparent border-0 rounded-lg"
+                      src="https://airtable.com/embed/appnoVJ3z22gyaX9p/pagwkR4Bs7DJaxpiO/form"
+                      width="100%"
+                      height="420"
+                      style={{ background: 'transparent', border: 'none' }}
+                      title="Formulario de descarga del libro Apagón Emocional"
+                    />
+                  </div>
+
+                  {/* Call to action adicional */}
+                  <div className="flex items-center gap-3 text-muted-foreground text-sm font-apple pt-2">
+                    <Download className="w-5 h-5 text-golden" />
+                    <p>Completa el formulario y recibe tu muestra instantáneamente</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Test Narcisismo Section */}
+        <div className="flex flex-col gap-6 justify-center items-center pt-6 md:pt-8">
           {/* Textos persuasivos */}
           <div className="text-center space-y-3 max-w-2xl mx-auto py-4">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold golden-text font-apple leading-tight animate-pulse">
