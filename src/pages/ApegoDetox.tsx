@@ -11,6 +11,7 @@ import comboImage from "@/assets/apego-detox-combo.png";
 import tabletaImage from "@/assets/apego-detox-tableta.png";
 import libroImage from "@/assets/apego-detox-libro.png";
 import javierImage from "@/assets/javier-vieira.png";
+import modeloDetoxImage from "@/assets/modelo-apego-detox.png";
 
 const ApegoDetox = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -173,6 +174,39 @@ const ApegoDetox = () => {
       {/* 7 Módulos del Programa */}
       <section id="modulos" className="py-20 md:py-28 px-4 bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto">
+          {/* Sección Emocional Antes de Módulos */}
+          <div className="mb-20">
+            <div className="grid md:grid-cols-2 gap-12 items-center bg-black rounded-3xl p-8 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(253,185,19,0.3)]">
+              <div className="order-2 md:order-1 space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#FDB913] leading-tight">
+                  Este No Es Solo Un Curso
+                </h2>
+                <div className="space-y-4 text-lg text-gray-200 leading-relaxed">
+                  <p>
+                    <strong className="text-white">Porque Apego Detox no es solo un curso,</strong> es ese respiro que llega cuando ya no puedes más.
+                  </p>
+                  <p>
+                    Porque necesitas <span className="text-[#FDB913] font-semibold">cerrar ese ciclo que te roba el sueño</span>, dejar de revisar el teléfono, dejar de pensar qué hiciste mal.
+                  </p>
+                  <p className="text-xl text-white font-semibold">
+                    Este programa es para ti si sientes que te rompiste queriendo arreglar a alguien más, y ahora solo quieres volver a ser tú.
+                  </p>
+                </div>
+              </div>
+
+              <div className="order-1 md:order-2">
+                <div className="relative">
+                  <div className="absolute -inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-30 blur-3xl animate-pulse"></div>
+                  <img 
+                    src={modeloDetoxImage} 
+                    alt="Apego Detox - Tu transformación comienza aquí"
+                    className="relative w-full rounded-2xl shadow-[0_20px_60px_rgba(253,185,19,0.4)]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#FDB913]">
             7 Módulos para Tu Libertad Emocional
           </h2>
