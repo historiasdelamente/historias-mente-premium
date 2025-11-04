@@ -230,22 +230,11 @@ const ApegoDetox = () => {
                 <h3 className="text-2xl font-semibold text-white">Desintoxicación Emocional</h3>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Limpia la toxicidad acumulada en tu sistema.
+                Rompe las ideas que te hicieron creer que amar era aguantar.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Proceso de duelo consciente</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Gestión de recaídas emocionales</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Herramientas de regulación emocional</span>
-                </li>
-              </ul>
+              <p className="text-[#FDB913] leading-relaxed font-semibold text-lg">
+                Empieza a pensar distinto, a verte con valor y a escribir la historia donde tú vuelves a tener el poder.
+              </p>
             </div>
 
             {/* Módulo 5 */}
