@@ -121,15 +121,14 @@ const ApegoDetox = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 md:order-1 relative">
               <div className="absolute -inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-20 blur-3xl animate-pulse"></div>
-              <div className="relative bg-black rounded-2xl p-4 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(253,185,19,0.4)]">
+              <div className="relative rounded-2xl p-4">
                 <img 
                   src={comboImage} 
                   alt="Programa APEGO DETOX en múltiples dispositivos" 
                   loading="lazy"
-                  className="w-full hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                  className="w-full hover:scale-105 transition-transform duration-300 rounded-xl"
                   style={{
-                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3)) brightness(1.1) contrast(1.1)',
-                    background: 'transparent'
+                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.4))'
                   }}
                 />
               </div>
@@ -177,10 +176,9 @@ const ApegoDetox = () => {
                   src={tabletaImage} 
                   alt="Programa en tablet" 
                   loading="lazy"
-                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 rounded-xl"
                   style={{
-                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3)) brightness(1.1)',
-                    background: 'transparent'
+                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.4))'
                   }}
                 />
               </div>
@@ -192,10 +190,9 @@ const ApegoDetox = () => {
                   src={libroImage} 
                   alt="Workbook APEGO DETOX" 
                   loading="lazy"
-                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 rounded-xl"
                   style={{
-                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3)) brightness(1.1)',
-                    background: 'transparent'
+                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.4))'
                   }}
                 />
               </div>
