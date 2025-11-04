@@ -123,8 +123,8 @@ const ApegoDetox = () => {
               <div className="absolute -inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-20 blur-3xl animate-pulse"></div>
               <div className="relative rounded-2xl p-4">
                 <img 
-                  src={comboImage} 
-                  alt="Programa APEGO DETOX en múltiples dispositivos" 
+                  src={libroImage} 
+                  alt="Workbook APEGO DETOX" 
                   loading="lazy"
                   className="w-full hover:scale-105 transition-transform duration-300 rounded-xl"
                   style={{
@@ -165,21 +165,6 @@ const ApegoDetox = () => {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          <div className="text-center mt-12">
-            <div className="relative inline-block max-w-md mx-auto">
-              <div className="absolute -inset-4 bg-[#FDB913] rounded-2xl opacity-20 blur-xl"></div>
-              <img 
-                src={libroImage} 
-                alt="Workbook APEGO DETOX" 
-                loading="lazy"
-                className="relative w-full hover:scale-105 transition-transform duration-300 rounded-xl"
-                style={{
-                  filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.4))'
-                }}
-              />
             </div>
           </div>
         </div>
