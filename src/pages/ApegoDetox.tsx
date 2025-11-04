@@ -98,10 +98,10 @@ const ApegoDetox = () => {
           </Button>
         </div>
         
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
-          <div className="flex flex-col items-center gap-2 bg-black/70 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 border-[#FDB913] shadow-[0_0_20px_rgba(253,185,19,0.5)]">
-            <span className="text-xs sm:text-sm md:text-base font-bold text-white">Desliza para ver más</span>
-            <svg className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-[#FDB913]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
+          <div className="flex flex-col items-center gap-1 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-full border border-[#FDB913]/50">
+            <span className="text-xs sm:text-sm font-semibold text-white">Descubre más</span>
+            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#FDB913]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>
