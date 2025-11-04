@@ -12,6 +12,7 @@ import tabletaImage from "@/assets/apego-detox-tableta.png";
 import libroImage from "@/assets/apego-detox-libro.png";
 import javierImage from "@/assets/javier-vieira.png";
 import modeloDetoxImage from "@/assets/modelo-apego-detox.png";
+import comboCompletoImage from "@/assets/combo-completo-apego-detox.png";
 
 const ApegoDetox = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -210,6 +211,21 @@ const ApegoDetox = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#FDB913]">
             7 Módulos para Tu Libertad Emocional
           </h2>
+
+          {/* Imagen Combo Completo */}
+          <div className="flex justify-center mb-16">
+            <div className="relative max-w-4xl w-full">
+              <div className="absolute -inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-20 blur-3xl animate-pulse"></div>
+              <img 
+                src={comboCompletoImage} 
+                alt="Todo lo que incluye Apego Detox - Laptop, libros, móvil, taza y material exclusivo"
+                className="relative w-full rounded-2xl"
+                style={{
+                  filter: 'drop-shadow(0 20px 50px rgba(253,185,19,0.5))'
+                }}
+              />
+            </div>
+          </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Módulo 1 */}
