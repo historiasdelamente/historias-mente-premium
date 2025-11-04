@@ -4,6 +4,7 @@ import bannerImage from "@/assets/banner-historias-mente.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import apagonEmocional from "@/assets/apagon-emocional.png";
 import javierVieira from "@/assets/javier-vieira.png";
+import promoApegoDetox from "@/assets/promo-apego-detox.png";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
 const WhatsAppLogo = ({ className = "" }: { className?: string }) => (
@@ -77,6 +78,49 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
               Averigua si él es el narcisista
             </Button>
           </div>
+        </div>
+
+        {/* Apego Detox Highlight */}
+        <div className="w-full pt-6 md:pt-8">
+          <a 
+            href="https://historiasdelamente.com/apegodetox"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block max-w-4xl mx-auto group"
+            aria-label="Apego Detox - Programa intensivo"
+          >
+            <Card className="card-premium hover-lift border-golden/30 hover:border-golden/50 transition-all duration-300 overflow-hidden">
+              <CardContent className="p-6 md:p-8">
+                <div className="flex flex-col md:flex-row gap-6 items-center">
+                  {/* Image */}
+                  <div className="w-full md:w-1/2">
+                    <img 
+                      src={promoApegoDetox} 
+                      alt="Apego Detox - Programa intensivo"
+                      className="w-full h-auto rounded-lg shadow-golden group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  {/* Text */}
+                  <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
+                    <h3 className="text-2xl md:text-3xl font-bold golden-text font-apple leading-tight">
+                      Apego Detox
+                    </h3>
+                    <p className="text-base md:text-lg text-muted-foreground font-apple leading-relaxed">
+                      Apego Detox es el programa intensivo que te enseña a desactivar el apego, liberar tu mente y recuperar tu poder personal.
+                    </p>
+                    <Button 
+                      size="lg"
+                      className="mt-4 px-6 py-3 text-base font-semibold rounded-lg font-apple bg-gradient-to-r from-golden to-golden-light hover:from-golden-light hover:to-golden text-black shadow-golden transition-all duration-300"
+                      asChild
+                    >
+                      <span>Descubre el Programa</span>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </a>
         </div>
 
         {/* Libros Exclusivos */}
