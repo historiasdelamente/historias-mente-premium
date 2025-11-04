@@ -182,25 +182,17 @@ const ApegoDetox = () => {
             <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">01</span>
-                <h3 className="text-2xl font-semibold text-white">Comprendiendo el Narcisismo</h3>
+                <h3 className="text-2xl font-semibold text-white">Cómo Vencer al Narcisista</h3>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Descubre los patrones ocultos y por qué te enganchaste.
+                Este módulo no se trata solo de entender al narcisista, sino de romper el hechizo psicológico que te mantenía atrapada.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Características del narcisista encubierto</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>El ciclo de idealización y devaluación</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Por qué tu empatía se convirtió en tu trampa</span>
-                </li>
-              </ul>
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                Aquí experimentarás el momento en el que la confusión se convierte en claridad. Comprenderás cómo se formó el vínculo que te tenía emocionalmente atada, y por primera vez, podrás ver con ojos nuevos la manipulación, la idealización y la culpa que te hacían retroceder una y otra vez.
+              </p>
+              <p className="text-[#FDB913] leading-relaxed font-semibold">
+                El poder de este módulo está en devolverle a tu mente el control, liberar tu empatía del abuso y comenzar el proceso de reconexión con tu dignidad.
+              </p>
             </div>
 
             {/* Módulo 2 */}
