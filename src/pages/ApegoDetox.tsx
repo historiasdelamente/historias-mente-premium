@@ -208,20 +208,20 @@ const ApegoDetox = () => {
             </div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#FDB913]">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-[#FDB913]">
             7 Módulos para Tu Libertad Emocional
           </h2>
 
           {/* Imagen Combo Completo */}
-          <div className="flex justify-center mb-16">
-            <div className="relative max-w-4xl w-full">
-              <div className="absolute -inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-20 blur-3xl animate-pulse"></div>
+          <div className="flex justify-center mb-12">
+            <div className="relative max-w-2xl w-full">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-2xl opacity-20 blur-2xl"></div>
               <img 
                 src={comboCompletoImage} 
                 alt="Todo lo que incluye Apego Detox - Laptop, libros, móvil, taza y material exclusivo"
-                className="relative w-full rounded-2xl"
+                className="relative w-full rounded-xl"
                 style={{
-                  filter: 'drop-shadow(0 20px 50px rgba(253,185,19,0.5))'
+                  filter: 'drop-shadow(0 15px 30px rgba(253,185,19,0.4))'
                 }}
               />
             </div>
