@@ -119,27 +119,33 @@ const ApegoDetox = () => {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="order-2 md:order-1">
-              <img 
-                src={comboImage} 
-                alt="Programa APEGO DETOX en múltiples dispositivos" 
-                loading="lazy"
-                className="w-full hover:scale-105 transition-transform duration-300"
-                style={{filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.15))'}}
-              />
+            <div className="order-2 md:order-1 relative">
+              <div className="absolute -inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-20 blur-3xl animate-pulse"></div>
+              <div className="relative bg-black rounded-2xl p-4 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(253,185,19,0.4)]">
+                <img 
+                  src={comboImage} 
+                  alt="Programa APEGO DETOX en múltiples dispositivos" 
+                  loading="lazy"
+                  className="w-full hover:scale-105 transition-transform duration-300"
+                  style={{filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3))'}}
+                />
+              </div>
             </div>
             
             <div className="order-1 md:order-2 space-y-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-[#FDB913] rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2 text-white">Acceso Multi-dispositivo</h3>
+                  <h3 className="text-2xl font-semibold mb-2 text-[#FDB913]">Descubre que no estás sola</h3>
                   <p className="text-gray-300 leading-relaxed">
-                    Accede desde laptop, tablet y móvil, 24/7. Estudia a tu ritmo, desde donde estés.
+                    Cada encuentro en vivo es una experiencia terapéutica donde te verás reflejada en otras mujeres y comenzarás a reconstruir la confianza que el narcisista quebró.
+                  </p>
+                  <p className="text-gray-300 leading-relaxed mt-2">
+                    Aquí no solo escuchas: <strong className="text-white">te liberas, te expresas y sanas acompañada.</strong>
                   </p>
                 </div>
               </div>
@@ -151,7 +157,7 @@ const ApegoDetox = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2 text-white">Material Escrito Exclusivo</h3>
+                  <h3 className="text-2xl font-semibold mb-2 text-[#FDB913]">Material Escrito Exclusivo</h3>
                   <p className="text-gray-300 leading-relaxed">
                     Material escrito exclusivo para realizar tus tareas y aplicar lo aprendido semana a semana.
                   </p>
