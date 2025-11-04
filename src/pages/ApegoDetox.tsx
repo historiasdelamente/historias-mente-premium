@@ -74,21 +74,21 @@ const ApegoDetox = () => {
         </div>
         
         <div className="relative z-20 text-center text-white px-4 max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight px-2">
             APEGO DETOX
           </h1>
           
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight px-2">
             El Camino a Tu Libertad Emocional
           </h2>
           
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed px-2">
             Rompe el lazo con el narcisista, desintoxica tu mente y vuelve a ser quien realmente eres.
           </p>
           
           <Button 
             onClick={scrollToPayment}
-            className="bg-[#FDB913] text-black font-bold text-lg px-16 py-6 h-auto rounded-lg hover:shadow-[0_8px_24px_rgba(253,185,19,0.5)] hover:scale-105 transition-all duration-300"
+            className="bg-[#FDB913] text-black font-bold text-base sm:text-lg px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 h-auto rounded-lg hover:shadow-[0_8px_24px_rgba(253,185,19,0.5)] hover:scale-105 transition-all duration-300 mx-2"
           >
             INICIAR MI DETOX AHORA
           </Button>
@@ -177,19 +177,19 @@ const ApegoDetox = () => {
         <div className="max-w-7xl mx-auto">
           {/* Sección Emocional Antes de Módulos */}
           <div className="mb-20">
-            <div className="grid md:grid-cols-2 gap-12 items-center bg-black rounded-3xl p-8 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(253,185,19,0.3)]">
-              <div className="order-2 md:order-1 space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-[#FDB913] leading-tight">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-black rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(253,185,19,0.3)]">
+              <div className="order-2 md:order-1 space-y-4 sm:space-y-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FDB913] leading-tight">
                   Este No Es Solo Un Curso
                 </h2>
-                <div className="space-y-4 text-lg text-gray-200 leading-relaxed">
+                <div className="space-y-3 sm:space-y-4 text-base sm:text-lg text-gray-200 leading-relaxed">
                   <p>
                     <strong className="text-white">Porque Apego Detox no es solo un curso,</strong> es ese respiro que llega cuando ya no puedes más.
                   </p>
                   <p>
                     Porque necesitas <span className="text-[#FDB913] font-semibold">cerrar ese ciclo que te roba el sueño</span>, dejar de revisar el teléfono, dejar de pensar qué hiciste mal.
                   </p>
-                  <p className="text-xl text-white font-semibold">
+                  <p className="text-lg sm:text-xl text-white font-semibold">
                     Este programa es para ti si sientes que te rompiste queriendo arreglar a alguien más, y ahora solo quieres volver a ser tú.
                   </p>
                 </div>
@@ -208,14 +208,14 @@ const ApegoDetox = () => {
             </div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-[#FDB913]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 text-[#FDB913] px-4">
             7 Módulos para Tu Libertad Emocional
           </h2>
 
           {/* Imagen Combo Completo */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-12 px-4">
             <div className="relative max-w-2xl w-full">
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-2xl opacity-20 blur-2xl"></div>
+              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-2xl opacity-20 blur-2xl"></div>
               <img 
                 src={comboCompletoImage} 
                 alt="Todo lo que incluye Apego Detox - Laptop, libros, móvil, taza y material exclusivo"
@@ -398,10 +398,10 @@ const ApegoDetox = () => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
-              <div className="bg-[#1a1a1a] rounded-xl p-6 border-2 border-[#FDB913]">
-                <h3 className="text-2xl font-bold text-[#FDB913] mb-4">✓ Lo Que Recibes:</h3>
-                <ul className="space-y-3 text-white text-lg">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10 px-4">
+              <div className="bg-[#1a1a1a] rounded-xl p-5 sm:p-6 border-2 border-[#FDB913]">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#FDB913] mb-3 sm:mb-4">✓ Lo Que Recibes:</h3>
+                <ul className="space-y-2 sm:space-y-3 text-white text-base sm:text-lg">
                   <li className="flex items-start gap-3">
                     <span className="text-[#FDB913] text-2xl">•</span>
                     <span>7 módulos completos de transformación profunda</span>
@@ -425,9 +425,9 @@ const ApegoDetox = () => {
                 </ul>
               </div>
 
-              <div className="bg-[#1a1a1a] rounded-xl p-6 border-2 border-[#FDB913]">
-                <h3 className="text-2xl font-bold text-[#FDB913] mb-4">✓ Lo Que Lograrás:</h3>
-                <ul className="space-y-3 text-white text-lg">
+              <div className="bg-[#1a1a1a] rounded-xl p-5 sm:p-6 border-2 border-[#FDB913]">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#FDB913] mb-3 sm:mb-4">✓ Lo Que Lograrás:</h3>
+                <ul className="space-y-2 sm:space-y-3 text-white text-base sm:text-lg">
                   <li className="flex items-start gap-3">
                     <span className="text-[#FDB913] text-2xl">•</span>
                     <span>Romperás el trauma bonding de raíz</span>
@@ -452,30 +452,30 @@ const ApegoDetox = () => {
               </div>
             </div>
 
-            <div className="text-center">
+            <div className="text-center px-4">
               <a 
                 href="https://pay.hotmart.com/W102751360L"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#FDB913] text-black font-black text-2xl px-20 py-8 rounded-2xl hover:shadow-[0_15px_40px_rgba(253,185,19,0.6)] hover:scale-105 transition-all duration-300 animate-pulse"
+                className="inline-block bg-[#FDB913] text-black font-black text-lg sm:text-xl md:text-2xl px-6 sm:px-12 md:px-20 py-5 sm:py-6 md:py-8 rounded-2xl hover:shadow-[0_15px_40px_rgba(253,185,19,0.6)] hover:scale-105 transition-all duration-300 animate-pulse w-full max-w-2xl"
               >
                 SÍ, QUIERO RECUPERAR MI VIDA POR $24.97
               </a>
-              <p className="text-gray-400 mt-4 text-sm">
+              <p className="text-gray-400 mt-4 text-xs sm:text-sm px-2">
                 🔒 Pago seguro • Garantía de 7 días • Cancela cuando quieras
               </p>
             </div>
           </div>
 
           {/* Sección de Javier Vieira */}
-          <div className="bg-black rounded-3xl p-8 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#FDB913] mb-4">
+          <div className="bg-black rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FDB913] mb-4 px-4">
                 ¿Quién Te Guiará en Este Proceso?
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="order-2 md:order-1">
                 <h3 className="text-3xl font-bold text-white mb-4">
                   Javier Vieira Calle
