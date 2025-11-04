@@ -100,7 +100,7 @@ const ApegoDetox = () => {
       </section>
 
       {/* Descripción del Programa */}
-      <section className="bg-[#1a1a1a] py-12 md:py-16 px-4">
+      <section className="bg-[#1a1a1a] py-6 md:py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-lg md:text-xl leading-relaxed text-gray-200 mb-6">
             Comprende por qué sigues volviendo a quien te destruye, sana el vínculo traumático que te ata y recupera la paz que perdiste.
