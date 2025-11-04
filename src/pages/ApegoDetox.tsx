@@ -258,22 +258,11 @@ const ApegoDetox = () => {
                 <h3 className="text-2xl font-semibold text-white">Nuevos Límites, Nueva Dignidad</h3>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Establece fronteras que protejan tu paz.
+                Aprendes a decir no sin miedo y a cerrar la puerta sin mirar atrás.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Cómo decir NO sin culpa</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Contacto cero: estrategia y sostén</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Límites saludables en futuras relaciones</span>
-                </li>
-              </ul>
+              <p className="text-[#FDB913] leading-relaxed font-semibold text-lg">
+                Aquí entiendes que poner límites también es una forma de amor propio.
+              </p>
             </div>
 
             {/* Módulo 7 */}
