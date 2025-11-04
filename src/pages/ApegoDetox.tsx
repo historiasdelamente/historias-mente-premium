@@ -244,22 +244,11 @@ const ApegoDetox = () => {
                 <h3 className="text-2xl font-semibold text-white">Reconexión con tu Identidad</h3>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Reencuentra a la mujer que eras antes de él.
+                Aquí vuelves a encontrarte con la que soñaba, reía y creía en sí misma.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Recupera tus valores y pasiones perdidas</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Reconstruye tu autoestima desde cero</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Define quién quieres ser ahora</span>
-                </li>
-              </ul>
+              <p className="text-[#FDB913] leading-relaxed font-semibold text-lg">
+                Recuperas tu esencia y recuerdas que nunca dejaste de ser suficiente.
+              </p>
             </div>
 
             {/* Módulo 6 */}
