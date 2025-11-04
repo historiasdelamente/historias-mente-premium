@@ -213,25 +213,14 @@ const ApegoDetox = () => {
             <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">03</span>
-                <h3 className="text-2xl font-semibold text-white">Reprogramando tu Mente</h3>
+                <h3 className="text-2xl font-semibold text-white">Reescribe tu Mente</h3>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Cambia las creencias que sostienen el apego.
+                Aquí rompes las ideas que te hicieron creer que amar era aguantar.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Identifica creencias limitantes sobre el amor</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Técnicas de reestructuración cognitiva</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Afirmaciones y nuevos patrones mentales</span>
-                </li>
-              </ul>
+              <p className="text-[#FDB913] leading-relaxed font-semibold text-lg">
+                Aprendes a pensar diferente, a verte distinta y a crear una nueva historia donde tú vuelves a ser la protagonista.
+              </p>
             </div>
 
             {/* Módulo 4 */}
