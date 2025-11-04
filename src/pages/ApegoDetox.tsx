@@ -10,6 +10,7 @@ import heroImage from "@/assets/apego-detox-hero.jpg";
 import comboImage from "@/assets/apego-detox-combo.png";
 import tabletaImage from "@/assets/apego-detox-tableta.png";
 import libroImage from "@/assets/apego-detox-libro.png";
+import javierImage from "@/assets/javier-vieira.png";
 
 const ApegoDetox = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -369,10 +370,10 @@ const ApegoDetox = () => {
       <section className="py-20 md:py-28 px-4 bg-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Estás a un Paso de Recuperar Tu Libertad
+            Cada Día Que Pasa Atrapada en Este Ciclo es un Día Menos de Tu Vida
           </h2>
           <p className="text-xl text-gray-300 mb-10">
-            No esperes más. Tu transformación comienza hoy.
+            Ya perdiste suficiente tiempo. Es momento de un cambio real.
           </p>
           <a 
             href="https://pay.hotmart.com/W102751360L"
@@ -380,8 +381,167 @@ const ApegoDetox = () => {
             rel="noopener noreferrer"
             className="inline-block bg-[#FDB913] text-black font-bold text-lg px-16 py-6 rounded-lg hover:shadow-[0_8px_24px_rgba(253,185,19,0.5)] hover:scale-105 transition-all duration-300"
           >
-            COMENZAR AHORA
+            YA BASTA, QUIERO SALIR
           </a>
+        </div>
+      </section>
+
+      {/* Sección de Precio y Autor */}
+      <section className="py-20 md:py-28 px-4 bg-gradient-to-br from-[#FDB913] via-[#FFD54F] to-[#FDB913]">
+        <div className="max-w-6xl mx-auto">
+          {/* Bloque de Precio Principal */}
+          <div className="bg-black rounded-3xl p-12 mb-16 shadow-[0_20px_60px_rgba(253,185,19,0.4)] border-4 border-[#FDB913]">
+            <div className="text-center mb-8">
+              <div className="inline-block bg-[#FDB913] text-black px-8 py-3 rounded-full font-bold text-lg mb-6 animate-pulse">
+                ⚡ OFERTA EXCLUSIVA
+              </div>
+              <h2 className="text-5xl md:text-6xl font-bold text-[#FDB913] mb-4">
+                Transforma Tu Vida Hoy
+              </h2>
+              <p className="text-2xl text-gray-300 mb-8">
+                No esperes a estar más rota para pedir ayuda
+              </p>
+            </div>
+
+            <div className="text-center mb-8">
+              <div className="inline-block bg-gradient-to-r from-[#FDB913] to-[#FFD54F] p-1 rounded-2xl">
+                <div className="bg-black rounded-2xl px-12 py-8">
+                  <p className="text-gray-400 text-xl mb-2 line-through">Precio regular: $97 USD</p>
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    <span className="text-7xl md:text-8xl font-black text-[#FDB913]">$24.97</span>
+                    <div className="text-left">
+                      <p className="text-2xl text-white font-bold">USD</p>
+                      <p className="text-xl text-gray-400">mensuales</p>
+                    </div>
+                  </div>
+                  <p className="text-xl text-[#FDB913] font-semibold">
+                    💳 Cancela cuando quieras • Sin compromisos
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div className="bg-[#1a1a1a] rounded-xl p-6 border-2 border-[#FDB913]">
+                <h3 className="text-2xl font-bold text-[#FDB913] mb-4">✓ Lo Que Recibes:</h3>
+                <ul className="space-y-3 text-white text-lg">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>7 módulos completos de transformación profunda</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Lives semanales en vivo con Javier Vieira</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Comunidad privada de apoyo 24/7</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Workbooks descargables con ejercicios guiados</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Acceso ilimitado desde cualquier dispositivo</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-[#1a1a1a] rounded-xl p-6 border-2 border-[#FDB913]">
+                <h3 className="text-2xl font-bold text-[#FDB913] mb-4">✓ Lo Que Lograrás:</h3>
+                <ul className="space-y-3 text-white text-lg">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Romperás el trauma bonding de raíz</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Recuperarás tu identidad y poder personal</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Aprenderás a poner límites sin culpa</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Desactivarás la ansiedad del contacto cero</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#FDB913] text-2xl">•</span>
+                    <span>Volverás a creer en ti misma y en tu futuro</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a 
+                href="https://pay.hotmart.com/W102751360L"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#FDB913] text-black font-black text-2xl px-20 py-8 rounded-2xl hover:shadow-[0_15px_40px_rgba(253,185,19,0.6)] hover:scale-105 transition-all duration-300 animate-pulse"
+              >
+                SÍ, QUIERO RECUPERAR MI VIDA POR $24.97
+              </a>
+              <p className="text-gray-400 mt-4 text-sm">
+                🔒 Pago seguro • Garantía de 7 días • Cancela cuando quieras
+              </p>
+            </div>
+          </div>
+
+          {/* Sección de Javier Vieira */}
+          <div className="bg-black rounded-3xl p-8 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#FDB913] mb-4">
+                ¿Quién Te Guiará en Este Proceso?
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1">
+                <h3 className="text-3xl font-bold text-white mb-4">
+                  Javier Vieira Calle
+                </h3>
+                <p className="text-xl text-[#FDB913] font-semibold mb-6">
+                  Creador de Historias de la Mente
+                </p>
+                <div className="text-lg text-gray-300 leading-relaxed space-y-4">
+                  <p>
+                    Creador de <strong className="text-white">Historias de la Mente</strong> en TikTok, donde acompaña a miles de mujeres en su proceso de liberación del abuso narcisista.
+                  </p>
+                  <p>
+                    A través de conferencias poderosas y vivenciales, ayuda a mujeres que desean liberarse del trauma bonding para recuperar su poder, reconectar con su esencia y volver a la paz interior.
+                  </p>
+                  <p className="text-[#FDB913] font-semibold">
+                    Su enfoque es directo, humano y transformador: romper el ciclo, poner límites y reconstruir la propia dignidad.
+                  </p>
+                </div>
+              </div>
+
+              <div className="order-1 md:order-2">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-full opacity-30 blur-2xl animate-pulse"></div>
+                  <img 
+                    src={javierImage} 
+                    alt="Javier Vieira - Creador de APEGO DETOX"
+                    className="relative w-full max-w-md mx-auto rounded-2xl shadow-[0_20px_60px_rgba(253,185,19,0.3)]"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <div className="bg-[#1a1a1a] rounded-2xl p-8 border-2 border-[#FDB913]">
+                <p className="text-2xl md:text-3xl text-white italic leading-relaxed">
+                  "Sé exactamente cómo te sientes ahora mismo. La confusión, la vergüenza, el miedo. He trabajado con cientos de mujeres en tu situación, y te puedo decir con certeza: <span className="text-[#FDB913] font-bold">no estás loca, no eres débil, y sí hay una salida.</span>"
+                </p>
+                <p className="text-xl text-gray-400 mt-6">
+                  — Javier Vieira
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
