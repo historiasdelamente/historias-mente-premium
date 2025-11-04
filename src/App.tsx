@@ -10,6 +10,7 @@ import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
 import GraciasEvaluacion from "./pages/GraciasEvaluacion";
 import Unsubscribe from "./pages/Unsubscribe";
+import ApegoDetox from "./pages/ApegoDetox";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,8 @@ const App = () => (
           <Route path="/gracias-evaluacion" element={<GraciasEvaluacion />} />
           {/* Unsubscribe */}
           <Route path="/unsubscribe" element={<Unsubscribe />} />
+          {/* Apego Detox */}
+          <Route path="/apegodetox" element={<ApegoDetox />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
