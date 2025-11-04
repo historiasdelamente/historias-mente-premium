@@ -185,13 +185,10 @@ const ApegoDetox = () => {
                 <h3 className="text-2xl font-semibold text-white">Cómo Vencer al Narcisista</h3>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Este módulo no se trata solo de entender al narcisista, sino de romper el hechizo psicológico que te mantenía atrapada.
+                El momento en que despiertas del hechizo y ves quién eras antes de su control.
               </p>
-              <p className="text-gray-300 mb-4 leading-relaxed">
-                Aquí experimentarás el momento en el que la confusión se convierte en claridad. Comprenderás cómo se formó el vínculo que te tenía emocionalmente atada, y por primera vez, podrás ver con ojos nuevos la manipulación, la idealización y la culpa que te hacían retroceder una y otra vez.
-              </p>
-              <p className="text-[#FDB913] leading-relaxed font-semibold">
-                El poder de este módulo está en devolverle a tu mente el control, liberar tu empatía del abuso y comenzar el proceso de reconexión con tu dignidad.
+              <p className="text-[#FDB913] leading-relaxed font-semibold text-lg">
+                Aquí recuperas tu mente, tu fuerza y el poder de decir: ya no más.
               </p>
             </div>
 
