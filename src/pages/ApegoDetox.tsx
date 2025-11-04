@@ -57,7 +57,7 @@ const ApegoDetox = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white font-['Montserrat']">
+    <div className="min-h-screen bg-black font-['Montserrat']">
       {/* Hero Section */}
       <section 
         id="hero"
@@ -99,18 +99,18 @@ const ApegoDetox = () => {
       </section>
 
       {/* Descripción del Programa */}
-      <section className="bg-[#F5F5F5] py-20 md:py-28 px-4">
+      <section className="bg-[#1a1a1a] py-20 md:py-28 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-lg md:text-xl leading-relaxed text-gray-800">
+          <p className="text-lg md:text-xl leading-relaxed text-gray-200">
             <strong className="font-bold">APEGO DETOX</strong> es un programa intensivo para mujeres que se sienten atrapadas en una relación tóxica y no logran soltar al narcisista. Aquí entenderás el <strong className="font-semibold">apego emocional</strong>, por qué vuelves una y otra vez, y aprenderás un <strong className="font-semibold">método claro</strong> para romper el vínculo, desintoxicar tu mente y recuperar tu <strong className="font-semibold">paz, tu dignidad y tu poder personal</strong>.
           </p>
         </div>
       </section>
 
       {/* Materiales y Mockups */}
-      <section className="py-20 md:py-28 px-4 bg-white">
+      <section className="py-20 md:py-28 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#FDB913]">
             Todo lo que Necesitas para Tu Transformación
           </h2>
           
@@ -133,8 +133,8 @@ const ApegoDetox = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2">Acceso Multi-dispositivo</h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <h3 className="text-2xl font-semibold mb-2 text-white">Acceso Multi-dispositivo</h3>
+                  <p className="text-gray-300 leading-relaxed">
                     Accede desde laptop, tablet y móvil, 24/7. Estudia a tu ritmo, desde donde estés.
                   </p>
                 </div>
@@ -147,8 +147,8 @@ const ApegoDetox = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2">Material Escrito Exclusivo</h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <h3 className="text-2xl font-semibold mb-2 text-white">Material Escrito Exclusivo</h3>
+                  <p className="text-gray-300 leading-relaxed">
                     Material escrito exclusivo para realizar tus tareas y aplicar lo aprendido semana a semana.
                   </p>
                 </div>
@@ -180,23 +180,23 @@ const ApegoDetox = () => {
       </section>
 
       {/* 7 Módulos del Programa */}
-      <section id="modulos" className="py-20 md:py-28 px-4 bg-[#F5F5F5]">
+      <section id="modulos" className="py-20 md:py-28 px-4 bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#FDB913]">
             7 Módulos para Tu Libertad Emocional
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Módulo 1 */}
-            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">01</span>
-                <h3 className="text-2xl font-semibold">Comprendiendo el Narcisismo</h3>
+                <h3 className="text-2xl font-semibold text-white">Comprendiendo el Narcisismo</h3>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 Descubre los patrones ocultos y por qué te enganchaste.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FDB913] mt-1">•</span>
                   <span>Características del narcisista encubierto</span>
@@ -213,15 +213,15 @@ const ApegoDetox = () => {
             </div>
 
             {/* Módulo 2 */}
-            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">02</span>
-                <h3 className="text-2xl font-semibold">Rompiendo el Vínculo Traumático</h3>
+                <h3 className="text-2xl font-semibold text-white">Rompiendo el Vínculo Traumático</h3>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 Entiende el lazo invisible que te mantiene atada.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FDB913] mt-1">•</span>
                   <span>Qué es el trauma bonding y cómo funciona</span>
@@ -238,15 +238,15 @@ const ApegoDetox = () => {
             </div>
 
             {/* Módulo 3 */}
-            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">03</span>
-                <h3 className="text-2xl font-semibold">Reprogramando tu Mente</h3>
+                <h3 className="text-2xl font-semibold text-white">Reprogramando tu Mente</h3>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 Cambia las creencias que sostienen el apego.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FDB913] mt-1">•</span>
                   <span>Identifica creencias limitantes sobre el amor</span>
@@ -263,15 +263,15 @@ const ApegoDetox = () => {
             </div>
 
             {/* Módulo 4 */}
-            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">04</span>
-                <h3 className="text-2xl font-semibold">Desintoxicación Emocional</h3>
+                <h3 className="text-2xl font-semibold text-white">Desintoxicación Emocional</h3>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 Limpia la toxicidad acumulada en tu sistema.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FDB913] mt-1">•</span>
                   <span>Proceso de duelo consciente</span>
@@ -288,15 +288,15 @@ const ApegoDetox = () => {
             </div>
 
             {/* Módulo 5 */}
-            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">05</span>
-                <h3 className="text-2xl font-semibold">Reconexión con tu Identidad</h3>
+                <h3 className="text-2xl font-semibold text-white">Reconexión con tu Identidad</h3>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 Reencuentra a la mujer que eras antes de él.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FDB913] mt-1">•</span>
                   <span>Recupera tus valores y pasiones perdidas</span>
@@ -313,15 +313,15 @@ const ApegoDetox = () => {
             </div>
 
             {/* Módulo 6 */}
-            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">06</span>
-                <h3 className="text-2xl font-semibold">Nuevos Límites, Nueva Dignidad</h3>
+                <h3 className="text-2xl font-semibold text-white">Nuevos Límites, Nueva Dignidad</h3>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 Establece fronteras que protejan tu paz.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FDB913] mt-1">•</span>
                   <span>Cómo decir NO sin culpa</span>
@@ -338,15 +338,15 @@ const ApegoDetox = () => {
             </div>
 
             {/* Módulo 7 */}
-            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300 md:col-span-2 lg:col-span-1 lg:col-start-2">
+            <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300 md:col-span-2 lg:col-span-1 lg:col-start-2">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">07</span>
-                <h3 className="text-2xl font-semibold">Plan de Reinvención Personal</h3>
+                <h3 className="text-2xl font-semibold text-white">Plan de Reinvención Personal</h3>
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed">
                 Diseña tu nueva vida con propósito y poder.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FDB913] mt-1">•</span>
                   <span>Visión de futuro: quién serás en 6 meses</span>
@@ -386,45 +386,45 @@ const ApegoDetox = () => {
       </section>
 
       {/* FAQ Acordeón */}
-      <section id="faq" className="py-20 md:py-28 px-4 bg-white">
+      <section id="faq" className="py-20 md:py-28 px-4 bg-black">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#FDB913]">
             Preguntas Frecuentes
           </h2>
           
           <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="border border-gray-200 rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+            <AccordionItem value="item-1" className="border border-gray-700 rounded-lg px-6 bg-[#1a1a1a]">
+              <AccordionTrigger className="text-lg font-semibold hover:no-underline text-white">
                 ¿Cuál es la duración del programa?
               </AccordionTrigger>
-              <AccordionContent className="text-gray-700 leading-relaxed">
+              <AccordionContent className="text-gray-300 leading-relaxed">
                 El programa está diseñado para completarse en 7 semanas, con un módulo por semana. Sin embargo, tienes acceso de por vida, así que puedes avanzar a tu propio ritmo.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="border border-gray-200 rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+            <AccordionItem value="item-2" className="border border-gray-700 rounded-lg px-6 bg-[#1a1a1a]">
+              <AccordionTrigger className="text-lg font-semibold hover:no-underline text-white">
                 ¿Qué pasa si no puedo asistir en vivo?
               </AccordionTrigger>
-              <AccordionContent className="text-gray-700 leading-relaxed">
+              <AccordionContent className="text-gray-300 leading-relaxed">
                 Todo el contenido queda grabado y disponible en la plataforma. No hay sesiones obligatorias en vivo; puedes estudiar cuando mejor te convenga.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="border border-gray-200 rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+            <AccordionItem value="item-3" className="border border-gray-700 rounded-lg px-6 bg-[#1a1a1a]">
+              <AccordionTrigger className="text-lg font-semibold hover:no-underline text-white">
                 ¿Puedo acceder desde mi celular?
               </AccordionTrigger>
-              <AccordionContent className="text-gray-700 leading-relaxed">
+              <AccordionContent className="text-gray-300 leading-relaxed">
                 Sí, completamente. La plataforma es responsive y funciona perfectamente en celular, tablet y computadora.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="border border-gray-200 rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+            <AccordionItem value="item-4" className="border border-gray-700 rounded-lg px-6 bg-[#1a1a1a]">
+              <AccordionTrigger className="text-lg font-semibold hover:no-underline text-white">
                 ¿Incluye materiales escritos para tareas?
               </AccordionTrigger>
-              <AccordionContent className="text-gray-700 leading-relaxed">
+              <AccordionContent className="text-gray-300 leading-relaxed">
                 Sí, cada módulo incluye un workbook descargable en PDF con ejercicios prácticos, reflexiones guiadas y hojas de trabajo para aplicar lo aprendido.
               </AccordionContent>
             </AccordionItem>
