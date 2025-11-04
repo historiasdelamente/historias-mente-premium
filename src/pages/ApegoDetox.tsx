@@ -126,8 +126,11 @@ const ApegoDetox = () => {
                   src={comboImage} 
                   alt="Programa APEGO DETOX en múltiples dispositivos" 
                   loading="lazy"
-                  className="w-full hover:scale-105 transition-transform duration-300"
-                  style={{filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3))'}}
+                  className="w-full hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                  style={{
+                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3)) brightness(1.1) contrast(1.1)',
+                    background: 'transparent'
+                  }}
                 />
               </div>
             </div>
@@ -168,22 +171,34 @@ const ApegoDetox = () => {
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <img 
-                src={tabletaImage} 
-                alt="Programa en tablet" 
-                loading="lazy"
-                className="w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300"
-                style={{filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.15))'}}
-              />
+              <div className="relative inline-block">
+                <div className="absolute -inset-4 bg-[#FDB913] rounded-2xl opacity-20 blur-xl"></div>
+                <img 
+                  src={tabletaImage} 
+                  alt="Programa en tablet" 
+                  loading="lazy"
+                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                  style={{
+                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3)) brightness(1.1)',
+                    background: 'transparent'
+                  }}
+                />
+              </div>
             </div>
             <div className="text-center">
-              <img 
-                src={libroImage} 
-                alt="Workbook APEGO DETOX" 
-                loading="lazy"
-                className="w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300"
-                style={{filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.15))'}}
-              />
+              <div className="relative inline-block">
+                <div className="absolute -inset-4 bg-[#FDB913] rounded-2xl opacity-20 blur-xl"></div>
+                <img 
+                  src={libroImage} 
+                  alt="Workbook APEGO DETOX" 
+                  loading="lazy"
+                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                  style={{
+                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.3)) brightness(1.1)',
+                    background: 'transparent'
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
