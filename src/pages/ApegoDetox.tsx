@@ -102,8 +102,11 @@ const ApegoDetox = () => {
       {/* Descripción del Programa */}
       <section className="bg-[#1a1a1a] py-20 md:py-28 px-4">
         <div className="max-w-4xl mx-auto text-center">
+          <p className="text-lg md:text-xl leading-relaxed text-gray-200 mb-6">
+            Comprende por qué sigues volviendo a quien te destruye, sana el vínculo traumático que te ata y recupera la paz que perdiste.
+          </p>
           <p className="text-lg md:text-xl leading-relaxed text-gray-200">
-            <strong className="font-bold">APEGO DETOX</strong> es un programa intensivo para mujeres que se sienten atrapadas en una relación tóxica y no logran soltar al narcisista. Aquí entenderás el <strong className="font-semibold">apego emocional</strong>, por qué vuelves una y otra vez, y aprenderás un <strong className="font-semibold">método claro</strong> para romper el vínculo, desintoxicar tu mente y recuperar tu <strong className="font-semibold">paz, tu dignidad y tu poder personal</strong>.
+            <strong className="font-bold text-[#FDB913]">Apego Detox</strong> es un programa intensivo que te enseña paso a paso a romper el ciclo del narcisista, desintoxicar tu mente y volver a conectar con la mujer fuerte que eras antes de él.
           </p>
         </div>
       </section>
