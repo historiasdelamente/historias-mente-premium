@@ -617,8 +617,8 @@ const ApegoDetox = () => {
               <p className="text-gray-400 mb-4">
                 ¿Tienes preguntas? Estamos aquí para ayudarte.
               </p>
-              <a href="mailto:contacto@historiasdelamente.com" className="text-[#FDB913] hover:underline">
-                contacto@historiasdelamente.com
+              <a href="mailto:info@historiasdelamente.com" className="text-[#FDB913] hover:underline">
+                info@historiasdelamente.com
               </a>
             </div>
           </div>
