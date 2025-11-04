@@ -199,25 +199,17 @@ const ApegoDetox = () => {
             <div className="bg-black p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-bold text-[#FDB913]">02</span>
-                <h3 className="text-2xl font-semibold text-white">Rompiendo el Vínculo Traumático</h3>
+                <h3 className="text-2xl font-semibold text-white">El Lazo Invisible</h3>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Entiende el lazo invisible que te mantiene atada.
+                Este módulo es el momento en que dejas de justificar su ausencia y comienzas a sentir la tuya.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Qué es el trauma bonding y cómo funciona</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Las razones neurológicas del apego tóxico</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Primeros pasos para romper la dependencia</span>
-                </li>
-              </ul>
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                Descubrirás por qué sigues conectada a quien te lastimó, aunque tu razón te diga que ya no más.
+              </p>
+              <p className="text-[#FDB913] leading-relaxed font-semibold">
+                Aquí entenderás cómo tu mente se acostumbró al dolor disfrazado de amor, y empezarás a cortar ese hilo invisible que te une a quien nunca volvió.
+              </p>
             </div>
 
             {/* Módulo 3 */}
