@@ -64,7 +64,7 @@ const ApegoDetox = () => {
       {/* Hero Section */}
       <section 
         id="hero"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-[70vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden"
       >
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
