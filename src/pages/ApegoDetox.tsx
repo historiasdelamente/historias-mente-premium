@@ -167,37 +167,6 @@ const ApegoDetox = () => {
               </div>
             </div>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="relative inline-block">
-                <div className="absolute -inset-4 bg-[#FDB913] rounded-2xl opacity-20 blur-xl"></div>
-                <img 
-                  src={tabletaImage} 
-                  alt="Programa en tablet" 
-                  loading="lazy"
-                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 rounded-xl"
-                  style={{
-                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.4))'
-                  }}
-                />
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="relative inline-block">
-                <div className="absolute -inset-4 bg-[#FDB913] rounded-2xl opacity-20 blur-xl"></div>
-                <img 
-                  src={libroImage} 
-                  alt="Workbook APEGO DETOX" 
-                  loading="lazy"
-                  className="relative w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-300 rounded-xl"
-                  style={{
-                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.4))'
-                  }}
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
