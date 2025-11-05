@@ -378,19 +378,22 @@ const ApegoDetox = () => {
               </p>
             </div>
 
-            <div className="text-center mb-6 md:mb-8">
-              <div className="inline-block bg-gradient-to-r from-[#FDB913] to-[#FFD54F] p-1 rounded-xl md:rounded-2xl w-full max-w-md">
-                <div className="bg-black rounded-xl md:rounded-2xl px-4 sm:px-8 md:px-12 py-6 md:py-8">
-                  <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-2 line-through">Precio regular: $97 USD</p>
-                  <div className="flex items-center justify-center gap-2 sm:gap-4 mb-3 md:mb-4">
-                    <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#FDB913]">$24.97</span>
-                    <div className="text-left">
-                      <p className="text-lg sm:text-xl md:text-2xl text-white font-bold">USD</p>
-                      <p className="text-sm sm:text-base md:text-lg text-gray-400">mensuales</p>
+            <div className="text-center mb-6 md:mb-8 px-2">
+              <div className="bg-gradient-to-r from-[#FDB913] to-[#FFD54F] p-1 rounded-xl md:rounded-2xl max-w-md mx-auto">
+                <div className="bg-black rounded-xl md:rounded-2xl px-3 sm:px-6 md:px-12 py-4 sm:py-6 md:py-8">
+                  <p className="text-gray-400 text-xs sm:text-sm md:text-base mb-2 line-through">Precio regular: $97 USD</p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 mb-3 md:mb-4">
+                    <span className="text-5xl sm:text-6xl md:text-7xl font-black text-[#FDB913]">$24.97</span>
+                    <div className="text-center sm:text-left">
+                      <p className="text-base sm:text-lg md:text-xl text-white font-bold">USD</p>
+                      <p className="text-xs sm:text-sm md:text-base text-gray-400">mensuales</p>
                     </div>
                   </div>
-                  <p className="text-sm sm:text-base md:text-lg text-[#FDB913] font-semibold">
-                    💳 Cancela cuando quieras • Sin compromisos
+                  <p className="text-xs sm:text-sm md:text-base text-[#FDB913] font-semibold">
+                    💳 Cancela cuando quieras
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base text-[#FDB913] font-semibold">
+                    Sin compromisos
                   </p>
                 </div>
               </div>
@@ -450,17 +453,17 @@ const ApegoDetox = () => {
               </div>
             </div>
 
-            <div className="text-center px-4">
+            <div className="text-center px-2 sm:px-4">
               <a 
                 href="https://pay.hotmart.com/W102751360L"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#FDB913] text-black font-black text-lg sm:text-xl md:text-2xl px-6 sm:px-12 md:px-20 py-5 sm:py-6 md:py-8 rounded-2xl hover:shadow-[0_15px_40px_rgba(253,185,19,0.6)] hover:scale-105 transition-all duration-300 animate-pulse w-full max-w-2xl"
+                className="inline-block bg-[#FDB913] text-black font-black text-sm sm:text-base md:text-xl px-4 sm:px-8 md:px-16 py-4 sm:py-5 md:py-7 rounded-xl md:rounded-2xl hover:shadow-[0_15px_40px_rgba(253,185,19,0.6)] hover:scale-105 transition-all duration-300 animate-pulse w-full max-w-2xl"
               >
                 SÍ, QUIERO RECUPERAR MI VIDA POR $24.97
               </a>
-              <p className="text-gray-400 mt-4 text-xs sm:text-sm px-2">
-                🔒 Pago seguro • Garantía de 7 días • Cancela cuando quieras
+              <p className="text-gray-400 mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed">
+                🔒 Pago seguro • Garantía de 7 días<br className="sm:hidden" /> • Cancela cuando quieras
               </p>
             </div>
           </div>
