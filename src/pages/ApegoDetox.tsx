@@ -1,18 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState, useEffect } from 'react';
 import heroImage from "@/assets/apego-detox-hero.jpg";
-import comboImage from "@/assets/apego-detox-combo.png";
-import tabletaImage from "@/assets/apego-detox-tableta.png";
-import libroImage from "@/assets/apego-detox-libro.png";
 import javierImage from "@/assets/javier-vieira.png";
-import modeloDetoxImage from "@/assets/modelo-apego-detox.png";
-import comboCompletoImage from "@/assets/combo-completo-apego-detox.png";
+import { Video, Calendar, FileText, Mail, Users, Gift, CheckCircle2, Clock, Heart, Shield, Sparkles, ArrowRight, Star, Zap, TrendingUp, Brain, Target } from "lucide-react";
 
 const ApegoDetox = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -52,605 +42,639 @@ const ApegoDetox = () => {
     setShowCookieBanner(false);
   };
 
-  const scrollToPayment = () => {
-    const paymentSection = document.getElementById('payment-section');
-    if (paymentSection) {
-      paymentSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const whatsappLink = "https://wa.me/573041234567?text=Quiero%20información%20sobre%20Apego%20Detox";
+  const hotmartLink = "https://pay.hotmart.com/W102751360L";
 
   return (
-    <div className="min-h-screen bg-black font-['Montserrat'] overflow-x-hidden">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-black text-white font-['Poppins',sans-serif] overflow-x-hidden">
+      
+      {/* 1️⃣ HERO PRINCIPAL */}
       <section 
-        id="hero"
-        className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url(${heroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center top'
-          }}
-        >
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"></div>
         
-        <div className="relative z-20 text-center text-white px-4 max-w-5xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-6 leading-tight">
-            APEGO DETOX
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 leading-tight text-white">
+            APRENDISTE A AMAR A QUIEN TE DESTRUYÓ…
+            <span className="block mt-3 md:mt-4 text-[#FFD400]">
+              AHORA APRENDERÁS A AMARTE A TI
+            </span>
           </h1>
           
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 md:mb-6 leading-tight">
-            El Camino a Tu Libertad Emocional
-          </h2>
-          
-          <p className="text-base sm:text-lg md:text-2xl mb-6 md:mb-10 max-w-3xl mx-auto leading-relaxed">
-            Rompe el lazo con el narcisista, desintoxica tu mente y vuelve a ser quien realmente eres.
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-gray-200 leading-relaxed max-w-3xl mx-auto">
+            <strong>Apego Detox</strong> es el programa intensivo para mujeres que no logran soltar al narcisista. 
+            Aquí entenderás por qué vuelves una y otra vez, y aprenderás un método claro para romper el vínculo traumático, 
+            desintoxicar tu mente y recuperar tu poder.
           </p>
           
-          <Button 
-            onClick={scrollToPayment}
-            className="bg-[#FDB913] text-black font-bold text-sm sm:text-base md:text-lg px-6 sm:px-10 md:px-16 py-3 sm:py-4 md:py-6 h-auto rounded-lg hover:shadow-[0_8px_24px_rgba(253,185,19,0.5)] hover:scale-105 transition-all duration-300"
+          <a 
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-[#FFD400] text-black font-black text-base sm:text-lg md:text-xl px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full hover:shadow-[0_20px_60px_rgba(255,212,0,0.6)] hover:scale-105 transition-all duration-300 animate-pulse"
           >
-            INICIAR MI DETOX AHORA
-          </Button>
-        </div>
-      </section>
+            QUIERO LIBERARME AHORA 🔥
+            <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
+          </a>
 
-      {/* Descripción del Programa */}
-      <section className="bg-[#1a1a1a] py-8 md:py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-base md:text-lg leading-relaxed text-gray-200 mb-4">
-            Comprende por qué sigues volviendo a quien te destruye, sana el vínculo traumático que te ata y recupera la paz que perdiste.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed text-gray-200">
-            <strong className="font-bold text-[#FDB913]">Apego Detox</strong> es un programa intensivo que te enseña paso a paso a romper el ciclo del narcisista, desintoxicar tu mente y volver a conectar con la mujer fuerte que eras antes de él.
+          <p className="mt-6 text-sm md:text-base text-gray-400">
+            ⚡ Solo 20 cupos disponibles esta semana
           </p>
         </div>
       </section>
 
-      {/* Materiales y Mockups */}
-      <section className="py-12 md:py-20 px-4 bg-black">
+      {/* 2️⃣ QUÉ INCLUYE EL PROGRAMA */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-black to-[#0C0C0C]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-[#FDB913]">
-            Todo lo que Necesitas para Tu Transformación
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4 md:mb-6 text-[#FFD400]">
+            Todo Lo Que Incluye Tu Transformación
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-            <div className="order-2 md:order-1 relative">
-              <div className="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-20 blur-3xl animate-pulse"></div>
-              <div className="relative rounded-2xl p-2 md:p-4">
+          <p className="text-center text-gray-300 text-base md:text-lg mb-12 md:mb-16 max-w-3xl mx-auto">
+            Un acompañamiento completo, paso a paso, para liberarte del narcisista
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {/* Item 1 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] p-6 md:p-8 rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 hover:-translate-y-2">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FFD400] rounded-full flex items-center justify-center mb-5 md:mb-6">
+                <Video className="w-7 h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">
+                2 Lives Semanales
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3">
+                <strong className="text-[#FFD400]">240 minutos de acompañamiento total:</strong> Espacios en vivo conmigo, 
+                Javier Vieira, donde trabajaremos juntas la desconexión emocional, el trauma del abandono y las 
+                herramientas reales para romper el vínculo narcisista.
+              </p>
+            </div>
+
+            {/* Item 2 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] p-6 md:p-8 rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 hover:-translate-y-2">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FFD400] rounded-full flex items-center justify-center mb-5 md:mb-6">
+                <Calendar className="w-7 h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">
+                Clases Grabadas
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Acceso 24/7 para que repitas el contenido y avances a tu ritmo. Disponible desde cualquier dispositivo.
+              </p>
+            </div>
+
+            {/* Item 3 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] p-6 md:p-8 rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 hover:-translate-y-2">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FFD400] rounded-full flex items-center justify-center mb-5 md:mb-6">
+                <FileText className="w-7 h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">
+                Tareas Terapéuticas Guiadas
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Ejercicios escritos con seguimiento psicológico para que observes tu evolución semana a semana.
+              </p>
+            </div>
+
+            {/* Item 4 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] p-6 md:p-8 rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 hover:-translate-y-2">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FFD400] rounded-full flex items-center justify-center mb-5 md:mb-6">
+                <Mail className="w-7 h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">
+                Refuerzo vía Email
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Recordatorios, reflexiones y ejercicios de reprogramación emocional directo a tu correo.
+              </p>
+            </div>
+
+            {/* Item 5 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] p-6 md:p-8 rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 hover:-translate-y-2">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FFD400] rounded-full flex items-center justify-center mb-5 md:mb-6">
+                <Users className="w-7 h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">
+                Acompañamiento en Vivo
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Espacios de apoyo donde compartes tus avances y experiencias con otras mujeres que te entienden.
+              </p>
+            </div>
+
+            {/* Item 6 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] p-6 md:p-8 rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 hover:-translate-y-2">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#EFA2A2] rounded-full flex items-center justify-center mb-5 md:mb-6">
+                <Gift className="w-7 h-7 md:w-8 md:h-8 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-[#EFA2A2]">
+                3 Bonos Exclusivos
+              </h3>
+              <ul className="space-y-2 text-gray-300 text-sm md:text-base">
+                <li className="flex items-start gap-2">
+                  <Sparkles className="w-4 h-4 text-[#EFA2A2] flex-shrink-0 mt-1" />
+                  <span>Mini curso "Rompe el contacto sin recaer"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Sparkles className="w-4 h-4 text-[#EFA2A2] flex-shrink-0 mt-1" />
+                  <span>Audio-guía "Reprograma tu mente en 7 días"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Sparkles className="w-4 h-4 text-[#EFA2A2] flex-shrink-0 mt-1" />
+                  <span>Diario de autoobservación terapéutica (PDF)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3️⃣ ANTES Y DESPUÉS */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-[#0C0C0C]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 md:mb-16 text-[#FFD400]">
+            Tu Transformación Comienza Aquí
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+            {/* ANTES */}
+            <div className="bg-gradient-to-br from-red-900/20 to-red-950/30 border-2 border-red-800/50 rounded-2xl p-6 md:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-red-800 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">😔</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-red-400">Antes de Apego Detox</h3>
+              </div>
+              
+              <ul className="space-y-4 text-gray-200">
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 text-xl flex-shrink-0">✕</span>
+                  <span className="text-sm md:text-base">Vives en ansiedad esperando un mensaje</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 text-xl flex-shrink-0">✕</span>
+                  <span className="text-sm md:text-base">Justificas lo injustificable</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 text-xl flex-shrink-0">✕</span>
+                  <span className="text-sm md:text-base">Te culpas por no ser suficiente</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 text-xl flex-shrink-0">✕</span>
+                  <span className="text-sm md:text-base">Sientes que sin él no puedes seguir</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 text-xl flex-shrink-0">✕</span>
+                  <span className="text-sm md:text-base">Perdiste tu identidad en la relación</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* DESPUÉS */}
+            <div className="bg-gradient-to-br from-[#FFD400]/20 to-[#FFD400]/10 border-2 border-[#FFD400] rounded-2xl p-6 md:p-10 shadow-[0_20px_60px_rgba(255,212,0,0.3)]">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-[#FFD400] rounded-full flex items-center justify-center">
+                  <span className="text-2xl">✨</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-[#FFD400]">Después de Apego Detox</h3>
+              </div>
+              
+              <ul className="space-y-4 text-white">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-[#FFD400] w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base font-semibold">Recuperas tu paz interior</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-[#FFD400] w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base font-semibold">Sabes poner límites sin culpa</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-[#FFD400] w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base font-semibold">Te sientes libre y en control</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-[#FFD400] w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base font-semibold">Vuelves a ser tú, sin miedo</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="text-[#FFD400] w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base font-semibold">Construyes relaciones sanas y auténticas</span>
+                </li>
+              </ul>
+
+              <div className="mt-8">
+                <a 
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full gap-2 bg-[#FFD400] text-black font-bold text-sm md:text-base px-6 py-4 rounded-xl hover:shadow-[0_15px_40px_rgba(255,212,0,0.5)] hover:scale-105 transition-all duration-300"
+                >
+                  QUIERO ESE CAMBIO AHORA
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4️⃣ SECCIÓN DE AUTORIDAD - JAVIER VIEIRA */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-[#0C0C0C] to-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 md:mb-16 text-[#FFD400]">
+            ¿Quién Te Guiará en Este Proceso?
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] rounded-3xl p-6 md:p-12 border-2 border-[#FFD400]/30">
+            <div className="order-2 md:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#FFD400] via-[#EFA2A2] to-[#FFD400] rounded-full opacity-30 blur-3xl animate-pulse"></div>
                 <img 
-                  src={libroImage} 
-                  alt="Workbook APEGO DETOX" 
-                  loading="lazy"
-                  className="w-full hover:scale-105 transition-transform duration-300 rounded-xl"
-                  style={{
-                    filter: 'drop-shadow(0 10px 25px rgba(253,185,19,0.4))'
-                  }}
+                  src={javierImage} 
+                  alt="Javier Vieira - Creador de Historias de la Mente"
+                  className="relative w-full max-w-sm mx-auto rounded-2xl shadow-[0_30px_80px_rgba(255,212,0,0.4)]"
                 />
               </div>
             </div>
-            
-            <div className="order-1 md:order-2 space-y-6 md:space-y-8">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-[#FDB913] rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-[#FDB913]">Descubre que no estás sola</h3>
-                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                    Cada encuentro en vivo es una experiencia terapéutica donde te verás reflejada en otras mujeres y comenzarás a reconstruir la confianza que el narcisista quebró.
-                  </p>
-                  <p className="text-sm md:text-base text-gray-300 leading-relaxed mt-2">
-                    Aquí no solo escuchas: <strong className="text-white">te liberas, te expresas y sanas acompañada.</strong>
-                  </p>
-                </div>
-              </div>
+
+            <div className="order-1 md:order-2 space-y-5 md:space-y-6">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+                Javier Vieira Calle
+              </h3>
+              <p className="text-lg md:text-xl text-[#EFA2A2] font-semibold">
+                Creador de Historias de la Mente
+              </p>
               
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-[#FDB913] rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
+              <div className="space-y-4 text-gray-300 text-sm md:text-base leading-relaxed">
+                <p>
+                  Soy Javier Vieira, psicólogo especializado en <strong className="text-white">apego, autoestima y autoimagen.</strong>
+                </p>
+                <p>
+                  Acompaño a mujeres a liberarse de relaciones traumáticas y recuperar su identidad. 
+                  A través de <strong className="text-[#FFD400]">Historias de la Mente</strong>, más de 50.000 mujeres 
+                  han dado su primer paso hacia su libertad emocional.
+                </p>
+              </div>
+
+              <div className="bg-black/50 border-l-4 border-[#FFD400] rounded-r-xl p-4 md:p-6">
+                <p className="text-base md:text-lg text-white italic leading-relaxed">
+                  <strong className="text-[#FFD400]">"Tu historia no termina en el dolor. Comienza cuando decides soltar."</strong>
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-4">
+                <div className="flex items-center gap-2 bg-[#FFD400]/10 border border-[#FFD400]/30 rounded-lg px-4 py-2">
+                  <Users className="w-4 h-4 text-[#FFD400]" />
+                  <span className="text-sm text-gray-300">+50K mujeres</span>
+                </div>
+                <div className="flex items-center gap-2 bg-[#FFD400]/10 border border-[#FFD400]/30 rounded-lg px-4 py-2">
+                  <Brain className="w-4 h-4 text-[#FFD400]" />
+                  <span className="text-sm text-gray-300">Psicólogo certificado</span>
+                </div>
+                <div className="flex items-center gap-2 bg-[#FFD400]/10 border border-[#FFD400]/30 rounded-lg px-4 py-2">
+                  <Heart className="w-4 h-4 text-[#FFD400]" />
+                  <span className="text-sm text-gray-300">Especialista en trauma</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5️⃣ TESTIMONIOS */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4 md:mb-6 text-[#FFD400]">
+            Historias de Mujeres Que Se Liberaron
+          </h2>
+          <p className="text-center text-gray-400 text-base md:text-lg mb-12 md:mb-16">
+            Ellas decidieron que ya era suficiente. Ahora viven en paz.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {/* Testimonio 1 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] border border-[#FFD400]/20 rounded-2xl p-6 md:p-8 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-[#FFD400] text-[#FFD400]" />
+                ))}
+              </div>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4 italic">
+                "Pensé que nunca iba a poder soltarlo, pero Javier me mostró que no era amor, era trauma. 
+                <strong className="text-white"> Hoy duermo en paz.</strong>"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#EFA2A2] rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold">A</span>
                 </div>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-[#FDB913]">Material Escrito Exclusivo</h3>
-                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                    Material escrito exclusivo para realizar tus tareas y aplicar lo aprendido semana a semana.
-                  </p>
+                  <p className="text-white font-semibold text-sm">Andrea G.</p>
+                  <p className="text-gray-500 text-xs">Colombia</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonio 2 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] border border-[#FFD400]/20 rounded-2xl p-6 md:p-8 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-[#FFD400] text-[#FFD400]" />
+                ))}
+              </div>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4 italic">
+                "Apego Detox me devolvió la dignidad. <strong className="text-white">Por primera vez me siento libre.</strong> 
+                Ya no espero su mensaje, ya no justifico su ausencia."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#EFA2A2] rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold">M</span>
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">María J.</p>
+                  <p className="text-gray-500 text-xs">México</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonio 3 */}
+            <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] border border-[#FFD400]/20 rounded-2xl p-6 md:p-8 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 sm:col-span-2 lg:col-span-1">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-[#FFD400] text-[#FFD400]" />
+                ))}
+              </div>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4 italic">
+                "Nunca imaginé que alguien entendiera tan bien lo que viví con un narcisista. 
+                <strong className="text-white"> Este programa salvó mi vida.</strong>"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#EFA2A2] rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold">L</span>
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">Laura M.</p>
+                  <p className="text-gray-500 text-xs">España</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 7 Módulos del Programa */}
-      <section id="modulos" className="py-12 md:py-20 px-4 bg-[#1a1a1a]">
-        <div className="max-w-7xl mx-auto">
-          {/* Sección Emocional Antes de Módulos */}
-          <div className="mb-12 md:mb-16">
-            <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center bg-black rounded-xl md:rounded-3xl p-4 sm:p-6 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(253,185,19,0.3)]">
-              <div className="order-2 md:order-1 space-y-3 sm:space-y-4 md:space-y-6">
-                <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-[#FDB913] leading-tight">
-                  Este No Es Solo Un Curso
-                </h2>
-                <div className="space-y-2 sm:space-y-3 md:space-y-4 text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed">
-                  <p>
-                    <strong className="text-white">Porque Apego Detox no es solo un curso,</strong> es ese respiro que llega cuando ya no puedes más.
-                  </p>
-                  <p>
-                    Porque necesitas <span className="text-[#FDB913] font-semibold">cerrar ese ciclo que te roba el sueño</span>, dejar de revisar el teléfono, dejar de pensar qué hiciste mal.
-                  </p>
-                  <p className="text-base sm:text-lg md:text-xl text-white font-semibold">
-                    Este programa es para ti si sientes que te rompiste queriendo arreglar a alguien más, y ahora solo quieres volver a ser tú.
-                  </p>
-                </div>
-              </div>
-
-              <div className="order-1 md:order-2">
-                <div className="relative">
-                  <div className="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-3xl opacity-30 blur-3xl animate-pulse"></div>
-                  <img 
-                    src={modeloDetoxImage} 
-                    alt="Apego Detox - Tu transformación comienza aquí"
-                    className="relative w-full rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(253,185,19,0.4)]"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-[#FDB913]">
-            7 Módulos para Tu Libertad Emocional
-          </h2>
-
-          {/* Imagen Combo Completo */}
-          <div className="flex justify-center mb-8 md:mb-12">
-            <div className="relative max-w-2xl w-full">
-              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-2xl opacity-20 blur-2xl"></div>
-              <img 
-                src={comboCompletoImage} 
-                alt="Todo lo que incluye Apego Detox - Laptop, libros, móvil, taza y material exclusivo"
-                className="relative w-full rounded-xl"
-                style={{
-                  filter: 'drop-shadow(0 15px 30px rgba(253,185,19,0.4))'
-                }}
-              />
-            </div>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {/* Módulo 1 */}
-            <div className="bg-black p-5 md:p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="text-2xl md:text-3xl font-bold text-[#FDB913]">01</span>
-                <h3 className="text-lg md:text-xl font-semibold text-white">Cómo Vencer al Narcisista</h3>
-              </div>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                El momento en que despiertas del hechizo y ves quién eras antes de su control.
-              </p>
-              <p className="text-[#FDB913] leading-relaxed font-semibold text-sm md:text-base">
-                Aquí recuperas tu mente, tu fuerza y el poder de decir: ya no más.
-              </p>
-            </div>
-
-            {/* Módulo 2 */}
-            <div className="bg-black p-5 md:p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="text-2xl md:text-3xl font-bold text-[#FDB913]">02</span>
-                <h3 className="text-lg md:text-xl font-semibold text-white">El Lazo Invisible</h3>
-              </div>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                Este módulo es el momento en que dejas de justificar su ausencia y comienzas a sentir la tuya.
-              </p>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                Descubrirás por qué sigues conectada a quien te lastimó, aunque tu razón te diga que ya no más.
-              </p>
-              <p className="text-[#FDB913] leading-relaxed font-semibold text-sm md:text-base">
-                Aquí entenderás cómo tu mente se acostumbró al dolor disfrazado de amor, y empezarás a cortar ese hilo invisible que te une a quien nunca volvió.
-              </p>
-            </div>
-
-            {/* Módulo 3 */}
-            <div className="bg-black p-5 md:p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="text-2xl md:text-3xl font-bold text-[#FDB913]">03</span>
-                <h3 className="text-lg md:text-xl font-semibold text-white">Reescribe tu Mente</h3>
-              </div>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                Aquí rompes las ideas que te hicieron creer que amar era aguantar.
-              </p>
-              <p className="text-[#FDB913] leading-relaxed font-semibold text-sm md:text-base">
-                Aprendes a pensar diferente, a verte distinta y a crear una nueva historia donde tú vuelves a ser la protagonista.
-              </p>
-            </div>
-
-            {/* Módulo 4 */}
-            <div className="bg-black p-5 md:p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="text-2xl md:text-3xl font-bold text-[#FDB913]">04</span>
-                <h3 className="text-lg md:text-xl font-semibold text-white">Desintoxicación Emocional</h3>
-              </div>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                Rompe las ideas que te hicieron creer que amar era aguantar.
-              </p>
-              <p className="text-[#FDB913] leading-relaxed font-semibold text-sm md:text-base">
-                Empieza a pensar distinto, a verte con valor y a escribir la historia donde tú vuelves a tener el poder.
-              </p>
-            </div>
-
-            {/* Módulo 5 */}
-            <div className="bg-black p-5 md:p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="text-2xl md:text-3xl font-bold text-[#FDB913]">05</span>
-                <h3 className="text-lg md:text-xl font-semibold text-white">Reconexión con tu Identidad</h3>
-              </div>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                Aquí vuelves a encontrarte con la que soñaba, reía y creía en sí misma.
-              </p>
-              <p className="text-[#FDB913] leading-relaxed font-semibold text-sm md:text-base">
-                Recuperas tu esencia y recuerdas que nunca dejaste de ser suficiente.
-              </p>
-            </div>
-
-            {/* Módulo 6 */}
-            <div className="bg-black p-5 md:p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="text-2xl md:text-3xl font-bold text-[#FDB913]">06</span>
-                <h3 className="text-lg md:text-xl font-semibold text-white">Nuevos Límites, Nueva Dignidad</h3>
-              </div>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                Aprendes a decir no sin miedo y a cerrar la puerta sin mirar atrás.
-              </p>
-              <p className="text-[#FDB913] leading-relaxed font-semibold text-sm md:text-base">
-                Aquí entiendes que poner límites también es una forma de amor propio.
-              </p>
-            </div>
-
-            {/* Módulo 7 */}
-            <div className="bg-black p-5 md:p-8 rounded-xl border border-gray-700 hover:border-[#FDB913] hover:shadow-[0_8px_24px_rgba(253,185,19,0.25)] hover:-translate-y-1 transition-all duration-300 sm:col-span-2 lg:col-span-1 lg:col-start-2">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <span className="text-2xl md:text-3xl font-bold text-[#FDB913]">07</span>
-                <h3 className="text-lg md:text-xl font-semibold text-white">Plan de Reinvención Personal</h3>
-              </div>
-              <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 leading-relaxed">
-                Diseña tu nueva vida con propósito y poder.
-              </p>
-              <ul className="space-y-2 text-xs md:text-sm text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Visión de futuro: quién serás en 6 meses</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Plan de acción tangible y realista</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FDB913] mt-1">•</span>
-                  <span>Compromiso contigo misma</span>
-                </li>
-              </ul>
-            </div>
+          <div className="text-center mt-12">
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#FFD400] text-black font-bold text-sm md:text-base px-8 md:px-12 py-4 md:py-5 rounded-full hover:shadow-[0_20px_60px_rgba(255,212,0,0.6)] hover:scale-105 transition-all duration-300"
+            >
+              QUIERO SER LA PRÓXIMA HISTORIA 💫
+              <Sparkles className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* CTA Intermedio */}
-      <section className="py-12 md:py-20 px-4 bg-black">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 leading-tight">
-            Cada Día Que Pasa Atrapada en Este Ciclo es un Día Menos de Tu Vida
-          </h2>
-          <p className="text-base md:text-lg text-gray-300 mb-6 md:mb-10">
-            Ya perdiste suficiente tiempo. Es momento de un cambio real.
-          </p>
-          <a 
-            href="https://pay.hotmart.com/W102751360L"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#FDB913] text-black font-bold text-sm sm:text-base md:text-lg px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-lg hover:shadow-[0_8px_24px_rgba(253,185,19,0.5)] hover:scale-105 transition-all duration-300"
-          >
-            YA BASTA, QUIERO SALIR
-          </a>
-        </div>
-      </section>
-
-      {/* Sección de Precio y Autor */}
-      <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-[#FDB913] via-[#FFD54F] to-[#FDB913]">
+      {/* 6️⃣ BLOQUE DE BENEFICIOS */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-black to-[#0C0C0C]">
         <div className="max-w-6xl mx-auto">
-          {/* Bloque de Precio Principal */}
-          <div className="bg-black rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 mb-8 md:mb-16 shadow-[0_20px_60px_rgba(253,185,19,0.4)] border-2 md:border-4 border-[#FDB913]">
-            <div className="text-center mb-6 md:mb-8">
-              <div className="inline-block bg-[#FDB913] text-black px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full font-bold text-sm sm:text-base md:text-lg mb-4 md:mb-6 animate-pulse">
-                ⚡ OFERTA EXCLUSIVA
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#FDB913] mb-3 md:mb-4">
-                Transforma Tu Vida Hoy
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
-                No esperes a estar más rota para pedir ayuda
-              </p>
-            </div>
-
-            <div className="text-center mb-6 md:mb-8 px-2">
-              <div className="bg-gradient-to-r from-[#FDB913] to-[#FFD54F] p-1 rounded-xl md:rounded-2xl max-w-md mx-auto">
-                <div className="bg-black rounded-xl md:rounded-2xl px-3 sm:px-6 md:px-12 py-4 sm:py-6 md:py-8">
-                  <p className="text-gray-400 text-xs sm:text-sm md:text-base mb-2 line-through">Precio regular: $97 USD</p>
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 mb-3 md:mb-4">
-                    <span className="text-5xl sm:text-6xl md:text-7xl font-black text-[#FDB913]">$24.97</span>
-                    <div className="text-center sm:text-left">
-                      <p className="text-base sm:text-lg md:text-xl text-white font-bold">USD</p>
-                      <p className="text-xs sm:text-sm md:text-base text-gray-400">mensuales</p>
-                    </div>
-                  </div>
-                  <p className="text-xs sm:text-sm md:text-base text-[#FDB913] font-semibold">
-                    💳 Cancela cuando quieras
-                  </p>
-                  <p className="text-xs sm:text-sm md:text-base text-[#FDB913] font-semibold">
-                    Sin compromisos
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10 px-4">
-              <div className="bg-[#1a1a1a] rounded-xl p-5 sm:p-6 border-2 border-[#FDB913]">
-                <h3 className="text-xl sm:text-2xl font-bold text-[#FDB913] mb-3 sm:mb-4">✓ Lo Que Recibes:</h3>
-                <ul className="space-y-2 sm:space-y-3 text-white text-base sm:text-lg">
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>7 módulos completos de transformación profunda</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Lives semanales en vivo con Javier Vieira</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Comunidad privada de apoyo 24/7</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Workbooks descargables con ejercicios guiados</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Acceso ilimitado desde cualquier dispositivo</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-[#1a1a1a] rounded-xl p-5 sm:p-6 border-2 border-[#FDB913]">
-                <h3 className="text-xl sm:text-2xl font-bold text-[#FDB913] mb-3 sm:mb-4">✓ Lo Que Lograrás:</h3>
-                <ul className="space-y-2 sm:space-y-3 text-white text-base sm:text-lg">
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Romperás el trauma bonding de raíz</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Recuperarás tu identidad y poder personal</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Aprenderás a poner límites sin culpa</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Desactivarás la ansiedad del contacto cero</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FDB913] text-2xl">•</span>
-                    <span>Volverás a creer en ti misma y en tu futuro</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="text-center px-2 sm:px-4">
-              <a 
-                href="https://pay.hotmart.com/W102751360L"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#FDB913] text-black font-black text-sm sm:text-base md:text-xl px-4 sm:px-8 md:px-16 py-4 sm:py-5 md:py-7 rounded-xl md:rounded-2xl hover:shadow-[0_15px_40px_rgba(253,185,19,0.6)] hover:scale-105 transition-all duration-300 animate-pulse w-full max-w-2xl"
-              >
-                SÍ, QUIERO RECUPERAR MI VIDA POR $24.97
-              </a>
-              <p className="text-gray-400 mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed">
-                🔒 Pago seguro • Garantía de 7 días<br className="sm:hidden" /> • Cancela cuando quieras
-              </p>
-            </div>
-          </div>
-
-          {/* Sección de Javier Vieira */}
-          <div className="bg-black rounded-xl md:rounded-3xl p-4 sm:p-6 md:p-12 border-2 border-[#FDB913] shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
-            <div className="text-center mb-4 sm:mb-6 md:mb-8">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#FDB913] mb-4">
-                ¿Quién Te Guiará en Este Proceso?
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
-                  Javier Vieira Calle
-                </h3>
-                <p className="text-lg md:text-xl text-[#FDB913] font-semibold mb-4 md:mb-6">
-                  Creador de Historias de la Mente
-                </p>
-                <div className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed space-y-3 md:space-y-4">
-                  <p>
-                    Creador de <strong className="text-white">Historias de la Mente</strong> en TikTok, donde acompaña a miles de mujeres en su proceso de liberación del abuso narcisista.
-                  </p>
-                  <p>
-                    A través de conferencias poderosas y vivenciales, ayuda a mujeres que desean liberarse del trauma bonding para recuperar su poder, reconectar con su esencia y volver a la paz interior.
-                  </p>
-                  <p className="text-[#FDB913] font-semibold">
-                    Su enfoque es directo, humano y transformador: romper el ciclo, poner límites y reconstruir la propia dignidad.
-                  </p>
-                </div>
-              </div>
-
-              <div className="order-1 md:order-2">
-                <div className="relative">
-                  <div className="absolute -inset-3 md:-inset-4 bg-gradient-to-r from-[#FDB913] via-[#FFD54F] to-[#FDB913] rounded-full opacity-30 blur-2xl animate-pulse"></div>
-                  <img 
-                    src={javierImage} 
-                    alt="Javier Vieira - Creador de APEGO DETOX"
-                    className="relative w-full max-w-md mx-auto rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(253,185,19,0.3)]"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 md:mt-12 text-center">
-              <div className="bg-[#1a1a1a] rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 border-2 border-[#FDB913]">
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white italic leading-relaxed">
-                  "Sé exactamente cómo te sientes ahora mismo. La confusión, la vergüenza, el miedo. He trabajado con cientos de mujeres en tu situación, y te puedo decir con certeza: <span className="text-[#FDB913] font-bold">no estás loca, no eres débil, y sí hay una salida.</span>"
-                </p>
-                <p className="text-sm sm:text-base md:text-lg text-gray-400 mt-4 md:mt-6">
-                  — Javier Vieira
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Acordeón */}
-      <section id="faq" className="py-12 md:py-20 px-4 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-[#FDB913]">
-            Preguntas Frecuentes
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4 md:mb-6 text-[#FFD400]">
+            Lo Que Lograrás Con Apego Detox
           </h2>
-          
-          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
-            <AccordionItem value="item-1" className="border border-gray-700 rounded-lg px-4 md:px-6 bg-[#1a1a1a]">
-              <AccordionTrigger className="text-sm md:text-base font-semibold hover:no-underline text-white">
-                ¿Cuál es la duración del programa?
-              </AccordionTrigger>
-              <AccordionContent className="text-sm md:text-base text-gray-300 leading-relaxed">
-                El programa está diseñado para completarse en 7 semanas, con un módulo por semana. Sin embargo, tienes acceso de por vida, así que puedes avanzar a tu propio ritmo.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border border-gray-700 rounded-lg px-4 md:px-6 bg-[#1a1a1a]">
-              <AccordionTrigger className="text-sm md:text-base font-semibold hover:no-underline text-white">
-                ¿Qué pasa si no puedo asistir en vivo?
-              </AccordionTrigger>
-              <AccordionContent className="text-sm md:text-base text-gray-300 leading-relaxed">
-                Todo el contenido queda grabado y disponible en la plataforma. No hay sesiones obligatorias en vivo; puedes estudiar cuando mejor te convenga.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border border-gray-700 rounded-lg px-4 md:px-6 bg-[#1a1a1a]">
-              <AccordionTrigger className="text-sm md:text-base font-semibold hover:no-underline text-white">
-                ¿Puedo acceder desde mi celular?
-              </AccordionTrigger>
-              <AccordionContent className="text-sm md:text-base text-gray-300 leading-relaxed">
-                Sí, completamente. La plataforma es responsive y funciona perfectamente en celular, tablet y computadora.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border border-gray-700 rounded-lg px-4 md:px-6 bg-[#1a1a1a]">
-              <AccordionTrigger className="text-sm md:text-base font-semibold hover:no-underline text-white">
-                ¿Incluye materiales escritos para tareas?
-              </AccordionTrigger>
-              <AccordionContent className="text-sm md:text-base text-gray-300 leading-relaxed">
-                Sí, cada módulo incluye un workbook descargable en PDF con ejercicios prácticos, reflexiones guiadas y hojas de trabajo para aplicar lo aprendido.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section id="payment-section" className="py-12 md:py-20 px-4 bg-[#FDB913]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 md:mb-6 leading-tight">
-            Comienza Tu Detox Emocional Hoy
-          </h2>
-          <p className="text-base md:text-lg text-gray-800 mb-6 md:mb-10 max-w-2xl mx-auto leading-relaxed">
-            No permitas que otro día pase atrapada en el ciclo. 
-            Tu libertad emocional te está esperando.
+          <p className="text-center text-gray-400 text-base md:text-lg mb-12 md:mb-16 max-w-3xl mx-auto">
+            No son solo palabras. Son resultados reales que transformarán tu vida.
           </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {/* Beneficio 1 */}
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#FFD400] to-[#EFA2A2] rounded-full flex items-center justify-center mb-5">
+                <Zap className="w-8 h-8 md:w-10 md:h-10 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                Rompes el Vínculo Traumático
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Entenderás la ciencia detrás del trauma bonding y aprenderás a cortar ese lazo que te ata al narcisista.
+              </p>
+            </div>
+
+            {/* Beneficio 2 */}
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#FFD400] to-[#EFA2A2] rounded-full flex items-center justify-center mb-5">
+                <Brain className="w-8 h-8 md:w-10 md:h-10 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                Reprogramas Tu Mente
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Desactivas los patrones mentales que te hacen volver, y creas nuevos circuitos de pensamiento saludables.
+              </p>
+            </div>
+
+            {/* Beneficio 3 */}
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#FFD400] to-[#EFA2A2] rounded-full flex items-center justify-center mb-5">
+                <Shield className="w-8 h-8 md:w-10 md:h-10 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                Fortaleces Autoestima y Límites
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Aprendes a decir NO sin culpa, a valorarte y a crear límites que protejan tu bienestar emocional.
+              </p>
+            </div>
+
+            {/* Beneficio 4 */}
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#FFD400] to-[#EFA2A2] rounded-full flex items-center justify-center mb-5">
+                <Heart className="w-8 h-8 md:w-10 md:h-10 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                Recuperas Tu Paz Interior
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Dejas de vivir en ansiedad constante. Vuelves a dormir tranquila, sin revisar el teléfono cada segundo.
+              </p>
+            </div>
+
+            {/* Beneficio 5 */}
+            <div className="flex flex-col items-center text-center p-6 md:p-8 bg-gradient-to-br from-[#1a1a1a] to-[#0C0C0C] rounded-2xl border border-[#FFD400]/20 hover:border-[#FFD400] hover:shadow-[0_20px_60px_rgba(255,212,0,0.2)] transition-all duration-300 sm:col-span-2 lg:col-span-1">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#FFD400] to-[#EFA2A2] rounded-full flex items-center justify-center mb-5">
+                <Target className="w-8 h-8 md:w-10 md:h-10 text-black" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                Construyes Relaciones Seguras
+              </h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Aprendes a identificar señales de alerta temprano y a crear vínculos saludables basados en respeto mutuo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7️⃣ GARANTÍA Y COMPROMISO */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-[#0C0C0C]">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-[#1a1a1a] to-black border-2 border-[#FFD400] rounded-3xl p-8 md:p-12 lg:p-16 text-center shadow-[0_30px_80px_rgba(255,212,0,0.3)]">
+            <div className="w-20 h-20 md:w-24 md:h-24 bg-[#FFD400] rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
+              <Shield className="w-10 h-10 md:w-12 md:h-12 text-black" />
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-8 text-[#FFD400]">
+              100% Acompañamiento Garantizado
+            </h2>
+            
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed mb-8 max-w-3xl mx-auto">
+              Creemos tanto en este proceso que <strong className="text-[#FFD400]">te acompañamos hasta que logres sentirte libre.</strong>
+            </p>
+            
+            <div className="bg-black/50 border-l-4 border-[#FFD400] rounded-r-2xl p-6 md:p-8 mb-8 md:mb-10 text-left max-w-2xl mx-auto">
+              <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
+                <strong className="text-white">Este no es un curso.</strong> Es una experiencia terapéutica guiada paso a paso. 
+                No estás sola en esto. Estaré contigo en cada sesión en vivo, en cada email de refuerzo, en cada momento de duda.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8 md:mb-10">
+              <div className="flex items-center gap-2 bg-[#FFD400]/10 border border-[#FFD400] rounded-lg px-4 md:px-6 py-3">
+                <CheckCircle2 className="w-5 h-5 text-[#FFD400]" />
+                <span className="text-white text-sm md:text-base font-semibold">Acceso de por vida</span>
+              </div>
+              <div className="flex items-center gap-2 bg-[#FFD400]/10 border border-[#FFD400] rounded-lg px-4 md:px-6 py-3">
+                <CheckCircle2 className="w-5 h-5 text-[#FFD400]" />
+                <span className="text-white text-sm md:text-base font-semibold">Sin compromisos</span>
+              </div>
+              <div className="flex items-center gap-2 bg-[#FFD400]/10 border border-[#FFD400] rounded-lg px-4 md:px-6 py-3">
+                <CheckCircle2 className="w-5 h-5 text-[#FFD400]" />
+                <span className="text-white text-sm md:text-base font-semibold">Cancela cuando quieras</span>
+              </div>
+            </div>
+
+            <p className="text-[#EFA2A2] text-lg md:text-xl font-semibold italic">
+              "Tu bienestar es mi compromiso. Tu libertad es mi misión."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 8️⃣ CIERRE CON URGENCIA EMOCIONAL */}
+      <section className="py-20 md:py-32 px-4 sm:px-6 bg-gradient-to-br from-black via-[#0C0C0C] to-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI0ZGRDQwMCIgc3Ryb2tlLW9wYWNpdHk9Ii4wNSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 md:mb-8 text-white leading-tight">
+            El Dolor No Se Va Solo.
+          </h2>
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-[#FFD400] leading-tight">
+            Se Transforma Cuando Tú Decides Hacerlo.
+          </p>
+          
+          <div className="bg-gradient-to-br from-[#FFD400] to-[#EFA2A2] rounded-3xl p-8 md:p-12 mb-8 md:mb-12 shadow-[0_30px_80px_rgba(255,212,0,0.4)]">
+            <div className="bg-black rounded-2xl p-6 md:p-10">
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
+                Inversión Mensual:
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4">
+                <span className="text-gray-400 text-base sm:text-lg md:text-xl line-through">$97 USD</span>
+                <span className="text-5xl sm:text-6xl md:text-7xl font-black text-[#FFD400]">$24.97</span>
+                <span className="text-white text-lg sm:text-xl md:text-2xl">USD/mes</span>
+              </div>
+              <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-2">
+                💳 Cancela cuando quieras • Sin compromisos
+              </p>
+              <p className="text-xs sm:text-sm text-gray-500">
+                ⚡ Solo 20 cupos disponibles esta semana
+              </p>
+            </div>
+          </div>
+
           <a 
-            href="https://pay.hotmart.com/W102751360L"
+            href={hotmartLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-black text-[#FDB913] font-bold text-sm sm:text-base md:text-lg px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-lg hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-[#FFD400] text-black font-black text-base sm:text-lg md:text-xl lg:text-2xl px-8 sm:px-12 md:px-16 lg:px-20 py-5 sm:py-6 md:py-7 lg:py-8 rounded-full hover:shadow-[0_30px_80px_rgba(255,212,0,0.7)] hover:scale-105 transition-all duration-300 animate-pulse mb-6"
           >
-            ACCEDER AL PROGRAMA AHORA
+            QUIERO COMENZAR MI DESINTOXICACIÓN EMOCIONAL ❤️
+            <ArrowRight className="w-6 h-6 md:w-7 md:h-7" />
           </a>
+
+          <p className="text-sm md:text-base text-gray-400">
+            🔒 Pago 100% seguro • Garantía de 7 días • Acceso inmediato
+          </p>
         </div>
       </section>
 
-      {/* Footer Legal */}
-      <footer className="bg-black text-white py-8 md:py-12 px-4">
+      {/* FOOTER */}
+      <footer className="bg-black border-t border-gray-800 py-12 md:py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-12 mb-8 md:mb-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
             <div>
-              <h3 className="text-[#FDB913] font-semibold text-lg mb-4">Navegación</h3>
-              <ul className="space-y-2">
-                <li><a href="#hero" className="hover:text-[#FDB913] transition-colors">Inicio</a></li>
-                <li><a href="#modulos" className="hover:text-[#FDB913] transition-colors">Módulos</a></li>
-                <li><a href="#faq" className="hover:text-[#FDB913] transition-colors">FAQ</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-[#FDB913] font-semibold text-lg mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li><a href="/cookies" className="hover:text-[#FDB913] transition-colors">Política de Cookies</a></li>
-                <li><a href="/privacy" className="hover:text-[#FDB913] transition-colors">Política de Privacidad</a></li>
-                <li><a href="/terms" className="hover:text-[#FDB913] transition-colors">Términos y Condiciones</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-[#FDB913] font-semibold text-lg mb-4">Contacto</h3>
-              <p className="text-gray-400 mb-4">
-                ¿Tienes preguntas? Estamos aquí para ayudarte.
+              <h3 className="text-[#FFD400] font-bold text-lg mb-4">Historias de la Mente</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Ayudando a mujeres a liberarse del abuso narcisista y recuperar su poder personal.
               </p>
-              <a href="mailto:info@historiasdelamente.com" className="text-[#FDB913] hover:underline">
-                info@historiasdelamente.com
-              </a>
+            </div>
+            
+            <div>
+              <h3 className="text-[#FFD400] font-semibold text-base mb-4">Navegación</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#hero" className="text-gray-400 hover:text-[#FFD400] transition-colors">Inicio</a></li>
+                <li><a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#FFD400] transition-colors">Contáctanos</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-[#FFD400] font-semibold text-base mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/privacy" className="text-gray-400 hover:text-[#FFD400] transition-colors">Política de Privacidad</a></li>
+                <li><a href="/terms" className="text-gray-400 hover:text-[#FFD400] transition-colors">Términos y Condiciones</a></li>
+                <li><a href="/cookies" className="text-gray-400 hover:text-[#FFD400] transition-colors">Política de Cookies</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-[#FFD400] font-semibold text-base mb-4">Contacto</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="mailto:info@historiasdelamente.com" className="text-gray-400 hover:text-[#FFD400] transition-colors">info@historiasdelamente.com</a></li>
+                <li><a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#FFD400] transition-colors">WhatsApp</a></li>
+              </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>© 2025 Historias de la Mente. Todos los derechos reservados.</p>
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="text-gray-500 text-sm">© 2025 Historias de la Mente. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
 
-      {/* Banner de Cookies */}
+      {/* BANNER DE COOKIES */}
       {showCookieBanner && (
-        <div className="fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-sm text-white p-4 md:p-6 shadow-2xl z-50 border-t-2 border-[#FDB913]">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+        <div className="fixed bottom-0 left-0 right-0 bg-black/98 backdrop-blur-lg text-white p-4 md:p-6 shadow-2xl z-50 border-t-2 border-[#FFD400]">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs sm:text-sm md:text-base text-center md:text-left">
-              Este sitio utiliza cookies para mejorar tu experiencia y para anuncios personalizados en Facebook y TikTok. Al continuar, aceptas nuestras políticas.
+              Este sitio utiliza cookies para mejorar tu experiencia. Al continuar, aceptas nuestras políticas.
             </p>
-            <div className="flex gap-2 md:gap-3 flex-shrink-0 w-full md:w-auto">
+            <div className="flex gap-3 flex-shrink-0">
               <Button 
                 onClick={acceptCookies}
-                className="flex-1 md:flex-none px-4 md:px-6 py-2 bg-[#FDB913] text-black font-semibold rounded-lg hover:bg-[#e5a710] transition-colors text-xs sm:text-sm"
+                className="px-6 py-2 bg-[#FFD400] text-black font-bold rounded-lg hover:bg-[#FFD400]/90 transition-colors text-sm"
               >
-                Aceptar Todo
+                Aceptar
               </Button>
-              <Button 
-                onClick={acceptCookies}
-                variant="outline"
-                className="flex-1 md:flex-none px-4 md:px-6 py-2 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-colors text-xs sm:text-sm"
-              >
-                Gestionar
-              </Button>
+              <a href="/cookies">
+                <Button 
+                  variant="outline"
+                  className="px-6 py-2 border-[#FFD400] text-[#FFD400] hover:bg-[#FFD400] hover:text-black transition-colors text-sm"
+                >
+                  Más info
+                </Button>
+              </a>
             </div>
           </div>
         </div>
