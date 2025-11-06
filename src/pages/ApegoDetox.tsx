@@ -75,7 +75,7 @@ const ApegoDetox = () => {
           </p>
           
           <a 
-            href={whatsappLink}
+            href={hotmartLink}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-[#FFD400] text-black font-black text-base sm:text-lg md:text-xl px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full hover:shadow-[0_20px_60px_rgba(255,212,0,0.6)] hover:scale-105 transition-all duration-300 animate-pulse"
@@ -269,15 +269,15 @@ const ApegoDetox = () => {
               </ul>
 
               <div className="mt-8">
-                <a 
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full gap-2 bg-[#FFD400] text-black font-bold text-sm md:text-base px-6 py-4 rounded-xl hover:shadow-[0_15px_40px_rgba(255,212,0,0.5)] hover:scale-105 transition-all duration-300"
-                >
-                  QUIERO ESE CAMBIO AHORA
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                </a>
+              <a 
+                href={hotmartLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full gap-2 bg-[#FFD400] text-black font-bold text-sm md:text-base px-6 py-4 rounded-xl hover:shadow-[0_15px_40px_rgba(255,212,0,0.5)] hover:scale-105 transition-all duration-300"
+              >
+                QUIERO ESE CAMBIO AHORA
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
               </div>
             </div>
           </div>
@@ -427,7 +427,7 @@ const ApegoDetox = () => {
 
           <div className="text-center mt-12">
             <a 
-              href={whatsappLink}
+              href={hotmartLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#FFD400] text-black font-bold text-sm md:text-base px-8 md:px-12 py-4 md:py-5 rounded-full hover:shadow-[0_20px_60px_rgba(255,212,0,0.6)] hover:scale-105 transition-all duration-300"
