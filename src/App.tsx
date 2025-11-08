@@ -11,6 +11,7 @@ import Cookies from "./pages/Cookies";
 import GraciasEvaluacion from "./pages/GraciasEvaluacion";
 import Unsubscribe from "./pages/Unsubscribe";
 import ApegoDetox from "./pages/ApegoDetox";
+import ClaseMeet from "./pages/ClaseMeet";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,8 @@ const App = () => (
           <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* Apego Detox */}
           <Route path="/apegodetox" element={<ApegoDetox />} />
+          {/* Clase Meet Lead Magnet */}
+          <Route path="/clase-gratuita" element={<ClaseMeet />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
