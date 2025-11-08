@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { Check, Calendar, Clock } from "lucide-react";
 import heroPhoto from "@/assets/mujer-historias-hero.png";
+import javierPhoto from "@/assets/javier-vieira-lead.png";
 
 const ClaseMeet = () => {
   const [formData, setFormData] = useState({ nombre: "", email: "" });
@@ -161,7 +162,7 @@ const ClaseMeet = () => {
           <div className="bg-[#1a1a1a] p-6 sm:p-8 md:p-12 rounded-2xl border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-all duration-300">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <img 
-                src={heroPhoto} 
+                src={javierPhoto} 
                 alt="Javier Vieira" 
                 className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#D4AF37] flex-shrink-0"
               />
