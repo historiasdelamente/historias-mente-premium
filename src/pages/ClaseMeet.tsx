@@ -31,7 +31,7 @@ const ClaseMeet = () => {
     setSubmitStatus("idle");
 
     try {
-      const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/Clase_meet", {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-clase-meet`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,0 +1,4 @@
+project_id = "wqiptjqlyneidrbbjpqt"
+
+[functions.submit-clase-meet]
+verify_jwt = false
