@@ -1,9 +1,11 @@
 import { useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { Check, Calendar, Clock } from "lucide-react";
 import heroPhoto from "@/assets/mujer-historias-hero.png";
 import javierPhoto from "@/assets/javier-vieira-lead.png";
 
 const ClaseMeet = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ nombre: "", email: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -44,7 +46,10 @@ const ClaseMeet = () => {
 
       if (response.ok) {
         setSubmitStatus("success");
-        setFormData({ nombre: "", email: "" });
+        // Redirigir a la página de agradecimiento
+        setTimeout(() => {
+          navigate("/gracias-clase");
+        }, 500);
       } else {
         setSubmitStatus("error");
       }
