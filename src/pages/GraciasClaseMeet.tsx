@@ -247,16 +247,20 @@ const GraciasClaseMeet = () => {
             Esta clase la imparte:
           </p>
 
-          <h3 className="text-3xl md:text-4xl font-bold mb-3 text-white">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Javier Vieira
           </h3>
 
-          <p className="text-xl text-[#D4AF37] mb-2">
-            Psicólogo Clínico Especializado en Narcisismo y Trauma
+          <p className="text-2xl text-[#D4AF37] mb-2 font-semibold">
+            Conferencista de Transformación Personal
           </p>
 
-          <p className="text-lg text-white/80">
-            Creador de Historias de la Mente
+          <p className="text-xl text-white/90 mb-4 font-medium">
+            Experto en Liberación del Narcisismo
+          </p>
+
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            Te ayudo a salir del narcisismo con una técnica única: el Apagón Emocional. Un método probado que ha transformado la vida de cientos de mujeres atrapadas en relaciones tóxicas.
           </p>
         </div>
       </section>
