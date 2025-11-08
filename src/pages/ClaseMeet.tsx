@@ -177,15 +177,13 @@ const ClaseMeet = () => {
                   Javier Vieira
                 </h3>
                 <p className="text-lg sm:text-xl font-semibold text-white mb-2">
-                  Psicólogo Clínico Especializado en Narcisismo y Trauma
+                  Conferencista de Transformación Personal
                 </p>
                 <p className="text-base sm:text-lg text-gray-400 mb-4">
-                  Creador de Historias de la Mente
+                  Experto en Liberación del Narcisismo
                 </p>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  Especialista en relaciones narcisistas, trauma bonding y recuperación emocional. 
-                  He trabajado con cientos de mujeres ayudándolas a romper el ciclo del abuso narcisista 
-                  y recuperar su poder personal.
+                  Te ayudo a salir del narcisismo con una técnica única: el Apagón Emocional. Un método probado que ha transformado la vida de cientos de mujeres atrapadas en relaciones tóxicas.
                 </p>
               </div>
             </div>
