@@ -23,36 +23,13 @@ const GraciasApegoDetox = () => {
     <div className="min-h-screen bg-gradient-to-b from-black via-[#0C0C0C] to-black text-white font-['Poppins',sans-serif]">
       <div className="max-w-6xl mx-auto animate-fade-in">
         
-        {/* Hero Image */}
-        <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black z-10"></div>
+        {/* Hero Image Banner */}
+        <div className="relative w-full">
           <img 
             src={heroImage} 
             alt="Ya estás registrada en la clase" 
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-contain"
           />
-          <div className="absolute inset-0 flex items-center justify-center z-20">
-            <div className="text-center space-y-4 px-4">
-              <div className="flex justify-center mb-6">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#FFD400] blur-3xl opacity-50 animate-pulse"></div>
-                  <Sparkles className="relative w-20 h-20 md:w-28 md:h-28 text-[#FFD400]" />
-                </div>
-              </div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black golden-text drop-shadow-2xl">
-                ¡FELICIDADES!
-              </h1>
-              <p className="text-3xl md:text-5xl lg:text-6xl text-white font-black drop-shadow-xl">
-                YA ESTÁS REGISTRADA
-              </p>
-              <div className="flex items-center justify-center gap-3 mt-6">
-                <CheckCircle className="w-8 h-8 md:w-12 md:h-12 text-[#FFD400]" />
-                <p className="text-2xl md:text-3xl golden-text font-bold">
-                  Tu cupo está 100% reservado
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Content Section */}
