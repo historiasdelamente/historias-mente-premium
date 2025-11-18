@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { CheckCircle, Mail, MessageCircle, Clock, MapPin, Heart } from "lucide-react";
+import { CheckCircle, Mail, Clock, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import heroImage from "@/assets/clase-registrada-hero.png";
 
 const GraciasApegoDetox = () => {
   const navigate = useNavigate();
@@ -19,124 +20,143 @@ const GraciasApegoDetox = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-[#0C0C0C] to-black text-white font-['Poppins',sans-serif] py-12 px-4">
-      <div className="max-w-4xl mx-auto space-y-12 animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-b from-black via-[#0C0C0C] to-black text-white font-['Poppins',sans-serif]">
+      <div className="max-w-6xl mx-auto animate-fade-in">
         
-        {/* Header con icono */}
-        <div className="text-center space-y-6">
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#FFD400] blur-2xl opacity-30 animate-pulse"></div>
-              <CheckCircle className="relative w-24 h-24 text-[#FFD400]" />
-            </div>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black golden-text">
-            ¡Bienvenida, preciosa!
-          </h1>
-          <p className="text-2xl md:text-3xl text-white font-bold">
-            Tu cupo ya está 100% reservado ✨
-          </p>
-        </div>
-
-        {/* Qué recibirás */}
-        <div className="card-premium space-y-6">
-          <h2 className="text-2xl md:text-3xl font-black text-center">
-            En minutos te llega:
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="flex items-start gap-4 p-4 bg-[#1A1A1A] rounded-xl border border-[#FFD400]/20">
-              <Mail className="w-6 h-6 text-[#FFD400] flex-shrink-0 mt-1" />
-              <div>
-                <p className="font-bold text-white mb-1">Por correo electrónico</p>
-                <p className="text-sm text-gray-400">El enlace permanente de Google Meet</p>
+        {/* Hero Image */}
+        <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black z-10"></div>
+          <img 
+            src={heroImage} 
+            alt="Ya estás registrada en la clase" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="text-center space-y-4 px-4">
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-[#FFD400] blur-3xl opacity-50 animate-pulse"></div>
+                  <Sparkles className="relative w-20 h-20 md:w-28 md:h-28 text-[#FFD400]" />
+                </div>
+              </div>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black golden-text drop-shadow-2xl">
+                ¡FELICIDADES!
+              </h1>
+              <p className="text-3xl md:text-5xl lg:text-6xl text-white font-black drop-shadow-xl">
+                YA ESTÁS REGISTRADA
+              </p>
+              <div className="flex items-center justify-center gap-3 mt-6">
+                <CheckCircle className="w-8 h-8 md:w-12 md:h-12 text-[#FFD400]" />
+                <p className="text-2xl md:text-3xl golden-text font-bold">
+                  Tu cupo está 100% reservado
+                </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="px-4 py-12 md:py-16 space-y-12 max-w-5xl mx-auto">
+          
+          {/* Qué recibirás */}
+          <div className="card-premium space-y-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFD400] blur-[100px] opacity-20 animate-pulse"></div>
+            <h2 className="text-3xl md:text-5xl font-black text-center golden-text relative z-10">
+              ✨ En minutos recibes tu acceso ✨
+            </h2>
             
-            <div className="flex items-start gap-4 p-4 bg-[#1A1A1A] rounded-xl border border-[#FFD400]/20">
-              <MessageCircle className="w-6 h-6 text-[#FFD400] flex-shrink-0 mt-1" />
-              <div>
-                <p className="font-bold text-white mb-1">Por WhatsApp</p>
-                <p className="text-sm text-gray-400">Recordatorios automáticos con tu hora local</p>
+            <div className="flex justify-center">
+              <div className="flex items-center gap-4 p-6 bg-[#1A1A1A] rounded-2xl border-2 border-[#FFD400]/40 hover:border-[#FFD400]/70 transition-all duration-300 hover-lift max-w-xl relative z-10">
+                <Mail className="w-10 h-10 md:w-12 md:h-12 text-[#FFD400] flex-shrink-0" />
+                <div>
+                  <p className="font-black text-white text-xl md:text-2xl mb-2">Por correo electrónico</p>
+                  <p className="text-base md:text-lg text-gray-300">El enlace permanente de Google Meet</p>
+                </div>
               </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-[#FFD400]/20 via-[#FFD400]/10 to-[#FFD400]/20 border-2 border-[#FFD400]/40 rounded-2xl p-6 text-center relative z-10">
+              <p className="text-lg md:text-2xl text-white font-bold">
+                <span className="golden-text font-black">El mismo enlace</span> para todas las clases
+              </p>
+              <p className="text-gray-300 mt-2 text-base md:text-xl">Guárdalo y entra con un solo clic</p>
             </div>
           </div>
 
-          <div className="bg-[#FFD400]/10 border border-[#FFD400]/30 rounded-xl p-4 text-center">
-            <p className="text-gray-300">
-              <span className="font-bold golden-text">El mismo enlace</span> para todas las clases. Guárdalo y entra con un solo clic.
-            </p>
-          </div>
-        </div>
+          {/* Horarios */}
+          <div className="space-y-8 relative">
+            <div className="absolute -left-32 top-1/2 w-64 h-64 bg-[#FFD400] blur-[100px] opacity-10"></div>
+            <h2 className="text-3xl md:text-5xl font-black text-center golden-text">
+              📅 Tus horarios según tu país
+            </h2>
 
-        {/* Horarios */}
-        <div className="space-y-8">
-          <h2 className="text-2xl md:text-3xl font-black text-center">
-            Tus horarios según tu país
-          </h2>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            {schedules.map((item, index) => (
-              <div
-                key={index}
-                className="bg-[#1A1A1A] border border-[#FFD400]/20 rounded-xl p-5 hover:border-[#FFD400]/50 transition-all duration-300"
-              >
-                <div className="flex items-start gap-3 mb-3">
-                  <MapPin className="w-5 h-5 text-[#FFD400] mt-1 flex-shrink-0" />
-                  <h3 className="text-white font-bold leading-tight">
-                    {item.countries}
-                  </h3>
+            <div className="grid gap-6 md:grid-cols-2 relative z-10">
+              {schedules.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-[#1A1A1A] to-[#0C0C0C] border-2 border-[#FFD400]/30 rounded-2xl p-6 hover:border-[#FFD400]/60 transition-all duration-300 hover-lift hover:shadow-[0_0_30px_rgba(255,212,0,0.3)]"
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <MapPin className="w-6 h-6 md:w-7 md:h-7 text-[#FFD400] mt-1 flex-shrink-0" />
+                    <h3 className="text-white font-black text-lg md:text-xl leading-tight">
+                      {item.countries}
+                    </h3>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Clock className="w-6 h-6 md:w-7 md:h-7 text-[#FFD400] mt-1 flex-shrink-0" />
+                    <p className="text-gray-200 font-bold text-base md:text-lg">
+                      {item.schedule}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-[#FFD400] mt-1 flex-shrink-0" />
-                  <p className="text-gray-300 font-medium">
-                    {item.schedule}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <div className="text-center">
+              <p className="text-gray-300 text-lg md:text-xl font-medium">
+                ✨ Recibirás recordatorios automáticos con tu hora exacta
+              </p>
+            </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-gray-400 italic">
-              El recordatorio siempre vendrá con tu hora exacta, no te preocupes <Heart className="inline w-5 h-5 text-red-500" />
+          {/* Mensaje de cierre */}
+          <div className="card-premium space-y-8 text-center relative overflow-hidden">
+            <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#FFD400] blur-[120px] opacity-10"></div>
+            <p className="text-2xl md:text-3xl text-white font-bold leading-relaxed relative z-10">
+              Guarda el enlace de Google Meet que te llega ahora
             </p>
+            <p className="text-xl md:text-2xl golden-text font-black relative z-10">
+              ✨ Entra cuando quieras con un solo clic ✨
+            </p>
+            
+            <div className="border-t-2 border-[#FFD400]/30 pt-8 relative z-10">
+              <p className="text-2xl md:text-3xl text-white font-bold mb-3">
+                Te abrazo muy fuerte.
+              </p>
+              <p className="text-2xl md:text-4xl golden-text font-black mb-6">
+                Esto es el comienzo de tu libertad. 🦋
+              </p>
+              <p className="text-gray-300 text-lg md:text-xl mb-2">
+                Con todo mi amor,
+              </p>
+              <p className="text-white font-black text-xl md:text-2xl mt-3">
+                Javier Vieira
+              </p>
+              <p className="text-gray-400 text-base md:text-lg mt-2">
+                Historias de la Mente
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Mensaje de cierre */}
-        <div className="card-premium space-y-6 text-center">
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            Guarda el enlace de Google Meet que te llega ahora y entra cuando quieras con un solo clic.
-          </p>
-          
-          <div className="border-t border-[#FFD400]/20 pt-6">
-            <p className="text-xl text-white mb-2">
-              Te abrazo muy fuerte.
-            </p>
-            <p className="text-lg golden-text font-bold mb-4">
-              Esto es el comienzo de tu libertad.
-            </p>
-            <p className="text-gray-400">
-              Con todo mi amor,
-            </p>
-            <p className="text-white font-bold mt-2">
-              Javier Vieira
-            </p>
-            <p className="text-gray-500 text-sm mt-1">
-              Historias de la Mente
-            </p>
+          {/* Botón volver */}
+          <div className="text-center pt-8 pb-8">
+            <Button
+              onClick={() => navigate("/")}
+              className="btn-cta-primary px-12 py-8 text-xl md:text-2xl font-black"
+            >
+              VOLVER AL INICIO
+            </Button>
           </div>
-        </div>
-
-        {/* Botón volver */}
-        <div className="text-center pt-8">
-          <Button
-            onClick={() => navigate("/")}
-            className="btn-cta-primary px-8 py-6 text-lg"
-          >
-            VOLVER AL INICIO
-          </Button>
         </div>
       </div>
     </div>
