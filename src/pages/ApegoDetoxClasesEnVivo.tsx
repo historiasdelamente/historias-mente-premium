@@ -83,38 +83,38 @@ const ApegoDetoxClasesEnVivo = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FFF5F5] via-white to-[#F5F5DC]">
+    <div className="min-h-screen bg-black text-white font-['Poppins',sans-serif]">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4">
-        <div className="max-w-5xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold text-[#8B7355] leading-tight">
+      <section className="relative pt-24 pb-20 px-4 bg-gradient-to-b from-black via-[#0C0C0C] to-black">
+        <div className="max-w-5xl mx-auto text-center space-y-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
             Clases En Vivo de<br />
-            <span className="text-[#C4A77D]">Apego Detox</span>
+            <span className="golden-text">Apego Detox</span>
           </h1>
-          <p className="text-xl md:text-2xl text-[#6B5B4B] max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Libérate del narcisista en tiempo real. Acompañamiento directo para romper el ciclo.
           </p>
         </div>
       </section>
 
       {/* Texto Emocional */}
-      <section className="py-12 px-4 bg-white/50">
+      <section className="py-16 px-4 bg-[#0C0C0C]">
         <div className="max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl text-[#6B5B4B] leading-relaxed text-center">
-            No estás sola. En estas sesiones en vivo aplicarás el método <span className="font-semibold text-[#C4A77D]">Apagón Emocional</span> con mi guía directa. 
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed text-center">
+            No estás sola. En estas sesiones en vivo aplicarás el método <span className="font-bold golden-text">Apagón Emocional</span> con mi guía directa. 
             Cada clase es un paso hacia tu libertad emocional. Un espacio seguro donde puedes preguntar, compartir y transformarte.
           </p>
         </div>
       </section>
 
       {/* Horarios Multi-País */}
-      <section className="py-16 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#8B7355] mb-4">
+      <section className="py-20 px-4 bg-gradient-to-b from-black to-[#0C0C0C]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black mb-4">
               Horarios por País
             </h2>
-            <p className="text-lg text-[#6B5B4B]">
+            <p className="text-lg md:text-xl text-gray-400">
               Elige el horario que mejor se adapte a ti
             </p>
           </div>
@@ -123,17 +123,17 @@ const ApegoDetoxClasesEnVivo = () => {
             {schedules.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg border-2 border-[#E8DCC8] hover:border-[#C4A77D] transition-all duration-300"
+                className="card-premium hover-lift group"
               >
                 <div className="flex items-start gap-3 mb-4">
-                  <MapPin className="w-5 h-5 text-[#C4A77D] mt-1 flex-shrink-0" />
-                  <h3 className="text-[#8B7355] font-semibold leading-tight">
+                  <MapPin className="w-5 h-5 text-[#FFD400] mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-white font-bold leading-tight">
                     {item.countries}
                   </h3>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-[#8A9A7B] mt-1 flex-shrink-0" />
-                  <p className="text-[#6B5B4B] font-medium">
+                  <Clock className="w-5 h-5 text-[#FFD400] mt-1 flex-shrink-0" />
+                  <p className="text-gray-300 font-medium">
                     {item.schedule}
                   </p>
                 </div>
@@ -141,14 +141,14 @@ const ApegoDetoxClasesEnVivo = () => {
             ))}
           </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-sm text-[#6B5B4B] max-w-2xl mx-auto leading-relaxed">
+          <div className="mt-12 text-center">
+            <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Usa{" "}
               <a
                 href="https://time.is/Bogotá"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C4A77D] hover:text-[#8B7355] underline"
+                className="text-[#FFD400] hover:text-[#FFC700] underline story-link"
               >
                 https://time.is/Bogotá
               </a>{" "}
@@ -157,7 +157,7 @@ const ApegoDetoxClasesEnVivo = () => {
                 href="https://time.is/Madrid"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C4A77D] hover:text-[#8B7355] underline"
+                className="text-[#FFD400] hover:text-[#FFC700] underline story-link"
               >
                 https://time.is/Madrid
               </a>{" "}
@@ -168,72 +168,77 @@ const ApegoDetoxClasesEnVivo = () => {
       </section>
 
       {/* Formulario */}
-      <section className="py-16 px-4 bg-gradient-to-b from-white to-[#FFF5F5]">
+      <section id="formulario" className="py-20 px-4 bg-[#0C0C0C]">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border-2 border-[#E8DCC8]">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#8B7355] text-center mb-6">
-              Reserva Tu Lugar
-            </h2>
-            <p className="text-center text-[#6B5B4B] mb-8">
-              Completa el formulario y te enviaremos el enlace de acceso
-            </p>
+          <div className="relative">
+            {/* Glow effect */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#FFD400] via-[#FFC700] to-[#FFD400] rounded-3xl opacity-20 blur-xl"></div>
+            
+            <div className="relative bg-black rounded-3xl p-8 md:p-12 border-2 border-[#FFD400]/30">
+              <h2 className="text-3xl md:text-4xl font-black text-center mb-6 golden-text">
+                Reserva Tu Lugar
+              </h2>
+              <p className="text-center text-gray-400 mb-8 text-lg">
+                Completa el formulario y te enviaremos el enlace de acceso
+              </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="nombre" className="text-[#8B7355] font-semibold">
-                  Nombre
-                </Label>
-                <Input
-                  id="nombre"
-                  type="text"
-                  value={nombre}
-                  onChange={(e) => setNombre(e.target.value)}
-                  placeholder="Tu nombre completo"
-                  required
-                  className="border-[#E8DCC8] focus:border-[#C4A77D] text-[#6B5B4B]"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="nombre" className="text-white font-semibold">
+                    Nombre
+                  </Label>
+                  <Input
+                    id="nombre"
+                    type="text"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    placeholder="Tu nombre completo"
+                    required
+                    className="bg-[#1A1A1A] border-[#FFD400]/30 focus:border-[#FFD400] text-white placeholder:text-gray-500"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-[#8B7355] font-semibold">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tu@email.com"
-                  required
-                  className="border-[#E8DCC8] focus:border-[#C4A77D] text-[#6B5B4B]"
-                />
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-white font-semibold">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="tu@email.com"
+                    required
+                    className="bg-[#1A1A1A] border-[#FFD400]/30 focus:border-[#FFD400] text-white placeholder:text-gray-500"
+                  />
+                </div>
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-[#C4A77D] hover:bg-[#8B7355] text-white font-semibold py-6 text-lg rounded-xl transition-all duration-300"
-              >
-                {isSubmitting ? "Enviando..." : "Quiero Mi Lugar en las Clases"}
-              </Button>
-            </form>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full btn-cta-primary py-6 text-lg"
+                >
+                  {isSubmitting ? "Enviando..." : "QUIERO MI LUGAR EN LAS CLASES 🔥"}
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 bg-[#8B7355] text-white text-center">
-        <p className="text-sm">
-          © 2025 Historias de la Mente • Javier Vieira
+      <footer className="py-12 px-4 bg-black border-t border-[#FFD400]/20 text-center">
+        <p className="text-gray-400">
+          © 2025 Historias de la Mente • <span className="golden-text">Javier Vieira</span>
         </p>
       </footer>
 
       {/* Botón Flotante */}
       <a
         href="#formulario"
-        className="fixed bottom-8 right-8 bg-[#C4A77D] hover:bg-[#8B7355] text-white px-6 py-3 rounded-full shadow-2xl font-semibold transition-all duration-300 hover:scale-105 z-50"
+        className="fixed bottom-8 right-8 bg-[#FFD400] hover:bg-[#FFC700] text-black px-6 py-4 rounded-full shadow-[0_10px_40px_rgba(255,212,0,0.5)] font-black transition-all duration-300 hover:scale-110 z-50 animate-pulse"
       >
-        Reservar Ahora
+        Reservar Ahora 🔥
       </a>
     </div>
   );
