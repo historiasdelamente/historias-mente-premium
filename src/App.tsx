@@ -11,6 +11,8 @@ import Cookies from "./pages/Cookies";
 import GraciasEvaluacion from "./pages/GraciasEvaluacion";
 import Unsubscribe from "./pages/Unsubscribe";
 import ApegoDetox from "./pages/ApegoDetox";
+import ApegoDetoxClasesEnVivo from "./pages/ApegoDetoxClasesEnVivo";
+import GraciasApegoDetox from "./pages/GraciasApegoDetox";
 import ClaseMeet from "./pages/ClaseMeet";
 import GraciasClaseMeet from "./pages/GraciasClaseMeet";
 
@@ -34,6 +36,8 @@ const App = () => (
           <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* Apego Detox */}
           <Route path="/apegodetox" element={<ApegoDetox />} />
+          <Route path="/apego-detox-clases-en-vivo" element={<ApegoDetoxClasesEnVivo />} />
+          <Route path="/gracias-apego-detox" element={<GraciasApegoDetox />} />
           {/* Clase Meet Lead Magnet */}
           <Route path="/clase-gratuita" element={<ClaseMeet />} />
           <Route path="/gracias-clase" element={<GraciasClaseMeet />} />
