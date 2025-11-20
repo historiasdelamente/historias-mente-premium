@@ -60,13 +60,7 @@ const ApegoDetox = () => {
 
       {/* 1️⃣ HERO PRINCIPAL */}
       <section 
-        className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
+        className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-[#0C0C0C] to-black"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"></div>
         
