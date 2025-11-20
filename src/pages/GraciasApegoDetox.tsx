@@ -33,14 +33,7 @@ const GraciasApegoDetox = () => {
           />
         </div>
 
-        {/* Hero Image Banner */}
-        <div className="relative w-full">
-          <img 
-            src={heroImage} 
-            alt="Ya estás registrada en la clase" 
-            className="w-full h-auto object-contain"
-          />
-        </div>
+        {/* Content Section */}
 
         {/* Content Section */}
         <div className="px-4 sm:px-6 py-8 md:py-12 space-y-8 md:space-y-12 max-w-5xl mx-auto">
