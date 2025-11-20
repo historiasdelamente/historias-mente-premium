@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from 'react';
 import heroImage from "@/assets/apego-detox-hero.jpg";
+import bannerHero from "@/assets/apego-detox-banner-hero.png";
 import javierImage from "@/assets/javier-vieira.png";
 import { Video, Calendar, FileText, Mail, Users, Gift, CheckCircle2, Clock, Heart, Shield, Sparkles, ArrowRight, Star, Zap, TrendingUp, Brain, Target } from "lucide-react";
 
@@ -48,6 +49,15 @@ const ApegoDetox = () => {
   return (
     <div className="min-h-screen bg-black text-white font-['Poppins',sans-serif] overflow-x-hidden">
       
+      {/* Banner Superior */}
+      <div className="relative w-full">
+        <img 
+          src={bannerHero} 
+          alt="Sé que quieres irte... pero algo dentro de ti no te deja" 
+          className="w-full h-auto object-cover"
+        />
+      </div>
+
       {/* 1️⃣ HERO PRINCIPAL */}
       <section 
         className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden"
