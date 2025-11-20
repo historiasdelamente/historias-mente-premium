@@ -65,10 +65,10 @@ const ApegoDetox = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"></div>
         
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 leading-tight text-white">
-            APRENDISTE A AMAR A QUIEN TE DESTRUYÓ…
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 md:mb-8 leading-tight text-white">
+            <span className="block">Es el momento de romper lo que no ves…</span>
             <span className="block mt-3 md:mt-4 text-[#FFD400]">
-              AHORA APRENDERÁS A AMARTE A TI
+              y comenzar a sanar lo que sí sientes.
             </span>
           </h1>
           
