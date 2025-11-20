@@ -3,6 +3,7 @@ import { CheckCircle, Mail, Clock, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/clase-registrada-hero.png";
+import bannerHero from "@/assets/apego-detox-banner-hero.png";
 
 const GraciasApegoDetox = () => {
   const navigate = useNavigate();
@@ -23,6 +24,15 @@ const GraciasApegoDetox = () => {
     <div className="min-h-screen bg-gradient-to-b from-black via-[#0C0C0C] to-black text-white font-['Poppins',sans-serif]">
       <div className="max-w-6xl mx-auto animate-fade-in">
         
+        {/* Top Banner Hero */}
+        <div className="relative w-full">
+          <img 
+            src={bannerHero} 
+            alt="Sé que quieres irte... pero algo dentro de ti no te deja" 
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
         {/* Hero Image Banner */}
         <div className="relative w-full">
           <img 
