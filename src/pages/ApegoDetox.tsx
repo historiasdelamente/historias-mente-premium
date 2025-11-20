@@ -73,9 +73,7 @@ const ApegoDetox = () => {
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-gray-200 leading-relaxed max-w-3xl mx-auto">
-            <strong>Apego Detox</strong> es el programa intensivo para mujeres que no logran soltar al narcisista. 
-            Aquí entenderás por qué vuelves una y otra vez, y aprenderás un método claro para romper el vínculo traumático, 
-            desintoxicar tu mente y recuperar tu poder.
+            Aquí entiendes por qué no has podido soltar… y cómo dejar de volver a quien te rompe.
           </p>
           
           <a 
