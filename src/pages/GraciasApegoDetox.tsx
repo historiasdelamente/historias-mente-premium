@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { CheckCircle, Mail, Clock, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import heroImage from "@/assets/clase-registrada-hero.png";
-import bannerHero from "@/assets/apego-detox-banner-hero.png";
+import bannerHero from "@/assets/apego-detox-fecha-banner.png";
 
 const GraciasApegoDetox = () => {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const GraciasApegoDetox = () => {
         <div className="relative w-full">
           <img 
             src={bannerHero} 
-            alt="Sé que quieres irte... pero algo dentro de ti no te deja" 
+            alt="Esta fecha marcará un antes y a la después en tu vida" 
             className="w-full h-auto object-cover"
           />
         </div>
