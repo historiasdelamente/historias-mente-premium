@@ -60,7 +60,7 @@ const ApegoDetox = () => {
 
       {/* 1️⃣ HERO PRINCIPAL */}
       <section 
-        className="relative min-h-[60vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-[#0C0C0C] to-black py-12 md:py-0"
+        className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-[#0C0C0C] to-black py-12 md:py-8"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"></div>
         
