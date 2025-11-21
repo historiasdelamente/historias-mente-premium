@@ -16,10 +16,12 @@ const GraciasClaseMeet = () => {
           alt="¡Felicidades! Ya estás inscrita a la clase"
           className="w-full h-auto object-cover"
         />
+        {/* Dark overlay for consistency */}
+        <div className="absolute inset-0 bg-black/40"></div>
       </section>
 
       {/* SECCIÓN 1 - CTA PRINCIPAL WHATSAPP (PRIORIDAD #1) */}
-      <section className="relative py-12 md:py-20 bg-gradient-to-br from-[#25D366]/15 via-black to-[#25D366]/5 border-b-4 border-[#25D366] sticky top-0 z-10" style={{ backdropFilter: 'blur(10px)' }}>
+      <section className="relative py-12 md:py-20 bg-gradient-to-br from-[#25D366]/15 via-black to-[#25D366]/5 border-b-4 border-[#25D366]">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center mb-6">
             <h2 className="text-2xl md:text-4xl font-bold mb-4 text-white leading-tight">
