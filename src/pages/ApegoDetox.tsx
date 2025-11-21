@@ -4,6 +4,7 @@ import heroImage from "@/assets/apego-detox-hero.jpg";
 import bannerHero from "@/assets/apego-detox-banner-hero.png";
 import javierImage from "@/assets/javier-vieira.png";
 import mujerCelular from "@/assets/mujer-celular-sintomas.png";
+import mujerSunset from "@/assets/mujer-brazos-abiertos-sunset.png";
 import { Video, Calendar, FileText, Mail, Users, Gift, CheckCircle2, Clock, Heart, Shield, Sparkles, ArrowRight, Star, Zap, TrendingUp, Brain, Target } from "lucide-react";
 
 const ApegoDetox = () => {
@@ -565,6 +566,221 @@ const ApegoDetox = () => {
               className="inline-flex justify-center items-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-extrabold text-lg sm:text-xl md:text-2xl px-12 py-6 md:px-16 md:py-7 rounded-full shadow-[0_0_40px_rgba(204,255,0,0.7)] hover:shadow-[0_0_60px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer w-full md:w-auto max-w-2xl"
             >
               <span>SÍ, QUIERO LIBERARME AHORA</span>
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Sección Testimonios - Mujeres que ya están del otro lado */}
+      <section className="bg-zinc-900 py-16 px-4 md:py-24 md:px-6 lg:py-32 lg:px-8 w-full">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Imagen Hero con texto overlay */}
+          <div className="w-full mb-12 md:mb-16 lg:mb-20 relative overflow-hidden px-4">
+            <div className="relative w-full h-80 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={mujerSunset} 
+                alt="Mujer libre con brazos abiertos al atardecer" 
+                className="w-full h-full object-cover object-center"
+              />
+              
+              {/* Overlay gradiente */}
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/50 to-transparent z-10 rounded-3xl"></div>
+              
+              {/* Texto sobre la imagen */}
+              <div className="absolute bottom-8 md:bottom-12 lg:bottom-16 left-6 md:left-12 right-6 md:right-12 z-20 text-center">
+                <h3 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black drop-shadow-2xl mb-3 leading-tight">
+                  Este puede ser tu amanecer
+                </h3>
+                <p className="text-yellow-400 text-lg sm:text-xl md:text-2xl font-bold drop-shadow-xl">
+                  2,847 mujeres ya lo lograron. Tú eres la siguiente.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Título principal */}
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center leading-tight mb-4 md:mb-6 px-4">
+            MUJERES QUE YA ESTÁN DEL OTRO LADO
+          </h2>
+
+          {/* Subtítulo */}
+          <p className="text-yellow-400 text-xl sm:text-2xl md:text-3xl font-bold text-center mb-12 md:mb-16 lg:mb-20 max-w-4xl mx-auto px-4">
+            Esto es lo que pasa cuando entiendes que no era amor, era trauma bonding
+          </p>
+
+          {/* Grid de testimonios */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4">
+            
+            {/* Testimonio 1 */}
+            <div className="bg-black p-6 sm:p-8 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4 relative min-h-[400px]">
+              {/* Estrellas */}
+              <div className="flex justify-center text-yellow-400 text-xl md:text-2xl mb-3 z-10">
+                ⭐⭐⭐⭐⭐
+              </div>
+              
+              {/* Comillas decorativas */}
+              <span className="text-yellow-400 text-6xl md:text-7xl font-black opacity-10 absolute top-8 left-4 z-0">"</span>
+              
+              {/* Texto del testimonio */}
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed italic mb-6 z-10 relative">
+                "Estuve 3 años intentando 'olvidarlo' con fuerza de voluntad. Bloqueándolo, desbloqueándolo, llorando cada noche. En 4 semanas con Apego Detox entendí que mi cerebro estaba químicamente enganchado. Hoy llevo 8 meses sin escribirle, sin acosarlo en redes, sin llorar. No fue fuerza de voluntad. Fue entender cómo funciona el trauma bonding."
+              </p>
+              
+              {/* Separador */}
+              <div className="w-12 h-1 bg-yellow-400 mx-auto mb-4 rounded-full"></div>
+              
+              {/* Nombre */}
+              <p className="text-white text-lg md:text-xl font-bold text-center mb-1">
+                Andrea M.
+              </p>
+              
+              {/* Edad y ubicación */}
+              <p className="text-gray-500 text-sm md:text-base text-center">
+                34 años, Bogotá
+              </p>
+            </div>
+
+            {/* Testimonio 2 */}
+            <div className="bg-black p-6 sm:p-8 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4 relative min-h-[400px]">
+              <div className="flex justify-center text-yellow-400 text-xl md:text-2xl mb-3 z-10">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <span className="text-yellow-400 text-6xl md:text-7xl font-black opacity-10 absolute top-8 left-4 z-0">"</span>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed italic mb-6 z-10 relative">
+                "Pensé que era la única idiota que seguía amando a alguien que me humilló públicamente. La comunidad me salvó. A las 2am cuando quería mandarle 'te extraño', les escribía a ellas. Me respondían en 5 minutos. Sin juzgarme. Sin decirme 'ya supéralo'. Hoy soy yo la que ayuda a las nuevas."
+              </p>
+              <div className="w-12 h-1 bg-yellow-400 mx-auto mb-4 rounded-full"></div>
+              <p className="text-white text-lg md:text-xl font-bold text-center mb-1">
+                Carolina R.
+              </p>
+              <p className="text-gray-500 text-sm md:text-base text-center">
+                29 años, Medellín
+              </p>
+            </div>
+
+            {/* Testimonio 3 */}
+            <div className="bg-black p-6 sm:p-8 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4 relative min-h-[400px]">
+              <div className="flex justify-center text-yellow-400 text-xl md:text-2xl mb-3 z-10">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <span className="text-yellow-400 text-6xl md:text-7xl font-black opacity-10 absolute top-8 left-4 z-0">"</span>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed italic mb-6 z-10 relative">
+                "Lo mejor fue que Javier no me dijo 'perdónalo' ni 'trabaja en ti'. Me dijo la verdad: era un narcisista y yo estaba enganchada. Eso me liberó de la culpa. Las tareas diarias fueron mi salvación. 15 minutos al día que me devolvieron la vida."
+              </p>
+              <div className="w-12 h-1 bg-yellow-400 mx-auto mb-4 rounded-full"></div>
+              <p className="text-white text-lg md:text-xl font-bold text-center mb-1">
+                Valentina S.
+              </p>
+              <p className="text-gray-500 text-sm md:text-base text-center">
+                41 años, Cali
+              </p>
+            </div>
+
+            {/* Testimonio 4 */}
+            <div className="bg-black p-6 sm:p-8 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4 relative min-h-[400px]">
+              <div className="flex justify-center text-yellow-400 text-xl md:text-2xl mb-3 z-10">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <span className="text-yellow-400 text-6xl md:text-7xl font-black opacity-10 absolute top-8 left-4 z-0">"</span>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed italic mb-6 z-10 relative">
+                "Tenemos un hijo juntos, entonces no puedo hacer contacto cero. Javier me enseñó la técnica del 'contacto gris' y cómo no caer en sus manipulaciones cuando viene a recoger al niño. Por primera vez en 2 años, puedo verlo sin que me tiemble el cuerpo."
+              </p>
+              <div className="w-12 h-1 bg-yellow-400 mx-auto mb-4 rounded-full"></div>
+              <p className="text-white text-lg md:text-xl font-bold text-center mb-1">
+                Patricia L.
+              </p>
+              <p className="text-gray-500 text-sm md:text-base text-center">
+                37 años, Cartagena
+              </p>
+            </div>
+
+            {/* Testimonio 5 */}
+            <div className="bg-black p-6 sm:p-8 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4 relative min-h-[400px]">
+              <div className="flex justify-center text-yellow-400 text-xl md:text-2xl mb-3 z-10">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <span className="text-yellow-400 text-6xl md:text-7xl font-black opacity-10 absolute top-8 left-4 z-0">"</span>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed italic mb-6 z-10 relative">
+                "El módulo de 'cómo vengarte sin que se dé cuenta' cambió mi vida. No fue venganza tóxica. Fue recuperar mi poder. Él sigue intentando manipularme y yo ya no caigo. Esa es mi venganza: que ya no me puede tocar emocionalmente."
+              </p>
+              <div className="w-12 h-1 bg-yellow-400 mx-auto mb-4 rounded-full"></div>
+              <p className="text-white text-lg md:text-xl font-bold text-center mb-1">
+                Daniela G.
+              </p>
+              <p className="text-gray-500 text-sm md:text-base text-center">
+                31 años, Barranquilla
+              </p>
+            </div>
+
+            {/* Testimonio 6 */}
+            <div className="bg-black p-6 sm:p-8 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4 relative min-h-[400px]">
+              <div className="flex justify-center text-yellow-400 text-xl md:text-2xl mb-3 z-10">
+                ⭐⭐⭐⭐⭐
+              </div>
+              <span className="text-yellow-400 text-6xl md:text-7xl font-black opacity-10 absolute top-8 left-4 z-0">"</span>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed italic mb-6 z-10 relative">
+                "Gasté $800 USD en terapia tradicional durante 6 meses. Me decían 'perdónalo', 'cierra ciclos', pura teoría. En 4 semanas con este programa hice más avances que en todo ese año. Porque Javier habla directo, sin rodeos, y te da herramientas REALES."
+              </p>
+              <div className="w-12 h-1 bg-yellow-400 mx-auto mb-4 rounded-full"></div>
+              <p className="text-white text-lg md:text-xl font-bold text-center mb-1">
+                Sofía P.
+              </p>
+              <p className="text-gray-500 text-sm md:text-base text-center">
+                45 años, Bucaramanga
+              </p>
+            </div>
+
+          </div>
+
+          {/* Card de estadísticas */}
+          <div className="bg-gradient-to-br from-yellow-400/20 to-transparent border-2 border-yellow-400 p-8 md:p-12 rounded-2xl max-w-5xl mx-auto mt-12 md:mt-16 mx-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 text-center">
+              
+              {/* Estadística 1 */}
+              <div>
+                <p className="text-[#CCFF00] text-4xl sm:text-5xl md:text-6xl font-black mb-3 leading-none">
+                  2,847
+                </p>
+                <p className="text-white text-base md:text-lg font-semibold">
+                  Mujeres liberadas
+                </p>
+              </div>
+
+              {/* Estadística 2 */}
+              <div>
+                <p className="text-[#CCFF00] text-4xl sm:text-5xl md:text-6xl font-black mb-3 leading-none">
+                  4.9/5
+                </p>
+                <p className="text-white text-base md:text-lg font-semibold">
+                  Calificación promedio
+                </p>
+              </div>
+
+              {/* Estadística 3 */}
+              <div>
+                <p className="text-[#CCFF00] text-4xl sm:text-5xl md:text-6xl font-black mb-3 leading-none">
+                  94%
+                </p>
+                <p className="text-white text-base md:text-lg font-semibold">
+                  No volvió con él
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Botón CTA final */}
+          <div className="flex justify-center mt-10 md:mt-12 px-4">
+            <a
+              href={hotmartLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-extrabold text-lg sm:text-xl md:text-2xl px-12 py-6 md:px-16 md:py-7 rounded-full shadow-[0_0_40px_rgba(204,255,0,0.7)] hover:shadow-[0_0_60px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer w-full sm:w-auto max-w-2xl"
+            >
+              <span>QUIERO SER LA SIGUIENTE</span>
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </div>
