@@ -219,6 +219,363 @@ const ApegoDetox = () => {
         </div>
       </section>
 
+      {/* Nueva Sección: TODO LO QUE INCLUYE */}
+      <section className="bg-black py-16 px-4 md:py-24 md:px-6 lg:py-32 lg:px-8 w-full">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Título Principal */}
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center leading-tight mb-4 md:mb-6">
+            TODO LO QUE INCLUYE APEGO DETOX
+          </h2>
+          
+          {/* Subtítulo */}
+          <p className="text-yellow-400 text-xl sm:text-2xl md:text-3xl font-bold text-center mb-12 md:mb-16 lg:mb-20 max-w-4xl mx-auto">
+            Las respuestas reales a las preguntas que siempre me hacen
+          </p>
+
+          {/* Grid de Beneficios */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+            
+            {/* Card 1 */}
+            <div className="bg-zinc-900 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4">
+              <div className="bg-yellow-400 text-black text-2xl md:text-3xl font-black w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
+                1
+              </div>
+              <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                LIBRO DIGITAL 'APAGÓN EMOCIONAL'
+              </h3>
+              <p className="text-yellow-400 text-base md:text-lg font-semibold mb-3">
+                (Valor: $15 USD)
+              </p>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                El libro que responde lo que realmente necesitas saber. Sin rodeos, sin 'perdónalo', sin 'trabaja en ti'.
+              </p>
+              <ul className="text-gray-300 text-sm md:text-base flex flex-col gap-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Cómo dejarlo sin sentir que te arrancas el alma</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Por qué sigues revisando su WhatsApp aunque sabes que te hace daño</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>La diferencia entre amor real y adicción emocional</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Por qué él te eligió a ti (y cómo evitar que vuelva a pasar)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Qué hacer cuando te busca después de meses de silencio</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Cómo responderle (o no responderle) cuando te escribe</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-zinc-900 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4">
+              <div className="bg-yellow-400 text-black text-2xl md:text-3xl font-black w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
+                2
+              </div>
+              <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                PSICOEDUCACIÓN 24/7 EN VIDEO
+              </h3>
+              <p className="text-yellow-400 text-base md:text-lg font-semibold mb-3">
+                (Valor: $75 USD)
+              </p>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                12 módulos en video donde te explico TODO lo que ningún psicólogo te dice en consulta.
+              </p>
+              <ul className="text-gray-300 text-sm md:text-base flex flex-col gap-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Cómo vengarte del narcisista (sin que él se dé cuenta)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Las 3 frases que SIEMPRE funcionan para desarmarlo</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Por qué el contacto cero NO funciona si no entiendes esto</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Qué hacer si trabajan juntos o tienen hijos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Cómo saber si realmente era narcisista o solo un hijo de puta normal</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>La táctica del 'hoovering': cuando vuelve arrepentido</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Cómo no caer cuando te promete que cambió</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Señales de que NUNCA va a cambiar (aunque llore)</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-zinc-900 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4">
+              <div className="bg-yellow-400 text-black text-2xl md:text-3xl font-black w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
+                3
+              </div>
+              <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                TALLERES GRUPALES EN VIVO
+              </h3>
+              <p className="text-yellow-400 text-base md:text-lg font-semibold mb-3">
+                (Valor: $200 USD)
+              </p>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                4 horas semanales x 4 semanas conmigo en vivo. Aquí hablamos sin filtros de lo que realmente quieres preguntarme.
+              </p>
+              <ul className="text-gray-300 text-sm md:text-base flex flex-col gap-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>"¿Cómo hago para no responderle cuando está borracho?"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>"¿Es normal que todavía fantasee con que vuelva?"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>"¿Cómo le explico a mi familia que no es tan fácil dejarlo?"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>"¿Puedo mandarle un último mensaje de despedida?"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>"¿Cómo me vengo sin parecer despechada?"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>"¿Cuándo voy a dejar de llorar por él?"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>"¿Por qué ya está con otra y yo sigo destrozada?"</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-zinc-900 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4">
+              <div className="bg-yellow-400 text-black text-2xl md:text-3xl font-black w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
+                4
+              </div>
+              <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                COMUNIDAD PRIVADA 24/7
+              </h3>
+              <p className="text-yellow-400 text-base md:text-lg font-semibold mb-3">
+                (Acceso de por vida)
+              </p>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                El grupo donde las 3am cuando quieres escribirle, nos escribes a nosotras primero.
+              </p>
+              <ul className="text-gray-300 text-sm md:text-base flex flex-col gap-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Mujeres que NO te dirán "ya supéralo"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Alguien despierto cuando colapses a medianoche</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Cero juicios si recaíste y le escribiste</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Ayuda para bloquear su número otra vez</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Traducción de sus mensajes confusos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Qué responder cuando te dice "podemos ser amigos"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Apoyo cuando veas que subió foto con otra</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-zinc-900 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4">
+              <div className="bg-yellow-400 text-black text-2xl md:text-3xl font-black w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
+                5
+              </div>
+              <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                TAREAS DIARIAS EN PDF
+              </h3>
+              <p className="text-yellow-400 text-base md:text-lg font-semibold mb-3">
+                (Valor: $50 USD)
+              </p>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                Ejercicios de 15 minutos diarios. No teoría abstracta. Acciones concretas que desactivan el apego.
+              </p>
+              <ul className="text-gray-300 text-sm md:text-base flex flex-col gap-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>La carta que escribes pero NUNCA envías (y por qué funciona)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>El ejercicio de los "dos futuros" (con él vs sin él en 5 años)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Cómo borrar sus fotos sin sentir que lo pierdes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Qué hacer con los regalos que te dio</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>El ritual de cierre que necesitas hacer</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Plan de emergencia para crisis nocturnas</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Audio guiado para dormir sin pensar en él</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 6 */}
+            <div className="bg-zinc-900 p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-zinc-800 hover:border-yellow-400 hover:scale-[1.02] transition-all duration-300 flex flex-col gap-4">
+              <div className="bg-yellow-400 text-black text-2xl md:text-3xl font-black w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center">
+                6
+              </div>
+              <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                OPCIÓN DE SESIONES 1 A 1
+              </h3>
+              <p className="text-yellow-400 text-base md:text-lg font-semibold mb-3">
+                (Acceso prioritario)
+              </p>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+                Si tu caso es complejo, tienes acceso directo a sesiones privadas conmigo.
+              </p>
+              <ul className="text-gray-300 text-sm md:text-base flex flex-col gap-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Ideal si hay abuso físico o económico de por medio</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Si tienen hijos juntos y no puedes hacer contacto cero</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Si trabajas con él o comparten círculo social</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Si te sientes en peligro si lo dejas</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Si estás embarazada y no sabes qué hacer</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Si necesitas estrategia legal (separación, custodia)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#CCFF00] shrink-0">✓</span>
+                  <span>Si tienes pánico de quedarte sola</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* Card Especial de Precio */}
+          <div className="bg-gradient-to-br from-yellow-400/20 to-yellow-400/5 border-4 border-yellow-400 p-8 md:p-12 rounded-3xl text-center max-w-4xl mx-auto mt-10 md:mt-16">
+            
+            <p className="text-white text-xl md:text-2xl font-bold mb-3">
+              VALOR REAL DE TODO ESTO:
+            </p>
+            
+            <p className="text-gray-500 text-3xl md:text-4xl font-black line-through mb-4">
+              $365 USD
+            </p>
+            
+            <p className="text-white text-lg md:text-xl mb-6">
+              PERO HOY NO PAGAS ESO.
+            </p>
+            
+            <p className="text-yellow-400 text-2xl md:text-3xl font-bold mb-2">
+              INVERSIÓN REAL:
+            </p>
+            
+            <p className="text-[#CCFF00] text-5xl md:text-6xl lg:text-7xl font-black mb-3">
+              $125 USD
+            </p>
+            
+            <p className="text-gray-400 text-base md:text-lg italic mb-4">
+              (Menos que 3 cenas que te pagó para manipularte)
+            </p>
+            
+            <p className="text-white text-lg md:text-xl font-semibold mb-2">
+              O 3 CUOTAS DE $45 USD
+            </p>
+            
+            <p className="text-gray-400 text-sm md:text-base italic mb-8">
+              (Menos que lo que gastas mensual en terapia que no funciona)
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              <span className="bg-black/50 px-4 py-2 rounded-full text-white text-sm md:text-base inline-flex items-center gap-2">
+                ✓ Garantía de 7 días
+              </span>
+              <span className="bg-black/50 px-4 py-2 rounded-full text-white text-sm md:text-base inline-flex items-center gap-2">
+                ✓ Solo 15 cupos este mes
+              </span>
+              <span className="bg-black/50 px-4 py-2 rounded-full text-white text-sm md:text-base inline-flex items-center gap-2">
+                ✓ Acceso inmediato
+              </span>
+            </div>
+
+            {/* Botón CTA */}
+            <a
+              href={hotmartLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex justify-center items-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-extrabold text-lg sm:text-xl md:text-2xl px-12 py-6 md:px-16 md:py-7 rounded-full shadow-[0_0_40px_rgba(204,255,0,0.7)] hover:shadow-[0_0_60px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer w-full md:w-auto max-w-2xl"
+            >
+              <span>SÍ, QUIERO LIBERARME AHORA</span>
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+          </div>
+
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-black border-t border-gray-800 py-8 px-4 text-center text-gray-400 text-sm">
         <p>© 2025 Historias de la Mente. Todos los derechos reservados.</p>
