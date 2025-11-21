@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Check, Calendar, Clock } from "lucide-react";
-import heroPhoto from "@/assets/mujer-historias-hero.png";
+import heroPhoto from "@/assets/mujer-apuntando.png";
 import javierPhoto from "@/assets/javier-vieira-lead.png";
 
 const ClaseMeet = () => {
