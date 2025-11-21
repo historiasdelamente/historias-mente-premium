@@ -2,12 +2,22 @@ import { Button } from "@/components/ui/button";
 import { Check, Calendar, Clock, MapPin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import heroBanner from "@/assets/clase-registrada-hero.png";
 
 const GraciasClaseMeet = () => {
   const whatsappUrl = "https://chat.whatsapp.com/HO5TdPB0V8422JTLbNfwEE";
 
   return (
     <div className="min-h-screen bg-background">
+      {/* HERO BANNER */}
+      <section className="relative w-full">
+        <img 
+          src={heroBanner} 
+          alt="¡Felicidades! Ya estás inscrita a la clase"
+          className="w-full h-auto object-cover"
+        />
+      </section>
+
       {/* SECCIÓN 1 - CONFIRMACIÓN */}
       <section className="relative py-16 md:py-24 bg-gradient-to-b from-black via-black to-background border-b border-[#D4AF37]/20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
