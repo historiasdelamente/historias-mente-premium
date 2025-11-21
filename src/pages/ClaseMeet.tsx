@@ -98,7 +98,7 @@ const ClaseMeet = () => {
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-[#D4AF37]" />
-              <span>1:00 PM o 8:00 PM (Elige tu horario)</span>
+              <span>1:00 PM Hora Colombia</span>
             </div>
           </div>
         </div>
