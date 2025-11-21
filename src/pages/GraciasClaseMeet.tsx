@@ -10,14 +10,20 @@ const GraciasClaseMeet = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* HERO BANNER */}
-      <section className="relative w-full">
-        <img 
-          src={heroBanner} 
-          alt="¡Felicidades! Ya estás inscrita a la clase"
-          className="w-full h-auto object-cover"
-        />
-        {/* Dark overlay for consistency */}
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section className="relative w-full overflow-hidden">
+        <div className="relative h-[200px] md:h-[280px]">
+          <img 
+            src={heroBanner} 
+            alt="¡Felicidades! Ya estás inscrita a la clase"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black"></div>
+          
+          {/* Decorative elements */}
+          <div className="absolute top-4 right-4 md:top-6 md:right-6 w-16 h-16 md:w-20 md:h-20 bg-[#D4AF37]/20 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 w-20 h-20 md:w-24 md:h-24 bg-primary/20 rounded-full blur-2xl"></div>
+        </div>
       </section>
 
       {/* SECCIÓN 1 - CTA PRINCIPAL WHATSAPP (PRIORIDAD #1) */}
