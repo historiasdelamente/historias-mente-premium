@@ -534,19 +534,15 @@ const ApegoDetox = () => {
             </p>
             
             <p className="text-[#CCFF00] text-5xl md:text-6xl lg:text-7xl font-black mb-3">
-              $125 USD
+              $25 USD
             </p>
             
             <p className="text-gray-400 text-base md:text-lg italic mb-4">
               (Menos que 3 cenas que te pagó para manipularte)
             </p>
             
-            <p className="text-white text-lg md:text-xl font-semibold mb-2">
-              O 3 CUOTAS DE $45 USD
-            </p>
-            
-            <p className="text-gray-400 text-sm md:text-base italic mb-8">
-              (Menos que lo que gastas mensual en terapia que no funciona)
+            <p className="text-gray-500 text-xs md:text-sm italic opacity-60 mb-8">
+              (Pago mensual - Menos que una sesión de terapia)
             </p>
             
             <div className="flex flex-wrap justify-center gap-3 mb-10">
