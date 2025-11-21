@@ -1241,7 +1241,7 @@ const ApegoDetox = () => {
 
       {/* Botón flotante de WhatsApp - Profesional */}
       <a
-        href="https://wa.me/573001681053?text=Hola%2C%20quiero%20comprar%20pero%20tengo%20una%20pregunta"
+        href="https://wa.me/573044737168?text=Hola%2C%20quiero%20comprar%20pero%20tengo%20una%20pregunta"
         target="_blank"
         rel="noopener noreferrer"
         className="group fixed bottom-6 md:bottom-8 right-6 md:right-8 z-50"
@@ -1256,8 +1256,7 @@ const ApegoDetox = () => {
 
           {/* Texto del botón */}
           <div className="hidden md:flex flex-col text-white">
-            <span className="text-xs font-medium opacity-90">¿Tienes preguntas?</span>
-            <span className="text-sm font-bold">+57 300 168 1053</span>
+            <span className="text-sm font-bold">¿Tienes preguntas?</span>
           </div>
 
           {/* Badge de notificación */}
