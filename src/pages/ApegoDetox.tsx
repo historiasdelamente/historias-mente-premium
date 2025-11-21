@@ -60,16 +60,6 @@ const ApegoDetox = () => {
 
       {/* 1️⃣ HERO PRINCIPAL */}
       <section className="relative bg-black">
-        {/* Imagen de fondo con overlay */}
-        <div className="relative">
-          <img 
-            src={heroImage} 
-            alt="Apego Detox - Liberación Emocional" 
-            className="w-full h-auto object-cover"
-          />
-          <div className="absolute inset-0 bg-black/85"></div>
-        </div>
-        
         {/* Contenedor de texto */}
         <div className="bg-black py-12 md:py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
