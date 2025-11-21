@@ -2,12 +2,24 @@ import { Button } from "@/components/ui/button";
 import { Check, Calendar, Clock, MapPin, Mail, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import heroBanner from "@/assets/gracias-clase-hero.png";
 
 const GraciasClaseMeet = () => {
   const whatsappUrl = "https://chat.whatsapp.com/IqnYS92WRDwCtkPDH7fREk";
 
   return (
     <div className="min-h-screen bg-background">
+      {/* HERO BANNER */}
+      <section className="relative w-full">
+        <img 
+          src={heroBanner} 
+          alt="¡Felicidades! Ya estás inscrita a la clase"
+          className="w-full h-auto object-cover"
+        />
+        {/* Dark overlay for consistency */}
+        <div className="absolute inset-0 bg-black/40"></div>
+      </section>
+
       {/* SECCIÓN 1 - CTA PRINCIPAL WHATSAPP (PRIORIDAD #1) */}
       <section className="relative py-8 md:py-20 bg-gradient-to-br from-[#25D366]/15 via-black to-[#25D366]/5 border-b-4 border-[#25D366]">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
