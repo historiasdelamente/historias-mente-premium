@@ -10,11 +10,11 @@ const GraciasClaseMeet = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* HERO BANNER */}
-      <section className="relative w-full h-[30vh] md:h-auto overflow-hidden">
+      <section className="relative w-full">
         <img 
           src={heroBanner} 
           alt="¡Felicidades! Ya estás inscrita a la clase"
-          className="w-full h-full md:h-auto object-cover"
+          className="w-full h-auto object-cover"
         />
         {/* Dark overlay for consistency */}
         <div className="absolute inset-0 bg-black/40"></div>
