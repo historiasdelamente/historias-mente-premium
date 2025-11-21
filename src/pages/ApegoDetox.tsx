@@ -10,6 +10,7 @@ import { Video, Calendar, FileText, Mail, Users, Gift, CheckCircle2, Clock, Hear
 const ApegoDetox = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [timeLeft, setTimeLeft] = useState({ hours: 48, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     // Load Hotmart script
@@ -36,8 +37,34 @@ const ApegoDetox = () => {
       setShowCookieBanner(true);
     }
 
+    // Countdown timer
+    const countdownInterval = setInterval(() => {
+      setTimeLeft((prev) => {
+        let { hours, minutes, seconds } = prev;
+        
+        if (seconds > 0) {
+          seconds--;
+        } else if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else if (hours > 0) {
+          hours--;
+          minutes = 59;
+          seconds = 59;
+        } else {
+          // Reset to 48 hours when countdown ends
+          hours = 48;
+          minutes = 0;
+          seconds = 0;
+        }
+        
+        return { hours, minutes, seconds };
+      });
+    }, 1000);
+
     return () => {
       document.body.removeChild(script);
+      clearInterval(countdownInterval);
     };
   }, []);
 
@@ -1016,6 +1043,159 @@ const ApegoDetox = () => {
               <span>COMENZAR MI RECUPERACIÓN AHORA</span>
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Sección Final - Última Llamada */}
+      <section className="bg-gradient-to-b from-zinc-900 to-black py-16 px-4 md:py-24 md:px-6 lg:py-32 lg:px-8 w-full">
+        <div className="max-w-5xl mx-auto">
+          
+          {/* Card grande con borde amarillo brillante */}
+          <div className="bg-zinc-900 border-4 border-yellow-400 rounded-3xl p-8 md:p-12 lg:p-16 shadow-[0_0_60px_rgba(255,215,0,0.4)]">
+            
+            {/* Contador regresivo */}
+            <div className="text-center mb-8 md:mb-12">
+              <p className="text-white text-xl md:text-2xl font-bold mb-6">
+                ESTA OFERTA TERMINA EN:
+              </p>
+              
+              <div className="flex justify-center gap-3 md:gap-4">
+                {/* Horas */}
+                <div className="bg-black border-2 border-[#CCFF00] rounded-2xl p-4 md:p-6 min-w-[80px] md:min-w-[100px] shadow-[0_0_20px_rgba(204,255,0,0.3)]">
+                  <div className="text-[#CCFF00] text-4xl md:text-5xl lg:text-6xl font-black">
+                    {String(timeLeft.hours).padStart(2, '0')}
+                  </div>
+                  <div className="text-gray-400 text-xs md:text-sm font-semibold mt-2">
+                    HORAS
+                  </div>
+                </div>
+
+                <div className="text-yellow-400 text-3xl md:text-4xl font-black self-center">:</div>
+
+                {/* Minutos */}
+                <div className="bg-black border-2 border-[#CCFF00] rounded-2xl p-4 md:p-6 min-w-[80px] md:min-w-[100px] shadow-[0_0_20px_rgba(204,255,0,0.3)]">
+                  <div className="text-[#CCFF00] text-4xl md:text-5xl lg:text-6xl font-black">
+                    {String(timeLeft.minutes).padStart(2, '0')}
+                  </div>
+                  <div className="text-gray-400 text-xs md:text-sm font-semibold mt-2">
+                    MINUTOS
+                  </div>
+                </div>
+
+                <div className="text-yellow-400 text-3xl md:text-4xl font-black self-center">:</div>
+
+                {/* Segundos */}
+                <div className="bg-black border-2 border-[#CCFF00] rounded-2xl p-4 md:p-6 min-w-[80px] md:min-w-[100px] shadow-[0_0_20px_rgba(204,255,0,0.3)]">
+                  <div className="text-[#CCFF00] text-4xl md:text-5xl lg:text-6xl font-black">
+                    {String(timeLeft.seconds).padStart(2, '0')}
+                  </div>
+                  <div className="text-gray-400 text-xs md:text-sm font-semibold mt-2">
+                    SEGUNDOS
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Título enorme */}
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center leading-tight mb-6 md:mb-8">
+              EN 4 SEMANAS PUEDES ESTAR LIBRE
+            </h2>
+
+            {/* Subtítulo */}
+            <p className="text-yellow-400 text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+              O en 4 semanas puedes seguir:
+            </p>
+
+            {/* Lista de consecuencias */}
+            <div className="bg-black border-l-4 border-red-500 rounded-xl p-6 md:p-8 mb-8 md:mb-12">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-red-500 text-2xl md:text-3xl shrink-0">❌</span>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Revisando su Instagram a las 3am
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-500 text-2xl md:text-3xl shrink-0">❌</span>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Comparando a todos con él
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-500 text-2xl md:text-3xl shrink-0">❌</span>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Memorizando su número 'por si acaso'
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-500 text-2xl md:text-3xl shrink-0">❌</span>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Llorando cuando veas que ya está con otra
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-red-500 text-2xl md:text-3xl shrink-0">❌</span>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Sintiéndote idiota por seguir pensando en él
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Separador dorado */}
+            <div className="h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mb-8 md:mb-12"></div>
+
+            {/* "Tú decides" */}
+            <p className="text-white text-3xl sm:text-4xl md:text-5xl font-black text-center mb-8 md:mb-12">
+              Tú decides.
+            </p>
+
+            {/* Card de precio */}
+            <div className="bg-black border-4 border-yellow-400 rounded-2xl p-6 md:p-8 text-center mb-8 md:mb-12 shadow-[0_0_40px_rgba(255,215,0,0.3)]">
+              <p className="text-white text-xl md:text-2xl font-bold mb-4">
+                INVERSIÓN ÚNICA:
+              </p>
+              <p className="text-[#CCFF00] text-6xl md:text-7xl lg:text-8xl font-black mb-2">
+                $25 USD
+              </p>
+              <p className="text-gray-500 text-xs md:text-sm opacity-60 italic">
+                (pago mensual)
+              </p>
+            </div>
+
+            {/* 3 Badges */}
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12">
+              <span className="bg-red-500 px-4 md:px-6 py-2 md:py-3 rounded-full text-white text-sm md:text-base font-bold inline-flex items-center gap-2 animate-pulse shadow-lg">
+                ⚡ Solo 15 cupos
+              </span>
+              <span className="bg-zinc-800 px-4 md:px-6 py-2 md:py-3 rounded-full text-white text-sm md:text-base font-semibold inline-flex items-center gap-2">
+                ✓ Garantía 7 días
+              </span>
+              <span className="bg-zinc-800 px-4 md:px-6 py-2 md:py-3 rounded-full text-white text-sm md:text-base font-semibold inline-flex items-center gap-2">
+                ✓ Acceso inmediato
+              </span>
+            </div>
+
+            {/* Botón gigante */}
+            <div className="flex justify-center mb-6">
+              <a
+                href={hotmartLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl px-12 py-8 md:px-16 md:py-10 lg:px-20 lg:py-12 rounded-full shadow-[0_0_60px_rgba(204,255,0,0.8)] hover:shadow-[0_0_80px_rgba(204,255,0,1)] hover:scale-105 transition-all duration-300 cursor-pointer w-full sm:w-auto animate-pulse"
+              >
+                <span>SÍ, QUIERO MI LIBERTAD AHORA</span>
+                <ArrowRight className="w-6 h-6 md:w-8 md:h-8" />
+              </a>
+            </div>
+
+            {/* Texto chiquito */}
+            <p className="text-gray-500 text-xs md:text-sm text-center">
+              Acceso inmediato • Cancela cuando quieras
+            </p>
+
           </div>
 
         </div>
