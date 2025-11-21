@@ -59,36 +59,47 @@ const ApegoDetox = () => {
       </div>
 
       {/* 1️⃣ HERO PRINCIPAL */}
-      <section 
-        className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-[#0C0C0C] to-black py-12 md:py-8"
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"></div>
+      <section className="relative bg-black">
+        {/* Imagen de fondo con overlay */}
+        <div className="relative">
+          <img 
+            src={heroImage} 
+            alt="Apego Detox - Liberación Emocional" 
+            className="w-full h-auto object-cover"
+          />
+          <div className="absolute inset-0 bg-black/85"></div>
+        </div>
         
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto animate-fade-in">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 md:mb-8 leading-tight text-white uppercase">
-            <span className="block">Es el momento de romper lo que no ves…</span>
-            <span className="block mt-3 md:mt-4 text-[#FFD400]">
-              y comenzar a sanar lo que sí sientes.
-            </span>
-          </h1>
-          
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 md:mb-12 text-gray-200 leading-relaxed max-w-3xl mx-auto">
-            Aquí entiendes por qué no has podido soltar… y cómo dejar de volver a quien te rompe.
-          </p>
-          
-          <a 
-            href={hotmartLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#FFD400] text-black font-black text-base sm:text-lg md:text-xl px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full hover:shadow-[0_20px_60px_rgba(255,212,0,0.6)] hover:scale-105 transition-all duration-300 animate-pulse"
-          >
-            QUIERO LIBERARME AHORA 🔥
-            <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
-          </a>
+        {/* Contenedor de texto */}
+        <div className="bg-black py-12 md:py-20 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Headline principal */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 mt-8 md:mt-12">
+              <span className="block text-white">NO LO EXTRAÑAS A ÉL.</span>
+              <span className="block text-white">EXTRAÑAS LA VERSIÓN</span>
+              <span className="block text-yellow-400">QUE NUNCA EXISTIÓ.</span>
+            </h1>
+            
+            {/* Subheadline */}
+            <p className="text-base md:text-lg lg:text-xl text-gray-200 font-normal leading-relaxed max-w-3xl mx-auto mt-6">
+              Y mientras tu cerebro siga creyendo que "fue amor intenso", vas a seguir comparándolo con todos, revisando sus redes, memorizando su número "por si acaso". Pero 2,847 mujeres ya rompieron el trauma bonding. En 4 semanas puedes ser tú.
+            </p>
+            
+            {/* Botón CTA verde lima neón */}
+            <a 
+              href={hotmartLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-bold text-lg md:text-xl px-12 py-5 md:px-16 md:py-6 rounded-full shadow-[0_0_30px_rgba(204,255,0,0.6)] hover:shadow-[0_0_50px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer mt-8 md:mt-10"
+            >
+              QUIERO LIBERARME AHORA →
+            </a>
 
-          <p className="mt-6 text-sm md:text-base text-gray-400">
-            ⚡ Solo 20 cupos disponibles esta semana
-          </p>
+            {/* Texto debajo del botón */}
+            <p className="mt-4 text-sm md:text-base text-yellow-400 font-semibold">
+              <span className="animate-pulse">⚡</span> Solo 20 cupos disponibles esta semana
+            </p>
+          </div>
         </div>
       </section>
 
@@ -275,10 +286,9 @@ const ApegoDetox = () => {
                 href={hotmartLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full gap-2 bg-[#FFD400] text-black font-bold text-sm md:text-base px-6 py-4 rounded-xl hover:shadow-[0_15px_40px_rgba(255,212,0,0.5)] hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center w-full gap-2 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-bold text-sm md:text-base px-6 py-4 rounded-full shadow-[0_0_30px_rgba(204,255,0,0.6)] hover:shadow-[0_0_50px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer"
               >
-                QUIERO ESE CAMBIO AHORA
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                QUIERO ESE CAMBIO AHORA →
               </a>
               </div>
             </div>
@@ -432,10 +442,9 @@ const ApegoDetox = () => {
               href={hotmartLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#FFD400] text-black font-bold text-sm md:text-base px-8 md:px-12 py-4 md:py-5 rounded-full hover:shadow-[0_20px_60px_rgba(255,212,0,0.6)] hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-bold text-sm md:text-base px-8 md:px-12 py-4 md:py-5 rounded-full shadow-[0_0_30px_rgba(204,255,0,0.6)] hover:shadow-[0_0_50px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer"
             >
-              QUIERO SER LA PRÓXIMA HISTORIA 💫
-              <Sparkles className="w-5 h-5" />
+              QUIERO SER LA PRÓXIMA HISTORIA →
             </a>
           </div>
         </div>
@@ -600,10 +609,9 @@ const ApegoDetox = () => {
             href={hotmartLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#FFD400] text-black font-black text-base sm:text-lg md:text-xl lg:text-2xl px-8 sm:px-12 md:px-16 lg:px-20 py-5 sm:py-6 md:py-7 lg:py-8 rounded-full hover:shadow-[0_30px_80px_rgba(255,212,0,0.7)] hover:scale-105 transition-all duration-300 animate-pulse mb-6"
+            className="inline-flex items-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-black text-base sm:text-lg md:text-xl lg:text-2xl px-8 sm:px-12 md:px-16 lg:px-20 py-5 sm:py-6 md:py-7 lg:py-8 rounded-full shadow-[0_0_30px_rgba(204,255,0,0.6)] hover:shadow-[0_0_50px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer mb-6"
           >
-            QUIERO COMENZAR MI DESINTOXICACIÓN EMOCIONAL ❤️
-            <ArrowRight className="w-6 h-6 md:w-7 md:h-7" />
+            QUIERO COMENZAR MI DESINTOXICACIÓN EMOCIONAL →
           </a>
 
           <p className="text-sm md:text-base text-gray-400">
