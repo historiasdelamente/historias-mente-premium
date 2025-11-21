@@ -1154,14 +1154,17 @@ const ApegoDetox = () => {
 
             {/* Card de precio */}
             <div className="bg-black border-4 border-yellow-400 rounded-2xl p-6 md:p-8 text-center mb-8 md:mb-12 shadow-[0_0_40px_rgba(255,215,0,0.3)]">
-              <p className="text-white text-xl md:text-2xl font-bold mb-4">
-                INVERSIÓN ÚNICA:
+              <p className="text-yellow-400 text-lg md:text-xl font-bold mb-2">
+                SOLO:
               </p>
-              <p className="text-[#CCFF00] text-6xl md:text-7xl lg:text-8xl font-black mb-2">
+              <p className="text-[#CCFF00] text-5xl sm:text-6xl md:text-7xl font-black mb-2">
                 $25 USD
               </p>
-              <p className="text-gray-500 text-xs md:text-sm opacity-60 italic">
-                (pago mensual)
+              <p className="text-gray-400 text-base md:text-lg font-semibold mb-2">
+                al mes
+              </p>
+              <p className="text-gray-500 text-sm md:text-base italic">
+                Cancela cuando quieras
               </p>
             </div>
 
