@@ -80,14 +80,15 @@ const ApegoDetox = () => {
               href={hotmartLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-bold text-lg md:text-xl px-12 py-5 md:px-16 md:py-6 rounded-full shadow-[0_0_30px_rgba(204,255,0,0.6)] hover:shadow-[0_0_50px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer mt-8 md:mt-10"
+              className="inline-flex items-center justify-center gap-2 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-bold text-sm sm:text-base md:text-lg px-6 py-3 sm:px-8 sm:py-4 md:px-12 md:py-5 rounded-full shadow-[0_0_20px_rgba(204,255,0,0.5)] hover:shadow-[0_0_40px_rgba(204,255,0,0.8)] hover:scale-105 transition-all duration-300 cursor-pointer mt-8 md:mt-10 w-full sm:w-auto max-w-md sm:max-w-none mx-auto animate-pulse"
             >
-              QUIERO LIBERARME AHORA →
+              <span>QUIERO LIBERARME AHORA</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
 
             {/* Texto debajo del botón */}
-            <p className="mt-4 text-sm md:text-base text-yellow-400 font-semibold">
-              <span className="animate-pulse">⚡</span> Solo 20 cupos disponibles esta semana
+            <p className="mt-4 text-xs sm:text-sm md:text-base text-yellow-400 font-semibold">
+              <span className="inline-block animate-pulse">⚡</span> Solo 20 cupos disponibles esta semana
             </p>
           </div>
         </div>
