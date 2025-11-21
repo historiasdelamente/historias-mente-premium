@@ -5,10 +5,11 @@ import bannerHero from "@/assets/apego-detox-banner-hero.png";
 import javierImage from "@/assets/javier-vieira.png";
 import mujerCelular from "@/assets/mujer-celular-sintomas.png";
 import mujerSunset from "@/assets/mujer-brazos-abiertos-sunset.png";
-import { Video, Calendar, FileText, Mail, Users, Gift, CheckCircle2, Clock, Heart, Shield, Sparkles, ArrowRight, Star, Zap, TrendingUp, Brain, Target } from "lucide-react";
+import { Video, Calendar, FileText, Mail, Users, Gift, CheckCircle2, Clock, Heart, Shield, Sparkles, ArrowRight, Star, Zap, TrendingUp, Brain, Target, Plus, Minus } from "lucide-react";
 
 const ApegoDetox = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     // Load Hotmart script
@@ -781,6 +782,238 @@ const ApegoDetox = () => {
               className="inline-flex items-center justify-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-extrabold text-lg sm:text-xl md:text-2xl px-12 py-6 md:px-16 md:py-7 rounded-full shadow-[0_0_40px_rgba(204,255,0,0.7)] hover:shadow-[0_0_60px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer w-full sm:w-auto max-w-2xl"
             >
               <span>QUIERO SER LA SIGUIENTE</span>
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Sección FAQ - Preguntas Frecuentes */}
+      <section className="bg-black py-16 px-4 md:py-24 md:px-6 lg:py-32 lg:px-8 w-full">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Título principal */}
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center leading-tight mb-4 md:mb-6 px-4">
+            PREGUNTAS QUE SIEMPRE ME HACEN
+          </h2>
+
+          {/* Subtítulo */}
+          <p className="text-yellow-400 text-xl sm:text-2xl md:text-3xl font-bold text-center mb-12 md:mb-16 lg:mb-20 max-w-4xl mx-auto px-4">
+            Y las respuestas directas que necesitas escuchar
+          </p>
+
+          {/* Contenedor de preguntas */}
+          <div className="max-w-4xl mx-auto px-4 flex flex-col gap-4 md:gap-6">
+            
+            {/* Pregunta 1 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 1 ? null : 1)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Y si no tengo tiempo para las 4 horas semanales de talleres?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 1 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 1 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Los talleres quedan grabados y puedes verlos cuando quieras. Las tareas son de 15 minutos diarios. Si tienes tiempo para revisar su Instagram, tienes tiempo para esto.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pregunta 2 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 2 ? null : 2)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Y si mi caso es diferente porque él realmente me amaba?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 2 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 2 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Eso pensamos todas. 'Él no es como los otros narcisistas, él sí me amaba'. Spoiler: si estás aquí es porque algo no cuadra. Y en 4 semanas vas a entender exactamente qué.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pregunta 3 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 3 ? null : 3)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Qué pasa si no funciona en mi caso?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 3 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 3 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Tienes 7 días para probarlo. Si sientes que no es para ti, te devuelvo el 100% del dinero. Sin preguntas. Pero el 94% de las mujeres que empiezan, terminan el programa y NO vuelven con él.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pregunta 4 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 4 ? null : 4)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Y si tenemos hijos juntos y no puedo hacer contacto cero?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 4 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 4 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Hay un módulo COMPLETO sobre 'contacto gris' y co-parentalidad con narcisistas. También acceso prioritario a sesiones 1 a 1 para casos complejos. No estás sola en esto.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pregunta 5 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 5 ? null : 5)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Esto es terapia? ¿Reemplaza a mi psicólogo?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 5 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 5 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Es un programa psicoeducativo con acompañamiento grupal. NO reemplaza terapia si tienes trauma severo. PERO muchas mujeres avanzan más en 4 semanas aquí que en meses de terapia tradicional que no entiende trauma bonding.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pregunta 6 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 6 ? null : 6)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Por qué tan barato? ¿Es una estafa?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 6 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 6 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Porque no es terapia individual ($200+ por sesión). Es grupal, automatizado, y escalable. Prefiero que 1,000 mujeres paguen $25 mensuales y se liberen, a que 10 paguen $1,000 y el resto siga atrapada.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pregunta 7 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 7 ? null : 7)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Cuándo empiezan los talleres en vivo?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 7 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 7 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    El próximo grupo empieza el 15 de Febrero 2025. Pero tienes acceso INMEDIATO a la plataforma, los videos, el libro, la comunidad. No pierdes ni un día.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Pregunta 8 */}
+            <div className="bg-zinc-900 border-2 border-zinc-800 rounded-2xl p-6 md:p-8 hover:border-yellow-400 transition-all duration-300">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 8 ? null : 8)}
+                className="flex justify-between items-center gap-4 w-full text-left"
+              >
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  ¿Y si recaigo y le escribo durante el programa?
+                </h3>
+                <div className="text-yellow-400 text-3xl md:text-4xl font-bold shrink-0">
+                  {openFaq === 8 ? <Minus /> : <Plus />}
+                </div>
+              </button>
+              {openFaq === 8 && (
+                <div className="mt-4 pt-4 border-t border-zinc-800">
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                    La comunidad está 24/7 para eso. No hay juicios. Recaer es parte del proceso cuando tienes trauma bonding. Lo importante es que cada vez que recaigas, tengas herramientas para levantarte más rápido. Y eso es exactamente lo que te damos.
+                  </p>
+                </div>
+              )}
+            </div>
+
+          </div>
+
+          {/* Card de Garantía */}
+          <div className="bg-gradient-to-br from-yellow-400/20 to-transparent border-4 border-yellow-400 p-8 md:p-12 rounded-3xl text-center max-w-4xl mx-auto mt-12 md:mt-16 mx-4">
+            
+            {/* Ícono escudo */}
+            <div className="flex justify-center text-6xl md:text-7xl mb-6">
+              🛡️
+            </div>
+
+            {/* Título */}
+            <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-black mb-4">
+              GARANTÍA DE 7 DÍAS SIN RIESGO
+            </h3>
+
+            {/* Texto */}
+            <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+              Si en 7 días sientes que esto no es para ti, te devuelvo el 100% de tu dinero. Sin preguntas. Sin explicaciones. Solo un email y listo.
+              <br /><br />
+              ¿Por qué? Porque confío en que este programa funciona. Y no quiero tu dinero si no estás convencida.
+            </p>
+          </div>
+
+          {/* Botón CTA final */}
+          <div className="flex justify-center mt-10 md:mt-12 px-4">
+            <a
+              href={hotmartLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-[#CCFF00] hover:bg-[#B8E600] text-black font-extrabold text-lg sm:text-xl md:text-2xl px-12 py-6 md:px-16 md:py-7 rounded-full shadow-[0_0_40px_rgba(204,255,0,0.7)] hover:shadow-[0_0_60px_rgba(204,255,0,0.9)] hover:scale-105 transition-all duration-300 cursor-pointer w-full sm:w-auto max-w-2xl"
+            >
+              <span>COMENZAR MI RECUPERACIÓN AHORA</span>
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </div>
