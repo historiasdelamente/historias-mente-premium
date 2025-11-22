@@ -49,6 +49,7 @@ const ClaseMeet = () => {
         // Redirigir a la página de agradecimiento
         setTimeout(() => {
           navigate("/gracias-clase");
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }, 500);
       } else {
         setSubmitStatus("error");
