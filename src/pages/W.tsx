@@ -8,13 +8,18 @@ import { Sparkles, Heart, Angry, Frown, AlertTriangle, Ghost, Brain, Zap, Lock, 
 const CORRECT_PASSWORD = "Pitufo1932";
 
 const EMOCIONES = [
-  { value: "Tristeza", label: "Tristeza", icon: Frown, color: "from-blue-500/20 to-blue-600/20" },
-  { value: "Ira", label: "Ira", icon: Angry, color: "from-red-500/20 to-red-600/20" },
-  { value: "Miedo", label: "Miedo", icon: AlertTriangle, color: "from-amber-500/20 to-amber-600/20" },
-  { value: "Confusión", label: "Confusión", icon: Brain, color: "from-purple-500/20 to-purple-600/20" },
-  { value: "Vacío", label: "Vacío", icon: Ghost, color: "from-gray-500/20 to-gray-600/20" },
-  { value: "Ansiedad", label: "Ansiedad", icon: Zap, color: "from-orange-500/20 to-orange-600/20" },
+  { value: "Traicion", label: "Traición", icon: Heart, color: "from-red-500/20 to-red-600/20" },
+  { value: "Devaluacion", label: "Devaluación", icon: Frown, color: "from-yellow-500/20 to-yellow-600/20" },
   { value: "Culpa", label: "Culpa", icon: Heart, color: "from-pink-500/20 to-pink-600/20" },
+  { value: "Verguenza", label: "Vergüenza", icon: Ghost, color: "from-orange-500/20 to-orange-600/20" },
+  { value: "Confusion", label: "Confusión", icon: Brain, color: "from-purple-500/20 to-purple-600/20" },
+  { value: "Dolor", label: "Dolor", icon: Frown, color: "from-pink-300/20 to-pink-400/20" },
+  { value: "Rabieta interna cuando el no está", label: "Rabieta interna", icon: Angry, color: "from-green-500/20 to-green-600/20" },
+  { value: "Miedo a la libertad: te quedas con tu abusador", label: "Miedo a la libertad", icon: AlertTriangle, color: "from-yellow-400/20 to-yellow-500/20" },
+  { value: "Narcisismo encubierto", label: "Narcisismo encubierto", icon: Ghost, color: "from-orange-400/20 to-orange-500/20" },
+  { value: "Narcisista", label: "Narcisista", icon: Zap, color: "from-purple-400/20 to-purple-500/20" },
+  { value: "Narcisismo maligno", label: "Narcisismo maligno", icon: AlertTriangle, color: "from-green-400/20 to-green-500/20" },
+  { value: "tecnicas unicas para superar relaciones narcisistas", label: "Técnicas para superar", icon: Sparkles, color: "from-gray-400/20 to-gray-500/20" },
 ];
 
 const GENERAR_OPTIONS = [
@@ -24,6 +29,7 @@ const GENERAR_OPTIONS = [
   { value: "Prompt video grok", label: "Prompt Video Grok" },
   { value: "Historias", label: "Historias" },
   { value: "Investigacion de Temas", label: "Investigación de Temas" },
+  { value: "Hotmart Tareas", label: "Hotmart Tareas" },
 ];
 
 const W = () => {
