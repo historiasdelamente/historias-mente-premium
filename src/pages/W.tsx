@@ -36,6 +36,7 @@ const W = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [emocion, setEmocion] = useState<string>("");
+  const [emocionPersonalizada, setEmocionPersonalizada] = useState<string>("");
   const [generar, setGenerar] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -55,8 +56,10 @@ const W = () => {
   };
 
   const handleSubmit = async () => {
-    if (!emocion || !generar) {
-      toast.error("Por favor selecciona todas las opciones");
+    const emocionFinal = emocionPersonalizada.trim() || emocion;
+    
+    if (!emocionFinal || !generar) {
+      toast.error("Por favor selecciona o escribe una emoción y el tipo de contenido");
       return;
     }
 
@@ -69,7 +72,7 @@ const W = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          Emocion: emocion,
+          Emocion: emocionFinal,
           Generar: [generar],
           Estado: "Preparado",
         }),
@@ -78,6 +81,7 @@ const W = () => {
       if (response.ok) {
         toast.success("¡Contenido en proceso de generación!");
         setEmocion("");
+        setEmocionPersonalizada("");
         setGenerar("");
       } else {
         toast.error("Error al enviar. Intenta de nuevo.");
@@ -235,6 +239,27 @@ const W = () => {
                 );
               })}
             </div>
+            
+            {/* Campo de emoción personalizada */}
+            <div className="mt-4">
+              <Input
+                type="text"
+                placeholder="O escribe tu propia emoción/tema..."
+                value={emocionPersonalizada}
+                onChange={(e) => {
+                  setEmocionPersonalizada(e.target.value);
+                  if (e.target.value.trim()) {
+                    setEmocion(""); // Clear selection if typing custom
+                  }
+                }}
+                className="py-4 bg-card/50 border-border/50 focus:border-golden placeholder:text-muted-foreground/60"
+              />
+              {emocionPersonalizada && (
+                <p className="text-xs text-golden mt-2">
+                  Se usará: "{emocionPersonalizada}"
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Generar Selection */}
@@ -269,7 +294,7 @@ const W = () => {
           <div className="pt-4">
             <Button
               onClick={handleSubmit}
-              disabled={isSubmitting || !emocion || !generar}
+              disabled={isSubmitting || (!emocion && !emocionPersonalizada.trim()) || !generar}
               className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-golden to-golden/80 hover:from-golden/90 hover:to-golden/70 text-background rounded-xl shadow-lg shadow-golden/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
