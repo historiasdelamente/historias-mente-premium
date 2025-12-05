@@ -22,15 +22,11 @@ const EMOCIONES = [
   { value: "tecnicas unicas para superar relaciones narcisistas", label: "Técnicas para superar", icon: Sparkles, color: "from-gray-400/20 to-gray-500/20" },
 ];
 
-const GENERAR_OPTIONS = [
-  { value: "Reel Tiktok", label: "Reel TikTok" },
-  { value: "Live Claude", label: "Live Claude" },
-  { value: "Prompt banana", label: "Prompt Banana" },
-  { value: "Prompt video grok", label: "Prompt Video Grok" },
-  { value: "Historias", label: "Historias" },
-  { value: "Investigacion de Temas", label: "Investigación de Temas" },
-  { value: "Hotmart Tareas", label: "Hotmart Tareas" },
-];
+// Las opciones de Generar se cargan desde Airtable
+interface GenerarOption {
+  value: string;
+  label: string;
+}
 
 const W = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,10 +35,54 @@ const W = () => {
   const [emocionPersonalizada, setEmocionPersonalizada] = useState<string>("");
   const [generar, setGenerar] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [generarOptions, setGenerarOptions] = useState<GenerarOption[]>([]);
+  const [loadingOptions, setLoadingOptions] = useState(false);
+
+  // Cargar opciones de Generar desde Airtable
+  const fetchGenerarOptions = async () => {
+    setLoadingOptions(true);
+    try {
+      const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/w-options", {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        // Esperamos un array de strings o objetos con las opciones
+        if (Array.isArray(data)) {
+          const options = data.map((item: string | { name?: string; value?: string }) => {
+            if (typeof item === 'string') {
+              return { value: item, label: item };
+            }
+            return { value: item.name || item.value || '', label: item.name || item.value || '' };
+          }).filter((opt: GenerarOption) => opt.value);
+          setGenerarOptions(options);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching options:", error);
+      // Fallback a opciones por defecto si falla
+      setGenerarOptions([
+        { value: "Reel Tiktok", label: "Reel TikTok" },
+        { value: "Live Claude", label: "Live Claude" },
+        { value: "Prompt banana", label: "Prompt Banana" },
+        { value: "Prompt video grok", label: "Prompt Video Grok" },
+        { value: "Historias", label: "Historias" },
+        { value: "Investigacion de Temas", label: "Investigación de Temas" },
+      ]);
+    } finally {
+      setLoadingOptions(false);
+    }
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchGenerarOptions();
+    }
+  }, [isAuthenticated]);
 
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -277,29 +317,36 @@ const W = () => {
               Generar
               <span className="text-xs text-muted-foreground font-normal">(selección múltiple)</span>
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {GENERAR_OPTIONS.map((item) => {
-                const isSelected = generar.includes(item.value);
-                return (
-                  <button
-                    key={item.value}
-                    onClick={() => handleGenerarToggle(item.value)}
-                    className={`
-                      p-4 rounded-xl border-2 transition-all duration-300 relative
-                      ${isSelected 
-                        ? 'border-golden bg-gradient-to-br from-golden/20 to-golden/5 text-foreground shadow-lg shadow-golden/10' 
-                        : 'border-border/50 bg-card/50 text-muted-foreground hover:border-golden/50 hover:bg-card/80'
-                      }
-                    `}
-                  >
-                    <span className="text-sm font-medium">{item.label}</span>
-                    {isSelected && (
-                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-golden rounded-full animate-pulse" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+            {loadingOptions ? (
+              <div className="flex items-center justify-center py-8">
+                <div className="w-6 h-6 border-2 border-golden/30 border-t-golden rounded-full animate-spin" />
+                <span className="ml-2 text-muted-foreground text-sm">Cargando opciones...</span>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {generarOptions.map((item) => {
+                  const isSelected = generar.includes(item.value);
+                  return (
+                    <button
+                      key={item.value}
+                      onClick={() => handleGenerarToggle(item.value)}
+                      className={`
+                        p-4 rounded-xl border-2 transition-all duration-300 relative
+                        ${isSelected 
+                          ? 'border-golden bg-gradient-to-br from-golden/20 to-golden/5 text-foreground shadow-lg shadow-golden/10' 
+                          : 'border-border/50 bg-card/50 text-muted-foreground hover:border-golden/50 hover:bg-card/80'
+                        }
+                      `}
+                    >
+                      <span className="text-sm font-medium">{item.label}</span>
+                      {isSelected && (
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-golden rounded-full animate-pulse" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
             {generar.length > 0 && (
               <p className="text-xs text-golden">
                 Seleccionados: {generar.join(", ")}
