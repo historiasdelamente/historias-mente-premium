@@ -241,7 +241,7 @@ const W = () => {
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-golden" />
-              ¿Qué tipo de contenido?
+              Generar
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {GENERAR_OPTIONS.map((item) => {
