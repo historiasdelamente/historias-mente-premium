@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import logo from "@/assets/logo-historias-mente.png";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Heart, Angry, Frown, AlertTriangle, Ghost, Brain, Zap } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Sparkles, Heart, Angry, Frown, AlertTriangle, Ghost, Brain, Zap, Lock, Shield } from "lucide-react";
+
+const CORRECT_PASSWORD = "Pitufo1932";
 
 const EMOCIONES = [
   { value: "Tristeza", label: "Tristeza", icon: Frown, color: "from-blue-500/20 to-blue-600/20" },
@@ -23,25 +26,30 @@ const GENERAR_OPTIONS = [
   { value: "Investigacion de Temas", label: "Investigación de Temas" },
 ];
 
-const EDADES = [
-  { value: "18-25", label: "18-25 años" },
-  { value: "26-35", label: "26-35 años" },
-  { value: "36-45", label: "36-45 años" },
-  { value: "46+", label: "46+ años" },
-];
-
 const W = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
   const [emocion, setEmocion] = useState<string>("");
   const [generar, setGenerar] = useState<string>("");
-  const [edad, setEdad] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const handlePasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === CORRECT_PASSWORD) {
+      setIsAuthenticated(true);
+      toast.success("¡Acceso concedido!");
+    } else {
+      toast.error("Contraseña incorrecta");
+      setPassword("");
+    }
+  };
+
   const handleSubmit = async () => {
-    if (!emocion || !generar || !edad) {
+    if (!emocion || !generar) {
       toast.error("Por favor selecciona todas las opciones");
       return;
     }
@@ -57,7 +65,6 @@ const W = () => {
         body: JSON.stringify({
           Emocion: emocion,
           Generar: [generar],
-          Edad: edad,
           Estado: "Preparado",
         }),
       });
@@ -66,7 +73,6 @@ const W = () => {
         toast.success("¡Contenido en proceso de generación!");
         setEmocion("");
         setGenerar("");
-        setEdad("");
       } else {
         toast.error("Error al enviar. Intenta de nuevo.");
       }
@@ -78,6 +84,69 @@ const W = () => {
     }
   };
 
+  // Password Screen
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-background relative overflow-hidden flex items-center justify-center">
+        {/* Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-golden/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-golden/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-md px-4">
+          <div className="bg-card/80 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-2xl shadow-golden/5">
+            {/* Logo */}
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                <div className="absolute inset-0 bg-golden/20 blur-xl rounded-full scale-110" />
+                <img 
+                  src={logo} 
+                  alt="Historias de la Mente" 
+                  className="w-24 h-auto relative z-10"
+                />
+              </div>
+            </div>
+
+            {/* Shield Icon */}
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 rounded-full bg-golden/10 flex items-center justify-center">
+                <Shield className="w-8 h-8 text-golden" />
+              </div>
+            </div>
+
+            <h1 className="text-xl md:text-2xl font-bold text-center text-foreground mb-2">
+              Zona Segura
+            </h1>
+            <p className="text-muted-foreground text-center text-sm mb-6">
+              Área exclusiva de Historias de la Mente
+            </p>
+
+            <form onSubmit={handlePasswordSubmit} className="space-y-4">
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  type="password"
+                  placeholder="Ingresa la contraseña"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-10 py-6 bg-background/50 border-border/50 focus:border-golden"
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full py-6 bg-gradient-to-r from-golden to-golden/80 hover:from-golden/90 hover:to-golden/70 text-background font-semibold rounded-xl"
+              >
+                Acceder
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Main Form
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Animated background */}
@@ -162,34 +231,6 @@ const W = () => {
             </div>
           </div>
 
-          {/* Edad Selection */}
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-              <Brain className="w-5 h-5 text-golden" />
-              Rango de edad del público
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {EDADES.map((item) => {
-                const isSelected = edad === item.value;
-                return (
-                  <button
-                    key={item.value}
-                    onClick={() => setEdad(item.value)}
-                    className={`
-                      p-3 rounded-xl border-2 transition-all duration-300
-                      ${isSelected 
-                        ? 'border-golden bg-golden/10 text-foreground' 
-                        : 'border-border/50 bg-card/50 text-muted-foreground hover:border-golden/50'
-                      }
-                    `}
-                  >
-                    <span className="text-sm font-medium">{item.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
           {/* Generar Selection */}
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
@@ -222,7 +263,7 @@ const W = () => {
           <div className="pt-4">
             <Button
               onClick={handleSubmit}
-              disabled={isSubmitting || !emocion || !generar || !edad}
+              disabled={isSubmitting || !emocion || !generar}
               className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-golden to-golden/80 hover:from-golden/90 hover:to-golden/70 text-background rounded-xl shadow-lg shadow-golden/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
