@@ -37,7 +37,7 @@ const W = () => {
   const [password, setPassword] = useState("");
   const [emocion, setEmocion] = useState<string>("");
   const [emocionPersonalizada, setEmocionPersonalizada] = useState<string>("");
-  const [generar, setGenerar] = useState<string>("");
+  const [generar, setGenerar] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -55,11 +55,19 @@ const W = () => {
     }
   };
 
+  const handleGenerarToggle = (value: string) => {
+    setGenerar(prev => 
+      prev.includes(value) 
+        ? prev.filter(v => v !== value)
+        : [...prev, value]
+    );
+  };
+
   const handleSubmit = async () => {
     const emocionFinal = emocionPersonalizada.trim() || emocion;
     
-    if (!emocionFinal || !generar) {
-      toast.error("Por favor selecciona o escribe una emoción y el tipo de contenido");
+    if (!emocionFinal || generar.length === 0) {
+      toast.error("Por favor selecciona o escribe una emoción y al menos un tipo de contenido");
       return;
     }
 
@@ -73,7 +81,7 @@ const W = () => {
         },
         body: JSON.stringify({
           Emocion: emocionFinal,
-          Generar: [generar],
+          Generar: generar,
           Estado: "Preparado",
         }),
       });
@@ -82,7 +90,7 @@ const W = () => {
         toast.success("¡Contenido en proceso de generación!");
         setEmocion("");
         setEmocionPersonalizada("");
-        setGenerar("");
+        setGenerar([]);
       } else {
         toast.error("Error al enviar. Intenta de nuevo.");
       }
@@ -262,21 +270,22 @@ const W = () => {
             </div>
           </div>
 
-          {/* Generar Selection */}
+          {/* Generar Selection - Multiple */}
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-golden" />
               Generar
+              <span className="text-xs text-muted-foreground font-normal">(selección múltiple)</span>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {GENERAR_OPTIONS.map((item) => {
-                const isSelected = generar === item.value;
+                const isSelected = generar.includes(item.value);
                 return (
                   <button
                     key={item.value}
-                    onClick={() => setGenerar(item.value)}
+                    onClick={() => handleGenerarToggle(item.value)}
                     className={`
-                      p-4 rounded-xl border-2 transition-all duration-300
+                      p-4 rounded-xl border-2 transition-all duration-300 relative
                       ${isSelected 
                         ? 'border-golden bg-gradient-to-br from-golden/20 to-golden/5 text-foreground shadow-lg shadow-golden/10' 
                         : 'border-border/50 bg-card/50 text-muted-foreground hover:border-golden/50 hover:bg-card/80'
@@ -284,17 +293,25 @@ const W = () => {
                     `}
                   >
                     <span className="text-sm font-medium">{item.label}</span>
+                    {isSelected && (
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-golden rounded-full animate-pulse" />
+                    )}
                   </button>
                 );
               })}
             </div>
+            {generar.length > 0 && (
+              <p className="text-xs text-golden">
+                Seleccionados: {generar.join(", ")}
+              </p>
+            )}
           </div>
 
           {/* Submit Button */}
           <div className="pt-4">
             <Button
               onClick={handleSubmit}
-              disabled={isSubmitting || (!emocion && !emocionPersonalizada.trim()) || !generar}
+              disabled={isSubmitting || (!emocion && !emocionPersonalizada.trim()) || generar.length === 0}
               className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-golden to-golden/80 hover:from-golden/90 hover:to-golden/70 text-background rounded-xl shadow-lg shadow-golden/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
