@@ -15,6 +15,7 @@ import ApegoDetoxClasesEnVivo from "./pages/ApegoDetoxClasesEnVivo";
 import GraciasApegoDetox from "./pages/GraciasApegoDetox";
 import ClaseMeet from "./pages/ClaseMeet";
 import GraciasClaseMeet from "./pages/GraciasClaseMeet";
+import W from "./pages/W";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,8 @@ const App = () => (
           {/* Clase Meet Lead Magnet */}
           <Route path="/clase-gratuita" element={<ClaseMeet />} />
           <Route path="/gracias-clase" element={<GraciasClaseMeet />} />
+          {/* W Form Page */}
+          <Route path="/w" element={<W />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
