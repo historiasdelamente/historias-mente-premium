@@ -1,20 +1,91 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import logo from "@/assets/logo-historias-mente.png";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Heart, Angry, Frown, AlertTriangle, Ghost, Brain, Zap } from "lucide-react";
+
+const EMOCIONES = [
+  { value: "Tristeza", label: "Tristeza", icon: Frown, color: "from-blue-500/20 to-blue-600/20" },
+  { value: "Ira", label: "Ira", icon: Angry, color: "from-red-500/20 to-red-600/20" },
+  { value: "Miedo", label: "Miedo", icon: AlertTriangle, color: "from-amber-500/20 to-amber-600/20" },
+  { value: "Confusión", label: "Confusión", icon: Brain, color: "from-purple-500/20 to-purple-600/20" },
+  { value: "Vacío", label: "Vacío", icon: Ghost, color: "from-gray-500/20 to-gray-600/20" },
+  { value: "Ansiedad", label: "Ansiedad", icon: Zap, color: "from-orange-500/20 to-orange-600/20" },
+  { value: "Culpa", label: "Culpa", icon: Heart, color: "from-pink-500/20 to-pink-600/20" },
+];
+
+const GENERAR_OPTIONS = [
+  { value: "Reel Tiktok", label: "Reel TikTok" },
+  { value: "Live Claude", label: "Live Claude" },
+  { value: "Prompt banana", label: "Prompt Banana" },
+  { value: "Prompt video grok", label: "Prompt Video Grok" },
+  { value: "Historias", label: "Historias" },
+  { value: "Investigacion de Temas", label: "Investigación de Temas" },
+];
+
+const EDADES = [
+  { value: "18-25", label: "18-25 años" },
+  { value: "26-35", label: "26-35 años" },
+  { value: "36-45", label: "36-45 años" },
+  { value: "46+", label: "46+ años" },
+];
 
 const W = () => {
+  const [emocion, setEmocion] = useState<string>("");
+  const [generar, setGenerar] = useState<string>("");
+  const [edad, setEdad] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const handleSubmit = async () => {
+    if (!emocion || !generar || !edad) {
+      toast.error("Por favor selecciona todas las opciones");
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/w", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Emocion: emocion,
+          Generar: [generar],
+          Edad: edad,
+          Estado: "Preparado",
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("¡Contenido en proceso de generación!");
+        setEmocion("");
+        setGenerar("");
+        setEdad("");
+      } else {
+        toast.error("Error al enviar. Intenta de nuevo.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Error de conexión. Intenta de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-golden/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-golden/10 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-2xl animate-pulse delay-500" />
         
-        {/* Grid pattern overlay */}
         <div 
           className="absolute inset-0 opacity-5"
           style={{
@@ -23,17 +94,11 @@ const W = () => {
             backgroundSize: '50px 50px'
           }}
         />
-        
-        {/* Floating particles */}
-        <div className="absolute top-20 right-20 w-2 h-2 bg-golden/40 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-        <div className="absolute top-40 left-32 w-1.5 h-1.5 bg-golden/30 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute bottom-40 right-40 w-2.5 h-2.5 bg-golden/35 rounded-full animate-bounce" style={{ animationDelay: '0.8s' }} />
-        <div className="absolute top-60 right-1/3 w-1 h-1 bg-golden/50 rounded-full animate-bounce" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center min-h-screen py-8 px-4">
-        {/* Logo with glow effect */}
+        {/* Logo */}
         <div className="mb-6 relative group">
           <div className="absolute inset-0 bg-golden/20 blur-xl rounded-full scale-110 group-hover:bg-golden/30 transition-all duration-500" />
           <img 
@@ -43,54 +108,140 @@ const W = () => {
           />
         </div>
 
-        {/* Title section */}
-        <div className="text-center mb-6 space-y-3">
+        {/* Title */}
+        <div className="text-center mb-8 space-y-3">
           <div className="inline-block px-4 py-1.5 border border-golden/30 rounded-full bg-golden/5 backdrop-blur-sm">
             <span className="text-golden text-xs md:text-sm font-medium tracking-widest uppercase">
-              Acceso Exclusivo
+              Generador de Contenido
             </span>
           </div>
           <h1 className="text-2xl md:text-4xl font-bold text-foreground">
-            El <span className="golden-text">Secreto</span> de Historias de la Mente
+            Crea tu <span className="golden-text">Contenido</span>
           </h1>
           <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto">
-            Completa el formulario para desbloquear contenido exclusivo
+            Selecciona una emoción y el tipo de contenido que deseas generar
           </p>
         </div>
 
-        {/* Form container with decorative border */}
-        <div className="w-full max-w-3xl relative">
-          {/* Decorative corners */}
-          <div className="absolute -top-2 -left-2 w-8 h-8 border-l-2 border-t-2 border-golden/50 rounded-tl-lg" />
-          <div className="absolute -top-2 -right-2 w-8 h-8 border-r-2 border-t-2 border-golden/50 rounded-tr-lg" />
-          <div className="absolute -bottom-2 -left-2 w-8 h-8 border-l-2 border-b-2 border-golden/50 rounded-bl-lg" />
-          <div className="absolute -bottom-2 -right-2 w-8 h-8 border-r-2 border-b-2 border-golden/50 rounded-br-lg" />
+        {/* Form */}
+        <div className="w-full max-w-2xl space-y-8">
           
-          {/* Main card */}
-          <div className="bg-card/80 backdrop-blur-md border border-border/50 rounded-xl p-4 md:p-6 shadow-2xl shadow-golden/5">
-            {/* Inner glow effect */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-golden/5 to-transparent pointer-events-none" />
-            
-            {/* Airtable iframe */}
-            <div className="relative rounded-lg overflow-hidden bg-white/5">
-              <iframe 
-                className="airtable-embed w-full rounded-lg"
-                src="https://airtable.com/embed/apppzqZl923asDFrr/pag0eOC6CkrJI6A55/form"
-                frameBorder="0"
-                width="100%"
-                height="600"
-                style={{ 
-                  background: 'transparent',
-                  minHeight: '600px'
-                }}
-                title="Formulario Historias de la Mente"
-              />
+          {/* Emoción Selection */}
+          <div className="space-y-4">
+            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
+              <Heart className="w-5 h-5 text-golden" />
+              ¿Qué emoción quieres explorar?
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {EMOCIONES.map((item) => {
+                const Icon = item.icon;
+                const isSelected = emocion === item.value;
+                return (
+                  <button
+                    key={item.value}
+                    onClick={() => setEmocion(item.value)}
+                    className={`
+                      relative p-4 rounded-xl border-2 transition-all duration-300
+                      flex flex-col items-center gap-2 group
+                      ${isSelected 
+                        ? 'border-golden bg-gradient-to-br ' + item.color + ' scale-105 shadow-lg shadow-golden/20' 
+                        : 'border-border/50 bg-card/50 hover:border-golden/50 hover:bg-card/80'
+                      }
+                    `}
+                  >
+                    <Icon className={`w-6 h-6 transition-colors ${isSelected ? 'text-golden' : 'text-muted-foreground group-hover:text-golden/70'}`} />
+                    <span className={`text-sm font-medium ${isSelected ? 'text-foreground' : 'text-muted-foreground'}`}>
+                      {item.label}
+                    </span>
+                    {isSelected && (
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-golden rounded-full animate-pulse" />
+                    )}
+                  </button>
+                );
+              })}
             </div>
+          </div>
+
+          {/* Edad Selection */}
+          <div className="space-y-4">
+            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
+              <Brain className="w-5 h-5 text-golden" />
+              Rango de edad del público
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {EDADES.map((item) => {
+                const isSelected = edad === item.value;
+                return (
+                  <button
+                    key={item.value}
+                    onClick={() => setEdad(item.value)}
+                    className={`
+                      p-3 rounded-xl border-2 transition-all duration-300
+                      ${isSelected 
+                        ? 'border-golden bg-golden/10 text-foreground' 
+                        : 'border-border/50 bg-card/50 text-muted-foreground hover:border-golden/50'
+                      }
+                    `}
+                  >
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Generar Selection */}
+          <div className="space-y-4">
+            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-golden" />
+              ¿Qué tipo de contenido?
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {GENERAR_OPTIONS.map((item) => {
+                const isSelected = generar === item.value;
+                return (
+                  <button
+                    key={item.value}
+                    onClick={() => setGenerar(item.value)}
+                    className={`
+                      p-4 rounded-xl border-2 transition-all duration-300
+                      ${isSelected 
+                        ? 'border-golden bg-gradient-to-br from-golden/20 to-golden/5 text-foreground shadow-lg shadow-golden/10' 
+                        : 'border-border/50 bg-card/50 text-muted-foreground hover:border-golden/50 hover:bg-card/80'
+                      }
+                    `}
+                  >
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <div className="pt-4">
+            <Button
+              onClick={handleSubmit}
+              disabled={isSubmitting || !emocion || !generar || !edad}
+              className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-golden to-golden/80 hover:from-golden/90 hover:to-golden/70 text-background rounded-xl shadow-lg shadow-golden/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full animate-spin" />
+                  Generando...
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5" />
+                  Generar Contenido
+                </span>
+              )}
+            </Button>
           </div>
         </div>
 
-        {/* Bottom decorative element */}
-        <div className="mt-8 flex items-center gap-3 text-muted-foreground/60 text-xs">
+        {/* Bottom decoration */}
+        <div className="mt-12 flex items-center gap-3 text-muted-foreground/60 text-xs">
           <div className="w-12 h-px bg-gradient-to-r from-transparent via-golden/30 to-transparent" />
           <span className="tracking-wider">HISTORIAS DE LA MENTE</span>
           <div className="w-12 h-px bg-gradient-to-r from-transparent via-golden/30 to-transparent" />
