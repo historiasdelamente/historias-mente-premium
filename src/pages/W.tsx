@@ -3,27 +3,12 @@ import { toast } from "sonner";
 import logo from "@/assets/logo-historias-mente.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sparkles, Heart, Angry, Frown, AlertTriangle, Ghost, Brain, Zap, Lock, Shield } from "lucide-react";
+import { Sparkles, Heart, Lock, Shield, Loader2 } from "lucide-react";
 
 const CORRECT_PASSWORD = "Pitufo1932";
 
-const EMOCIONES = [
-  { value: "Traicion", label: "Traición", icon: Heart, color: "from-red-500/20 to-red-600/20" },
-  { value: "Devaluacion", label: "Devaluación", icon: Frown, color: "from-yellow-500/20 to-yellow-600/20" },
-  { value: "Culpa", label: "Culpa", icon: Heart, color: "from-pink-500/20 to-pink-600/20" },
-  { value: "Verguenza", label: "Vergüenza", icon: Ghost, color: "from-orange-500/20 to-orange-600/20" },
-  { value: "Confusion", label: "Confusión", icon: Brain, color: "from-purple-500/20 to-purple-600/20" },
-  { value: "Dolor", label: "Dolor", icon: Frown, color: "from-pink-300/20 to-pink-400/20" },
-  { value: "Rabieta interna cuando el no está", label: "Rabieta interna", icon: Angry, color: "from-green-500/20 to-green-600/20" },
-  { value: "Miedo a la libertad: te quedas con tu abusador", label: "Miedo a la libertad", icon: AlertTriangle, color: "from-yellow-400/20 to-yellow-500/20" },
-  { value: "Narcisismo encubierto", label: "Narcisismo encubierto", icon: Ghost, color: "from-orange-400/20 to-orange-500/20" },
-  { value: "Narcisista", label: "Narcisista", icon: Zap, color: "from-purple-400/20 to-purple-500/20" },
-  { value: "Narcisismo maligno", label: "Narcisismo maligno", icon: AlertTriangle, color: "from-green-400/20 to-green-500/20" },
-  { value: "tecnicas unicas para superar relaciones narcisistas", label: "Técnicas para superar", icon: Sparkles, color: "from-gray-400/20 to-gray-500/20" },
-];
-
-// Las opciones de Generar se cargan desde Airtable
-interface GenerarOption {
+// Interfaces para opciones dinámicas
+interface SelectOption {
   value: string;
   label: string;
 }
@@ -35,42 +20,64 @@ const W = () => {
   const [emocionPersonalizada, setEmocionPersonalizada] = useState<string>("");
   const [generar, setGenerar] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [generarOptions, setGenerarOptions] = useState<GenerarOption[]>([]);
-  const [loadingOptions, setLoadingOptions] = useState(false);
+  
+  // Estados para opciones cargadas desde Airtable
+  const [emocionOptions, setEmocionOptions] = useState<SelectOption[]>([]);
+  const [generarOptions, setGenerarOptions] = useState<SelectOption[]>([]);
+  const [loadingEmociones, setLoadingEmociones] = useState(false);
+  const [loadingGenerar, setLoadingGenerar] = useState(false);
 
-  // Cargar opciones de Generar desde Airtable
-  const fetchGenerarOptions = async () => {
-    setLoadingOptions(true);
+  // Cargar opciones de Emoción desde Airtable
+  const fetchEmocionOptions = async () => {
+    setLoadingEmociones(true);
     try {
-      const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/w-options", {
+      const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/w-emociones", {
         method: "GET",
       });
       if (response.ok) {
         const data = await response.json();
-        // Esperamos un array de strings o objetos con las opciones
         if (Array.isArray(data)) {
-          const options = data.map((item: string | { name?: string; value?: string }) => {
+          const options = data.map((item: string | { name?: string; value?: string; Emocion?: string }) => {
             if (typeof item === 'string') {
               return { value: item, label: item };
             }
-            return { value: item.name || item.value || '', label: item.name || item.value || '' };
-          }).filter((opt: GenerarOption) => opt.value);
+            const val = item.Emocion || item.name || item.value || '';
+            return { value: val, label: val };
+          }).filter((opt: SelectOption) => opt.value);
+          setEmocionOptions(options);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching emociones:", error);
+    } finally {
+      setLoadingEmociones(false);
+    }
+  };
+
+  // Cargar opciones de Generar desde Airtable
+  const fetchGenerarOptions = async () => {
+    setLoadingGenerar(true);
+    try {
+      const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/w-generar", {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          const options = data.map((item: string | { name?: string; value?: string; Generar?: string }) => {
+            if (typeof item === 'string') {
+              return { value: item, label: item };
+            }
+            const val = item.Generar || item.name || item.value || '';
+            return { value: val, label: val };
+          }).filter((opt: SelectOption) => opt.value);
           setGenerarOptions(options);
         }
       }
     } catch (error) {
-      console.error("Error fetching options:", error);
-      // Fallback a opciones por defecto si falla
-      setGenerarOptions([
-        { value: "Reel Tiktok", label: "Reel TikTok" },
-        { value: "Live Claude", label: "Live Claude" },
-        { value: "Prompt banana", label: "Prompt Banana" },
-        { value: "Prompt video grok", label: "Prompt Video Grok" },
-        { value: "Historias", label: "Historias" },
-        { value: "Investigacion de Temas", label: "Investigación de Temas" },
-      ]);
+      console.error("Error fetching generar options:", error);
     } finally {
-      setLoadingOptions(false);
+      setLoadingGenerar(false);
     }
   };
 
@@ -78,8 +85,10 @@ const W = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  // Cargar ambas opciones cuando se autentica
   useEffect(() => {
     if (isAuthenticated) {
+      fetchEmocionOptions();
       fetchGenerarOptions();
     }
   }, [isAuthenticated]);
@@ -104,6 +113,7 @@ const W = () => {
   };
 
   const handleSubmit = async () => {
+    // Usar la emoción personalizada si existe, si no usar la seleccionada
     const emocionFinal = emocionPersonalizada.trim() || emocion;
     
     if (!emocionFinal || generar.length === 0) {
@@ -114,16 +124,21 @@ const W = () => {
     setIsSubmitting(true);
     
     try {
+      // Enviar los valores EXACTOS seleccionados por el usuario
+      const payload = {
+        Emocion: emocionFinal,
+        Generar: generar, // Array con los valores seleccionados por el usuario
+        Estado: "Preparado",
+      };
+      
+      console.log("Enviando a Airtable:", JSON.stringify(payload, null, 2));
+      
       const response = await fetch("https://n8n-n8n.ya3fud.easypanel.host/webhook/w", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          Emocion: emocionFinal,
-          Generar: generar,
-          Estado: "Preparado",
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
@@ -253,40 +268,54 @@ const W = () => {
         {/* Form */}
         <div className="w-full max-w-2xl space-y-8">
           
-          {/* Emoción Selection */}
+          {/* Emoción Selection - Cargado desde Airtable */}
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
               <Heart className="w-5 h-5 text-golden" />
               ¿Qué emoción quieres explorar?
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {EMOCIONES.map((item) => {
-                const Icon = item.icon;
-                const isSelected = emocion === item.value;
-                return (
-                  <button
-                    key={item.value}
-                    onClick={() => setEmocion(item.value)}
-                    className={`
-                      relative p-4 rounded-xl border-2 transition-all duration-300
-                      flex flex-col items-center gap-2 group
-                      ${isSelected 
-                        ? 'border-golden bg-gradient-to-br ' + item.color + ' scale-105 shadow-lg shadow-golden/20' 
-                        : 'border-border/50 bg-card/50 hover:border-golden/50 hover:bg-card/80'
-                      }
-                    `}
-                  >
-                    <Icon className={`w-6 h-6 transition-colors ${isSelected ? 'text-golden' : 'text-muted-foreground group-hover:text-golden/70'}`} />
-                    <span className={`text-sm font-medium ${isSelected ? 'text-foreground' : 'text-muted-foreground'}`}>
-                      {item.label}
-                    </span>
-                    {isSelected && (
-                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-golden rounded-full animate-pulse" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+            
+            {loadingEmociones ? (
+              <div className="flex items-center justify-center py-8">
+                <Loader2 className="w-6 h-6 text-golden animate-spin" />
+                <span className="ml-2 text-muted-foreground text-sm">Cargando emociones...</span>
+              </div>
+            ) : emocionOptions.length > 0 ? (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {emocionOptions.map((item) => {
+                  const isSelected = emocion === item.value;
+                  return (
+                    <button
+                      key={item.value}
+                      onClick={() => {
+                        setEmocion(item.value);
+                        setEmocionPersonalizada(""); // Limpiar personalizada al seleccionar
+                      }}
+                      className={`
+                        relative p-4 rounded-xl border-2 transition-all duration-300
+                        flex flex-col items-center gap-2 group
+                        ${isSelected 
+                          ? 'border-golden bg-gradient-to-br from-golden/20 to-golden/5 scale-105 shadow-lg shadow-golden/20' 
+                          : 'border-border/50 bg-card/50 hover:border-golden/50 hover:bg-card/80'
+                        }
+                      `}
+                    >
+                      <Heart className={`w-6 h-6 transition-colors ${isSelected ? 'text-golden' : 'text-muted-foreground group-hover:text-golden/70'}`} />
+                      <span className={`text-sm font-medium text-center ${isSelected ? 'text-foreground' : 'text-muted-foreground'}`}>
+                        {item.label}
+                      </span>
+                      {isSelected && (
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-golden rounded-full animate-pulse" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-sm text-center py-4">
+                No hay emociones disponibles. Usa el campo de abajo.
+              </p>
+            )}
             
             {/* Campo de emoción personalizada */}
             <div className="mt-4">
@@ -297,7 +326,7 @@ const W = () => {
                 onChange={(e) => {
                   setEmocionPersonalizada(e.target.value);
                   if (e.target.value.trim()) {
-                    setEmocion(""); // Clear selection if typing custom
+                    setEmocion(""); // Limpiar selección si escribe personalizada
                   }
                 }}
                 className="py-4 bg-card/50 border-border/50 focus:border-golden placeholder:text-muted-foreground/60"
@@ -308,21 +337,29 @@ const W = () => {
                 </p>
               )}
             </div>
+            
+            {/* Mostrar selección actual */}
+            {emocion && !emocionPersonalizada && (
+              <p className="text-xs text-golden">
+                Seleccionado: {emocion}
+              </p>
+            )}
           </div>
 
-          {/* Generar Selection - Multiple */}
+          {/* Generar Selection - Multiple - Cargado desde Airtable */}
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-golden" />
               Generar
               <span className="text-xs text-muted-foreground font-normal">(selección múltiple)</span>
             </h2>
-            {loadingOptions ? (
+            
+            {loadingGenerar ? (
               <div className="flex items-center justify-center py-8">
-                <div className="w-6 h-6 border-2 border-golden/30 border-t-golden rounded-full animate-spin" />
+                <Loader2 className="w-6 h-6 text-golden animate-spin" />
                 <span className="ml-2 text-muted-foreground text-sm">Cargando opciones...</span>
               </div>
-            ) : (
+            ) : generarOptions.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {generarOptions.map((item) => {
                   const isSelected = generar.includes(item.value);
@@ -346,7 +383,12 @@ const W = () => {
                   );
                 })}
               </div>
+            ) : (
+              <p className="text-muted-foreground text-sm text-center py-4">
+                No hay opciones disponibles. Configura el webhook /w-generar.
+              </p>
             )}
+            
             {generar.length > 0 && (
               <p className="text-xs text-golden">
                 Seleccionados: {generar.join(", ")}
@@ -363,7 +405,7 @@ const W = () => {
             >
               {isSubmitting ? (
                 <span className="flex items-center gap-2">
-                  <div className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full animate-spin" />
+                  <Loader2 className="w-5 h-5 animate-spin" />
                   Generando...
                 </span>
               ) : (
