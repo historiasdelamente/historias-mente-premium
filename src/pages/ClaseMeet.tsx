@@ -95,7 +95,7 @@ const ClaseMeet = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-base sm:text-lg text-gray-300">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-[#D4AF37]" />
-              <span>Este Miércoles</span>
+              <span>Este Martes</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-[#D4AF37]" />
