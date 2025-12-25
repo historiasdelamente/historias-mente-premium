@@ -39,7 +39,7 @@ const GraciasClaseMeet = () => {
               🎉 ¡FELICIDADES! Tu Lugar Está Reservado
             </h2>
             <p className="text-base md:text-xl text-white/90 mb-4 md:mb-6 px-2">
-              <strong className="text-[#D4AF37]">Este Miércoles a la 1:00 PM</strong> comienza tu transformación
+              <strong className="text-[#D4AF37]">Este Martes a la 1:00 PM</strong> comienza tu transformación
             </p>
 
             <div className="bg-gradient-to-r from-[#25D366]/20 to-[#25D366]/5 border-2 border-[#25D366] rounded-xl md:rounded-2xl p-4 md:p-8 mb-6 mx-2 md:mx-0">
@@ -147,7 +147,7 @@ const GraciasClaseMeet = () => {
                   <Calendar className="w-6 h-6 md:w-8 md:h-8 text-[#D4AF37] flex-shrink-0" />
                   <div>
                     <p className="text-xs md:text-sm text-white/70">Día</p>
-                    <p className="text-base md:text-lg font-semibold text-white">Este Miércoles</p>
+                    <p className="text-base md:text-lg font-semibold text-white">Este Martes</p>
                   </div>
                 </div>
                 
