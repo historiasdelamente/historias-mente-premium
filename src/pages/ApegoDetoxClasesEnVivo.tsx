@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import { Clock, MapPin } from "lucide-react";
+import { Clock } from "lucide-react";
 
 const ApegoDetoxClasesEnVivo = () => {
   const [nombre, setNombre] = useState("");
@@ -59,28 +59,6 @@ const ApegoDetoxClasesEnVivo = () => {
     }
   };
 
-  const schedules = [
-    {
-      countries: "Colombia, Ecuador, Perú, Panamá",
-      schedule: "Martes 8:00 p.m. | Jueves 1:00 p.m.",
-    },
-    {
-      countries: "México CDMX, Costa Rica, Guatemala, El Salvador, Nicaragua",
-      schedule: "Martes 7:00 p.m. | Jueves 12:00 p.m.",
-    },
-    {
-      countries: "Venezuela, Bolivia, Paraguay, Chile",
-      schedule: "Martes 8:00 p.m. | Jueves 2:00 p.m.",
-    },
-    {
-      countries: "Argentina, Uruguay",
-      schedule: "Martes 9:00 p.m. | Jueves 3:00 p.m.",
-    },
-    {
-      countries: "España peninsular",
-      schedule: "Miércoles 2:00 a.m. | Jueves 7:00 p.m.",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-black text-white font-['Poppins',sans-serif]">
@@ -107,61 +85,18 @@ const ApegoDetoxClasesEnVivo = () => {
         </div>
       </section>
 
-      {/* Horarios Multi-País */}
+      {/* Horario */}
       <section className="py-20 px-4 bg-gradient-to-b from-black to-[#0C0C0C]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Horarios por País
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400">
-              Elige el horario que mejor se adapte a ti
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {schedules.map((item, index) => (
-              <div
-                key={index}
-                className="card-premium hover-lift group"
-              >
-                <div className="flex items-start gap-3 mb-4">
-                  <MapPin className="w-5 h-5 text-[#FFD400] mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-white font-bold leading-tight">
-                    {item.countries}
-                  </h3>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-[#FFD400] mt-1 flex-shrink-0" />
-                  <p className="text-gray-300 font-medium">
-                    {item.schedule}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Usa{" "}
-              <a
-                href="https://time.is/Bogotá"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#FFD400] hover:text-[#FFC700] underline story-link"
-              >
-                https://time.is/Bogotá
-              </a>{" "}
-              o{" "}
-              <a
-                href="https://time.is/Madrid"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#FFD400] hover:text-[#FFC700] underline story-link"
-              >
-                https://time.is/Madrid
-              </a>{" "}
-              si tienes dudas. ¡Siempre tendrás el recordatorio exacto en tu celular!
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="card-premium inline-block px-12 py-8">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <Clock className="w-8 h-8 text-[#FFD400]" />
+              <h2 className="text-2xl md:text-4xl font-black golden-text">
+                Este martes a la 1:00 PM
+              </h2>
+            </div>
+            <p className="text-xl text-gray-300 font-medium">
+              Hora Colombia
             </p>
           </div>
         </div>
