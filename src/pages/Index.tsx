@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import HeroSection from "@/components/HeroSection";
+import SitelinksSection from "@/components/SitelinksSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import Footer from "@/components/Footer";
@@ -15,6 +16,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection onOpenChat={handleOpenChat} />
+      <SitelinksSection />
       <SocialMediaSection />
       <BenefitsSection />
       <Footer />
