@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Check, Calendar, Clock } from "lucide-react";
-import heroPhoto from "@/assets/mujer-apuntando.png";
+import heroImage from "@/assets/clase-header-hero.png";
 import javierPhoto from "@/assets/javier-vieira-lead.png";
 
 const ClaseMeet = () => {
@@ -64,42 +64,53 @@ const ClaseMeet = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* SECCIÓN 1 - HERO */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-b from-black via-[#1a1a1a] to-black">
-        <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-white">
-            Sigues esperando a que cambie...
-            <br />
-            <span className="text-[#D4AF37]">pero ya sabes la verdad.</span>
-          </h1>
-          
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-light mb-8 text-gray-300 max-w-3xl mx-auto">
-            El Método Nunca Revelado Para Dejar al Narcisista y Recuperar Tu Vida
-          </h2>
+      {/* SECCIÓN 1 - HERO CON IMAGEN CINEMATOGRÁFICA */}
+      <section className="relative min-h-screen flex flex-col">
+        {/* Imagen de fondo con overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage} 
+            alt="Clase sobre apego emocional y narcisismo" 
+            className="w-full h-full object-cover object-right md:object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+        </div>
 
-          <div className="mb-8">
-            <img 
-              src={heroPhoto} 
-              alt="Historias de la Mente" 
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-[#D4AF37] shadow-[0_0_40px_rgba(212,175,55,0.4)]"
-            />
-          </div>
+        {/* Contenido del hero */}
+        <div className="relative z-10 flex-1 flex items-center px-4 py-12">
+          <div className="max-w-4xl mx-auto md:mx-0 md:ml-[8%] animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4 text-white">
+              ¿Cuántas veces más vas a volver
+              <br />
+              <span className="text-white">antes de entender que </span>
+              <span className="text-[#D4AF37] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">NUNCA</span>
+              <span className="text-white"> cambiará?</span>
+            </h1>
+            
+            <p className="text-lg sm:text-xl md:text-2xl font-medium mb-2 text-gray-300 max-w-2xl">
+              El Método de <span className="text-[#D4AF37] font-bold">21 Días</span> Para Romper el Apego Emocional
+            </p>
+            <p className="text-lg sm:text-xl md:text-2xl font-medium mb-8 text-gray-300 max-w-2xl">
+              y Liberarte del Narcisista Para Siempre
+            </p>
 
-          <button
-            onClick={scrollToForm}
-            className="inline-block bg-[#D4AF37] text-black font-black text-base sm:text-lg md:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full hover:bg-[#f4d03f] hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300 mb-8"
-          >
-            RESERVA TU LUGAR GRATIS
-          </button>
+            <button
+              onClick={scrollToForm}
+              className="inline-block bg-[#D4AF37] text-black font-black text-base sm:text-lg md:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full hover:bg-[#f4d03f] hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300 mb-8"
+            >
+              RESERVA TU LUGAR GRATIS
+            </button>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-base sm:text-lg text-gray-300">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-[#D4AF37]" />
-              <span>Este Martes</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-[#D4AF37]" />
-              <span>1:00 PM Hora Colombia</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 text-base sm:text-lg text-gray-300">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-[#D4AF37]" />
+                <span>Este Martes</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-5 h-5 text-[#D4AF37]" />
+                <span>1:00 PM Hora Colombia</span>
+              </div>
             </div>
           </div>
         </div>
