@@ -66,49 +66,85 @@ const ClaseMeet = () => {
     <div className="min-h-screen bg-black text-white">
       {/* SECCIÓN 1 - HERO CON IMAGEN CINEMATOGRÁFICA */}
       <section className="relative min-h-[100svh] flex flex-col">
-        {/* Imagen de fondo con overlay */}
+        {/* Imagen de fondo con overlay oscuro */}
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
             alt="Clase sobre apego emocional y narcisismo" 
             className="w-full h-full object-cover object-[75%_center] sm:object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/40 md:from-black md:via-black/80 md:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-[#1A1A1A]/[0.65]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-[#1A1A1A]/50" />
         </div>
 
-        {/* Contenido del hero */}
-        <div className="relative z-10 flex-1 flex items-start pt-8 sm:pt-12 md:items-center md:pt-0 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto md:mx-0 md:ml-[5%] lg:ml-[8%] animate-fade-in w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-3 sm:mb-4 text-white">
-              ¿Cuántas veces más vas a volver
-              <br />
-              <span className="text-white">antes de entender que </span>
-              <span className="text-[#D4AF37] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">NUNCA</span>
-              <span className="text-white"> cambiará?</span>
+        {/* Contenido del hero - Centrado */}
+        <div className="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-6 py-8">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in w-full">
+            {/* Título Principal */}
+            <h1 
+              className="font-['Montserrat',sans-serif] font-black leading-[1.2] mb-6 text-white"
+              style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
+            >
+              <span className="block text-[32px] sm:text-[40px] md:text-[48px] lg:text-[52px]">
+                ¿Cuántas veces más vas a volver
+              </span>
+              <span className="block text-[32px] sm:text-[40px] md:text-[48px] lg:text-[52px]">
+                antes de entender que{' '}
+                <span className="text-[#F4C430] drop-shadow-[0_2px_4px_rgba(244,196,48,0.4)]">NUNCA</span>
+                {' '}cambiará?
+              </span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-1 sm:mb-2 text-gray-300 max-w-2xl">
-              El Método de <span className="text-[#D4AF37] font-bold">21 Días</span> Para Romper el Apego Emocional
-            </p>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-5 sm:mb-8 text-gray-300 max-w-2xl">
-              y Liberarte del Narcisista Para Siempre
-            </p>
+            {/* Subtítulo */}
+            <div className="mb-8">
+              <p className="font-['Roboto',sans-serif] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-normal leading-[1.5] text-white/95 mb-1">
+                El Método de <span className="text-[#F4C430] font-semibold">21 Días</span> Para Romper el Apego Emocional
+              </p>
+              <p className="font-['Roboto',sans-serif] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-normal leading-[1.5] text-white/95">
+                y Liberarte del Narcisista Para Siempre
+              </p>
+            </div>
 
+            {/* Imagen Circular de la Mujer */}
+            <div className="flex justify-center mb-8">
+              <div 
+                className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full border-4 border-[#F4C430] overflow-hidden"
+                style={{ boxShadow: '0 8px 24px rgba(244, 196, 48, 0.3)' }}
+              >
+                <img 
+                  src={heroImage} 
+                  alt="Mujer pensativa" 
+                  className="w-full h-full object-cover object-[70%_20%]"
+                />
+              </div>
+            </div>
+
+            {/* Botón CTA Principal */}
             <button
               onClick={scrollToForm}
-              className="inline-block bg-[#D4AF37] text-black font-black text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full hover:bg-[#f4d03f] hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300 mb-5 sm:mb-8"
+              className="w-[90%] max-w-[400px] mx-auto block font-['Montserrat',sans-serif] font-bold text-[18px] sm:text-[20px] text-[#1A1A1A] py-[18px] px-[48px] rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:scale-105 mb-6 animate-[pulse_2s_ease-in-out_infinite]"
+              style={{ 
+                background: 'linear-gradient(135deg, #F4C430 0%, #E6B800 100%)',
+                boxShadow: '0 6px 20px rgba(244, 196, 48, 0.4)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(244, 196, 48, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(244, 196, 48, 0.4)';
+              }}
             >
               RESERVA TU LUGAR GRATIS
             </button>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8 text-sm sm:text-base md:text-lg text-gray-300">
+            {/* Información de Fecha/Hora */}
+            <div className="flex flex-col items-center gap-3 text-[16px] sm:text-[18px] font-medium text-[#F4C430]">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
+                <Calendar className="w-5 h-5 text-[#F4C430]" />
                 <span>Este Miércoles</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
+                <Clock className="w-5 h-5 text-[#F4C430]" />
                 <span>1:00 PM Hora Colombia</span>
               </div>
             </div>
