@@ -65,50 +65,50 @@ const ClaseMeet = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* SECCIÓN 1 - HERO CON IMAGEN CINEMATOGRÁFICA */}
-      <section className="relative min-h-screen flex flex-col">
+      <section className="relative min-h-[100svh] flex flex-col">
         {/* Imagen de fondo con overlay */}
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
             alt="Clase sobre apego emocional y narcisismo" 
-            className="w-full h-full object-cover object-right md:object-center"
+            className="w-full h-full object-cover object-[75%_center] sm:object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/40 md:from-black md:via-black/80 md:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
         </div>
 
         {/* Contenido del hero */}
-        <div className="relative z-10 flex-1 flex items-center px-4 py-12">
-          <div className="max-w-4xl mx-auto md:mx-0 md:ml-[8%] animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4 text-white">
+        <div className="relative z-10 flex-1 flex items-start pt-8 sm:pt-12 md:items-center md:pt-0 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto md:mx-0 md:ml-[5%] lg:ml-[8%] animate-fade-in w-full">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-3 sm:mb-4 text-white">
               ¿Cuántas veces más vas a volver
               <br />
               <span className="text-white">antes de entender que </span>
-              <span className="text-[#D4AF37] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">NUNCA</span>
+              <span className="text-[#D4AF37] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">NUNCA</span>
               <span className="text-white"> cambiará?</span>
             </h1>
             
-            <p className="text-lg sm:text-xl md:text-2xl font-medium mb-2 text-gray-300 max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-1 sm:mb-2 text-gray-300 max-w-2xl">
               El Método de <span className="text-[#D4AF37] font-bold">21 Días</span> Para Romper el Apego Emocional
             </p>
-            <p className="text-lg sm:text-xl md:text-2xl font-medium mb-8 text-gray-300 max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium mb-5 sm:mb-8 text-gray-300 max-w-2xl">
               y Liberarte del Narcisista Para Siempre
             </p>
 
             <button
               onClick={scrollToForm}
-              className="inline-block bg-[#D4AF37] text-black font-black text-base sm:text-lg md:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full hover:bg-[#f4d03f] hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300 mb-8"
+              className="inline-block bg-[#D4AF37] text-black font-black text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full hover:bg-[#f4d03f] hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300 mb-5 sm:mb-8"
             >
               RESERVA TU LUGAR GRATIS
             </button>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 text-base sm:text-lg text-gray-300">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8 text-sm sm:text-base md:text-lg text-gray-300">
               <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-[#D4AF37]" />
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
                 <span>Este Miércoles</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-[#D4AF37]" />
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
                 <span>1:00 PM Hora Colombia</span>
               </div>
             </div>
