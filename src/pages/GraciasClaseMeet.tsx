@@ -66,7 +66,7 @@ const GraciasClaseMeet = () => {
               }}
             >
               <p className="text-lg md:text-xl font-semibold text-white">
-                <span style={{ color: '#D4AF37' }}>Este Martes</span> • 1:00 PM Colombia
+                <span style={{ color: '#D4AF37' }}>Este Miércoles</span> • 1:00 PM Colombia
               </p>
             </div>
             
@@ -212,7 +212,7 @@ const GraciasClaseMeet = () => {
                   <circle cx="12" cy="12" r="10"/>
                   <polyline points="12,6 12,12 16,14"/>
                 </svg>
-                Conecta este Martes
+                Conecta este Miércoles
               </h3>
               <p className="text-sm text-white/70">
                 <strong className="text-white">1:00 PM</strong> (hora Colombia) • Clase en vivo por Google Meet
