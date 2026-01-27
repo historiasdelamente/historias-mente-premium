@@ -1,8 +1,8 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { Check, Calendar, Clock } from "lucide-react";
+import { Check, Clock } from "lucide-react";
 import heroImage from "@/assets/clase-header-hero.png";
-import javierPhoto from "@/assets/javier-vieira-lead.png";
+import javierPhoto from "@/assets/javier-vieira-nuevo.png";
 
 const ClaseMeet = () => {
   const navigate = useNavigate();
@@ -68,24 +68,21 @@ const ClaseMeet = () => {
       <section className="bg-[#0a0a0a] px-4 sm:px-6 py-6 sm:py-10">
         <div className="max-w-3xl mx-auto text-center animate-fade-in">
           {/* Título Principal */}
-          <h1 className="font-['Montserrat',sans-serif] font-black leading-[1.2] mb-4 sm:mb-5 text-white">
-            <span className="block text-[26px] sm:text-[36px] md:text-[44px] lg:text-[50px]">
-              ¿Cuántas veces más vas a volver
+          <h1 className="font-['Playfair_Display',Georgia,serif] font-bold leading-[1.2] mb-4 sm:mb-5 text-white tracking-tight">
+            <span className="block text-[24px] sm:text-[32px] md:text-[40px] lg:text-[46px]">
+              ¿Tiene que destruirte para que aceptes
             </span>
-            <span className="block text-[26px] sm:text-[36px] md:text-[44px] lg:text-[50px]">
-              antes de entender que{' '}
+            <span className="block text-[24px] sm:text-[32px] md:text-[40px] lg:text-[46px]">
+              que{' '}
               <span className="text-[#F4C430] drop-shadow-[0_2px_4px_rgba(244,196,48,0.4)]">NUNCA</span>
-              {' '}cambiará?
+              {' '}te amó?
             </span>
           </h1>
           
           {/* Subtítulo */}
           <div className="mb-5 sm:mb-6">
-            <p className="font-['Roboto',sans-serif] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal leading-[1.5] text-white/90 mb-1">
-              El Método de <span className="text-[#F4C430] font-semibold">21 Días</span> Para Romper el Apego Emocional
-            </p>
-            <p className="font-['Roboto',sans-serif] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal leading-[1.5] text-white/90">
-              y Liberarte del Narcisista Para Siempre
+            <p className="font-['Lato',sans-serif] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-light leading-[1.6] text-white/90">
+              Deja de ser su sombra. <span className="text-[#F4C430] font-medium">Recupera tu brillo</span>, tu belleza y tu vida hoy mismo.
             </p>
           </div>
 
@@ -122,15 +119,9 @@ const ClaseMeet = () => {
           </button>
 
           {/* Información de Fecha/Hora */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-[14px] sm:text-[16px] font-medium text-[#F4C430]">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#F4C430]" />
-              <span>Este Miércoles</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#F4C430]" />
-              <span>1:00 PM Hora Colombia</span>
-            </div>
+          <div className="flex items-center justify-center gap-2 text-[14px] sm:text-[16px] font-semibold text-[#F4C430]">
+            <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#F4C430]" />
+            <span>Accede a la clase ya mismo, está por empezar</span>
           </div>
         </div>
       </section>
