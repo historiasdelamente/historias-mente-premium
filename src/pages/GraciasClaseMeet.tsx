@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, Mail, Smartphone } from "lucide-react";
+import { Mail, Smartphone, PlayCircle } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -21,7 +21,7 @@ const styles = `
 `;
 
 const GraciasClaseMeet = () => {
-  const whatsappUrl = "https://wa.me/573137089920?text=Quiero%20ir%20a%20la%20clase%20de%20apego";
+  const classUrl = "https://historiasdelamente.com/clase-apegodetox";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -111,7 +111,7 @@ const GraciasClaseMeet = () => {
 
           {/* CTA DISRUPTIVO - ENTRAR A LA CLASE */}
           <a 
-            href="https://historiasdelamente.com/clase-apegodetox"
+            href={classUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="relative inline-flex items-center justify-center gap-3 w-full max-w-[420px] py-6 px-10 rounded-2xl text-black font-black text-xl uppercase tracking-wide transition-all duration-300 hover:scale-105 active:scale-[0.98] overflow-hidden"
@@ -134,49 +134,6 @@ const GraciasClaseMeet = () => {
 
           <p className="mt-4 text-white/70 text-sm">
             👆 Toca el botón y entra directo a la clase
-          </p>
-
-          {/* Divider */}
-          <div className="my-10 flex items-center gap-4 max-w-[400px] mx-auto">
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-white/40 text-xs uppercase tracking-widest">o también</span>
-            <div className="flex-1 h-px bg-white/10" />
-          </div>
-
-          {/* CTA Secundario WhatsApp */}
-          <p className="text-white/60 text-sm mb-4">¿Prefieres confirmar por WhatsApp?</p>
-          <a 
-            id="cta-whatsapp"
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 w-full max-w-[400px] py-5 px-8 rounded-2xl text-black font-bold text-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-            style={{ 
-              background: 'linear-gradient(135deg, #FFD200 0%, #FFC000 100%)',
-              boxShadow: '0 8px 32px rgba(255,210,0,0.3), 0 0 0 1px rgba(255,210,0,0.1)',
-            }}
-          >
-            <MessageCircle className="w-6 h-6" />
-            Quiero ir a la clase de apego
-          </a>
-
-          {/* Micro-instructions */}
-          <div 
-            className="mt-6 p-4 rounded-xl max-w-[450px] mx-auto"
-            style={{ 
-              background: 'rgba(255,210,0,0.08)',
-              border: '1px solid rgba(255,210,0,0.15)'
-            }}
-          >
-            <p className="text-sm text-white/90 leading-relaxed">
-              <span className="font-semibold" style={{ color: '#FFD200' }}>Paso 1:</span> Toca el botón de WhatsApp.<br />
-              <span className="font-semibold" style={{ color: '#FFD200' }}>Paso 2:</span> Revisa tu correo (Inbox / Promociones / Spam) para ver el enlace.
-            </p>
-          </div>
-
-          {/* Fallback note */}
-          <p className="mt-4 text-xs text-white/50">
-            Si no se abre WhatsApp, guarda este número: <span className="text-white/70">+57 313 708 9920</span>
           </p>
         </div>
       </section>
@@ -206,11 +163,11 @@ const GraciasClaseMeet = () => {
                   className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
                   style={{ background: 'rgba(255,210,0,0.15)', border: '1px solid rgba(255,210,0,0.3)' }}
                 >
-                  <MessageCircle className="w-5 h-5" style={{ color: '#FFD200' }} />
+                  <PlayCircle className="w-5 h-5" style={{ color: '#FFD200' }} />
                 </div>
                 <div>
-                  <p className="text-white font-medium">Toca el botón de WhatsApp</p>
-                  <p className="text-sm text-white/60">El mensaje ya está listo</p>
+                  <p className="text-white font-medium">Toca el botón amarillo</p>
+                  <p className="text-sm text-white/60">Serás llevada directo a la clase</p>
                 </div>
               </div>
 
@@ -223,8 +180,8 @@ const GraciasClaseMeet = () => {
                   <Smartphone className="w-5 h-5" style={{ color: '#FFD200' }} />
                 </div>
                 <div>
-                  <p className="text-white font-medium">Envía el mensaje para confirmar</p>
-                  <p className="text-sm text-white/60">Solo presiona enviar</p>
+                  <p className="text-white font-medium">Mira la clase completa</p>
+                  <p className="text-sm text-white/60">Desde tu celular o computador</p>
                 </div>
               </div>
 
@@ -237,8 +194,8 @@ const GraciasClaseMeet = () => {
                   <Mail className="w-5 h-5" style={{ color: '#FFD200' }} />
                 </div>
                 <div>
-                  <p className="text-white font-medium">Abre tu correo y entra con el enlace</p>
-                  <p className="text-sm text-white/60">El acceso llegará automáticamente</p>
+                  <p className="text-white font-medium">Revisa tu correo después</p>
+                  <p className="text-sm text-white/60">Recibirás información adicional</p>
                 </div>
               </div>
             </div>
@@ -249,7 +206,7 @@ const GraciasClaseMeet = () => {
               style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)' }}
             >
               <p className="text-sm text-red-300">
-                ⚠️ Revisa: <strong>Principal</strong>, <strong>Promociones</strong> y <strong>Spam</strong>
+                ⚠️ Revisa tu correo en: <strong>Principal</strong>, <strong>Promociones</strong> y <strong>Spam</strong>
               </p>
             </div>
           </div>
@@ -283,7 +240,7 @@ const GraciasClaseMeet = () => {
       <section className="relative z-10 py-8 px-5">
         <div className="max-w-[500px] mx-auto text-center">
           <a 
-            href={whatsappUrl}
+            href={classUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 w-full max-w-[400px] py-5 px-8 rounded-2xl text-black font-bold text-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
@@ -292,8 +249,7 @@ const GraciasClaseMeet = () => {
               boxShadow: '0 8px 32px rgba(255,210,0,0.3), 0 0 0 1px rgba(255,210,0,0.1)',
             }}
           >
-            <MessageCircle className="w-6 h-6" />
-            Quiero ir a la clase de apego
+            🚀 ENTRAR A LA CLASE AHORA
           </a>
         </div>
       </section>
@@ -320,10 +276,10 @@ const GraciasClaseMeet = () => {
               <AccordionTrigger 
                 className="px-5 py-4 text-left text-white hover:no-underline hover:bg-white/[0.02] transition-colors"
               >
-                ¿Dónde me llega el acceso?
+                ¿Cómo entro a la clase?
               </AccordionTrigger>
               <AccordionContent className="px-5 pb-4 text-white/70">
-                A tu correo después de confirmar por WhatsApp.
+                Toca el botón amarillo "ENTRAR A LA CLASE AHORA" y serás llevada directamente.
               </AccordionContent>
             </AccordionItem>
 
@@ -359,7 +315,7 @@ const GraciasClaseMeet = () => {
                 ¿Puedo entrar desde el celular?
               </AccordionTrigger>
               <AccordionContent className="px-5 pb-4 text-white/70">
-                Sí, entra directo desde el enlace del correo.
+                Sí, la clase funciona perfectamente desde tu celular.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
