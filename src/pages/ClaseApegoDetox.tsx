@@ -1,347 +1,350 @@
-import { useState, FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import heroImage from "@/assets/gracias-hero-futurista.png";
-import javierImage from "@/assets/javier-vieira.png";
+import { useState, useEffect } from "react";
+import { Play, Check, ArrowDown, ChevronDown } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+// ============ CONFIGURACIÓN EDITABLE ============
+const PURCHASE_LINK = "https://TU-LINK-DE-COMPRA-AQUI.com";
+// ================================================
 
 const ClaseApegoDetox = () => {
-  const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
+  const [showStickyBar, setShowStickyBar] = useState(false);
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    
-    if (!nombre.trim() || !email.trim()) {
-      return;
-    }
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowStickyBar(scrollY > 600);
+    };
 
-    setIsSubmitting(true);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    try {
-      const { error } = await supabase.functions.invoke('submit-clase-meet', {
-        body: { nombre, email, source: 'clase-apego-detox' }
-      });
-
-      if (error) throw error;
-      navigate('/gracias-apego-detox');
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setIsSubmitting(false);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const scrollToForm = () => {
-    document.getElementById('registro')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const benefits = [
+    { title: "Romper el ciclo", description: "Salir del patrón que te mantiene atada" },
+    { title: "Dejar de justificar", description: "Reconocer lo que no está bien sin excusas" },
+    { title: "Recuperar tu claridad", description: "Pensar sin la niebla emocional" },
+    { title: "Volver a ti", description: "Reconectar con quien eras antes" },
+    { title: "Aprender límites", description: "Decir 'no' sin sentir culpa" },
+    { title: "Tomar decisiones sin miedo", description: "Actuar desde la seguridad, no el pánico" },
+  ];
+
+  const forWhom = [
+    "Si dices 'ya no vuelvo'… y vuelves",
+    "Si te cuesta soltar aunque sabes que te hace daño",
+    "Si tu mente entiende, pero tu cuerpo se queda enganchado",
+    "Si te culpas por sentir lo que sientes",
+    "Si quieres un paso a paso real",
+  ];
+
+  const faqs = [
+    {
+      question: "¿Esto es para mí si ya intenté soltar?",
+      answer: "Sí. Este programa está diseñado precisamente para quienes han intentado muchas veces. Te da las herramientas que te faltaban para que esta vez sea diferente.",
+    },
+    {
+      question: "¿Qué pasa después de ver la clase?",
+      answer: "La clase te da el entendimiento. El programa completo te da el proceso paso a paso para aplicar lo que aprendiste y lograr el cambio real.",
+    },
+    {
+      question: "¿Es contenido práctico o solo motivación?",
+      answer: "Es 100% práctico. Cada módulo tiene ejercicios, reflexiones y pasos concretos. Nada de frases vacías.",
+    },
+    {
+      question: "¿Cuánto tiempo toma ver cambios?",
+      answer: "Muchas mujeres reportan claridad desde la primera semana. Los cambios profundos vienen con la práctica constante durante 21-30 días.",
+    },
+    {
+      question: "¿Cómo accedo al programa?",
+      answer: "Al hacer clic en el botón de compra, accedes inmediatamente a la plataforma con todo el contenido disponible desde el primer momento.",
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]" style={{ fontFamily: 'Inter, sans-serif' }}>
-      
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-[#0a0a0a]" />
-        
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          {/* Badge */}
-          <div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-            style={{ 
-              background: 'rgba(212, 175, 55, 0.15)',
-              border: '1px solid rgba(212, 175, 55, 0.3)'
-            }}
+    <div className="min-h-screen bg-[#0a0a0a] text-white" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+      {/* ========== HEADER STICKY ========== */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <a href="/" className="text-lg font-semibold text-white">
+            Historias de la Mente
+          </a>
+          
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center gap-6 text-sm text-gray-400">
+            <button onClick={() => scrollToSection("video")} className="hover:text-white transition-colors">
+              Ver Clase
+            </button>
+            <button onClick={() => scrollToSection("beneficios")} className="hover:text-white transition-colors">
+              Qué vas a lograr
+            </button>
+            <button onClick={() => scrollToSection("comprar")} className="hover:text-white transition-colors">
+              Comprar
+            </button>
+            <button onClick={() => scrollToSection("faq")} className="hover:text-white transition-colors">
+              Preguntas
+            </button>
+          </nav>
+
+          <a
+            href={PURCHASE_LINK}
+            className="hidden sm:inline-flex px-4 py-2 bg-[#FFD200] text-black text-sm font-semibold rounded-lg hover:bg-[#FFD200]/90 transition-all"
           >
-            <span className="text-sm font-medium" style={{ color: '#D4AF37' }}>
-              🔥 CLASE GRATUITA DE LANZAMIENTO
-            </span>
+            Comprar ahora
+          </a>
+        </div>
+      </header>
+
+      {/* ========== HERO ========== */}
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFD200]/10 border border-[#FFD200]/30 rounded-full text-[#FFD200] text-sm mb-8">
+            <Play className="w-4 h-4" />
+            Clase Apego Detox
           </div>
 
           {/* Main Title */}
-          <h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
-          >
-            <span className="text-white">Clase</span>{' '}
-            <span style={{ 
-              background: 'linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}>
-              Apego Detox
-            </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+            NO ES AMOR.
+            <br />
+            <span className="text-[#FFD200]">ES APEGO EMOCIONAL.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/80 mb-4 max-w-2xl mx-auto">
-            El método que te liberará del apego emocional tóxico
-          </p>
-          <p className="text-lg text-white/60 mb-8 max-w-xl mx-auto">
-            Descubre cómo miles de mujeres han logrado superar relaciones narcisistas y recuperar su poder personal
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-4 leading-relaxed">
+            Si lo entiendes, dejas de culparte.
+            <br className="hidden sm:block" />
+            Y si lo trabajas, dejas de volver.
           </p>
 
-          {/* Date/Time */}
-          <div 
-            className="inline-block px-8 py-4 rounded-2xl mb-10"
-            style={{ 
-              background: 'rgba(212, 175, 55, 0.1)',
-              border: '2px solid #D4AF37',
-              boxShadow: '0 0 30px rgba(212, 175, 55, 0.2)'
-            }}
-          >
-            <p className="text-lg md:text-xl font-semibold text-white">
-              <span style={{ color: '#D4AF37' }}>Este Miércoles</span> • 1:00 PM Colombia
-            </p>
-            <p className="text-sm text-white/60 mt-1">Clase en vivo por Google Meet</p>
-          </div>
+          {/* Microcopy */}
+          <p className="text-sm text-gray-500 mb-8">
+            Esta clase es el primer paso de Apego Detox.
+          </p>
 
           {/* CTA Button */}
-          <div>
-            <button
-              onClick={scrollToForm}
-              className="px-10 py-5 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105"
-              style={{ 
-                background: 'linear-gradient(135deg, #D4AF37 0%, #B8860B 100%)',
-                color: '#000',
-                boxShadow: '0 10px 40px rgba(212, 175, 55, 0.4)'
-              }}
-            >
-              🎯 RESERVAR MI LUGAR GRATIS
-            </button>
-            <p className="text-sm text-white/50 mt-4">⚡ Cupos limitados</p>
-          </div>
-        </div>
+          <button
+            onClick={() => scrollToSection("video")}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/15 transition-all group"
+          >
+            Ver la clase ahora
+            <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+          </button>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
-          </svg>
+          {/* Chips */}
+          <div className="flex flex-wrap justify-center gap-3 mt-10">
+            {["Clase en video", "Paso a paso", "Enfoque psicológico", "Acompañamiento"].map((chip) => (
+              <span
+                key={chip}
+                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-400"
+              >
+                {chip}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="py-20 px-6">
+      {/* ========== VIDEO SECTION ========== */}
+      <section id="video" className="py-16 md:py-24 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
-          >
-            <span className="text-white">¿Te sientes </span>
-            <span style={{ color: '#D4AF37' }}>atrapada</span>
-            <span className="text-white"> en una relación tóxica?</span>
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              "No puedes dejar de pensar en él aunque sabes que te hace daño",
-              "Sientes que sin él no puedes ser feliz",
-              "Has intentado dejarlo pero siempre vuelves",
-              "Tu autoestima está por el suelo",
-              "Sientes ansiedad cuando no te responde",
-              "Has perdido tu identidad en la relación"
-            ].map((item, index) => (
-              <div 
-                key={index}
-                className="flex items-start gap-4 p-5 rounded-xl transition-all duration-300 hover:scale-[1.02]"
-                style={{ 
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <span className="text-2xl">😔</span>
-                <p className="text-white/80">{item}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-xl text-white/70 mt-12">
-            Si te identificas con algo de esto, <span style={{ color: '#D4AF37' }}>esta clase es para ti</span>.
-          </p>
-        </div>
-      </section>
-
-      {/* What You'll Learn */}
-      <section className="py-20 px-6" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #111 100%)' }}>
-        <div className="max-w-5xl mx-auto">
-          <h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-4"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
-          >
-            <span className="text-white">En esta clase </span>
-            <span style={{ color: '#D4AF37' }}>aprenderás</span>
-          </h2>
-          <p className="text-center text-white/60 mb-12 max-w-2xl mx-auto">
-            Estrategias probadas que han transformado la vida de más de 5,000 mujeres
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "🧠",
-                title: "Entender el Apego",
-                description: "Descubre por qué tu mente te mantiene atada a alguien que te hace daño"
-              },
-              {
-                icon: "💔",
-                title: "Romper el Ciclo",
-                description: "El método Apego Detox para liberarte de patrones tóxicos de una vez por todas"
-              },
-              {
-                icon: "✨",
-                title: "Recuperar tu Poder",
-                description: "Técnicas para reconstruir tu autoestima y volver a ser tú misma"
-              }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                className="p-8 rounded-2xl text-center transition-all duration-300 hover:transform hover:-translate-y-2"
-                style={{ 
-                  background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%)',
-                  border: '1px solid rgba(212, 175, 55, 0.2)'
-                }}
-              >
-                <span className="text-5xl mb-6 block">{item.icon}</span>
-                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-white/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Instructor Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#D4AF37' }}>
-            Tu instructor
-          </p>
-          
-          <div 
-            className="w-36 h-36 mx-auto mb-8 rounded-full overflow-hidden"
-            style={{ 
-              border: '4px solid #D4AF37',
-              boxShadow: '0 0 40px rgba(212, 175, 55, 0.3)'
-            }}
-          >
-            <img 
-              src={javierImage} 
-              alt="Javier Vieira" 
-              className="w-full h-full object-cover"
+          {/* Video Container */}
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/v7XHwI6AXVY?si=f1_qAex-hrCQinnU"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             />
           </div>
 
-          <h3 
-            className="text-3xl md:text-4xl font-bold text-white mb-3"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Javier Vieira
-          </h3>
-          <p className="text-lg mb-2" style={{ color: '#D4AF37' }}>
-            Creador del Método Apego Detox
-          </p>
-          <p className="text-white/60 mb-6">
-            Experto en Liberación del Narcisismo
-          </p>
-
-          <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Llevo años ayudando a mujeres a liberarse del apego emocional tóxico. 
-            Mi método ha transformado la vida de miles de personas que hoy viven 
-            libres y en paz consigo mismas.
+          {/* Text below video */}
+          <p className="text-center text-gray-400 mt-8 text-lg">
+            Cuando termines la clase, baja y haz clic en el botón.
+            <br />
+            <span className="text-[#FFD200]">Ahí empieza el cambio.</span>
           </p>
         </div>
       </section>
 
-      {/* Registration Form */}
-      <section id="registro" className="py-20 px-6" style={{ background: '#111' }}>
-        <div className="max-w-xl mx-auto">
-          <div 
-            className="p-8 md:p-12 rounded-3xl"
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0,0,0,0.5) 100%)',
-              border: '2px solid rgba(212, 175, 55, 0.3)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
-            }}
-          >
-            <div className="text-center mb-8">
-              <span className="text-4xl mb-4 block">🎯</span>
-              <h2 
-                className="text-2xl md:text-3xl font-bold text-white mb-2"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
-              >
-                Reserva tu lugar
-              </h2>
-              <p className="text-white/60">Es 100% gratis • Cupos limitados</p>
-            </div>
+      {/* ========== BENEFICIOS ========== */}
+      <section id="beneficios" className="py-16 md:py-24 px-4 bg-[#0d0d0d]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
+            Qué vas a <span className="text-[#FFD200]">lograr</span>
+          </h2>
+          <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+            Esto es lo que cambia cuando trabajas el apego emocional de verdad.
+          </p>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Tu nombre"
-                  value={nombre}
-                  onChange={(e) => setNombre(e.target.value)}
-                  required
-                  className="w-full px-5 py-4 rounded-xl text-white placeholder-white/40 outline-none transition-all duration-300"
-                  style={{ 
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.1)'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = '#D4AF37'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  placeholder="Tu email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full px-5 py-4 rounded-xl text-white placeholder-white/40 outline-none transition-all duration-300"
-                  style={{ 
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.1)'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = '#D4AF37'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-5 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50"
-                style={{ 
-                  background: 'linear-gradient(135deg, #D4AF37 0%, #B8860B 100%)',
-                  color: '#000',
-                  boxShadow: '0 10px 40px rgba(212, 175, 55, 0.3)'
-                }}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="p-6 bg-[#151515] border border-white/5 rounded-2xl hover:border-[#FFD200]/30 transition-all group"
               >
-                {isSubmitting ? 'Reservando...' : '🚀 QUIERO MI LUGAR GRATIS'}
-              </button>
-            </form>
+                <div className="w-10 h-10 bg-[#FFD200]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#FFD200]/20 transition-colors">
+                  <Check className="w-5 h-5 text-[#FFD200]" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-white">{benefit.title}</h3>
+                <p className="text-gray-500 text-sm">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <p className="text-center text-white/40 text-sm mt-6">
-              🔒 Tu información está segura y no la compartiremos
+      {/* ========== PARA QUIÉN ES ========== */}
+      <section className="py-16 md:py-24 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+            ¿Para quién es <span className="text-[#FFD200]">esto</span>?
+          </h2>
+          <p className="text-gray-400 text-center mb-10">
+            Esta clase es para ti si...
+          </p>
+
+          <div className="space-y-4">
+            {forWhom.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-4 p-4 bg-[#111] border border-white/5 rounded-xl"
+              >
+                <div className="w-6 h-6 bg-[#FFD200] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="w-4 h-4 text-black" />
+                </div>
+                <p className="text-gray-300">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== BLOQUE DE COMPRA ========== */}
+      <section id="comprar" className="py-16 md:py-24 px-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="relative p-8 sm:p-12 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#FFD200]/20 rounded-3xl text-center overflow-hidden">
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFD200]/5 via-transparent to-[#FFD200]/5 pointer-events-none" />
+            
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 relative z-10">
+              COMIENZA AQUÍ:
+              <br />
+              <span className="text-[#FFD200]">LIBÉRATE DEL APEGO</span>
+            </h2>
+
+            <p className="text-gray-400 mb-8 max-w-md mx-auto relative z-10">
+              Si te quedas solo con entender, repites.
+              <br />
+              Si lo trabajas, sales.
+            </p>
+
+            {/* BOTÓN PULSANTE */}
+            <a
+              href={PURCHASE_LINK}
+              className="inline-block px-10 py-5 bg-[#FFD200] text-black text-lg sm:text-xl font-bold rounded-2xl relative z-10 animate-pulse-glow hover:scale-105 transition-transform"
+            >
+              QUIERO ENTRAR A APEGO DETOX
+            </a>
+
+            {/* Trust text */}
+            <p className="text-sm text-gray-500 mt-6 relative z-10">
+              Acceso inmediato • Contenido guiado • Enfoque práctico
             </p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 px-6 text-center border-t border-white/10">
-        <a href="/" style={{ color: '#D4AF37' }} className="hover:underline">
-          Historias de la Mente
-        </a>
-        <p className="text-white/40 text-sm mt-2">
-          © {new Date().getFullYear()} Todos los derechos reservados
-        </p>
+      {/* ========== FAQ ========== */}
+      <section id="faq" className="py-16 md:py-24 px-4 bg-[#0d0d0d]">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+            Preguntas <span className="text-[#FFD200]">frecuentes</span>
+          </h2>
+          <p className="text-gray-400 text-center mb-12">
+            Lo que más nos preguntan antes de entrar.
+          </p>
+
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="bg-[#151515] border border-white/5 rounded-xl px-6 overflow-hidden"
+              >
+                <AccordionTrigger className="text-left text-white hover:no-underline py-5">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400 pb-5">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* ========== FOOTER ========== */}
+      <footer className="py-12 px-4 border-t border-white/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-gray-400 mb-4">
+            © Historias de la Mente — Apego Detox
+          </p>
+          <p className="text-sm text-gray-600 max-w-lg mx-auto">
+            Contenido educativo. No reemplaza un proceso terapéutico profesional.
+          </p>
+        </div>
       </footer>
+
+      {/* ========== BARRA STICKY INFERIOR ========== */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-t border-white/10 px-4 py-3 transition-all duration-300 ${
+          showStickyBar ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+        }`}
+      >
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
+          <p className="text-white font-medium hidden sm:block">¿Lista para salir del ciclo?</p>
+          <p className="text-white font-medium sm:hidden">¿Lista?</p>
+          <a
+            href={PURCHASE_LINK}
+            className="px-6 py-3 bg-[#FFD200] text-black font-bold rounded-xl hover:bg-[#FFD200]/90 transition-all flex-shrink-0"
+          >
+            Comprar ahora
+          </a>
+        </div>
+      </div>
+
+      {/* ========== CSS PARA ANIMACIÓN PULSE-GLOW ========== */}
+      <style>{`
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(255, 210, 0, 0.3), 0 0 40px rgba(255, 210, 0, 0.2);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(255, 210, 0, 0.5), 0 0 60px rgba(255, 210, 0, 0.3);
+            transform: scale(1.04);
+          }
+        }
+        
+        .animate-pulse-glow {
+          animation: pulse-glow 1.4s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };
