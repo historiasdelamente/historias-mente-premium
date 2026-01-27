@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, Mail, Smartphone, ChevronDown } from "lucide-react";
+import { MessageCircle, Mail, Smartphone } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -8,11 +8,32 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+// Add keyframes for animations
+const styles = `
+  @keyframes pulse-glow {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(255,210,0,0.5), 0 10px 40px rgba(255,210,0,0.4); }
+    50% { transform: scale(1.03); box-shadow: 0 0 80px rgba(255,210,0,0.7), 0 15px 50px rgba(255,210,0,0.5); }
+  }
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+`;
+
 const GraciasClaseMeet = () => {
   const whatsappUrl = "https://wa.me/573137089920?text=Quiero%20ir%20a%20la%20clase%20de%20apego";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    
+    // Inject animation styles
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = styles;
+    document.head.appendChild(styleSheet);
+    
+    return () => {
+      document.head.removeChild(styleSheet);
+    };
   }, []);
 
   return (
@@ -59,24 +80,71 @@ const GraciasClaseMeet = () => {
             style={{ background: 'linear-gradient(90deg, transparent, #FFD200, transparent)' }}
           />
 
+          {/* URGENT BANNER */}
+          <div 
+            className="mb-8 py-3 px-6 rounded-full inline-flex items-center gap-2 animate-pulse"
+            style={{ 
+              background: 'rgba(239,68,68,0.2)',
+              border: '1px solid rgba(239,68,68,0.4)'
+            }}
+          >
+            <span className="w-3 h-3 rounded-full bg-red-500 animate-ping" style={{ animationDuration: '1.5s' }} />
+            <span className="text-red-400 font-semibold text-sm uppercase tracking-wide">
+              La clase está EN VIVO ahora
+            </span>
+          </div>
+
           {/* H1 Emotional */}
           <h1 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Llegaste hasta aquí…<br />
-            <span style={{ color: '#FFD200' }}>no te quedes afuera.</span>
+            ¡Ya estás registrada!<br />
+            <span style={{ color: '#FFD200' }}>INGRESA YA A LA CLASE</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base md:text-lg text-white/80 mb-4 leading-relaxed max-w-[500px] mx-auto">
-            La clase es <strong className="text-white">YA</strong>. Si te está temblando el alma por volver al mismo ciclo, este es el momento.
-          </p>
-          <p className="text-base md:text-lg text-white/80 mb-8 leading-relaxed max-w-[500px] mx-auto">
-            Entra por WhatsApp y revisa tu correo: <strong className="text-white">ahí te llega el acceso.</strong>
+          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-[500px] mx-auto">
+            No esperes más. La clase está empezando.<br />
+            <strong className="text-white">Haz clic y entra ahora mismo.</strong>
           </p>
 
-          {/* CTA Principal */}
+          {/* CTA DISRUPTIVO - ENTRAR A LA CLASE */}
+          <a 
+            href="https://historiasdelamente.com/clase-apegodetox"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative inline-flex items-center justify-center gap-3 w-full max-w-[420px] py-6 px-10 rounded-2xl text-black font-black text-xl uppercase tracking-wide transition-all duration-300 hover:scale-105 active:scale-[0.98] overflow-hidden"
+            style={{ 
+              background: 'linear-gradient(135deg, #FFD200 0%, #FFEA00 50%, #FFD200 100%)',
+              boxShadow: '0 0 60px rgba(255,210,0,0.5), 0 10px 40px rgba(255,210,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3)',
+              animation: 'pulse-glow 1.5s ease-in-out infinite'
+            }}
+          >
+            {/* Shine effect */}
+            <span 
+              className="absolute inset-0 opacity-30"
+              style={{
+                background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.8) 50%, transparent 60%)',
+                animation: 'shine 2s infinite'
+              }}
+            />
+            <span className="relative z-10">🚀 ENTRAR A LA CLASE AHORA</span>
+          </a>
+
+          <p className="mt-4 text-white/70 text-sm">
+            👆 Toca el botón y entra directo a la clase
+          </p>
+
+          {/* Divider */}
+          <div className="my-10 flex items-center gap-4 max-w-[400px] mx-auto">
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-white/40 text-xs uppercase tracking-widest">o también</span>
+            <div className="flex-1 h-px bg-white/10" />
+          </div>
+
+          {/* CTA Secundario WhatsApp */}
+          <p className="text-white/60 text-sm mb-4">¿Prefieres confirmar por WhatsApp?</p>
           <a 
             id="cta-whatsapp"
             href={whatsappUrl}
