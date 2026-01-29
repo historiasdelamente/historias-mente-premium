@@ -226,10 +226,14 @@ const ClaseApegoDetox = () => {
             href={PURCHASE_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               if (typeof window !== 'undefined' && (window as any).fbq) {
                 (window as any).fbq('track', 'InitiateCheckout');
               }
+              setTimeout(() => {
+                window.location.href = PURCHASE_LINK;
+              }, 500);
             }}
             className="inline-block px-8 sm:px-12 py-5 sm:py-6 bg-[#FFD200] text-black text-lg sm:text-xl md:text-2xl font-bold rounded-2xl animate-pulse-glow hover:scale-105 transition-transform"
           >
@@ -351,10 +355,14 @@ const ClaseApegoDetox = () => {
             href={PURCHASE_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               if (typeof window !== 'undefined' && (window as any).fbq) {
                 (window as any).fbq('track', 'InitiateCheckout');
               }
+              setTimeout(() => {
+                window.location.href = PURCHASE_LINK;
+              }, 500);
             }}
             className="px-5 py-3 bg-[#FFD200] text-black font-bold rounded-xl hover:bg-[#FFD200]/90 transition-all flex-shrink-0 text-sm sm:text-base"
           >
