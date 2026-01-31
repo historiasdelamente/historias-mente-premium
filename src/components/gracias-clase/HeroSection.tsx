@@ -19,16 +19,29 @@ const HeroSection = () => {
         <div className="absolute top-0 right-[15%] w-px h-full bg-gradient-to-b from-transparent via-[#1a1a1a]/20 to-transparent"></div>
       </div>
 
-      {/* Headline 1 */}
+      {/* Confirmation Badge */}
+      <div 
+        className="inline-block px-5 py-2 mb-6 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider animate-fade-in"
+        style={{ 
+          background: 'rgba(37,211,102,0.15)',
+          border: '2px solid #25D366',
+          color: '#25D366',
+          animationDelay: '0.1s'
+        }}
+      >
+        ✓ REGISTRO CONFIRMADO
+      </div>
+
+      {/* Headline 1 - Thank you */}
       <h2 
         className="text-xl md:text-2xl lg:text-3xl font-bold uppercase text-center mb-4 leading-tight animate-fade-in"
-        style={{ color: '#FFFFFF', animationDelay: '0.1s' }}
+        style={{ color: '#FFFFFF', animationDelay: '0.15s' }}
       >
-        OTRA VEZ ESTÁS AQUÍ<br />
-        BUSCANDO LA SALIDA
+        ¡GRACIAS POR INSCRIBIRTE!<br />
+        YA ESTÁS DENTRO
       </h2>
 
-      {/* Headline 2 - Devastadora */}
+      {/* Headline 2 - Transformation */}
       <h3 
         className="text-2xl md:text-3xl lg:text-4xl font-black uppercase text-center mb-6 leading-tight animate-fade-in animate-text-glow"
         style={{ 
@@ -38,8 +51,8 @@ const HeroSection = () => {
           animationDelay: '0.2s'
         }}
       >
-        ¿CUÁNTAS VECES MÁS VAS A LLORAR<br />
-        POR EL MISMO PATRÓN?
+        TU TRANSFORMACIÓN<br />
+        EMPIEZA AHORA
       </h3>
 
       {/* Subheadline */}
@@ -47,8 +60,8 @@ const HeroSection = () => {
         className="text-base md:text-lg font-medium text-center mb-8 max-w-xl leading-relaxed animate-fade-in"
         style={{ color: '#E5E5E5', animationDelay: '0.3s' }}
       >
-        La clase empieza en minutos. No te quedes afuera.<br />
-        Tu acceso está a <strong style={{ color: '#FFD700' }}>UN MENSAJE</strong> de distancia.
+        La clase está lista para ti. Solo falta <strong style={{ color: '#FFD700' }}>UN CLIC</strong><br />
+        para recibir tu enlace de acceso directo.
       </p>
 
       {/* WhatsApp CTA */}
@@ -65,7 +78,7 @@ const HeroSection = () => {
           animationDelay: '0.5s'
         }}
       >
-        👆 Toca el botón y te envío el enlace en segundos
+        👆 Escríbeme y te envío el enlace en segundos
       </p>
     </section>
   );
