@@ -28,8 +28,7 @@ const FooterSection = () => {
         className="text-sm md:text-base font-normal leading-relaxed"
         style={{ color: '#999999' }}
       >
-        Psicólogo Clínico | Especialista en Apego Emocional<br />
-        Lic. 293219 COLPSIC
+        Psicólogo Clínico | Especialista en Apego Emocional
       </p>
 
       {/* Divider */}
