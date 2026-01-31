@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import WhatsAppButton from "./WhatsAppButton";
 
 const HeroSection = () => {
@@ -20,26 +19,10 @@ const HeroSection = () => {
         <div className="absolute top-0 right-[15%] w-px h-full bg-gradient-to-b from-transparent via-[#1a1a1a]/20 to-transparent"></div>
       </div>
 
-      {/* Logo */}
-      <Link to="/" className="mb-8 animate-fade-in">
-        <h1 
-          className="text-2xl md:text-4xl font-black uppercase tracking-[4px] md:tracking-[6px] text-center"
-          style={{ color: '#FFD700' }}
-        >
-          APEGO DETOX
-        </h1>
-      </Link>
-
-      {/* Divider */}
-      <div 
-        className="w-24 h-0.5 mb-10 opacity-50 animate-fade-in"
-        style={{ background: '#FFD700', animationDelay: '0.1s' }}
-      ></div>
-
       {/* Headline 1 */}
       <h2 
-        className="text-2xl md:text-4xl lg:text-5xl font-bold uppercase text-center mb-6 leading-tight animate-fade-in"
-        style={{ color: '#FFFFFF', animationDelay: '0.2s' }}
+        className="text-xl md:text-2xl lg:text-3xl font-bold uppercase text-center mb-4 leading-tight animate-fade-in"
+        style={{ color: '#FFFFFF', animationDelay: '0.1s' }}
       >
         OTRA VEZ ESTÁS AQUÍ<br />
         BUSCANDO LA SALIDA
@@ -47,40 +30,39 @@ const HeroSection = () => {
 
       {/* Headline 2 - Devastadora */}
       <h3 
-        className="text-3xl md:text-5xl lg:text-6xl font-black uppercase text-center mb-8 leading-tight animate-fade-in animate-text-glow"
+        className="text-2xl md:text-3xl lg:text-4xl font-black uppercase text-center mb-6 leading-tight animate-fade-in animate-text-glow"
         style={{ 
           color: '#FFD700',
           textShadow: '0 0 30px rgba(255,215,0,0.4), 0 0 60px rgba(255,215,0,0.2)',
-          letterSpacing: '2px',
-          animationDelay: '0.3s'
+          letterSpacing: '1px',
+          animationDelay: '0.2s'
         }}
       >
-        ¿CUÁNTAS VECES MÁS<br />
-        VAS A LLORAR<br />
+        ¿CUÁNTAS VECES MÁS VAS A LLORAR<br />
         POR EL MISMO PATRÓN?
       </h3>
 
       {/* Subheadline */}
       <p 
-        className="text-lg md:text-xl font-medium text-center mb-12 max-w-2xl leading-relaxed animate-fade-in"
-        style={{ color: '#E5E5E5', animationDelay: '0.4s' }}
+        className="text-base md:text-lg font-medium text-center mb-8 max-w-xl leading-relaxed animate-fade-in"
+        style={{ color: '#E5E5E5', animationDelay: '0.3s' }}
       >
         La clase empieza en minutos. No te quedes afuera.<br />
         Tu acceso está a <strong style={{ color: '#FFD700' }}>UN MENSAJE</strong> de distancia.
       </p>
 
       {/* WhatsApp CTA */}
-      <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
+      <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
         <WhatsAppButton />
       </div>
 
       {/* Micro-copy */}
       <p 
-        className="text-base md:text-lg font-bold text-center mt-6 animate-fade-in"
+        className="text-sm md:text-base font-bold text-center mt-5 animate-fade-in"
         style={{ 
           color: '#FFD700',
           textShadow: '0 2px 10px rgba(255,215,0,0.3)',
-          animationDelay: '0.6s'
+          animationDelay: '0.5s'
         }}
       >
         👆 Toca el botón y te envío el enlace en segundos
