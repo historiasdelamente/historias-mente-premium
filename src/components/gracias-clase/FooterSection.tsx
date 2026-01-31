@@ -18,7 +18,14 @@ const FooterSection = () => {
       </p>
 
       <p 
-        className="text-xl md:text-2xl font-extrabold mb-3"
+        className="text-sm md:text-base font-light uppercase tracking-widest mb-1"
+        style={{ color: '#CCCCCC' }}
+      >
+        Psicólogo
+      </p>
+
+      <p 
+        className="text-xl md:text-2xl font-medium mb-3"
         style={{ color: '#FFD700' }}
       >
         Javier Vieira
