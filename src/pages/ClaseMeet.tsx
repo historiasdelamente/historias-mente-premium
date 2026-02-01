@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Check, Clock, Lock } from "lucide-react";
-import heroImage from "@/assets/mujer-historias-hero.png";
+import heroImage from "@/assets/mujer-hero-hiperrealista.png";
 import javierPhoto from "@/assets/javier-vieira-nuevo.png";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -108,7 +108,7 @@ const ClaseMeet = () => {
               <img 
                 src={heroImage} 
                 alt="Mujer pensativa" 
-                className="w-full h-full object-cover object-[70%_20%]"
+                className="w-full h-full object-cover object-center"
               />
             </div>
           </div>
