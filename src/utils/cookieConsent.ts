@@ -1,5 +1,6 @@
 // Cookie Consent Utilities
 // Manages conditional loading of tracking scripts based on user consent
+// With geographic detection for GDPR compliance
 
 export interface CookiePreferences {
   essential: boolean;
@@ -11,6 +12,22 @@ export interface CookiePreferences {
 
 const CONSENT_KEY = 'cookieConsent';
 const CONSENT_VERSION = '1.0';
+const COUNTRY_CACHE_KEY = 'userCountry';
+
+// Countries that require GDPR/LGPD consent
+// EU (27), UK, EEA (3), Brazil
+export const GDPR_COUNTRIES = [
+  // European Union (27 countries)
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR',
+  'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL',
+  'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE',
+  // United Kingdom
+  'GB',
+  // EEA (non-EU)
+  'IS', 'LI', 'NO',
+  // Brazil (LGPD)
+  'BR'
+];
 
 // Default preferences - only essential cookies enabled
 export const defaultPreferences: CookiePreferences = {
@@ -52,6 +69,61 @@ export const saveConsent = (preferences: Omit<CookiePreferences, 'timestamp' | '
 // Check if consent has been given
 export const hasConsentBeenGiven = (): boolean => {
   return getStoredConsent() !== null;
+};
+
+// Detect user's country using geolocation API
+export const detectUserCountry = async (): Promise<string | null> => {
+  // Check cache first
+  try {
+    const cached = sessionStorage.getItem(COUNTRY_CACHE_KEY);
+    if (cached) return cached;
+  } catch {
+    // sessionStorage not available
+  }
+
+  try {
+    const response = await fetch('https://ipapi.co/json/', {
+      signal: AbortSignal.timeout(5000), // 5 second timeout
+    });
+    
+    if (!response.ok) {
+      return null;
+    }
+    
+    const data = await response.json();
+    const country = data.country_code;
+    
+    if (country) {
+      // Cache in sessionStorage
+      try {
+        sessionStorage.setItem(COUNTRY_CACHE_KEY, country);
+      } catch {
+        // sessionStorage not available
+      }
+      return country;
+    }
+    
+    return null;
+  } catch {
+    // On error, return null (will default to showing GDPR banner)
+    return null;
+  }
+};
+
+// Check if a country requires GDPR consent
+export const requiresGDPRConsent = (countryCode: string | null): boolean => {
+  // If we can't detect the country, assume GDPR is required (safer legally)
+  if (!countryCode) return true;
+  return GDPR_COUNTRIES.includes(countryCode.toUpperCase());
+};
+
+// Get cached country from sessionStorage
+export const getCachedCountry = (): string | null => {
+  try {
+    return sessionStorage.getItem(COUNTRY_CACHE_KEY);
+  } catch {
+    return null;
+  }
 };
 
 // Load Google Analytics
