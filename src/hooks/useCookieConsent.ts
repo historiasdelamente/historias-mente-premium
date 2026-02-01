@@ -28,8 +28,25 @@ export const useCookieConsent = (): UseCookieConsentReturn => {
   const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
   const [showBanner, setShowBanner] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [requiresGDPR, setRequiresGDPR] = useState(true); // Default to true (safe)
-  const [isLoading, setIsLoading] = useState(true);
+  
+  // Check sessionStorage first for cached country to set initial state correctly
+  const getCachedGDPRStatus = (): boolean => {
+    if (typeof window === 'undefined') return true;
+    const cached = sessionStorage.getItem('userCountry');
+    if (cached) {
+      return requiresGDPRConsent(cached);
+    }
+    return true; // Default to true until we know
+  };
+  
+  const [requiresGDPR, setRequiresGDPR] = useState<boolean>(getCachedGDPRStatus);
+  const [isLoading, setIsLoading] = useState<boolean>(() => {
+    // If we have cached consent OR cached country, we're not loading
+    if (typeof window === 'undefined') return true;
+    const storedConsent = getStoredConsent();
+    const cachedCountry = sessionStorage.getItem('userCountry');
+    return !storedConsent && !cachedCountry;
+  });
 
   // Initialize on mount with geo-detection
   useEffect(() => {
@@ -40,14 +57,38 @@ export const useCookieConsent = (): UseCookieConsentReturn => {
         // User has already given consent
         setPreferences(stored);
         loadConsentedScripts();
+        // Check cached country for GDPR status
+        const cachedCountry = sessionStorage.getItem('userCountry');
+        if (cachedCountry) {
+          setRequiresGDPR(requiresGDPRConsent(cachedCountry));
+        }
         setIsLoading(false);
         return;
       }
       
-      // No stored consent - detect country
+      // Check if we have cached country already
+      const cachedCountry = sessionStorage.getItem('userCountry');
+      if (cachedCountry) {
+        const needsGDPR = requiresGDPRConsent(cachedCountry);
+        setRequiresGDPR(needsGDPR);
+        
+        if (!needsGDPR) {
+          // Non-GDPR country - auto-accept
+          const newPrefs = acceptAllCookies();
+          setPreferences(newPrefs);
+        } else {
+          setShowBanner(true);
+        }
+        setIsLoading(false);
+        return;
+      }
+      
+      // No stored consent and no cache - detect country
       try {
         const country = await detectUserCountry();
+        console.log('[GDPR] Detected country:', country);
         const needsGDPR = requiresGDPRConsent(country);
+        console.log('[GDPR] Requires GDPR consent:', needsGDPR);
         
         setRequiresGDPR(needsGDPR);
         
@@ -63,7 +104,8 @@ export const useCookieConsent = (): UseCookieConsentReturn => {
           setPreferences(newPrefs);
           setIsLoading(false);
         }
-      } catch {
+      } catch (error) {
+        console.error('[GDPR] Error detecting country:', error);
         // On error, assume GDPR required (safer)
         setTimeout(() => {
           setShowBanner(true);
