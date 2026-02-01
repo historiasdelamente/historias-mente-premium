@@ -3,11 +3,12 @@ import {
   CookiePreferences,
   defaultPreferences,
   getStoredConsent,
-  hasConsentBeenGiven,
   acceptAllCookies,
   acceptEssentialOnly,
   saveCustomPreferences,
   loadConsentedScripts,
+  detectUserCountry,
+  requiresGDPRConsent,
 } from '@/utils/cookieConsent';
 
 interface UseCookieConsentReturn {
@@ -19,29 +20,59 @@ interface UseCookieConsentReturn {
   handleEssentialOnly: () => void;
   handleSaveCustom: (analytics: boolean, marketing: boolean) => void;
   openPreferences: () => void;
+  requiresGDPR: boolean;
+  isLoading: boolean;
 }
 
 export const useCookieConsent = (): UseCookieConsentReturn => {
   const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
   const [showBanner, setShowBanner] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [requiresGDPR, setRequiresGDPR] = useState(true); // Default to true (safe)
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize on mount
+  // Initialize on mount with geo-detection
   useEffect(() => {
-    const stored = getStoredConsent();
+    const initializeConsent = async () => {
+      const stored = getStoredConsent();
+      
+      if (stored) {
+        // User has already given consent
+        setPreferences(stored);
+        loadConsentedScripts();
+        setIsLoading(false);
+        return;
+      }
+      
+      // No stored consent - detect country
+      try {
+        const country = await detectUserCountry();
+        const needsGDPR = requiresGDPRConsent(country);
+        
+        setRequiresGDPR(needsGDPR);
+        
+        if (needsGDPR) {
+          // GDPR country - show banner after delay
+          setTimeout(() => {
+            setShowBanner(true);
+            setIsLoading(false);
+          }, 1000);
+        } else {
+          // Non-GDPR country (LATAM, etc.) - auto-accept all
+          const newPrefs = acceptAllCookies();
+          setPreferences(newPrefs);
+          setIsLoading(false);
+        }
+      } catch {
+        // On error, assume GDPR required (safer)
+        setTimeout(() => {
+          setShowBanner(true);
+          setIsLoading(false);
+        }, 1000);
+      }
+    };
     
-    if (stored) {
-      setPreferences(stored);
-      // Load scripts based on stored preferences
-      loadConsentedScripts();
-    } else {
-      // Show banner if no consent has been given
-      // Small delay for smooth animation
-      const timer = setTimeout(() => {
-        setShowBanner(true);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
+    initializeConsent();
   }, []);
 
   const handleAcceptAll = useCallback(() => {
@@ -78,5 +109,7 @@ export const useCookieConsent = (): UseCookieConsentReturn => {
     handleEssentialOnly,
     handleSaveCustom,
     openPreferences,
+    requiresGDPR,
+    isLoading,
   };
 };

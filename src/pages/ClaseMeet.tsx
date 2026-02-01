@@ -4,9 +4,11 @@ import { Check, Clock, Lock } from "lucide-react";
 import heroImage from "@/assets/mujer-hero-hiperrealista.png";
 import javierPhoto from "@/assets/javier-vieira-nuevo.png";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
 
 const ClaseMeet = () => {
   const navigate = useNavigate();
+  const { requiresGDPR, isLoading: isConsentLoading } = useCookieConsent();
   const [formData, setFormData] = useState({ nombre: "", email: "" });
   const [acceptPrivacy, setAcceptPrivacy] = useState(false);
   const [acceptMarketing, setAcceptMarketing] = useState(false);
@@ -32,8 +34,8 @@ const ClaseMeet = () => {
       return;
     }
 
-    // Validación de privacidad (obligatorio)
-    if (!acceptPrivacy) {
+    // Validación de privacidad (obligatorio solo si GDPR aplica)
+    if (requiresGDPR && !acceptPrivacy) {
       setSubmitStatus("privacy_required");
       return;
     }
@@ -50,10 +52,11 @@ const ClaseMeet = () => {
         body: JSON.stringify({
           nombre: formData.nombre.trim(),
           email: formData.email.trim(),
-          acceptPrivacy: true,
-          acceptMarketing,
+          acceptPrivacy: requiresGDPR ? acceptPrivacy : true, // Auto-accept for non-GDPR
+          acceptMarketing: requiresGDPR ? acceptMarketing : true, // Auto-accept for non-GDPR
           privacyVersion: "2026-02-01",
           consentTimestamp: new Date().toISOString(),
+          isGDPRRegion: requiresGDPR,
         }),
       });
 
@@ -263,48 +266,50 @@ const ClaseMeet = () => {
                 />
               </div>
 
-              {/* GDPR Consent Checkboxes */}
-              <div className="space-y-4 pt-2">
-                {/* Privacy Policy - Required */}
-                <div className="flex items-start gap-3">
-                  <Checkbox
-                    id="privacy"
-                    checked={acceptPrivacy}
-                    onCheckedChange={(checked) => {
-                      setAcceptPrivacy(checked === true);
-                      if (checked && submitStatus === "privacy_required") {
-                        setSubmitStatus("idle");
-                      }
-                    }}
-                    className={`mt-1 border-2 ${submitStatus === "privacy_required" ? "border-red-500" : "border-gray-600"} data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]`}
-                  />
-                  <label htmlFor="privacy" className="text-sm text-gray-300 leading-relaxed cursor-pointer">
-                    He leído y acepto la{" "}
-                    <Link to="/privacy" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
-                      Política de Privacidad
-                    </Link>{" "}
-                    y los{" "}
-                    <Link to="/terms" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
-                      Términos y Condiciones
-                    </Link>{" "}
-                    <span className="text-red-400">*</span>
-                  </label>
-                </div>
+              {/* GDPR Consent Checkboxes - Only shown for EU/UK/Brazil */}
+              {requiresGDPR && !isConsentLoading && (
+                <div className="space-y-4 pt-2">
+                  {/* Privacy Policy - Required */}
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="privacy"
+                      checked={acceptPrivacy}
+                      onCheckedChange={(checked) => {
+                        setAcceptPrivacy(checked === true);
+                        if (checked && submitStatus === "privacy_required") {
+                          setSubmitStatus("idle");
+                        }
+                      }}
+                      className={`mt-1 border-2 ${submitStatus === "privacy_required" ? "border-red-500" : "border-gray-600"} data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]`}
+                    />
+                    <label htmlFor="privacy" className="text-sm text-gray-300 leading-relaxed cursor-pointer">
+                      He leído y acepto la{" "}
+                      <Link to="/privacy" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
+                        Política de Privacidad
+                      </Link>{" "}
+                      y los{" "}
+                      <Link to="/terms" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
+                        Términos y Condiciones
+                      </Link>{" "}
+                      <span className="text-red-400">*</span>
+                    </label>
+                  </div>
 
-                {/* Marketing - Optional */}
-                <div className="flex items-start gap-3">
-                  <Checkbox
-                    id="marketing"
-                    checked={acceptMarketing}
-                    onCheckedChange={(checked) => setAcceptMarketing(checked === true)}
-                    className="mt-1 border-2 border-gray-600 data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]"
-                  />
-                  <label htmlFor="marketing" className="text-sm text-gray-400 leading-relaxed cursor-pointer">
-                    Quiero recibir contenido exclusivo, promociones y consejos por email{" "}
-                    <span className="text-gray-500">(opcional)</span>
-                  </label>
+                  {/* Marketing - Optional */}
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="marketing"
+                      checked={acceptMarketing}
+                      onCheckedChange={(checked) => setAcceptMarketing(checked === true)}
+                      className="mt-1 border-2 border-gray-600 data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]"
+                    />
+                    <label htmlFor="marketing" className="text-sm text-gray-400 leading-relaxed cursor-pointer">
+                      Quiero recibir contenido exclusivo, promociones y consejos por email{" "}
+                      <span className="text-gray-500">(opcional)</span>
+                    </label>
+                  </div>
                 </div>
-              </div>
+              )}
 
               <button
                 type="submit"
