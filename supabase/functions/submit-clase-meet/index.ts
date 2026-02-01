@@ -8,6 +8,10 @@ const corsHeaders = {
 interface ClaseMeetRequest {
   nombre: string;
   email: string;
+  acceptPrivacy?: boolean;
+  acceptMarketing?: boolean;
+  privacyVersion?: string;
+  consentTimestamp?: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -17,9 +21,16 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { nombre, email }: ClaseMeetRequest = await req.json();
+    const { 
+      nombre, 
+      email, 
+      acceptPrivacy = false, 
+      acceptMarketing = false, 
+      privacyVersion = '',
+      consentTimestamp = new Date().toISOString()
+    }: ClaseMeetRequest = await req.json();
 
-    console.log('Received registration:', { nombre, email });
+    console.log('Received registration:', { nombre, email, acceptPrivacy, acceptMarketing });
 
     // Validación básica
     if (!nombre || !email) {
@@ -53,7 +64,14 @@ const handler = async (req: Request): Promise<Response> => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nombre, email }),
+        body: JSON.stringify({ 
+          nombre, 
+          email,
+          acceptPrivacy,
+          acceptMarketing,
+          privacyVersion,
+          consentTimestamp
+        }),
       }
     );
 

@@ -1,14 +1,17 @@
 import { useState, FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { Check, Clock } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
+import { Check, Clock, Lock } from "lucide-react";
 import heroImage from "@/assets/mujer-historias-hero.png";
 import javierPhoto from "@/assets/javier-vieira-nuevo.png";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const ClaseMeet = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ nombre: "", email: "" });
+  const [acceptPrivacy, setAcceptPrivacy] = useState(false);
+  const [acceptMarketing, setAcceptMarketing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error" | "privacy_required">("idle");
 
   const scrollToForm = () => {
     document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
@@ -29,6 +32,12 @@ const ClaseMeet = () => {
       return;
     }
 
+    // Validación de privacidad (obligatorio)
+    if (!acceptPrivacy) {
+      setSubmitStatus("privacy_required");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -39,8 +48,12 @@ const ClaseMeet = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          nombre: formData.nombre,
-          email: formData.email,
+          nombre: formData.nombre.trim(),
+          email: formData.email.trim(),
+          acceptPrivacy: true,
+          acceptMarketing,
+          privacyVersion: "2026-02-01",
+          consentTimestamp: new Date().toISOString(),
         }),
       });
 
@@ -233,6 +246,7 @@ const ClaseMeet = () => {
                   value={formData.nombre}
                   onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
                   required
+                  maxLength={100}
                   className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-black text-white text-base sm:text-lg rounded-lg border-2 border-gray-700 focus:border-[#D4AF37] focus:outline-none transition-all duration-300"
                 />
               </div>
@@ -244,8 +258,52 @@ const ClaseMeet = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
+                  maxLength={255}
                   className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-black text-white text-base sm:text-lg rounded-lg border-2 border-gray-700 focus:border-[#D4AF37] focus:outline-none transition-all duration-300"
                 />
+              </div>
+
+              {/* GDPR Consent Checkboxes */}
+              <div className="space-y-4 pt-2">
+                {/* Privacy Policy - Required */}
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="privacy"
+                    checked={acceptPrivacy}
+                    onCheckedChange={(checked) => {
+                      setAcceptPrivacy(checked === true);
+                      if (checked && submitStatus === "privacy_required") {
+                        setSubmitStatus("idle");
+                      }
+                    }}
+                    className={`mt-1 border-2 ${submitStatus === "privacy_required" ? "border-red-500" : "border-gray-600"} data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]`}
+                  />
+                  <label htmlFor="privacy" className="text-sm text-gray-300 leading-relaxed cursor-pointer">
+                    He leído y acepto la{" "}
+                    <Link to="/privacy" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
+                      Política de Privacidad
+                    </Link>{" "}
+                    y los{" "}
+                    <Link to="/terms" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
+                      Términos y Condiciones
+                    </Link>{" "}
+                    <span className="text-red-400">*</span>
+                  </label>
+                </div>
+
+                {/* Marketing - Optional */}
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="marketing"
+                    checked={acceptMarketing}
+                    onCheckedChange={(checked) => setAcceptMarketing(checked === true)}
+                    className="mt-1 border-2 border-gray-600 data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]"
+                  />
+                  <label htmlFor="marketing" className="text-sm text-gray-400 leading-relaxed cursor-pointer">
+                    Quiero recibir contenido exclusivo, promociones y consejos por email{" "}
+                    <span className="text-gray-500">(opcional)</span>
+                  </label>
+                </div>
               </div>
 
               <button
@@ -268,9 +326,19 @@ const ClaseMeet = () => {
                 </div>
               )}
 
-              <p className="text-sm text-gray-400 text-center">
-                Al registrarte recibirás el enlace de acceso a Google Meet por correo electrónico.
-              </p>
+              {submitStatus === "privacy_required" && (
+                <div className="bg-red-600/20 border border-red-500 text-red-400 p-4 rounded-lg text-center">
+                  Debes aceptar la Política de Privacidad para continuar.
+                </div>
+              )}
+
+              {/* Security message */}
+              <div className="flex items-center justify-center gap-2 pt-2">
+                <Lock className="w-4 h-4 text-gray-500" />
+                <p className="text-xs text-gray-500 text-center">
+                  Tus datos están protegidos. Solo los usaremos para enviarte el acceso a la clase gratuita.
+                </p>
+              </div>
             </form>
           </div>
         </div>
