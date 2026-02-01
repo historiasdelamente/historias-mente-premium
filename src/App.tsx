@@ -17,6 +17,7 @@ import GraciasApegoDetox from "./pages/GraciasApegoDetox";
 import ClaseMeet from "./pages/ClaseMeet";
 import GraciasClaseMeet from "./pages/GraciasClaseMeet";
 import W from "./pages/W";
+import CookieConsentBanner from "./components/CookieConsentBanner";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,8 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        {/* GDPR Cookie Consent Banner */}
+        <CookieConsentBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
