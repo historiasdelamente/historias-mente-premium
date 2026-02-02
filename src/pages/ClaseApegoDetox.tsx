@@ -230,7 +230,6 @@ const ClaseApegoDetox = () => {
           }`}>
             <a
               href={PURCHASE_LINK}
-              target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => {
                 e.preventDefault();
@@ -383,7 +382,6 @@ const ClaseApegoDetox = () => {
           </p>
           <a
             href={PURCHASE_LINK}
-            target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => {
               e.preventDefault();
