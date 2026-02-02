@@ -9,7 +9,7 @@ import {
 
 // ============ CONFIGURACIÓN ============
 const PURCHASE_LINK = "https://pay.hotmart.com/W102751360L?bid=1769546384779";
-const REVEAL_TIME_SECONDS = 900; // 15 minutos
+const REVEAL_TIME_SECONDS = 1200; // 20 minutos
 // ========================================
 
 // Tipos para la API de YouTube
@@ -272,7 +272,7 @@ const ClaseApegoDetox = () => {
           <p className={`text-center text-gray-400 mt-6 text-base md:text-lg transition-all duration-500 ${
             showCTA ? "opacity-0 h-0 mt-0 overflow-hidden" : "opacity-100"
           }`}>
-            Mira la clase completa. <span className="text-[#FFD200]">A los 15 minutos se abre el acceso.</span>
+            Mira la clase completa. <span className="text-[#FFD200]">A los 20 minutos se abre el acceso.</span>
           </p>
         </div>
       </section>
