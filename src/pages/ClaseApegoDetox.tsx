@@ -48,12 +48,36 @@ declare global {
   }
 }
 
+// Frases motivacionales rotativas
+const motivationalPhrases = [
+  { before: "Esta es ", highlight: "TU señal", after: " para liberarte" },
+  { before: "Mereces una vida ", highlight: "sin ansiedad", after: " constante" },
+  { before: "El cambio empieza con ", highlight: "una decisión", after: "" },
+  { before: "Miles de mujeres ya ", highlight: "rompieron el ciclo", after: "" },
+  { before: "Hoy puede ser el día en que ", highlight: "todo cambia", after: "" },
+];
+
 const ClaseApegoDetox = () => {
   const [showCTA, setShowCTA] = useState(false);
   const [isAPIReady, setIsAPIReady] = useState(false);
+  const [currentPhrase, setCurrentPhrase] = useState(0);
+  const [phraseVisible, setPhraseVisible] = useState(true);
   const playerRef = useRef<YTPlayer | null>(null);
   const intervalRef = useRef<number | null>(null);
   const hasRevealedRef = useRef(false);
+
+  // Rotación de frases motivacionales
+  useEffect(() => {
+    const phraseInterval = setInterval(() => {
+      setPhraseVisible(false);
+      setTimeout(() => {
+        setCurrentPhrase((prev) => (prev + 1) % motivationalPhrases.length);
+        setPhraseVisible(true);
+      }, 500);
+    }, 4000);
+
+    return () => clearInterval(phraseInterval);
+  }, []);
 
   // Cargar la API de YouTube
   useEffect(() => {
@@ -185,7 +209,7 @@ const ClaseApegoDetox = () => {
       <section className="pt-6 pb-8 md:pt-10 md:pb-12 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Video Container - Responsivo 16:9 */}
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 bg-black">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#FFD200]/20 shadow-2xl shadow-black/50 bg-black">
             <iframe
               id="youtube-player"
               className="absolute inset-0 w-full h-full"
@@ -198,51 +222,57 @@ const ClaseApegoDetox = () => {
             />
           </div>
 
-          {/* Texto bajo el video */}
-          <p className="text-center text-gray-400 mt-6 text-base md:text-lg">
+          {/* Textos motivacionales rotativos */}
+          <div className="text-center mt-6 min-h-[60px] flex items-center justify-center">
+            <p 
+              className={`text-lg md:text-xl text-gray-300 transition-opacity duration-500 ${
+                phraseVisible ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              {motivationalPhrases[currentPhrase].before}
+              <span className="text-[#FFD200] font-semibold">
+                {motivationalPhrases[currentPhrase].highlight}
+              </span>
+              {motivationalPhrases[currentPhrase].after}
+            </p>
+          </div>
+
+          {/* Bloque CTA - aparece a los 15 minutos */}
+          <div className={`mt-6 text-center transition-all duration-700 ${
+            showCTA 
+              ? "opacity-100 translate-y-0" 
+              : "opacity-0 translate-y-4 pointer-events-none h-0 overflow-hidden"
+          }`}>
+            <a
+              href={PURCHASE_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                e.preventDefault();
+                if (typeof window !== 'undefined' && (window as any).fbq) {
+                  (window as any).fbq('track', 'InitiateCheckout');
+                }
+                setTimeout(() => {
+                  window.location.href = PURCHASE_LINK;
+                }, 500);
+              }}
+              className="inline-block px-8 sm:px-12 py-5 sm:py-6 bg-[#FFD200] text-black text-lg sm:text-xl md:text-2xl font-bold rounded-2xl animate-soft-glow hover:scale-105 transition-transform"
+            >
+              COMIENZA AQUÍ: LIBÉRATE DEL APEGO
+            </a>
+
+            {/* Microcopy */}
+            <p className="text-sm sm:text-base text-gray-400 mt-4">
+              Acceso inmediato • Paso a paso • Enfoque práctico
+            </p>
+          </div>
+
+          {/* Texto de espera (solo visible antes de los 15 min) */}
+          <p className={`text-center text-gray-400 mt-6 text-base md:text-lg transition-all duration-500 ${
+            showCTA ? "opacity-0 h-0 mt-0 overflow-hidden" : "opacity-100"
+          }`}>
             Mira la clase completa. <span className="text-[#FFD200]">A los 15 minutos se abre el acceso.</span>
-          </p>
-        </div>
-      </section>
-
-      {/* ========== BLOQUE CTA (OCULTO HASTA MIN 15) ========== */}
-      <section 
-        className={`py-12 md:py-16 px-4 transition-all duration-700 ${
-          showCTA 
-            ? "opacity-100 translate-y-0" 
-            : "opacity-0 translate-y-8 pointer-events-none h-0 py-0 overflow-hidden"
-        }`}
-      >
-        <div className="max-w-2xl mx-auto text-center">
-          {/* Título sugestivo */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-            AHORA SÍ: ESTE ES EL PUNTO
-            <br />
-            <span className="text-[#FFD200]">DONDE SE ROMPE EL CICLO.</span>
-          </h2>
-
-          {/* Botón pulsante */}
-          <a
-            href={PURCHASE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              e.preventDefault();
-              if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'InitiateCheckout');
-              }
-              setTimeout(() => {
-                window.location.href = PURCHASE_LINK;
-              }, 500);
-            }}
-            className="inline-block px-8 sm:px-12 py-5 sm:py-6 bg-[#FFD200] text-black text-lg sm:text-xl md:text-2xl font-bold rounded-2xl animate-pulse-glow hover:scale-105 transition-transform"
-          >
-            COMIENZA AQUÍ: LIBÉRATE DEL APEGO
-          </a>
-
-          {/* Microcopy */}
-          <p className="text-sm sm:text-base text-gray-400 mt-6">
-            Acceso inmediato • Paso a paso • Enfoque práctico
           </p>
         </div>
       </section>
@@ -371,21 +401,23 @@ const ClaseApegoDetox = () => {
         </div>
       </div>
 
-      {/* ========== CSS ANIMACIÓN PULSE-GLOW ========== */}
+      {/* ========== CSS ANIMACIÓN SOFT-GLOW ========== */}
       <style>{`
-        @keyframes pulse-glow {
+        @keyframes soft-glow {
           0%, 100% {
-            box-shadow: 0 0 20px rgba(255, 210, 0, 0.3), 0 0 40px rgba(255, 210, 0, 0.2);
+            box-shadow: 0 0 20px rgba(255, 210, 0, 0.25), 
+                        0 0 40px rgba(255, 210, 0, 0.15);
             transform: scale(1);
           }
           50% {
-            box-shadow: 0 0 35px rgba(255, 210, 0, 0.5), 0 0 70px rgba(255, 210, 0, 0.35);
-            transform: scale(1.04);
+            box-shadow: 0 0 30px rgba(255, 210, 0, 0.4), 
+                        0 0 60px rgba(255, 210, 0, 0.25);
+            transform: scale(1.02);
           }
         }
         
-        .animate-pulse-glow {
-          animation: pulse-glow 1.4s ease-in-out infinite;
+        .animate-soft-glow {
+          animation: soft-glow 2.5s ease-in-out infinite;
         }
       `}</style>
     </div>
