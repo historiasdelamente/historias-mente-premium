@@ -222,23 +222,7 @@ const ClaseApegoDetox = () => {
             />
           </div>
 
-          {/* Textos motivacionales rotativos */}
-          <div className="text-center mt-6 min-h-[60px] flex items-center justify-center">
-            <p 
-              className={`text-lg md:text-xl text-gray-300 transition-opacity duration-500 ${
-                phraseVisible ? "opacity-100" : "opacity-0"
-              }`}
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              {motivationalPhrases[currentPhrase].before}
-              <span className="text-[#FFD200] font-semibold">
-                {motivationalPhrases[currentPhrase].highlight}
-              </span>
-              {motivationalPhrases[currentPhrase].after}
-            </p>
-          </div>
-
-          {/* Bloque CTA - aparece a los 15 minutos */}
+          {/* Bloque CTA - aparece a los 20 minutos */}
           <div className={`mt-6 text-center transition-all duration-700 ${
             showCTA 
               ? "opacity-100 translate-y-0" 
@@ -265,6 +249,22 @@ const ClaseApegoDetox = () => {
             {/* Microcopy */}
             <p className="text-sm sm:text-base text-gray-400 mt-4">
               Acceso inmediato • Paso a paso • Enfoque práctico
+            </p>
+          </div>
+
+          {/* Textos motivacionales rotativos */}
+          <div className="text-center mt-6 min-h-[60px] flex items-center justify-center">
+            <p 
+              className={`text-lg md:text-xl text-gray-300 transition-opacity duration-500 ${
+                phraseVisible ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              {motivationalPhrases[currentPhrase].before}
+              <span className="text-[#FFD200] font-semibold">
+                {motivationalPhrases[currentPhrase].highlight}
+              </span>
+              {motivationalPhrases[currentPhrase].after}
             </p>
           </div>
 
