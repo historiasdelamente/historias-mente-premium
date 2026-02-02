@@ -213,7 +213,7 @@ const ClaseApegoDetox = () => {
             <iframe
               id="youtube-player"
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/v7XHwI6AXVY?si=f1_qAex-hrCQinnU&enablejsapi=1"
+              src="https://www.youtube.com/embed/wSCjqC72DBI?si=ghYRTH23ecadIQ6Z&enablejsapi=1"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
