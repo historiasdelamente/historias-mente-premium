@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import bannerImage from "@/assets/banner-historias-mente.png";
+import bannerImage from "@/assets/banner-historias-mente-new.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import apagonEmocional from "@/assets/apagon-emocional.png";
 import javierVieira from "@/assets/javier-vieira.png";
