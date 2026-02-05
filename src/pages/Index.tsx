@@ -1,9 +1,8 @@
 import { useRef } from "react";
- import NewHeroSection from "@/components/landing/NewHeroSection";
- import QuestionnaireBanner from "@/components/landing/QuestionnaireBanner";
- import ApegoDetoxSection from "@/components/landing/ApegoDetoxSection";
- import BooksGrid from "@/components/landing/BooksGrid";
- import SocialIconBar from "@/components/landing/SocialIconBar";
+import HeroSection from "@/components/HeroSection";
+import SitelinksSection from "@/components/SitelinksSection";
+import SocialMediaSection from "@/components/SocialMediaSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import Footer from "@/components/Footer";
 import { FloatingChatWidget, FloatingChatWidgetRef } from "@/components/FloatingChatWidget";
 
@@ -16,11 +15,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-       <NewHeroSection onOpenChat={handleOpenChat} />
-       <QuestionnaireBanner onOpenChat={handleOpenChat} />
-       <ApegoDetoxSection />
-       <BooksGrid />
-       <SocialIconBar />
+      <HeroSection onOpenChat={handleOpenChat} />
+      <SitelinksSection />
+      <SocialMediaSection />
+      <BenefitsSection />
       <Footer />
       <FloatingChatWidget ref={chatWidgetRef} />
     </div>
