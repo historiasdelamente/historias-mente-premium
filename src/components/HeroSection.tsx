@@ -83,7 +83,7 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 700,
                 color: '#D4AF37',
-                fontSize: 'clamp(1.3rem, 4vw, 2.8rem)',
+                fontSize: 'clamp(0.95rem, 2.5vw, 1.8rem)',
                 textShadow: '0 2px 20px rgba(212, 175, 55, 0.3)',
               }}
             >
