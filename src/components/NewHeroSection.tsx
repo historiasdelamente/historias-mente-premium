@@ -1,21 +1,21 @@
-import javierVieira from "@/assets/javier-vieira-lead.png";
+import bannerJavier from "@/assets/banner-javier-microfono.png";
 
 const NewHeroSection = () => {
   return (
     <section 
-      className="min-h-screen flex flex-col items-center justify-center px-[30px] py-[60px] md:px-[60px] md:py-[80px]"
+      className="min-h-screen flex flex-col items-center justify-start px-[30px] py-0 md:px-[60px]"
       style={{ backgroundColor: '#000000' }}
     >
-      {/* Foto de Javier Vieira */}
-      <div className="mb-8 md:mb-12">
+      {/* Banner Javier con micrófono */}
+      <div className="w-full">
         <img 
-          src={javierVieira} 
-          alt="Javier Vieira - Psicólogo"
-          className="w-[200px] h-auto md:w-[280px] object-contain"
+          src={bannerJavier} 
+          alt="Historias de la Mente - Javier Vieira"
+          className="w-full h-auto object-cover"
         />
       </div>
 
-      <div className="text-center max-w-[900px]">
+      <div className="text-center max-w-[900px] py-[60px] md:py-[80px]">
         {/* Título Principal */}
         <h1 
           className="mb-[30px]"
