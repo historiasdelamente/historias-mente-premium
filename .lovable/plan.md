@@ -1,192 +1,206 @@
 
 
-# Plan: Botón CTA Inmediatamente Debajo del Video
+# Plan: Rediseño de Landing Page con Sistema de Colores Actual
 
 ## Resumen
 
-Moveremos el botón CTA dentro de la sección del video, para que cuando aparezca a los 15 minutos, esté **inmediatamente debajo** del video, no en una sección separada más abajo.
+Se rediseñará la landing page principal manteniendo el **sistema de colores actual** (fondo negro puro con acentos dorados) pero implementando la **nueva estructura de contenido** orientada a conversión.
 
 ---
 
-## Cambio Principal
+## Sistema de Colores (SIN CAMBIOS)
 
-### Antes (estructura actual)
+Se conserva el sistema actual:
+
+| Variable | Valor | Uso |
+|----------|-------|-----|
+| `--background` | `0 0% 0%` | Fondo negro puro |
+| `--foreground` | `45 100% 85%` | Texto dorado claro |
+| `--golden` | `45 100% 51%` | Acentos principales (#FFC107) |
+| `--golden-light` | `45 100% 65%` | Acentos secundarios |
+| `--card` | `0 0% 3%` | Fondo de tarjetas |
+
+Se mantienen todas las utilidades CSS existentes: `.golden-text`, `.card-premium`, `.hover-lift`, `.btn-cta-primary`, etc.
+
+---
+
+## Nueva Estructura de la Página
+
+### Sección 1: Hero Section (Rediseño)
+
+**Layout**: Dos columnas en desktop, apilado en móvil
 
 ```text
-┌─────────────────────────────────────┐
-│         SECCIÓN VIDEO               │
-│    ┌───────────────────────────┐    │
-│    │        VIDEO               │    │
-│    └───────────────────────────┘    │
-│    "Mira la clase completa..."      │
-└─────────────────────────────────────┘
-
-┌─────────────────────────────────────┐  ← Sección separada
-│         SECCIÓN CTA                 │
-│    AHORA SÍ: ESTE ES EL PUNTO...    │
-│    [BOTÓN AMARILLO]                 │
-└─────────────────────────────────────┘
-
-┌─────────────────────────────────────┐
-│         BENEFICIOS                  │
-└─────────────────────────────────────┘
+┌──────────────────────────────────────────────────┐
+│  ┌─────────┐   "No Te Extraña.                   │
+│  │ AVATAR  │   Te Usa Cuando Le Conviene.        │
+│  │ 192px   │   ¿Hasta Cuándo?" (dorado)          │
+│  │ borde   │                                      │
+│  │ dorado  │   "Yo trabajo con mujeres..."       │
+│  └─────────┘                                      │
+│                                                   │
+│   [CLASE GRATUITA]  [HAZ EL TEST 3 MIN]          │
+└──────────────────────────────────────────────────┘
 ```
 
-### Después (nueva estructura)
+**Elementos**:
+- Avatar circular de Javier Vieira (192px) con borde dorado 4px
+- Titular en 3 líneas con "¿Hasta Cuándo?" en `.golden-text`
+- Copy persuasivo con "QUIERES" en negrita y dorado
+- 2 botones CTA lado a lado (se apilan en móvil)
+
+### Sección 2: Banner del Cuestionario
+
+**Diseño**: Ancho completo con gradiente sutil dorado sobre negro
 
 ```text
-┌─────────────────────────────────────┐
-│         SECCIÓN VIDEO               │
-│    ┌───────────────────────────┐    │
-│    │        VIDEO               │    │
-│    └───────────────────────────┘    │
-│                                     │
-│    ✨ "Texto motivacional rotativo" │  ← Nuevo: frases que cambian
-│                                     │
-│    ┌─────────────────────────────┐  │
-│    │  [BOTÓN AMARILLO SOFT-GLOW] │  │  ← Aparece aquí a los 15 min
-│    └─────────────────────────────┘  │
-│                                     │
-│    "Acceso inmediato • Paso a paso" │
-│                                     │
-└─────────────────────────────────────┘
-
-┌─────────────────────────────────────┐
-│         BENEFICIOS                  │
-└─────────────────────────────────────┘
+┌──────────────────────────────────────────────────┐
+│  📋 ¿No Sabes Si Estás en Apego Traumático?     │
+│  Responde 12 preguntas y descubre tu nivel      │
+│                                                   │
+│       [HACER EL TEST AHORA (3 MIN) →]           │
+└──────────────────────────────────────────────────┘
 ```
 
----
+- Borde superior/inferior con `border-golden/30`
+- Fondo con gradiente sutil `--gradient-card`
 
-## Cambios en el Código
+### Sección 3: Apego Detox (Prioridad Alta)
 
-### 1. Eliminar la sección CTA separada (líneas 208-248)
+**Diseño**: Sección destacada con fondo ligeramente más claro
 
-La sección `<section>` que contiene el bloque CTA se eliminará como contenedor independiente.
-
-### 2. Integrar el botón en la sección del video
-
-El contenido del CTA se moverá **dentro** de la sección del video (líneas 184-206), justo después del texto "Mira la clase completa..."
-
-### 3. Nueva estructura de la sección del video
-
-```tsx
-<section className="pt-6 pb-8 md:pt-10 md:pb-12 px-4">
-  <div className="max-w-4xl mx-auto">
-    
-    {/* Video Container */}
-    <div className="relative w-full aspect-video...">
-      <iframe ... />
-    </div>
-
-    {/* Textos motivacionales rotativos */}
-    <div className="text-center mt-6 min-h-[60px]">
-      <p className={`transition-opacity duration-500 ...`}>
-        {/* Frase que cambia cada 4 segundos */}
-      </p>
-    </div>
-
-    {/* Bloque CTA - aparece a los 15 minutos */}
-    <div className={`mt-6 text-center transition-all duration-700 ${
-      showCTA 
-        ? "opacity-100 translate-y-0" 
-        : "opacity-0 translate-y-4 pointer-events-none h-0 overflow-hidden"
-    }`}>
-      
-      {/* Botón amarillo con soft-glow */}
-      <a className="inline-block px-8 py-5 bg-[#FFD200] ... animate-soft-glow">
-        COMIENZA AQUÍ: LIBÉRATE DEL APEGO
-      </a>
-      
-      {/* Microcopy */}
-      <p className="text-gray-400 mt-4">
-        Acceso inmediato • Paso a paso • Enfoque práctico
-      </p>
-    </div>
-
-    {/* Texto de espera (solo visible antes de los 15 min) */}
-    <p className={`text-center text-gray-400 mt-6 transition-opacity ${
-      showCTA ? "opacity-0 h-0" : "opacity-100"
-    }`}>
-      Mira la clase completa. A los 15 minutos se abre el acceso.
-    </p>
-    
-  </div>
-</section>
+```text
+┌──────────────────────────────────────────────────┐
+│           ╔════════════════════╗                 │
+│           ║   APEGO DETOX     ║  ← Badge rotado │
+│           ╚════════════════════╝                 │
+│                                                   │
+│      "El Programa Que Rompe El Ciclo"           │
+│                                                   │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐        │
+│  │ +2000    │ │ 8 semanas│ │ Acompaña-│        │
+│  │ mujeres  │ │ paso a   │ │ miento   │        │
+│  │          │ │ paso     │ │ directo  │        │
+│  └──────────┘ └──────────┘ └──────────┘        │
+│                                                   │
+│  [VER CLASE GRATUITA]  [ENTRAR AL PROGRAMA]     │
+└──────────────────────────────────────────────────┘
 ```
 
----
+- Tarjetas con estilo `card-premium`
+- Badge visual con gradiente dorado, rotado -2°
 
-## Animación Soft-Glow (actualizada)
+### Sección 4: Libros Publicados
 
-El botón usará una animación más suave y elegante:
+**Diseño**: Grid de 2 columnas (existente pero simplificado)
 
-```css
-@keyframes soft-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 210, 0, 0.25), 
-                0 0 40px rgba(255, 210, 0, 0.15);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 210, 0, 0.4), 
-                0 0 60px rgba(255, 210, 0, 0.25);
-    transform: scale(1.02);
-  }
-}
-
-.animate-soft-glow {
-  animation: soft-glow 2.5s ease-in-out infinite;
-}
+```text
+┌──────────────────────────────────────────────────┐
+│            MIS LIBROS PUBLICADOS                 │
+│                                                   │
+│  ┌─────────────────┐  ┌─────────────────┐       │
+│  │ Guía Narcisismo │  │ Apagón Emocional│       │
+│  │    [imagen]     │  │    [imagen]     │       │
+│  │  "Conocer más"  │  │  "Conocer más"  │       │
+│  └─────────────────┘  └─────────────────┘       │
+└──────────────────────────────────────────────────┘
 ```
 
----
+- Menos prominencia visual que Apego Detox
+- Sin banners "LIBRO" superpuestos (más limpio)
 
-## Textos Motivacionales Rotativos
+### Sección 5: Redes Sociales (Simplificada)
 
-Se añadirá un componente que muestra frases que cambian cada 4 segundos con fade:
+**Diseño**: Barra de iconos minimalista
 
-| # | Frase |
-|---|-------|
-| 1 | "Esta es **TU señal** para liberarte" |
-| 2 | "Mereces una vida **sin ansiedad** constante" |
-| 3 | "El cambio empieza con **una decisión**" |
-| 4 | "Miles de mujeres ya **rompieron el ciclo**" |
-| 5 | "Hoy puede ser el día en que **todo cambia**" |
+```text
+┌──────────────────────────────────────────────────┐
+│                SÍGUEME EN:                       │
+│                                                   │
+│     [YouTube]  [Instagram]  [TikTok]  [Facebook] │
+│                                                   │
+└──────────────────────────────────────────────────┘
+```
 
-Estas frases se muestran **siempre** (antes y después de los 15 minutos) para mantener el engagement mientras ve el video.
+- Iconos monocromos (gris) → dorado al hover
+- Tamaño 32px, espaciado 16px
+- Links reales:
+  - YouTube: `https://www.youtube.com/@Historiasdelamente2`
+  - Facebook: `https://www.facebook.com/historiasdelamentevip`
+  - TikTok: `https://www.tiktok.com/@historias.de.la.mente`
+  - Instagram: placeholder `#`
 
----
+**Elementos Eliminados**:
+- Video de YouTube embebido
+- Sección "Mujeres Sanadoras"
+- Cards grandes con descripciones
 
-## Flujo Visual
+### Sección 6: Footer (Actualizado)
 
-| Tiempo | Lo que ve el usuario |
-|--------|---------------------|
-| 0-14:59 min | Video + Frases rotativas + "A los 15 min se abre el acceso" |
-| 15:00+ min | Video + Frases rotativas + **BOTÓN AMARILLO** + Microcopy |
+```text
+┌──────────────────────────────────────────────────┐
+│           HISTORIAS DE LA MENTE                  │
+│      Psicólogo Especialista en Narcisismo        │
+│                                                   │
+│     [YouTube]  [Instagram]  [TikTok]  [Facebook] │
+│                                                   │
+│       contacto@historiasdelamente.com            │
+│            Medellín, Colombia                    │
+│                                                   │
+│   © 2025 - Todos los derechos reservados         │
+└──────────────────────────────────────────────────┘
+```
+
+**Eliminado**: Número de licencia COLPSIC, texto "Psicólogo Clínico"
 
 ---
 
 ## Archivos a Modificar
 
-Solo se modifica un archivo:
+| Archivo | Cambios |
+|---------|---------|
+| `src/pages/Index.tsx` | Reestructurar secciones |
+| `src/components/HeroSection.tsx` | Rediseño completo con layout de 2 columnas y nuevo copy |
+| `src/components/SitelinksSection.tsx` | Reemplazar por banner del cuestionario |
+| `src/components/SocialMediaSection.tsx` | Simplificar a barra de iconos (sin video, sin Mujeres Sanadoras) |
+| `src/components/BenefitsSection.tsx` | Convertir en sección Apego Detox destacada |
+| `src/components/Footer.tsx` | Agregar iconos sociales, ubicación, sin COLPSIC |
 
-**`src/pages/ClaseApegoDetox.tsx`**
+## Nuevos Componentes
 
-1. Añadir estado para frases rotativas (`currentPhrase`, `isVisible`)
-2. Añadir `useEffect` para rotación cada 4 segundos
-3. Mover el bloque CTA dentro de la sección del video
-4. Eliminar la sección CTA separada
-5. Actualizar la animación CSS a `soft-glow`
-6. El título "AHORA SÍ: ESTE ES EL PUNTO..." se elimina (el botón es directo)
+1. `src/components/landing/NewHeroSection.tsx` - Hero con avatar + copy persuasivo
+2. `src/components/landing/QuestionnaireBanner.tsx` - Banner CTA del test
+3. `src/components/landing/ApegoDetoxSection.tsx` - Sección destacada del programa
+4. `src/components/landing/BooksGrid.tsx` - Grid simplificado de libros
+5. `src/components/landing/SocialIconBar.tsx` - Barra minimalista de iconos
 
 ---
 
-## Resultado Final
+## Responsive
 
-- **Botón aparece inmediatamente debajo del video** (no hay scroll necesario)
-- **Frases motivacionales** mantienen engagement mientras ve el video
-- **Animación soft-glow** más elegante y menos agresiva
-- **Layout más limpio** sin sección separada
-- **Barra sticky inferior** se mantiene igual
+- **Mobile-first**: Todo apilado verticalmente
+- **Tablet (md)**: Grids de 2 columnas donde aplique
+- **Desktop (lg)**: Layouts completos de 2-3 columnas
+- Botones 100% ancho en móvil, inline en desktop
+- Texto mínimo 16px, botones altura mínima 44px
+
+## Interacciones (Conservadas)
+
+- Hover en botones: `scale(1.05)` + glow dorado
+- Transiciones: 300ms cubic-bezier
+- Sombras doradas en cards
+- Animaciones `fade-in` y `scale-in` al scroll
+
+---
+
+## Elementos Eliminados vs Conservados
+
+| Eliminado | Conservado |
+|-----------|------------|
+| Video YouTube embebido | FloatingChatWidget para test |
+| Sección "Mujeres Sanadoras" | Assets de libros existentes |
+| Cards grandes de redes sociales | Foto de Javier Vieira |
+| Número COLPSIC | Sistema de colores negro/dorado |
+| Texto "Psicólogo Clínico" | Clases CSS personalizadas |
+| Sección "Javier Vieira" completa | Logo/banner del header |
 
