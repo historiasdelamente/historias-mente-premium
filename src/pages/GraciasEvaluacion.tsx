@@ -7,16 +7,16 @@ const GraciasEvaluacion = () => {
       
       {/* SECCIÓN 1: HERO - Confirmación */}
       <section 
-        className="py-12 md:py-16 px-5"
+        className="py-6 md:py-10 px-5"
         style={{ background: 'linear-gradient(180deg, #1a1a1a, #000000)' }}
       >
         <div className="max-w-3xl mx-auto text-center">
           {/* H1 */}
           <h1 
-            className="text-2xl md:text-4xl font-extrabold mb-4 uppercase tracking-wide"
+            className="text-lg md:text-2xl font-bold mb-2 uppercase tracking-wide"
             style={{ 
               fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 800,
+              fontWeight: 700,
               color: '#FFD400'
             }}
           >
@@ -25,7 +25,7 @@ const GraciasEvaluacion = () => {
 
           {/* Subtitle */}
           <p 
-            className="text-base md:text-xl"
+            className="text-sm md:text-base"
             style={{ 
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
@@ -38,18 +38,15 @@ const GraciasEvaluacion = () => {
       </section>
 
       {/* SECCIÓN 2: EMAIL NOTIFICATION CARD */}
-      <section className="px-5 -mt-6 md:-mt-10 relative z-10">
+      <section className="px-5 -mt-4 md:-mt-6 relative z-10">
         <div 
-          className="max-w-3xl mx-auto p-6 md:p-10 rounded-2xl"
+          className="max-w-3xl mx-auto p-5 md:p-8 rounded-2xl"
           style={{ 
             background: 'linear-gradient(145deg, #050505, #0d0d0d)',
             border: '1px solid rgba(255, 212, 0, 0.3)',
             boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
           }}
         >
-          {/* Emoji */}
-          <div className="text-4xl md:text-5xl text-center mb-4">📧</div>
-
           {/* H2 */}
           <h2 
             className="text-lg md:text-2xl font-bold text-center mb-4 uppercase"
