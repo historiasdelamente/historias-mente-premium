@@ -1,186 +1,389 @@
-import { useEffect, useState } from 'react';
-import { CheckCircle, Mail, AlertTriangle, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Footer from '@/components/Footer';
-import libroContactoCero from '@/assets/libro-contacto-cero.png';
-import citaPsicologica from '@/assets/cita-psicologica.png';
+import { Link } from 'react-router-dom';
+import apegoDetoxBanner from '@/assets/apego-detox-clase-banner.png';
 
 const GraciasEvaluacion = () => {
-  const [email, setEmail] = useState('');
-  const [nombre, setNombre] = useState('');
-
-  useEffect(() => {
-    const savedEmail = localStorage.getItem('evaluacion_email');
-    const savedNombre = localStorage.getItem('evaluacion_nombre');
-    
-    if (savedEmail) setEmail(savedEmail);
-    if (savedNombre) setNombre(savedNombre);
-  }, []);
-
-  const handleCitaPsicologicaClick = () => {
-    window.open('https://wa.me/573001681053?text=Quiero%20una%20cita%20psicol%C3%B3gica%2C%20necesito%20recuperarme', '_blank');
-  };
-
-  const handleLibroClick = () => {
-    window.open('https://apagonemocional.historiasdelamente.com/', '_blank');
-  };
-
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-24 h-24 mb-8 rounded-full bg-green-500/10 border-2 border-green-500">
-            <CheckCircle className="w-12 h-12 text-green-500" />
+    <div className="min-h-screen flex flex-col" style={{ background: '#000000' }}>
+      
+      {/* SECCIÓN 1: HERO - Confirmación */}
+      <section 
+        className="py-12 md:py-16 px-5"
+        style={{ background: 'linear-gradient(180deg, #1a1a1a, #000000)' }}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Check Icon */}
+          <div 
+            className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-6 rounded-full flex items-center justify-center"
+            style={{ background: '#27AE60' }}
+          >
+            <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 golden-text font-apple">
-            ¡Tu Evaluación Fue Enviada!
+          {/* H1 */}
+          <h1 
+            className="text-2xl md:text-4xl font-extrabold mb-4 uppercase tracking-wide"
+            style={{ 
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 800,
+              color: '#FFD400'
+            }}
+          >
+            Evaluación Completada
           </h1>
 
-          <div className="max-w-2xl mx-auto mb-12 space-y-4">
-            <p className="text-xl md:text-2xl text-foreground font-semibold font-apple">
-              📧 Recibirás tu análisis completo en tu correo en los próximos 10 minutos
-            </p>
-            <p className="text-lg text-muted-foreground font-apple">
-              ⚡ <strong>IMPORTANTE:</strong> Abre el correo inmediatamente cuando llegue para conocer tu resultado
-            </p>
+          {/* Subtitle */}
+          <p 
+            className="text-base md:text-xl"
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 400,
+              color: 'rgba(255, 212, 0, 0.85)'
+            }}
+          >
+            ¡Gracias por completar la evaluación!
+          </p>
+        </div>
+      </section>
+
+      {/* SECCIÓN 2: EMAIL NOTIFICATION CARD */}
+      <section className="px-5 -mt-6 md:-mt-10 relative z-10">
+        <div 
+          className="max-w-3xl mx-auto p-6 md:p-10 rounded-2xl"
+          style={{ 
+            background: 'linear-gradient(145deg, #050505, #0d0d0d)',
+            border: '1px solid rgba(255, 212, 0, 0.3)',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
+          }}
+        >
+          {/* Emoji */}
+          <div className="text-4xl md:text-5xl text-center mb-4">📧</div>
+
+          {/* H2 */}
+          <h2 
+            className="text-lg md:text-2xl font-bold text-center mb-4 uppercase"
+            style={{ 
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 700,
+              color: '#FFD400'
+            }}
+          >
+            Tus Resultados Están en Camino
+          </h2>
+
+          {/* Texto */}
+          <p 
+            className="text-sm md:text-base text-center mb-6"
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              color: 'rgba(255, 255, 255, 0.8)'
+            }}
+          >
+            En los próximos 2-3 minutos recibirás un email con:
+          </p>
+
+          {/* Lista */}
+          <ul className="space-y-3 mb-6 max-w-md mx-auto">
+            {[
+              'Análisis detallado de tus respuestas',
+              'Interpretación de las señales detectadas',
+              'Primeros pasos recomendados'
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <span className="text-lg flex-shrink-0" style={{ color: '#27AE60' }}>✓</span>
+                <span 
+                  className="text-sm md:text-base"
+                  style={{ 
+                    fontFamily: "'Inter', sans-serif",
+                    color: '#FFFFFF'
+                  }}
+                >
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Nota */}
+          <p 
+            className="text-sm md:text-base text-center font-semibold"
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              color: '#FFD400'
+            }}
+          >
+            Revisa tu bandeja de entrada (y la carpeta de spam por si acaso)
+          </p>
+        </div>
+      </section>
+
+      {/* SECCIÓN 3: TRANSICIÓN */}
+      <section className="px-5 py-12 md:py-16">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* H2 */}
+          <h2 
+            className="text-xl md:text-3xl font-bold mb-6 uppercase"
+            style={{ 
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 700,
+              color: '#FFD400'
+            }}
+          >
+            Mientras Esperas...
+          </h2>
+
+          {/* Texto */}
+          <p 
+            className="text-sm md:text-lg mb-8 max-w-xl mx-auto"
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              color: 'rgba(255, 255, 255, 0.8)',
+              lineHeight: 1.7
+            }}
+          >
+            Si completaste esta evaluación es porque algo dentro de ti ya sabe que algo no está bien.
+          </p>
+
+          {/* Lista con flechas */}
+          <ul className="space-y-4 mb-8 text-left max-w-lg mx-auto">
+            {[
+              '¿Cómo sé si realmente es un narcisista?',
+              '¿Por qué no puedo dejarlo aunque quiera?',
+              '¿Hay forma de salir sin destruirme?'
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <span className="text-lg flex-shrink-0" style={{ color: '#FFD400' }}>→</span>
+                <span 
+                  className="text-sm md:text-base"
+                  style={{ 
+                    fontFamily: "'Inter', sans-serif",
+                    color: 'rgba(255, 255, 255, 0.85)'
+                  }}
+                >
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Cierre */}
+          <p 
+            className="text-base md:text-lg font-bold"
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              color: '#FFD400'
+            }}
+          >
+            Creé esta clase para responderte exactamente eso.
+          </p>
+        </div>
+      </section>
+
+      {/* SECCIÓN 4: CLASE GRATIS CON BANNER */}
+      <section className="px-5 -mt-6 md:-mt-10 relative z-10">
+        <div 
+          className="max-w-4xl mx-auto rounded-2xl overflow-hidden"
+          style={{ 
+            background: 'linear-gradient(135deg, #1a1a1a, #0d0d0d)',
+            border: '2px solid rgba(255, 212, 0, 0.4)',
+            boxShadow: '0 20px 60px rgba(255, 212, 0, 0.15)'
+          }}
+        >
+          {/* Banner Image */}
+          <div className="relative w-full h-48 sm:h-56 md:h-72 lg:h-80 overflow-hidden">
+            <img 
+              src={apegoDetoxBanner} 
+              alt="Apego Detox - Clase Gratis"
+              className="w-full h-full object-cover object-center"
+            />
           </div>
 
-          {/* Email Box */}
-          <div className="max-w-md mx-auto mb-12 p-8 rounded-2xl card-premium border-2 border-primary/30">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Mail className="w-6 h-6 text-primary" />
-              <h3 className="text-lg font-semibold text-foreground">Tu análisis será enviado a:</h3>
+          {/* Content */}
+          <div className="p-8 md:p-12 lg:p-16">
+            {/* Badge */}
+            <div className="text-center mb-6">
+              <span 
+                className="inline-block px-6 py-2 rounded-full text-xs md:text-sm font-bold uppercase"
+                style={{ 
+                  background: '#27AE60',
+                  color: '#000',
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700
+                }}
+              >
+                Clase Gratuita
+              </span>
             </div>
-            
-            <p className="text-2xl font-bold text-primary mb-6 break-all">
-              {email || 'tu-email@ejemplo.com'}
+
+            {/* Título */}
+            <h2 
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-center mb-8 leading-tight"
+              style={{ 
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 800,
+                color: '#FFD400'
+              }}
+            >
+              Cómo Romper el Vínculo Traumático con un Narcisista
+            </h2>
+
+            {/* Beneficios */}
+            <div className="max-w-2xl mx-auto mb-10 space-y-5">
+              {[
+                { text: 'Por qué tu cerebro está ', highlight: 'ADICTO', suffix: ' a esta persona (y cómo desactivar esa adicción)' },
+                { text: 'El error #1 que hace que el 90% recaiga al intentar dejarlo', highlight: '', suffix: '' },
+                { text: 'El método exacto de contacto cero sin sentir que te mueres', highlight: '', suffix: '' },
+                { text: 'Cómo blindarte para ', highlight: 'NUNCA', suffix: ' volver a atraer otro narcisista' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-4">
+                  <span className="text-xl md:text-2xl flex-shrink-0" style={{ color: '#27AE60' }}>✓</span>
+                  <p 
+                    className="text-base md:text-lg lg:text-xl"
+                    style={{ 
+                      fontFamily: "'Inter', sans-serif",
+                      color: '#FFFFFF',
+                      lineHeight: 1.6
+                    }}
+                  >
+                    {item.text}
+                    {item.highlight && <strong style={{ color: '#FFD400' }}>{item.highlight}</strong>}
+                    {item.suffix}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Detalles */}
+            <p 
+              className="text-xs md:text-sm text-center mb-8"
+              style={{ 
+                fontFamily: "'Inter', sans-serif",
+                color: 'rgba(255, 212, 0, 0.6)'
+              }}
+            >
+              100% Online | 45 minutos | Acceso inmediato | Sin costo
             </p>
 
-            <div className="flex items-center justify-center gap-2 text-yellow-500">
-              <AlertTriangle className="w-5 h-5" />
-              <p className="text-sm font-medium">Revisa también SPAM</p>
+            {/* CTA Button */}
+            <div className="text-center">
+              <a 
+                href="https://historiasdelamente.com/clase-apegodetox"
+                className="inline-block px-8 md:px-12 py-4 md:py-5 rounded-full text-base md:text-lg font-extrabold transition-all duration-300 hover:scale-105"
+                style={{ 
+                  background: 'linear-gradient(135deg, #FFD400, #FFC700)',
+                  color: '#000',
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 800,
+                  boxShadow: '0 10px 30px rgba(255, 212, 0, 0.4)',
+                  letterSpacing: '0.5px'
+                }}
+              >
+                → SÍ, QUIERO ACCEDER A LA CLASE
+              </a>
             </div>
-          </div>
 
-          {/* Scroll Indicator */}
-          <div className="flex flex-col items-center gap-3 animate-bounce">
-            <p className="text-lg font-semibold text-foreground">Desliza hacia abajo</p>
-            <p className="text-base text-muted-foreground">Hay algo importante para ti ⬇️</p>
-            <ChevronDown className="w-8 h-8 text-golden" />
+            {/* Nota */}
+            <p 
+              className="text-xs md:text-sm text-center mt-4"
+              style={{ 
+                fontFamily: "'Inter', sans-serif",
+                color: 'rgba(255, 212, 0, 0.5)'
+              }}
+            >
+              No requiere tarjeta de crédito | Recibirás el acceso por email
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Transition Title */}
-      <section className="py-8 px-4 bg-gradient-to-r from-golden/10 to-golden-light/10">
-        <h2 className="text-3xl md:text-4xl font-bold text-center golden-text font-apple">
-          Mientras Esperas, Descubre:
-        </h2>
-      </section>
-
-      {/* CTA Cards */}
-      <section className="py-8 md:py-10 px-4 flex-1">
-        <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-4">
-          {/* Cita Psicológica Card */}
-          <div className="card-premium p-4 md:p-5 rounded-xl hover-lift relative overflow-hidden border border-primary/40">
-            <div className="absolute top-2 right-2 bg-gradient-to-r from-primary to-primary text-primary-foreground px-2 py-0.5 rounded-full text-xs font-bold">
-              PRIORITARIO
-            </div>
-
-            <div className="mb-3">
-              <div className="w-full h-28 md:h-32 rounded-lg flex items-center justify-center mb-3 overflow-hidden">
-                <img 
-                  src={citaPsicologica} 
-                  alt="Cita Psicológica Personalizada"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-
-              <h3 className="text-base md:text-lg font-bold mb-2 text-foreground font-apple">
-                Cita Psicológica Personalizada
-              </h3>
-
-              <ul className="space-y-1 mb-3 text-xs md:text-sm text-muted-foreground font-apple">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
-                  <span>Atención profesional inmediata</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
-                  <span>Plan de recuperación personalizado</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
-                  <span>Apoyo especializado en narcisismo</span>
-                </li>
-              </ul>
-            </div>
-
-            <Button 
-              onClick={handleCitaPsicologicaClick}
-              className="w-full bg-gradient-to-r from-primary to-primary hover:opacity-90 text-primary-foreground text-xs md:text-sm py-2 font-bold font-apple"
-            >
-              💬 Agendar Cita Ahora
-            </Button>
-          </div>
-
-          {/* Libro Contacto Cero Card */}
-          <div className="card-premium p-4 md:p-5 rounded-xl hover-lift overflow-hidden border border-orange-500/40 relative">
-            <div className="absolute top-2 right-2 bg-orange-600 text-white px-2 py-0.5 rounded-full text-xs font-bold">
-              NUEVO
-            </div>
-
-            <div className="mb-3">
-              <div className="w-full h-28 md:h-32 rounded-lg flex items-center justify-center mb-3 overflow-hidden bg-black/80">
-                <img 
-                  src={libroContactoCero} 
-                  alt="Libro Apagón Emocional - Contacto Cero"
-                  className="h-full object-contain"
-                />
-              </div>
-
-              <h3 className="text-base md:text-lg font-bold mb-1 text-foreground font-apple">
-                Libro: Apagón Emocional
-              </h3>
-
-              <p className="text-xs font-semibold text-orange-500 mb-1 font-apple">
-                La guía definitiva para el Contacto Cero
-              </p>
-
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-yellow-500 text-xs">⭐⭐⭐⭐⭐</span>
-                <span className="text-xs text-muted-foreground">4.9/5</span>
-              </div>
-
-              <ul className="space-y-1 mb-3 text-xs md:text-sm text-muted-foreground font-apple">
-                <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-0.5 flex-shrink-0">✓</span>
-                  <span>Estrategia de Contacto Cero</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-0.5 flex-shrink-0">✓</span>
-                  <span>Recuperación emocional profunda</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-0.5 flex-shrink-0">✓</span>
-                  <span>Herramientas de sanación</span>
-                </li>
-              </ul>
-            </div>
-
-            <Button 
-              onClick={handleLibroClick}
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white text-xs md:text-sm py-2 font-apple font-bold"
-            >
-              🔥 Comienza Tu Sanación Ahora
-            </Button>
-          </div>
+      {/* SECCIÓN 5: RECORDATORIO EMAIL */}
+      <section className="px-5 py-12 md:py-16">
+        <div 
+          className="max-w-2xl mx-auto p-6 md:p-8 rounded-lg"
+          style={{ 
+            background: 'rgba(255, 212, 0, 0.05)',
+            borderLeft: '4px solid #FFD400'
+          }}
+        >
+          <div className="text-4xl md:text-5xl text-center mb-4">💌</div>
+          <p 
+            className="text-sm md:text-lg text-center leading-relaxed"
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              color: 'rgba(255, 212, 0, 0.85)'
+            }}
+          >
+            Mientras tanto, no olvides revisar tu email con los resultados de tu evaluación.
+          </p>
         </div>
       </section>
 
-      <Footer />
+      {/* SECCIÓN 6: FOOTER */}
+      <footer 
+        className="py-10 px-5 text-center mt-auto"
+        style={{ background: '#050505' }}
+      >
+        <h3 
+          className="text-lg md:text-xl font-semibold mb-2"
+          style={{ 
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 600,
+            color: '#FFD400'
+          }}
+        >
+          Historias de la Mente
+        </h3>
+        
+        <p 
+          className="text-sm md:text-base mb-1"
+          style={{ 
+            fontFamily: "'Inter', sans-serif",
+            color: 'rgba(255, 212, 0, 0.7)'
+          }}
+        >
+          Javier Vieira - Psicólogo Clínico
+        </p>
+        
+        <p 
+          className="text-xs md:text-sm mb-4"
+          style={{ 
+            fontFamily: "'Inter', sans-serif",
+            color: 'rgba(255, 212, 0, 0.5)'
+          }}
+        >
+          COLPSIC 293219
+        </p>
+
+        {/* Links */}
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <Link 
+            to="/privacy" 
+            className="text-xs md:text-sm hover:underline"
+            style={{ color: 'rgba(255, 212, 0, 0.6)' }}
+          >
+            Privacidad
+          </Link>
+          <span style={{ color: 'rgba(255, 212, 0, 0.3)' }}>|</span>
+          <Link 
+            to="/terms" 
+            className="text-xs md:text-sm hover:underline"
+            style={{ color: 'rgba(255, 212, 0, 0.6)' }}
+          >
+            Términos
+          </Link>
+        </div>
+
+        <p 
+          className="text-xs"
+          style={{ 
+            fontFamily: "'Inter', sans-serif",
+            color: 'rgba(255, 212, 0, 0.4)'
+          }}
+        >
+          © 2025 Todos los derechos reservados
+        </p>
+      </footer>
     </div>
   );
 };
