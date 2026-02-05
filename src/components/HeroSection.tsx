@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import bannerImage from "@/assets/banner-historias-mente-new.png";
 import guiaNarcisismo from "@/assets/guia-narcisismo.png";
 import apagonEmocional from "@/assets/apagon-emocional.png";
-import javierVieira from "@/assets/javier-vieira.png";
+import javierVieira from "@/assets/javier-vieira-nuevo.png";
 import promoApegoDetox from "@/assets/promo-apego-detox.png";
 
 // Inline SVG WhatsApp icon to avoid any background artifacts and allow crisp scaling
