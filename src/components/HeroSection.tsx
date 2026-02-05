@@ -41,14 +41,15 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
         </div>
 
         {/* Main Title */}
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <h1 
-            className="text-center leading-[1.2] break-words max-w-5xl mx-auto"
+            className="text-center leading-[1.15] break-words max-w-5xl mx-auto px-2"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 700,
               color: '#D4AF37',
-              fontSize: 'clamp(2.8em, 6.5vw, 5.2em)',
+              fontSize: 'clamp(1.6rem, 5vw, 4rem)',
+              textShadow: '0 2px 20px rgba(212, 175, 55, 0.3)',
             }}
           >
             ¿Cuántas veces más vas a volver<br />antes de admitir que nunca fue amor?
@@ -56,15 +57,15 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
           
           {/* Subtitle */}
           <p 
-            className="text-center mx-auto"
+            className="text-center mx-auto px-4"
             style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 400,
               color: '#e0e0e0',
-              fontSize: 'clamp(1em, 2vw, 1.3em)',
-              lineHeight: 1.8,
-              maxWidth: '900px',
-              marginTop: '30px',
+              fontSize: 'clamp(0.875rem, 1.8vw, 1.15rem)',
+              lineHeight: 1.7,
+              maxWidth: '750px',
+              marginTop: '16px',
             }}
           >
             Lo que llamabas amor era adicción. Lo que creías era conexión era manipulación. Y el día que lo veas, ese día empiezas a vivir de verdad.
