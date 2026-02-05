@@ -81,38 +81,38 @@ const GraciasEvaluacion = () => {
       </section>
 
       {/* CTA Cards */}
-      <section className="py-10 md:py-14 px-4 flex-1">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-5 md:gap-6">
+      <section className="py-8 md:py-10 px-4 flex-1">
+        <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-4">
           {/* Cita Psicológica Card */}
-          <div className="card-premium p-5 md:p-6 rounded-2xl hover-lift relative overflow-hidden border border-primary/40">
-            <div className="absolute top-3 right-3 bg-gradient-to-r from-primary to-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold">
+          <div className="card-premium p-4 md:p-5 rounded-xl hover-lift relative overflow-hidden border border-primary/40">
+            <div className="absolute top-2 right-2 bg-gradient-to-r from-primary to-primary text-primary-foreground px-2 py-0.5 rounded-full text-xs font-bold">
               PRIORITARIO
             </div>
 
-            <div className="mb-4">
-              <div className="w-full h-36 md:h-44 rounded-xl flex items-center justify-center mb-4 overflow-hidden">
+            <div className="mb-3">
+              <div className="w-full h-28 md:h-32 rounded-lg flex items-center justify-center mb-3 overflow-hidden">
                 <img 
                   src={citaPsicologica} 
                   alt="Cita Psicológica Personalizada"
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </div>
 
-              <h3 className="text-lg md:text-xl font-bold mb-2 text-foreground font-apple">
+              <h3 className="text-base md:text-lg font-bold mb-2 text-foreground font-apple">
                 Cita Psicológica Personalizada
               </h3>
 
-              <ul className="space-y-1.5 mb-4 text-sm text-muted-foreground font-apple">
+              <ul className="space-y-1 mb-3 text-xs md:text-sm text-muted-foreground font-apple">
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5">✓</span>
+                  <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
                   <span>Atención profesional inmediata</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5">✓</span>
+                  <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
                   <span>Plan de recuperación personalizado</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary mt-0.5">✓</span>
+                  <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
                   <span>Apoyo especializado en narcisismo</span>
                 </li>
               </ul>
@@ -120,20 +120,20 @@ const GraciasEvaluacion = () => {
 
             <Button 
               onClick={handleCitaPsicologicaClick}
-              className="w-full bg-gradient-to-r from-primary to-primary hover:opacity-90 text-primary-foreground text-sm md:text-base py-4 font-bold font-apple"
+              className="w-full bg-gradient-to-r from-primary to-primary hover:opacity-90 text-primary-foreground text-xs md:text-sm py-2 font-bold font-apple"
             >
               💬 Agendar Cita Ahora
             </Button>
           </div>
 
           {/* Libro Contacto Cero Card */}
-          <div className="card-premium p-5 md:p-6 rounded-2xl hover-lift overflow-hidden border border-orange-500/40 relative">
-            <div className="absolute top-3 right-3 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+          <div className="card-premium p-4 md:p-5 rounded-xl hover-lift overflow-hidden border border-orange-500/40 relative">
+            <div className="absolute top-2 right-2 bg-orange-600 text-white px-2 py-0.5 rounded-full text-xs font-bold">
               NUEVO
             </div>
 
-            <div className="mb-4">
-              <div className="w-full h-36 md:h-44 rounded-xl flex items-center justify-center mb-4 overflow-hidden bg-black/80">
+            <div className="mb-3">
+              <div className="w-full h-28 md:h-32 rounded-lg flex items-center justify-center mb-3 overflow-hidden bg-black/80">
                 <img 
                   src={libroContactoCero} 
                   alt="Libro Apagón Emocional - Contacto Cero"
@@ -141,30 +141,30 @@ const GraciasEvaluacion = () => {
                 />
               </div>
 
-              <h3 className="text-lg md:text-xl font-bold mb-1 text-foreground font-apple">
+              <h3 className="text-base md:text-lg font-bold mb-1 text-foreground font-apple">
                 Libro: Apagón Emocional
               </h3>
 
-              <p className="text-sm font-semibold text-orange-500 mb-1 font-apple">
+              <p className="text-xs font-semibold text-orange-500 mb-1 font-apple">
                 La guía definitiva para el Contacto Cero
               </p>
 
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-yellow-500 text-sm">⭐⭐⭐⭐⭐</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-yellow-500 text-xs">⭐⭐⭐⭐⭐</span>
                 <span className="text-xs text-muted-foreground">4.9/5</span>
               </div>
 
-              <ul className="space-y-1.5 mb-4 text-sm text-muted-foreground font-apple">
+              <ul className="space-y-1 mb-3 text-xs md:text-sm text-muted-foreground font-apple">
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-0.5">✓</span>
+                  <span className="text-orange-500 mt-0.5 flex-shrink-0">✓</span>
                   <span>Estrategia de Contacto Cero</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-0.5">✓</span>
+                  <span className="text-orange-500 mt-0.5 flex-shrink-0">✓</span>
                   <span>Recuperación emocional profunda</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-500 mt-0.5">✓</span>
+                  <span className="text-orange-500 mt-0.5 flex-shrink-0">✓</span>
                   <span>Herramientas de sanación</span>
                 </li>
               </ul>
@@ -172,7 +172,7 @@ const GraciasEvaluacion = () => {
 
             <Button 
               onClick={handleLibroClick}
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white text-sm md:text-base py-4 font-apple font-bold"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white text-xs md:text-sm py-2 font-apple font-bold"
             >
               🔥 Comienza Tu Sanación Ahora
             </Button>
