@@ -42,13 +42,32 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
 
         {/* Main Title */}
         <div className="space-y-6">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-apple golden-text leading-tight break-words max-w-5xl mx-auto">
-            CUANDO EL NARCISISTA TE ROMPE, NO ES EL FINAL… ES TU RENACER
+          <h1 
+            className="text-center leading-[1.2] break-words max-w-5xl mx-auto"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 700,
+              color: '#D4AF37',
+              fontSize: 'clamp(2.8em, 6.5vw, 5.2em)',
+            }}
+          >
+            ¿Cuántas veces más vas a volver<br />antes de admitir que nunca fue amor?
           </h1>
           
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-3xl md:max-w-4xl mx-auto leading-relaxed font-apple">
-            Sé lo que significa llorar en silencio, sentir que tu valor se pierde en manos equivocadas. Pero dentro de ti hay una fuerza intacta, esperando levantarse. Este encuentro es tu oportunidad de romper el ciclo.
+          <p 
+            className="text-center mx-auto"
+            style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 400,
+              color: '#e0e0e0',
+              fontSize: 'clamp(1em, 2vw, 1.3em)',
+              lineHeight: 1.8,
+              maxWidth: '900px',
+              marginTop: '30px',
+            }}
+          >
+            Lo que llamabas amor era adicción. Lo que creías era conexión era manipulación. Y el día que lo veas, ese día empiezas a vivir de verdad.
           </p>
         </div>
 
