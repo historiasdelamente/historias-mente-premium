@@ -1,9 +1,20 @@
+import javierVieira from "@/assets/javier-vieira-lead.png";
+
 const NewHeroSection = () => {
   return (
     <section 
-      className="min-h-screen flex items-center justify-center px-[30px] py-[60px] md:px-[60px] md:py-[80px]"
+      className="min-h-screen flex flex-col items-center justify-center px-[30px] py-[60px] md:px-[60px] md:py-[80px]"
       style={{ backgroundColor: '#000000' }}
     >
+      {/* Foto de Javier Vieira */}
+      <div className="mb-8 md:mb-12">
+        <img 
+          src={javierVieira} 
+          alt="Javier Vieira - Psicólogo"
+          className="w-[200px] h-auto md:w-[280px] object-contain"
+        />
+      </div>
+
       <div className="text-center max-w-[900px]">
         {/* Título Principal */}
         <h1 
