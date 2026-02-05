@@ -190,9 +190,9 @@ const GraciasEvaluacion = () => {
           </div>
 
           {/* Content */}
-          <div className="p-8 md:p-12 lg:p-16">
+          <div className="p-5 md:p-8 lg:p-10">
             {/* Badge */}
-            <div className="text-center mb-6">
+            <div className="text-center mb-4">
               <span 
                 className="inline-block px-6 py-2 rounded-full text-xs md:text-sm font-bold uppercase"
                 style={{ 
