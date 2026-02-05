@@ -48,7 +48,7 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 700,
               color: '#D4AF37',
-              fontSize: 'clamp(1.25rem, 4.5vw, 4rem)',
+              fontSize: 'clamp(1.5rem, 5vw, 4.5rem)',
               textShadow: '0 2px 20px rgba(212, 175, 55, 0.3)',
             }}
           >
@@ -77,7 +77,16 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
         <div className="flex flex-col gap-6 justify-center items-center pt-6 md:pt-8">
           {/* Textos persuasivos */}
           <div className="text-center space-y-3 max-w-2xl mx-auto py-4">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold golden-text font-apple leading-tight animate-pulse">
+            <h3 
+              className="leading-tight"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 700,
+                color: '#D4AF37',
+                fontSize: 'clamp(1.3rem, 4vw, 2.8rem)',
+                textShadow: '0 2px 20px rgba(212, 175, 55, 0.3)',
+              }}
+            >
               TE DIREMOS SI TU PAREJA ES NARCISISTA
             </h3>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-apple">
