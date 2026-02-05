@@ -41,14 +41,14 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
         </div>
 
         {/* Main Title */}
-        <div className="space-y-4 md:space-y-6">
+        <div className="space-y-3 md:space-y-6">
           <h1 
-            className="text-center leading-[1.15] break-words max-w-5xl mx-auto px-2"
+            className="text-center leading-[1.15] break-words max-w-5xl mx-auto px-3"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 700,
               color: '#D4AF37',
-              fontSize: 'clamp(1.6rem, 5vw, 4rem)',
+              fontSize: 'clamp(1.25rem, 4.5vw, 4rem)',
               textShadow: '0 2px 20px rgba(212, 175, 55, 0.3)',
             }}
           >
@@ -57,15 +57,15 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
           
           {/* Subtitle */}
           <p 
-            className="text-center mx-auto px-4"
+            className="text-center mx-auto px-5"
             style={{
               fontFamily: "'Montserrat', sans-serif",
               fontWeight: 400,
               color: '#e0e0e0',
-              fontSize: 'clamp(0.875rem, 1.8vw, 1.15rem)',
-              lineHeight: 1.7,
+              fontSize: 'clamp(0.8rem, 1.6vw, 1.15rem)',
+              lineHeight: 1.6,
               maxWidth: '750px',
-              marginTop: '16px',
+              marginTop: '12px',
             }}
           >
             Lo que llamabas amor era adicción. Lo que creías era conexión era manipulación. Y el día que lo veas, ese día empiezas a vivir de verdad.
