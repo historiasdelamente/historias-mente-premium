@@ -77,8 +77,7 @@ const GraciasEvaluacion = () => {
           <ul className="space-y-3 mb-6 max-w-md mx-auto">
             {[
               'Análisis detallado de tus respuestas',
-              'Interpretación de las señales detectadas',
-              'Primeros pasos recomendados'
+              'Interpretación de las señales detectadas'
             ].map((item, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <span className="text-lg flex-shrink-0" style={{ color: '#27AE60' }}>✓</span>
@@ -95,15 +94,30 @@ const GraciasEvaluacion = () => {
             ))}
           </ul>
 
-          {/* Nota */}
-          <p 
-            className="text-sm md:text-base text-center font-semibold"
+          {/* CTA Clase - Prominente en móvil */}
+          <a 
+            href="https://historiasdelamente.com/clase-apegodetox"
+            className="block w-full py-4 px-6 rounded-xl text-center font-bold text-sm md:text-base mb-4 animate-pulse"
             style={{ 
-              fontFamily: "'Inter', sans-serif",
-              color: '#FFD400'
+              background: 'linear-gradient(135deg, #FFD400, #FFC700)',
+              color: '#000',
+              fontFamily: "'Montserrat', sans-serif",
+              fontWeight: 700,
+              boxShadow: '0 8px 25px rgba(255, 212, 0, 0.4)'
             }}
           >
-            Revisa tu bandeja de entrada (y la carpeta de spam por si acaso)
+            🎬 NO TE PIERDAS LA CLASE GRATUITA →
+          </a>
+
+          {/* Nota */}
+          <p 
+            className="text-xs md:text-sm text-center"
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              color: 'rgba(255, 212, 0, 0.7)'
+            }}
+          >
+            Revisa tu bandeja de entrada (y spam)
           </p>
         </div>
       </section>
