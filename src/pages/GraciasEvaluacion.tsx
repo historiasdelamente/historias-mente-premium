@@ -181,13 +181,16 @@ const GraciasEvaluacion = () => {
           }}
         >
           {/* Banner Image */}
-          <div className="relative w-full h-48 sm:h-56 md:h-72 lg:h-80 overflow-hidden">
+          <a 
+            href="https://historiasdelamente.com/clase-apegodetox"
+            className="block relative w-full h-48 sm:h-56 md:h-72 lg:h-80 overflow-hidden hover:opacity-90 transition-opacity"
+          >
             <img 
               src={apegoDetoxBanner} 
               alt="Apego Detox - Clase Gratis"
               className="w-full h-full object-cover object-center"
             />
-          </div>
+          </a>
 
           {/* Content */}
           <div className="p-5 md:p-8 lg:p-10">
