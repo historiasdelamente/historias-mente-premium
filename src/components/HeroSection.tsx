@@ -222,39 +222,37 @@ const HeroSection = ({ onOpenChat }: { onOpenChat?: () => void }) => {
         </div>
 
         {/* Sección Quién es Javier Vieira */}
-        <div className="max-w-5xl mx-auto pt-8 md:pt-12">
-          <Card className="card-premium border-golden/30 shadow-golden overflow-hidden relative">
+        <div className="max-w-3xl mx-auto pt-6 md:pt-8">
+          <Card className="card-premium border-primary/30 overflow-hidden relative">
             {/* Decorative elements */}
-            <div className="absolute top-0 left-0 w-64 h-64 bg-golden/10 rounded-full blur-3xl -z-0"></div>
-            <div className="absolute bottom-0 right-0 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl -z-0"></div>
+            <div className="absolute top-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -z-0"></div>
+            <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl -z-0"></div>
             
-            <CardContent className="p-6 md:p-10 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8 items-center">
+            <CardContent className="p-4 md:p-6 relative z-10">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
                 {/* Imagen de Javier Vieira */}
-                <div className="flex justify-center animate-fade-in">
+                <div className="flex-shrink-0">
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-golden via-amber-400 to-golden rounded-full opacity-30 blur-2xl group-hover:opacity-40 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary via-primary to-primary rounded-full opacity-20 blur-xl"></div>
                     <img 
                       src={javierVieira} 
                       alt="Javier Vieira Calle - Creador de Historias de la Mente"
-                      className="relative w-64 md:w-full h-auto rounded-full shadow-2xl transform group-hover:scale-105 transition-all duration-300 ring-4 ring-golden/50"
+                      className="relative w-24 h-24 md:w-32 md:h-32 rounded-full shadow-lg ring-2 ring-primary/50 object-cover"
                     />
                   </div>
                 </div>
 
                 {/* Descripción */}
-                <div className="space-y-6 text-center md:text-left animate-fade-in" style={{ animationDelay: "150ms" }}>
-                  <div className="space-y-4">
-                    <h2 className="text-3xl md:text-4xl font-extrabold golden-text font-apple leading-tight">
-                      Javier Vieira Calle
-                    </h2>
-                    <p className="text-lg md:text-xl text-foreground font-apple leading-relaxed">
-                      Creador de <span className="golden-text font-bold">Historias de la Mente</span> en TikTok. A través de conferencias poderosas y vivenciales, acompaña a mujeres que desean liberarse del trauma bonding para recuperar su poder, reconectar con su esencia y volver a la paz interior.
-                    </p>
-                    <p className="text-base md:text-lg text-muted-foreground font-apple leading-relaxed">
-                      Su enfoque es directo, humano y transformador: romper el ciclo, poner límites y reconstruir la propia dignidad.
-                    </p>
-                  </div>
+                <div className="text-center md:text-left space-y-2">
+                  <h2 className="text-xl md:text-2xl font-bold golden-text font-apple">
+                    Javier Vieira Calle
+                  </h2>
+                  <p className="text-sm md:text-base text-foreground font-apple leading-relaxed">
+                    Creador de <span className="golden-text font-semibold">Historias de la Mente</span>. Acompaña a mujeres a liberarse del trauma bonding para recuperar su poder y volver a la paz interior.
+                  </p>
+                  <p className="text-xs md:text-sm text-muted-foreground font-apple">
+                    Enfoque directo, humano y transformador.
+                  </p>
                 </div>
               </div>
             </CardContent>
