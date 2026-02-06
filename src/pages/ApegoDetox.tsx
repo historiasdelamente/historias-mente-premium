@@ -73,7 +73,7 @@ const ApegoDetox = () => {
     setShowCookieBanner(false);
   };
 
-  const whatsappLink = "https://wa.me/573041234567?text=Quiero%20información%20sobre%20Apego%20Detox";
+  const whatsappLink = "https://wa.me/573001681053?text=Estoy%20interesado%20en%20Apego%20Detox%2C%20quiero%20comprar";
   const hotmartLink = "https://pay.hotmart.com/W102751360L";
 
   return (
@@ -1241,7 +1241,7 @@ const ApegoDetox = () => {
 
       {/* Botón flotante de WhatsApp - Profesional */}
       <a
-        href="https://wa.me/573044737168?text=Hola%2C%20quiero%20comprar%20pero%20tengo%20una%20pregunta"
+        href="https://wa.me/573001681053?text=Estoy%20interesado%20en%20Apego%20Detox%2C%20quiero%20comprar"
         target="_blank"
         rel="noopener noreferrer"
         className="group fixed bottom-6 md:bottom-8 right-6 md:right-8 z-50"
