@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/573137089920?text=Hola%20Doctor%20Javier%20Vieira%2C%20necesito%20ayuda%20con%20el%20apego%20emocional";
+const WHATSAPP_URL = "https://wa.me/573137089920?text=Quiero%20mi%20acceso%20a%20la%20clase%20de%20Apego%20Detox%2C%20ya%20me%20registr%C3%A9%2C%20m%C3%A1ndame%20la%20liga";
 
 interface WhatsAppButtonProps {
   className?: string;
