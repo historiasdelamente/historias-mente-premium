@@ -116,7 +116,7 @@ const HeroSection = () => (
         "¿Y si el problema nunca fue él?"
       </p>
       <p className="nc-body text-xs md:text-sm mb-10 opacity-60">
-        Por Javier Vieira — Psicólogo Clínico | Lic. 293219 COLPSIC
+        Por Javier Vieira — Psicólogo Especialista
       </p>
       <CTAButton />
     </div>
@@ -350,7 +350,7 @@ const AutorSection = () => (
         </FadeIn>
         <div className="nc-body nc-body-text">
           <FadeIn><h2 className="nc-serif text-2xl md:text-3xl font-bold mb-6 nc-gold">Sobre Javier Vieira</h2></FadeIn>
-          <FadeIn><p className="mb-4">Psicólogo clínico licenciado (Lic. 293219 COLPSIC), especializado en recuperación de abuso narcisista y trauma de apego. Creador de Historias de la Mente, una comunidad donde miles de mujeres han encontrado las palabras que nadie les dio para nombrar lo que vivieron.</p></FadeIn>
+          <FadeIn><p className="mb-4">Psicólogo especialista en recuperación de abuso narcisista y trauma de apego. Creador de Historias de la Mente, una comunidad donde miles de mujeres han encontrado las palabras que nadie les dio para nombrar lo que vivieron.</p></FadeIn>
           <FadeIn><p className="mb-6">Este libro nació de la convicción de que las mujeres que vivieron narcisismo necesitan algo más que información sobre el narcisista. Necesitan un camino de vuelta hacia sí mismas. Hacia la niña que fueron antes de que alguien decidiera que sus necesidades no importaban.</p></FadeIn>
           <FadeIn><img src={logoImg} alt="Historias de la Mente" className="h-10 opacity-60" loading="lazy" /></FadeIn>
         </div>
