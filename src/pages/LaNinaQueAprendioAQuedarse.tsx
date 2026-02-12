@@ -9,7 +9,7 @@ import elenaImg from "@/assets/nina-callada-elena.jpg";
 import dividerImg from "@/assets/nina-callada-divider.jpg";
 import ninaImg from "@/assets/nina-callada-nina.jpg";
 import logoImg from "@/assets/logo-historias-mente.png";
-import autorImg from "@/assets/javier-vieira.png";
+import autorImg from "@/assets/javier-vieira-nuevo.png";
 
 /* ─── Fade-in on scroll hook ─── */
 function useFadeIn() {
