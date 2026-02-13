@@ -17,6 +17,8 @@ import ClaseApegoDetox from "./pages/ClaseApegoDetox";
 import GraciasApegoDetox from "./pages/GraciasApegoDetox";
 import ClaseMeet from "./pages/ClaseMeet";
 import GraciasClaseMeet from "./pages/GraciasClaseMeet";
+import ClaseApegoDetoxMarzo from "./pages/ClaseApegoDetoxMarzo";
+import GraciasClaseMarzo from "./pages/GraciasClaseMarzo";
 import W from "./pages/W";
 import LaNinaQueAprendioAQuedarse from "./pages/LaNinaQueAprendioAQuedarse";
 import CookieConsentBanner from "./components/CookieConsentBanner";
@@ -48,6 +50,9 @@ const App = () => (
             {/* Clase Meet Lead Magnet */}
             <Route path="/clase-gratuita" element={<ClaseMeet />} />
             <Route path="/gracias-clase" element={<GraciasClaseMeet />} />
+            {/* Clase Apego Detox Marzo 2026 */}
+            <Route path="/clase-apego-detox-marzo" element={<ClaseApegoDetoxMarzo />} />
+            <Route path="/gracias-clase-marzo" element={<GraciasClaseMarzo />} />
             {/* W Form Page */}
             <Route path="/w" element={<W />} />
             {/* Ebook - La Niña Que Aprendió a Quedarse Callada */}
