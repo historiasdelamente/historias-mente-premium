@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet-async";
 import heroImg from "@/assets/apego-detox-3am-hero.jpg";
+import ventanaImg from "@/assets/apego-detox-ventana.jpg";
+import grupoImg from "@/assets/apego-detox-grupo.jpg";
+import libertadImg from "@/assets/apego-detox-libertad.jpg";
 import javierImg from "@/assets/javier-vieira-nuevo.png";
 import logoImg from "@/assets/logo-historias-mente.png";
 
@@ -226,8 +229,12 @@ const ClaseApegoDetoxMarzo = () => {
         </section>
 
         {/* ═══════ S3 — Revelación ═══════ */}
-        <section style={{ background: C.black }} className="py-20 md:py-28 px-5">
-          <div className="max-w-3xl mx-auto text-center">
+        <section className="relative py-20 md:py-28 px-5 overflow-hidden" style={{ background: C.black }}>
+          <div className="absolute inset-0 z-0">
+            <img src={ventanaImg} alt="" className="w-full h-full object-cover opacity-20" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.6))" }} />
+          </div>
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
             <Fade>
               <h2 className="serif text-2xl md:text-4xl font-bold mb-10" style={{ color: C.gold }}>
                 No estás enamorada.<br />Estás secuestrada emocionalmente.
@@ -338,8 +345,12 @@ const ClaseApegoDetoxMarzo = () => {
         </section>
 
         {/* ═══════ S7 — Testimonios ═══════ */}
-        <section style={{ background: C.black }} className="py-20 md:py-28 px-5">
-          <div className="max-w-3xl mx-auto">
+        <section className="relative py-20 md:py-28 px-5 overflow-hidden" style={{ background: C.black }}>
+          <div className="absolute inset-0 z-0">
+            <img src={grupoImg} alt="" className="w-full h-full object-cover opacity-15" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%)" }} />
+          </div>
+          <div className="relative z-10 max-w-3xl mx-auto">
             <Fade>
               <h2 className="serif text-2xl md:text-4xl font-bold text-center mb-14" style={{ color: C.gold }}>
                 Lo que dicen quienes ya asistieron
@@ -349,8 +360,8 @@ const ClaseApegoDetoxMarzo = () => {
               {testimonials.map((t, i) => (
                 <Fade key={i}>
                   <div
-                    className="p-6 rounded-lg"
-                    style={{ borderLeft: `4px solid ${C.gold}`, background: "#1f1f1f" }}
+                    className="p-6 rounded-lg backdrop-blur-sm"
+                    style={{ borderLeft: `4px solid ${C.gold}`, background: "rgba(31,31,31,0.85)" }}
                   >
                     <p className="serif italic text-sm md:text-base leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.75)" }}>
                       "{t.text}"
@@ -430,8 +441,12 @@ const ClaseApegoDetoxMarzo = () => {
         </section>
 
         {/* ═══════ S9 — Cierre + Footer ═══════ */}
-        <section style={{ background: C.cream, color: C.gray }} className="py-20 md:py-28 px-5">
-          <div className="max-w-2xl mx-auto text-center">
+        <section className="relative py-20 md:py-28 px-5 overflow-hidden" style={{ background: C.cream, color: C.gray }}>
+          <div className="absolute inset-0 z-0">
+            <img src={libertadImg} alt="" className="w-full h-full object-cover opacity-25" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(250,246,237,0.85) 0%, rgba(250,246,237,0.7) 50%, rgba(250,246,237,0.9) 100%)" }} />
+          </div>
+          <div className="relative z-10 max-w-2xl mx-auto text-center">
             <Fade>
               <p className="serif italic text-xl md:text-3xl leading-relaxed mb-8" style={{ color: C.gray }}>
                 Cada día que pasa atrapada en este ciclo es un día menos de tu vida.
