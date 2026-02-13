@@ -36,7 +36,9 @@ const FadeIn = ({ children, className = "" }: { children: React.ReactNode; class
 const CTAButton = ({ className = "" }: { className?: string }) => (
   <div className={`text-center ${className}`}>
     <a
-      href="#comprar"
+      href="https://pay.hotmart.com/T104423623N"
+      target="_blank"
+      rel="noopener noreferrer"
       className="inline-block px-10 py-4 font-bold uppercase tracking-widest text-sm md:text-base transition-all duration-300 hover:shadow-lg"
       style={{ background: "#d4a843", color: "#111", borderRadius: 4, fontFamily: "'DM Sans', sans-serif" }}
       onMouseEnter={e => { (e.target as HTMLElement).style.background = "#e8c547"; }}
@@ -69,7 +71,9 @@ const FloatingCTA = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center p-3 md:p-4" style={{ boxShadow: "0 -4px 20px rgba(0,0,0,0.3)" }}>
       <a
-        href="#comprar"
+        href="https://pay.hotmart.com/T104423623N"
+        target="_blank"
+        rel="noopener noreferrer"
         className="block w-[90%] max-w-[500px] text-center font-bold uppercase tracking-wider py-4 transition-all duration-300"
         style={{ background: "#d4a843", color: "#111", borderRadius: 4, fontFamily: "'DM Sans', sans-serif" }}
       >
