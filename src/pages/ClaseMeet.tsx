@@ -1,394 +1,482 @@
-import { useState, FormEvent } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { Check, Clock, Lock } from "lucide-react";
-import heroImage from "@/assets/mujer-hero-hiperrealista.png";
-import javierPhoto from "@/assets/javier-vieira-nuevo.png";
+import { useState, useEffect, useRef, FormEvent } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
+import heroBg from "@/assets/clase-hero-bg.jpg";
+import dolorImg from "@/assets/clase-dolor-img.jpg";
+import transfImg from "@/assets/clase-transf-img.jpg";
+import ctaBg from "@/assets/clase-cta-bg.jpg";
 
+/* ── Fade-in on scroll ── */
+function useFadeIn() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { el.classList.add("clase-visible"); obs.unobserve(el); } },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return ref;
+}
+
+const Fade = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useFadeIn();
+  return <div ref={ref} className={`clase-fade ${className}`}>{children}</div>;
+};
+
+/* ── CTA Button ── */
+const CTAButton = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <button
+    onClick={() => document.getElementById("registro")?.scrollIntoView({ behavior: "smooth" })}
+    className={`bg-[#FFD300] text-black font-extrabold uppercase tracking-wide px-10 py-4 rounded-md text-[15px] shadow-[0_4px_20px_rgba(255,211,0,0.3)] hover:shadow-[0_8px_32px_rgba(255,211,0,0.4)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer ${className}`}
+    style={{ fontFamily: "'Montserrat', sans-serif" }}
+  >
+    {children}
+  </button>
+);
+
+/* ── Countdown ── */
+const TARGET_DATE = new Date("2026-02-28T16:00:00Z"); // 11AM UTC-5
+
+function useCountdown() {
+  const [diff, setDiff] = useState(() => TARGET_DATE.getTime() - Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setDiff(TARGET_DATE.getTime() - Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  if (diff <= 0) return null;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  return { d, h, m, s };
+}
+
+/* ── Mobile Sticky CTA ── */
+const MobileStickyCTA = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      const heroBottom = window.innerHeight;
+      const form = document.getElementById("registro");
+      const formTop = form?.getBoundingClientRect().top ?? Infinity;
+      setShow(window.scrollY > heroBottom && formTop > window.innerHeight * 0.5);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-3 bg-black md:hidden">
+      <button
+        onClick={() => document.getElementById("registro")?.scrollIntoView({ behavior: "smooth" })}
+        className="w-full bg-[#FFD300] text-black font-extrabold uppercase tracking-wide py-4 rounded-md text-[15px] cursor-pointer"
+        style={{ fontFamily: "'Montserrat', sans-serif" }}
+      >
+        RESERVAR MI LUGAR
+      </button>
+    </div>
+  );
+};
+
+/* ══════════════════════════ PAGE ══════════════════════════ */
 const ClaseMeet = () => {
-  const navigate = useNavigate();
   const { requiresGDPR, isLoading: isConsentLoading } = useCookieConsent();
-  const [formData, setFormData] = useState({ nombre: "", email: "" });
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
   const [acceptPrivacy, setAcceptPrivacy] = useState(false);
   const [acceptMarketing, setAcceptMarketing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error" | "privacy_required">("idle");
+  const countdown = useCountdown();
 
-  const scrollToForm = () => {
-    document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
-  };
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
-    // Validación básica
-    if (!formData.nombre.trim() || !formData.email.trim()) {
-      return;
-    }
-
-    // Validación de email
+    if (!nombre.trim() || !email.trim()) return;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setSubmitStatus("error");
-      return;
-    }
-
-    // Validación de privacidad (obligatorio solo si GDPR aplica)
-    if (requiresGDPR && !acceptPrivacy) {
-      setSubmitStatus("privacy_required");
-      return;
-    }
+    if (!emailRegex.test(email)) { setSubmitStatus("error"); return; }
+    if (requiresGDPR && !acceptPrivacy) { setSubmitStatus("privacy_required"); return; }
 
     setIsSubmitting(true);
     setSubmitStatus("idle");
-
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-clase-meet`, {
+      const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-clase-meet`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          nombre: formData.nombre.trim(),
-          email: formData.email.trim(),
-          acceptPrivacy: requiresGDPR ? acceptPrivacy : true, // Auto-accept for non-GDPR
-          acceptMarketing: requiresGDPR ? acceptMarketing : true, // Auto-accept for non-GDPR
+          nombre: nombre.trim(),
+          email: email.trim(),
+          acceptPrivacy: requiresGDPR ? acceptPrivacy : true,
+          acceptMarketing: requiresGDPR ? acceptMarketing : true,
           privacyVersion: "2026-02-01",
           consentTimestamp: new Date().toISOString(),
           isGDPRRegion: requiresGDPR,
         }),
       });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        // Redirigir a la página de agradecimiento
-        setTimeout(() => {
-          navigate("/gracias-clase");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }, 500);
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      console.error("Error al enviar formulario:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
+      if (res.ok) setSubmitStatus("success");
+      else setSubmitStatus("error");
+    } catch { setSubmitStatus("error"); }
+    finally { setIsSubmitting(false); }
   };
 
+  const schedules = [
+    { country: "Colombia, Peru, Ecuador", time: "11:00 AM" },
+    { country: "Mexico (CDMX)", time: "10:00 AM" },
+    { country: "Venezuela, Bolivia, Rep. Dom.", time: "12:00 PM" },
+    { country: "Argentina, Uruguay, Chile", time: "1:00 PM" },
+    { country: "Espana", time: "5:00 PM" },
+    { country: "USA (Este / Miami)", time: "11:00 AM" },
+    { country: "USA (Oeste / LA)", time: "8:00 AM" },
+  ];
+
+  const identItems = [
+    "Se que deberia irme pero algo me tiene pegada",
+    "Reviso su WhatsApp aunque se que me va a doler",
+    "Volvi con el y me siento patetica",
+    "Perdi mi identidad, ya no se quien soy",
+    "Tengo ansiedad constante y no puedo ni trabajar",
+    "Hago todo bien y nunca es suficiente para el",
+  ];
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* SECCIÓN 1 - HERO */}
-      <section className="bg-[#0a0a0a] px-4 sm:px-6 py-6 sm:py-10">
-        <div className="max-w-3xl mx-auto text-center animate-fade-in">
-          {/* Título Principal */}
-          <h1 className="font-['Playfair_Display',Georgia,serif] font-bold leading-[1.2] mb-4 sm:mb-5 text-white tracking-tight">
-            <span className="block text-[24px] sm:text-[32px] md:text-[40px] lg:text-[46px]">
-              ¿Tiene que destruirte para que aceptes
+    <>
+      <Helmet>
+        <title>Apego Detox — Clase en Vivo 28 de Febrero | Historias de la Mente</title>
+        <meta name="description" content="Entiende por que no puedes soltar al narcisista y aprende el primer paso para recuperar tu identidad. Clase en vivo, Javier Vieira, Psicologo Especialista." />
+      </Helmet>
+
+      <style>{`
+        .clase-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .clase-visible { opacity: 1; transform: translateY(0); }
+      `}</style>
+
+      <div style={{ fontFamily: "'Montserrat', sans-serif", lineHeight: 1.7 }}>
+
+        {/* ═══ 1. HERO ═══ */}
+        <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6">
+          <div className="absolute inset-0 z-0">
+            <img src={heroBg} alt="" className="w-full h-full object-cover" loading="eager" />
+            <div className="absolute inset-0 bg-black/50" />
+          </div>
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
+              CLASE EN VIVO — SABADO 28 DE FEBRERO
             </span>
-            <span className="block text-[24px] sm:text-[32px] md:text-[40px] lg:text-[46px]">
-              que{' '}
-              <span className="text-[#F4C430] drop-shadow-[0_2px_4px_rgba(244,196,48,0.4)]">NUNCA</span>
-              {' '}te amó?
-            </span>
-          </h1>
-          
-          {/* Subtítulo */}
-          <div className="mb-5 sm:mb-6">
-            <p className="font-['Lato',sans-serif] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-light leading-[1.6] text-white/90">
-              Deja de ser su sombra. <span className="text-[#F4C430] font-medium">Recupera tu brillo</span>, tu belleza y tu vida hoy mismo.
+            <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
+              "Acepte su maltrato solo para quedarme en su vida."
+            </h1>
+            <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
+              Convenci a mi mente de que su frialdad era mi culpa. Hoy entiendo que no era amor. Era apego traumatico. Y tiene salida.
             </p>
+            <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
+            <span className="text-white text-sm mt-4 block">
+              Sabado 28 de febrero — 11:00 AM Colombia
+            </span>
           </div>
+        </section>
 
-          {/* Imagen Circular de la Mujer */}
-          <div className="flex justify-center mb-5 sm:mb-6">
-            <div 
-              className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[180px] md:h-[180px] rounded-full border-4 border-[#F4C430] overflow-hidden"
-              style={{ boxShadow: '0 8px 24px rgba(244, 196, 48, 0.3)' }}
-            >
-              <img 
-                src={heroImage} 
-                alt="Mujer pensativa" 
-                className="w-full h-full object-cover object-center"
-              />
+        {/* ═══ 2. COUNTDOWN BAR ═══ */}
+        <div className="sticky top-0 z-50 bg-black py-3 text-center">
+          {countdown ? (
+            <div className="flex justify-center items-center gap-1">
+              <span className="text-white text-xs uppercase mr-2">La clase comienza en:</span>
+              {[
+                { val: countdown.d, label: "dias" },
+                { val: countdown.h, label: "horas" },
+                { val: countdown.m, label: "min" },
+                { val: countdown.s, label: "seg" },
+              ].map((u, i) => (
+                <span key={i} className="flex items-center">
+                  {i > 0 && <span className="text-white mx-1.5 md:mx-3">:</span>}
+                  <span className="text-[#FFD300] font-bold text-xl">{String(u.val).padStart(2, "0")}</span>
+                  <span className="text-white text-xs uppercase ml-1">{u.label}</span>
+                </span>
+              ))}
+            </div>
+          ) : (
+            <span className="text-[#FFD300] font-bold text-sm">La clase ya comenzo</span>
+          )}
+        </div>
+
+        {/* ═══ 3. DOLOR ═══ */}
+        <section className="bg-white py-20 px-6">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <Fade>
+              <div className="md:hidden w-full mb-6">
+                <img src={dolorImg} alt="Mujer reflexiva" className="w-full rounded-xl shadow-lg max-w-sm mx-auto" loading="lazy" />
+              </div>
+              <div>
+                <h2 className="font-bold text-[26px] md:text-[36px] text-black leading-tight">
+                  Sabes que te destruye. Pero no puedes soltar.
+                </h2>
+                <p className="text-[#555] text-[15px] md:text-[17px] leading-relaxed mt-6">
+                  Revisas su ultima conexion a las 3AM. Ensayas conversaciones que nunca tendras. Perdiste amigas, sueno, peso, pelo. Y lo peor: perdiste la mujer que eras.
+                </p>
+                <div className="border-l-4 border-[#FFD300] pl-4 mt-8">
+                  <p className="font-semibold text-[16px] md:text-lg text-black">
+                    Eso no es amor. Es un vinculo que secuestro tu cerebro. Y no se rompe con fuerza de voluntad.
+                  </p>
+                </div>
+              </div>
+            </Fade>
+            <Fade className="hidden md:block">
+              <img src={dolorImg} alt="Mujer reflexiva" className="rounded-xl shadow-lg max-w-sm mx-auto" loading="lazy" />
+            </Fade>
+          </div>
+        </section>
+
+        {/* ═══ 4. IDENTIFICACION ═══ */}
+        <section className="bg-[#F5F5F5] py-20 px-6">
+          <div className="max-w-2xl mx-auto">
+            <Fade>
+              <h2 className="text-center font-bold text-[26px] md:text-[36px] text-black">
+                Esto es lo que vives y no le cuentas a nadie:
+              </h2>
+            </Fade>
+            <ul className="max-w-lg mx-auto mt-10 space-y-5">
+              {identItems.map((txt, i) => (
+                <Fade key={i}>
+                  <li className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-[#FFD300] flex-shrink-0 mt-0.5 flex items-center justify-center">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <span className="text-[#333] text-[15px] md:text-base">{txt}</span>
+                  </li>
+                </Fade>
+              ))}
+            </ul>
+            <Fade>
+              <p className="text-center text-[#555] italic mt-10 text-[15px] md:text-base">
+                Si leiste esto y sentiste un nudo en la garganta, esta clase es para ti.
+              </p>
+            </Fade>
+            <div className="text-center mt-6">
+              <CTAButton>RESERVAR MI LUGAR</CTAButton>
             </div>
           </div>
+        </section>
 
-          {/* Botón CTA Principal */}
-          <button
-            onClick={scrollToForm}
-            className="w-[90%] max-w-[380px] mx-auto block font-['Montserrat',sans-serif] font-bold text-[16px] sm:text-[18px] text-[#1A1A1A] py-4 px-8 rounded-[50px] border-none cursor-pointer transition-all duration-300 hover:scale-105 mb-5 animate-[pulse_2s_ease-in-out_infinite]"
-            style={{ 
-              background: 'linear-gradient(135deg, #F4C430 0%, #E6B800 100%)',
-              boxShadow: '0 6px 20px rgba(244, 196, 48, 0.4)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 8px 30px rgba(244, 196, 48, 0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(244, 196, 48, 0.4)';
-            }}
-          >
-            RESERVA TU LUGAR GRATIS
-          </button>
-
-          {/* Información de Fecha/Hora */}
-          <div className="flex items-center justify-center gap-2 text-[14px] sm:text-[16px] font-semibold text-[#F4C430]">
-            <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#F4C430]" />
-            <span>Accede a la clase ya mismo, está por empezar</span>
-          </div>
-        </div>
-      </section>
-
-      {/* SECCIÓN 2 - IDENTIFICACIÓN DEL DOLOR */}
-      <section className="py-16 px-4 bg-[#1a1a1a]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 text-white">
-            ¿Te suena familiar?
-          </h2>
-          
-          <div className="space-y-6">
-            {[
-              "Vuelves una y otra vez, aunque sabes que te hace daño",
-              'Justificas su comportamiento esperando que "esta vez sea diferente"',
-              "Te sientes atrapada en un ciclo del que no sabes cómo salir",
-              "Has intentado alejarte, pero algo siempre te hace regresar"
-            ].map((text, index) => (
-              <div key={index} className="flex items-start gap-4 bg-black/50 p-4 sm:p-6 rounded-lg hover:bg-black/70 transition-all duration-300">
-                <Check className="w-6 h-6 sm:w-7 sm:h-7 text-[#D4AF37] flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg md:text-xl text-gray-300">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECCIÓN 3 - LA PROMESA */}
-      <section className="py-16 px-4 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 text-white">
-            En esta clase <span className="text-[#D4AF37]">GRATUITA</span> descubrirás:
-          </h2>
-          
-          <div className="space-y-6 mb-12">
-            {[
-              "Por qué vuelves una y otra vez (y cómo romper el ciclo definitivamente)",
-              'La trampa invisible del "tal vez cambie" que te mantiene atrapada',
-              "El error #1 que cometen el 90% al intentar alejarse del narcisista",
-              "El protocolo de Contacto Cero que realmente funciona",
-              "Cómo recuperar tu identidad después del apagón emocional"
-            ].map((text, index) => (
-              <div key={index} className="flex items-start gap-4 bg-[#1a1a1a] p-4 sm:p-6 rounded-lg hover:scale-[1.02] transition-all duration-300">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 mt-1 bg-[#D4AF37] rounded-full flex items-center justify-center">
-                  <Check className="w-4 h-4 text-black" />
-                </div>
-                <p className="text-base sm:text-lg md:text-xl text-gray-300">{text}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-[#D4AF37]">
-            Esto no es teoría. Es el método que ha ayudado a cientos de mujeres a liberarse.
-          </p>
-        </div>
-      </section>
-
-      {/* SECCIÓN 4 - AUTORIDAD */}
-      <section className="py-16 px-4 bg-gradient-to-b from-black via-[#1a1a1a] to-black">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 text-white">
-            Quién te guiará en esta clase
-          </h2>
-          
-          <div className="bg-[#1a1a1a] p-6 sm:p-8 md:p-12 rounded-2xl border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-all duration-300">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <img 
-                src={javierPhoto} 
-                alt="Javier Vieira" 
-                className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#D4AF37] flex-shrink-0"
-              />
-              
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl sm:text-3xl font-black text-[#D4AF37] mb-2">
-                  Javier Vieira
-                </h3>
-                <p className="text-lg sm:text-xl font-semibold text-white mb-2">
-                  Conferencista de Transformación Personal
-                </p>
-                <p className="text-base sm:text-lg text-gray-400 mb-4">
-                  Experto en Liberación del Narcisismo
-                </p>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                  Te ayudo a salir del narcisismo con una técnica única: el Apagón Emocional. Un método probado que ha transformado la vida de cientos de mujeres atrapadas en relaciones tóxicas.
+        {/* ═══ 5. PROMESA ═══ */}
+        <section className="bg-white py-20 px-6">
+          <div className="max-w-3xl mx-auto">
+            <Fade>
+              <img src={transfImg} alt="Mujer caminando con confianza" className="w-full max-w-3xl mx-auto rounded-xl" loading="lazy" />
+            </Fade>
+            <Fade>
+              <h2 className="text-center font-bold text-[26px] md:text-[36px] max-w-lg mx-auto mt-10 text-black">
+                La mujer que eras antes de el sigue dentro de ti.
+              </h2>
+              <p className="text-center text-[#555] text-[15px] md:text-[17px] max-w-md mx-auto mt-6 leading-relaxed">
+                Despertar sin revisar el telefono. Mirarte al espejo y reconocerte. Tomar decisiones sin pedir permiso. Dormir toda la noche de corrido.
+              </p>
+              <p className="text-center text-[#555] text-[15px] md:text-[17px] max-w-md mx-auto mt-4">
+                Esa mujer no desaparecio. Esta esperando que la rescates.
+              </p>
+              <div className="border-l-4 border-[#FFD300] pl-4 max-w-md mx-auto mt-8">
+                <p className="font-semibold text-[16px] md:text-lg text-black">
+                  En esta clase vas a entender que te tiene atrapada y cual es el primer paso para salir.
                 </p>
               </div>
+            </Fade>
+          </div>
+        </section>
+
+        {/* ═══ 6. CONTENIDO DE LA CLASE ═══ */}
+        <section className="bg-black py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <Fade>
+              <h2 className="text-white text-center font-bold text-[26px] md:text-[36px]">
+                Lo que vas a descubrir el 28 de febrero:
+              </h2>
+            </Fade>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
+              {[
+                { title: "Por que no puedes soltarlo", text: "No es que lo ames demasiado. Es que tu cerebro esta enganchado a un patron de adiccion emocional." },
+                { title: "El mecanismo invisible que te atrapa", text: "Como el narcisista uso tu necesidad de amor para crear una dependencia que parece imposible de romper." },
+                { title: "El primer paso para volver a ser tu", text: "Que hacer hoy para empezar a desactivar el vinculo y recuperar tu identidad." },
+              ].map((card, i) => (
+                <Fade key={i}>
+                  <div className="bg-[#1A1A1A] border-t-4 border-[#FFD300] rounded-lg p-8">
+                    <h3 className="text-[#FFD300] font-bold text-lg mb-3">{card.title}</h3>
+                    <p className="text-[#CCC] text-sm leading-relaxed">{card.text}</p>
+                  </div>
+                </Fade>
+              ))}
+            </div>
+            <div className="text-center mt-10">
+              <CTAButton>QUIERO ESTAR EN LA CLASE</CTAButton>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SECCIÓN 5 - FORMULARIO */}
-      <section id="formulario" className="py-16 px-4 bg-black">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4 text-white">
-            Asegura Tu Cupo Ahora - Es <span className="text-[#D4AF37]">GRATIS</span>
-          </h2>
-          
-          <p className="text-lg sm:text-xl text-center mb-8 text-gray-300">
-            ⚠️ Cupos limitados por sesión. Regístrate ahora y elige tu horario.
-          </p>
-
-          <div className="bg-[#1a1a1a] p-6 sm:p-8 md:p-10 rounded-2xl border-2 border-[#D4AF37] shadow-[0_0_60px_rgba(212,175,55,0.3)]">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Tu nombre completo"
-                  value={formData.nombre}
-                  onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                  required
-                  maxLength={100}
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-black text-white text-base sm:text-lg rounded-lg border-2 border-gray-700 focus:border-[#D4AF37] focus:outline-none transition-all duration-300"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="email"
-                  placeholder="tucorreo@ejemplo.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  maxLength={255}
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-black text-white text-base sm:text-lg rounded-lg border-2 border-gray-700 focus:border-[#D4AF37] focus:outline-none transition-all duration-300"
-                />
-              </div>
-
-              {/* GDPR Consent Checkboxes - Only shown for EU/UK/Brazil */}
-              {requiresGDPR && !isConsentLoading && (
-                <div className="space-y-4 pt-2">
-                  {/* Privacy Policy - Required */}
-                  <div className="flex items-start gap-3">
-                    <Checkbox
-                      id="privacy"
-                      checked={acceptPrivacy}
-                      onCheckedChange={(checked) => {
-                        setAcceptPrivacy(checked === true);
-                        if (checked && submitStatus === "privacy_required") {
-                          setSubmitStatus("idle");
-                        }
-                      }}
-                      className={`mt-1 border-2 ${submitStatus === "privacy_required" ? "border-red-500" : "border-gray-600"} data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]`}
-                    />
-                    <label htmlFor="privacy" className="text-sm text-gray-300 leading-relaxed cursor-pointer">
-                      He leído y acepto la{" "}
-                      <Link to="/privacy" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
-                        Política de Privacidad
-                      </Link>{" "}
-                      y los{" "}
-                      <Link to="/terms" target="_blank" className="text-[#D4AF37] hover:text-[#f4d03f] underline underline-offset-2">
-                        Términos y Condiciones
-                      </Link>{" "}
-                      <span className="text-red-400">*</span>
-                    </label>
+        {/* ═══ 7. HORARIOS ═══ */}
+        <section className="bg-white py-16 px-6">
+          <div className="max-w-lg mx-auto">
+            <Fade>
+              <h3 className="text-center font-semibold text-[20px] md:text-xl mb-8 text-black">
+                Sabado 28 de febrero — Clase en vivo
+              </h3>
+            </Fade>
+            <Fade>
+              <div className="overflow-hidden rounded-lg border border-gray-200">
+                {schedules.map((s, i) => (
+                  <div
+                    key={i}
+                    className={`flex justify-between items-center py-3 px-4 text-sm ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}
+                  >
+                    <span className="text-[#333]">{s.country}</span>
+                    <span className="font-bold text-[#333]">{s.time}</span>
                   </div>
-
-                  {/* Marketing - Optional */}
-                  <div className="flex items-start gap-3">
-                    <Checkbox
-                      id="marketing"
-                      checked={acceptMarketing}
-                      onCheckedChange={(checked) => setAcceptMarketing(checked === true)}
-                      className="mt-1 border-2 border-gray-600 data-[state=checked]:bg-[#D4AF37] data-[state=checked]:border-[#D4AF37]"
-                    />
-                    <label htmlFor="marketing" className="text-sm text-gray-400 leading-relaxed cursor-pointer">
-                      Quiero recibir contenido exclusivo, promociones y consejos por email{" "}
-                      <span className="text-gray-500">(opcional)</span>
-                    </label>
-                  </div>
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-[#D4AF37] text-black font-black text-lg sm:text-xl py-4 sm:py-5 rounded-full hover:bg-[#f4d03f] hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "ENVIANDO..." : "SÍ, QUIERO MI LUGAR GRATIS"}
-              </button>
-
-              {submitStatus === "success" && (
-                <div className="bg-green-600/20 border border-green-500 text-green-400 p-4 rounded-lg text-center">
-                  ¡Registro exitoso! Revisa tu email para el enlace de acceso.
-                </div>
-              )}
-
-              {submitStatus === "error" && (
-                <div className="bg-red-600/20 border border-red-500 text-red-400 p-4 rounded-lg text-center">
-                  Hubo un error. Por favor intenta nuevamente.
-                </div>
-              )}
-
-              {submitStatus === "privacy_required" && (
-                <div className="bg-red-600/20 border border-red-500 text-red-400 p-4 rounded-lg text-center">
-                  Debes aceptar la Política de Privacidad para continuar.
-                </div>
-              )}
-
-              {/* Security message */}
-              <div className="flex items-center justify-center gap-2 pt-2">
-                <Lock className="w-4 h-4 text-gray-500" />
-                <p className="text-xs text-gray-500 text-center">
-                  Tus datos están protegidos. Solo los usaremos para enviarte el acceso a la clase gratuita.
-                </p>
+                ))}
               </div>
-            </form>
+            </Fade>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SECCIÓN 6 - CIERRE URGENTE */}
-      <section className="py-16 px-4 bg-gradient-to-b from-black via-[#1a1a1a] to-black">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-white leading-relaxed">
-            Esta clase es completamente gratuita, pero los cupos son limitados.
-          </p>
-          
-          <p className="text-xl sm:text-2xl md:text-3xl font-light mb-4 text-gray-300">
-            No esperes a que sea demasiado tarde.
-          </p>
-          
-          <p className="text-xl sm:text-2xl md:text-3xl font-light mb-8 text-gray-300">
-            No esperes a que cambie.
-          </p>
-          
-          <p className="text-2xl sm:text-3xl md:text-4xl font-black mb-12 text-[#D4AF37]">
-            Da el primer paso hoy.
-          </p>
+        {/* ═══ 8. FORMULARIO ═══ */}
+        <section id="registro" className="bg-[#F5F5F5] py-20 px-6">
+          <div className="max-w-sm mx-auto">
+            <Fade>
+              <h2 className="text-center font-bold text-[26px] md:text-[36px] text-black">
+                Reserva tu lugar ahora.
+              </h2>
+              <p className="text-center text-[#555] mt-3 mb-8 text-[15px]">
+                Solo necesito tu nombre y correo para enviarte el acceso.
+              </p>
+            </Fade>
 
-          <button
-            onClick={scrollToForm}
-            className="bg-[#D4AF37] text-black font-black text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full hover:bg-[#f4d03f] hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300"
-          >
-            RESERVAR MI LUGAR AHORA
-          </button>
-        </div>
-      </section>
+            {submitStatus === "success" ? (
+              <Fade>
+                <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+                  <h3 className="font-bold text-2xl text-black">Listo! Tu lugar esta reservado.</h3>
+                  <p className="text-[#555] mt-3">
+                    Revisa tu correo — ahi recibiras el acceso. Nos vemos el 28 de febrero.
+                  </p>
+                </div>
+              </Fade>
+            ) : (
+              <Fade>
+                <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-lg">
+                  <input
+                    type="text"
+                    placeholder="Tu nombre"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    required
+                    maxLength={100}
+                    className="w-full p-4 border border-gray-200 rounded-lg mb-3 focus:border-[#FFD300] focus:ring-2 focus:ring-[#FFD300]/20 outline-none text-base"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  />
+                  <input
+                    type="email"
+                    placeholder="Tu correo electronico"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    maxLength={255}
+                    className="w-full p-4 border border-gray-200 rounded-lg mb-4 focus:border-[#FFD300] focus:ring-2 focus:ring-[#FFD300]/20 outline-none text-base"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  />
 
-      {/* FOOTER */}
-      <footer className="py-8 px-4 bg-black border-t border-gray-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xl font-bold text-[#D4AF37] mb-2">
-            Historias de la Mente
-          </p>
-          <p className="text-sm text-gray-400">
-            © 2025 Historias de la Mente. Todos los derechos reservados.
-          </p>
-        </div>
-      </footer>
-    </div>
+                  {/* GDPR */}
+                  {requiresGDPR && !isConsentLoading && (
+                    <div className="space-y-4 mb-4">
+                      <div className="flex items-start gap-3">
+                        <Checkbox
+                          id="privacy"
+                          checked={acceptPrivacy}
+                          onCheckedChange={(c) => {
+                            setAcceptPrivacy(c === true);
+                            if (c && submitStatus === "privacy_required") setSubmitStatus("idle");
+                          }}
+                          className={`mt-1 border-2 ${submitStatus === "privacy_required" ? "border-red-500" : "border-gray-300"} data-[state=checked]:bg-[#FFD300] data-[state=checked]:border-[#FFD300]`}
+                        />
+                        <label htmlFor="privacy" className="text-xs text-[#555] leading-relaxed cursor-pointer">
+                          He leido y acepto la{" "}
+                          <Link to="/privacy" target="_blank" className="text-[#333] underline">Politica de Privacidad</Link>{" "}
+                          y los{" "}
+                          <Link to="/terms" target="_blank" className="text-[#333] underline">Terminos y Condiciones</Link>{" "}
+                          <span className="text-red-500">*</span>
+                        </label>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Checkbox
+                          id="marketing"
+                          checked={acceptMarketing}
+                          onCheckedChange={(c) => setAcceptMarketing(c === true)}
+                          className="mt-1 border-2 border-gray-300 data-[state=checked]:bg-[#FFD300] data-[state=checked]:border-[#FFD300]"
+                        />
+                        <label htmlFor="marketing" className="text-xs text-gray-400 leading-relaxed cursor-pointer">
+                          Quiero recibir contenido exclusivo y consejos por email (opcional)
+                        </label>
+                      </div>
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#FFD300] text-black font-extrabold uppercase tracking-wide py-4 rounded-lg text-base hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  >
+                    {isSubmitting ? "ENVIANDO..." : "RESERVAR MI LUGAR EN LA CLASE"}
+                  </button>
+
+                  {submitStatus === "error" && (
+                    <p className="text-red-500 text-sm text-center mt-3">Hubo un error. Intenta de nuevo.</p>
+                  )}
+                  {submitStatus === "privacy_required" && (
+                    <p className="text-red-500 text-sm text-center mt-3">Debes aceptar la Politica de Privacidad para continuar.</p>
+                  )}
+
+                  <p className="text-center text-xs text-gray-400 mt-3">
+                    Tu informacion esta segura. No compartimos datos.
+                  </p>
+                </form>
+              </Fade>
+            )}
+          </div>
+        </section>
+
+        {/* ═══ 9. CTA FINAL ═══ */}
+        <section className="relative py-32 px-6 text-center">
+          <div className="absolute inset-0 z-0">
+            <img src={ctaBg} alt="" className="w-full h-full object-cover" loading="lazy" />
+            <div className="absolute inset-0 bg-black/45" />
+          </div>
+          <div className="relative z-10">
+            <Fade>
+              <h2 className="text-white font-bold text-[26px] md:text-[36px] max-w-lg mx-auto leading-tight">
+                No tienes que seguir viviendo asi. El 28 de febrero puede cambiar todo.
+              </h2>
+              <div className="mt-8">
+                <CTAButton>INSCRIBIRME AHORA</CTAButton>
+              </div>
+              <span className="text-white text-sm mt-4 block">
+                Sabado 28 de febrero — 11:00 AM hora Colombia
+              </span>
+            </Fade>
+          </div>
+        </section>
+
+        {/* ═══ 10. FOOTER ═══ */}
+        <footer className="bg-black py-8 text-center">
+          <p className="text-gray-400 text-sm">Historias de la Mente — Javier Vieira</p>
+          <p className="text-gray-500 text-xs mt-1">Psicologo Especialista — &copy; 2026</p>
+        </footer>
+
+        <MobileStickyCTA />
+      </div>
+    </>
   );
 };
 
