@@ -58,7 +58,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Enviar datos al webhook de n8n
     console.log('Sending data to n8n webhook...');
     const webhookResponse = await fetch(
-      'https://n8n-n8n.ya3fud.easypanel.host/webhook/26denov',
+      'https://n8n-n8n.ya3fud.easypanel.host/webhook/28febrerolanza',
       {
         method: 'POST',
         headers: {
