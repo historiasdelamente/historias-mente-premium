@@ -375,7 +375,7 @@ const ClaseMeet = () => {
                     onChange={(e) => setNombre(e.target.value)}
                     required
                     maxLength={100}
-                    className="w-full p-4 border border-gray-200 rounded-lg mb-3 focus:border-[#FFD300] focus:ring-2 focus:ring-[#FFD300]/20 outline-none text-base"
+                    className="w-full p-4 border border-gray-200 rounded-lg mb-3 focus:border-[#FFD300] focus:ring-2 focus:ring-[#FFD300]/20 outline-none text-base text-black"
                     style={{ fontFamily: "'Montserrat', sans-serif" }}
                   />
                   <input
@@ -385,7 +385,7 @@ const ClaseMeet = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     maxLength={255}
-                    className="w-full p-4 border border-gray-200 rounded-lg mb-4 focus:border-[#FFD300] focus:ring-2 focus:ring-[#FFD300]/20 outline-none text-base"
+                    className="w-full p-4 border border-gray-200 rounded-lg mb-4 focus:border-[#FFD300] focus:ring-2 focus:ring-[#FFD300]/20 outline-none text-base text-black"
                     style={{ fontFamily: "'Montserrat', sans-serif" }}
                   />
 
