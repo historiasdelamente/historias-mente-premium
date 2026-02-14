@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import graciasHeroBg from "@/assets/gracias-hero-bg.jpg";
 
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/XXXXXXXXXX";
+const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/LcDGQLlufNQK7EmL5ATFt7";
 
 // --- Fade-up hook ---
 const useFadeIn = () => {
