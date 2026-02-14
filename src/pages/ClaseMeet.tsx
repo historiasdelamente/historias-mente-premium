@@ -120,8 +120,10 @@ const ClaseMeet = () => {
           isGDPRRegion: requiresGDPR,
         }),
       });
-      if (res.ok) setSubmitStatus("success");
-      else setSubmitStatus("error");
+      if (res.ok) {
+        window.location.href = "https://historiasdelamente.com/gracias-clase";
+        return;
+      } else setSubmitStatus("error");
     } catch { setSubmitStatus("error"); }
     finally { setIsSubmitting(false); }
   };
