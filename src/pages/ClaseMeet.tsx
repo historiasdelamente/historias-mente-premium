@@ -121,6 +121,11 @@ const ClaseMeet = () => {
         }),
       });
       if (res.ok) {
+        // Advanced Matching: send user data to Meta Pixel before redirect
+        try {
+          const { updateMetaPixelAdvancedMatching } = await import("@/utils/cookieConsent");
+          updateMetaPixelAdvancedMatching({ em: email.trim().toLowerCase(), fn: nombre.trim().toLowerCase() });
+        } catch {}
         window.location.href = "https://historiasdelamente.com/gracias-clase";
         return;
       } else setSubmitStatus("error");
