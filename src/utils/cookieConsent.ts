@@ -174,8 +174,15 @@ export const loadMetaPixel = (): void => {
     s.parentNode.insertBefore(t, s);
   })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-  (window as any).fbq('init', pixelId);
+  (window as any).fbq('init', pixelId, {});
   (window as any).fbq('track', 'PageView');
+};
+
+// Re-initialize Meta Pixel with Advanced Matching data
+export const updateMetaPixelAdvancedMatching = (userData: { em?: string; ph?: string; fn?: string; ln?: string }): void => {
+  if (typeof window === 'undefined' || !(window as any).fbq) return;
+  const pixelId = '1248183170496583';
+  (window as any).fbq('init', pixelId, userData);
 };
 
 // Load TikTok Pixel
