@@ -174,15 +174,20 @@ export const loadMetaPixel = (): void => {
     s.parentNode.insertBefore(t, s);
   })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-  (window as any).fbq('init', pixelId, {});
+  // Enable Advanced Matching: pass empty object initially, then re-init with user data on form submit
+  (window as any).fbq('init', pixelId, {
+    em: '',
+    fn: '',
+  });
   (window as any).fbq('track', 'PageView');
 };
 
-// Re-initialize Meta Pixel with Advanced Matching data
+// Re-initialize Meta Pixel with Advanced Matching data (call after capturing user info)
 export const updateMetaPixelAdvancedMatching = (userData: { em?: string; ph?: string; fn?: string; ln?: string }): void => {
   if (typeof window === 'undefined' || !(window as any).fbq) return;
   const pixelId = '1248183170496583';
   (window as any).fbq('init', pixelId, userData);
+  (window as any).fbq('track', 'PageView');
 };
 
 // Load TikTok Pixel
