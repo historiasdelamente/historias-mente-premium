@@ -61,10 +61,17 @@ function HeroVideo() {
         onStateChange: (e: any) => {
           if (e.data === 1) {
             setShowPlayBtn(false);
-          }
-          // 0 = ended → pause on last frame
-          if (e.data === 0) {
-            e.target.pauseVideo();
+            // Monitor near-end to freeze before YT end screen
+            const dur = e.target.getDuration();
+            if (dur > 0) {
+              const iv = setInterval(() => {
+                const t = e.target.getCurrentTime();
+                if (t >= dur - 0.5) {
+                  e.target.pauseVideo();
+                  clearInterval(iv);
+                }
+              }, 250);
+            }
           }
         },
       },
