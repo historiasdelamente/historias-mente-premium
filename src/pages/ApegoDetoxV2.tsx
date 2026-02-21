@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import phoneNightImg from "@/assets/apego-detox-phone-night.jpg";
@@ -9,6 +9,103 @@ import javierVieira from "@/assets/javier-vieira-nuevo.png";
 
 const HOTMART_URL = "https://pay.hotmart.com/W102751360L?bid=1771690985611";
 const WA_SALES = "https://wa.me/573001681053";
+const YT_VIDEO_ID = "EqnGNWFw4jw";
+
+function HeroVideo() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [showPlayBtn, setShowPlayBtn] = useState(false);
+  const playerRef = useRef<any>(null);
+
+  // Load YouTube IFrame API
+  useEffect(() => {
+    if ((window as any).YT?.Player) {
+      initPlayer();
+      return;
+    }
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+    (window as any).onYouTubeIframeAPIReady = initPlayer;
+    return () => { (window as any).onYouTubeIframeAPIReady = null; };
+  }, []);
+
+  function initPlayer() {
+    if (playerRef.current) return;
+    playerRef.current = new (window as any).YT.Player("ad-yt-player", {
+      videoId: YT_VIDEO_ID,
+      playerVars: {
+        autoplay: 1,
+        mute: 0,
+        controls: 0,
+        rel: 0,
+        playsinline: 1,
+        modestbranding: 1,
+        showinfo: 0,
+        fs: 0,
+        disablekb: 1,
+      },
+      events: {
+        onReady: (e: any) => {
+          e.target.playVideo();
+          // Check after a short delay if it actually started (autoplay might be blocked)
+          setTimeout(() => {
+            const state = e.target.getPlayerState();
+            // -1 unstarted, 2 paused, 5 cued → autoplay blocked
+            if (state !== 1) {
+              setShowPlayBtn(true);
+            } else {
+              // autoplay working
+            }
+          }, 800);
+        },
+        onStateChange: (e: any) => {
+          if (e.data === 1) {
+            setShowPlayBtn(false);
+          }
+          // 0 = ended → pause on last frame
+          if (e.data === 0) {
+            e.target.pauseVideo();
+          }
+        },
+      },
+    });
+  }
+
+  const handleTapToPlay = useCallback(() => {
+    const p = playerRef.current;
+    if (p) {
+      p.unMute();
+      p.playVideo();
+    }
+    setShowPlayBtn(false);
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative w-full max-w-sm mx-auto" style={{ aspectRatio: "9/16", maxHeight: "78vh" }}>
+      {/* Glow */}
+      <div className="absolute -inset-3 rounded-sm" style={{
+        boxShadow: "0 0 60px rgba(245,196,0,0.25)",
+        border: "2px solid rgba(245,196,0,0.4)",
+      }} />
+      {/* Player container */}
+      <div id="ad-yt-player" className="w-full h-full rounded-sm relative z-10" />
+      {/* Overlay to block YT UI */}
+      <div className="absolute inset-0 z-20" style={{ pointerEvents: showPlayBtn ? "auto" : "none" }} onClick={showPlayBtn ? handleTapToPlay : undefined}>
+        {showPlayBtn && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer transition-opacity">
+            <div className="flex flex-col items-center gap-2 animate-pulse">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="30" stroke="#F5C400" strokeWidth="2" fill="rgba(0,0,0,0.5)" />
+                <polygon points="26,20 48,32 26,44" fill="#F5C400" />
+              </svg>
+              <span className="font-dm text-xs text-[#FAFAFA]/70 uppercase tracking-widest">Toca para reproducir</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 // Fade-in on scroll hook
 function useFadeIn() {
@@ -49,24 +146,7 @@ const HeroSection = () => (
       </h1>
 
       {/* YouTube Video */}
-      <div className="relative w-full max-w-sm mx-auto" style={{ aspectRatio: "9/16", maxHeight: "78vh" }}>
-        {/* Glow */}
-        <div className="absolute -inset-3 rounded-sm" style={{
-          boxShadow: "0 0 60px rgba(245,196,0,0.25)",
-          background: "transparent",
-          border: "2px solid rgba(245,196,0,0.4)",
-        }} />
-        <iframe
-          className="w-full h-full rounded-sm relative z-10"
-          src="https://www.youtube.com/embed/EqnGNWFw4jw?autoplay=1&loop=1&playlist=EqnGNWFw4jw&controls=0&rel=0&playsinline=1&modestbranding=1&showinfo=0"
-          title="Apego Detox Video"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-          style={{ border: "none" }}
-        />
-        {/* Overlay to prevent YouTube UI */}
-        <div className="absolute inset-0 z-20" style={{ pointerEvents: "none" }} />
-      </div>
+      <HeroVideo />
 
       {/* Subtitle */}
       <p className="text-center font-dm font-light text-base max-w-lg mx-auto" style={{ color: "rgba(250,250,250,0.7)" }}>
