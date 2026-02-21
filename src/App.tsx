@@ -11,7 +11,7 @@ import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
 import GraciasEvaluacion from "./pages/GraciasEvaluacion";
 import Unsubscribe from "./pages/Unsubscribe";
-import ApegoDetox from "./pages/ApegoDetox";
+import ApegoDetox from "./pages/ApegoDetoxV2";
 import ApegoDetoxClasesEnVivo from "./pages/ApegoDetoxClasesEnVivo";
 import ClaseApegoDetox from "./pages/ClaseApegoDetox";
 import GraciasApegoDetox from "./pages/GraciasApegoDetox";
