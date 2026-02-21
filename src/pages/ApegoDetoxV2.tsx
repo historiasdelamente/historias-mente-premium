@@ -58,7 +58,7 @@ const HeroSection = () => (
         }} />
         <iframe
           className="w-full h-full rounded-sm relative z-10"
-          src="https://www.youtube.com/embed/EqnGNWFw4jw?autoplay=1&mute=1&loop=1&playlist=EqnGNWFw4jw&controls=0&rel=0&playsinline=1&modestbranding=1&showinfo=0"
+          src="https://www.youtube.com/embed/EqnGNWFw4jw?autoplay=1&loop=1&playlist=EqnGNWFw4jw&controls=0&rel=0&playsinline=1&modestbranding=1&showinfo=0"
           title="Apego Detox Video"
           allow="autoplay; encrypted-media"
           allowFullScreen
