@@ -21,6 +21,7 @@ import ClaseApegoDetoxMarzo from "./pages/ClaseApegoDetoxMarzo";
 import GraciasClaseMarzo from "./pages/GraciasClaseMarzo";
 import W from "./pages/W";
 import LaNinaQueAprendioAQuedarse from "./pages/LaNinaQueAprendioAQuedarse";
+import ElHiloInvisible from "./pages/ElHiloInvisible";
 import CookieConsentBanner from "./components/CookieConsentBanner";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,8 @@ const App = () => (
             <Route path="/w" element={<W />} />
             {/* Ebook - La Niña Que Aprendió a Quedarse Callada */}
             <Route path="/la-nina-que-aprendio-a-quedarse-callada" element={<LaNinaQueAprendioAQuedarse />} />
+            {/* El Hilo Invisible - Libro Digital */}
+            <Route path="/el-hilo-invisible" element={<ElHiloInvisible />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
