@@ -1,5 +1,70 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
+
+/* ═══════════════════════════════════════
+   HERO VIDEO (YT IFrame API, vertical 9:16)
+   ═══════════════════════════════════════ */
+/* YT types handled globally */
+
+const HeroVideo = () => {
+  const [showPlayBtn, setShowPlayBtn] = useState(false);
+  const playerRef = useRef<any>(null);
+
+  useEffect(() => {
+    const initPlayer = () => {
+      playerRef.current = new (window as any).YT.Player("ehi-yt-player", {
+        videoId: "qCBLqA48wlE",
+        playerVars: { autoplay: 1, mute: 0, loop: 0, controls: 0, rel: 0, playsinline: 1, modestbranding: 1, showinfo: 0 },
+        events: {
+          onReady: (e: any) => {
+            setTimeout(() => {
+              if (e.target.getPlayerState && e.target.getPlayerState() !== 1) setShowPlayBtn(true);
+            }, 1500);
+          },
+          onStateChange: (e: any) => {
+            if (e.data === 1) {
+              setShowPlayBtn(false);
+              const dur = e.target.getDuration();
+              if (dur > 0) {
+                const iv = setInterval(() => {
+                  const t = e.target.getCurrentTime();
+                  if (t >= dur - 0.5) { e.target.pauseVideo(); clearInterval(iv); }
+                }, 250);
+              }
+            }
+          },
+        },
+      });
+    };
+
+    const w = window as any;
+    if (w.YT && w.YT.Player) { initPlayer(); return; }
+    const prev = w.onYouTubeIframeAPIReady;
+    w.onYouTubeIframeAPIReady = () => { prev?.(); initPlayer(); };
+    if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+      const s = document.createElement("script"); s.src = "https://www.youtube.com/iframe_api"; document.head.appendChild(s);
+    }
+  }, []);
+
+  const handlePlay = () => { playerRef.current?.playVideo?.(); setShowPlayBtn(false); };
+
+  return (
+    <div style={{ position: "relative", width: "100%", maxWidth: 360, margin: "0 auto", aspectRatio: "9/16", border: "1px solid rgba(200,168,92,0.35)", borderRadius: 14, overflow: "hidden", boxShadow: "0 0 60px rgba(200,168,92,0.12)" }}>
+      <div id="ehi-yt-player" style={{ position: "absolute", top: "-10%", left: "-10%", width: "120%", height: "120%" }} />
+      {/* Overlay to block YT UI */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: showPlayBtn ? "auto" : "none" }} onClick={showPlayBtn ? handlePlay : undefined}>
+        {showPlayBtn && (
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.45)", cursor: "pointer" }}>
+            <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(200,168,92,0.9)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: 0, height: 0, borderLeft: "22px solid #000", borderTop: "13px solid transparent", borderBottom: "13px solid transparent", marginLeft: 4 }} />
+            </div>
+            <span style={{ marginTop: 12, fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "var(--ivory-dim)" }}>Toca para reproducir</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 /* ═══════════════════════════════════════
    CONSTANTS
@@ -207,17 +272,9 @@ const ElHiloInvisible = () => {
             </p>
 
             {/* Video embed */}
-            <div style={{ marginTop: 40, maxWidth: 640, width: "100%", marginLeft: "auto", marginRight: "auto" }}>
-              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, border: "1px solid rgba(200,168,92,0.35)", borderRadius: 14, overflow: "hidden", boxShadow: "0 0 60px rgba(200,168,92,0.12)" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/qCBLqA48wlE"
-                  title="El Hilo Invisible"
-                  frameBorder={0}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                />
-              </div>
+            {/* Video vertical 9:16 */}
+            <div style={{ marginTop: 40 }}>
+              <HeroVideo />
             </div>
 
             {/* CTA */}
