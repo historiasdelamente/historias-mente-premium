@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
-
+import ehiHeroBg from "@/assets/ehi-hero-bg.jpg";
+import ehiPain from "@/assets/ehi-pain.jpg";
+import ehiCover from "@/assets/el-hilo-invisible-cover.jpg";
+import ehiTransformation from "@/assets/ehi-transformation.jpg";
+import ehiAuthor from "@/assets/ehi-author.jpg";
 /* ═══════════════════════════════════════
    HERO VIDEO (YT IFrame API, vertical 9:16)
    ═══════════════════════════════════════ */
@@ -235,10 +239,7 @@ const ElHiloInvisible = () => {
         <section style={{ minHeight: "100vh", position: "relative", display: "flex", flexDirection: "column" }}>
           {/* BG placeholder + overlay */}
           <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-            <ImagePlaceholder
-              text="Mujer colombiana de Medellín, 25-30 años, cabello oscuro ondulado, piel dorada, sentada en cama al amanecer con sábanas blancas, mirando su celular con expresión preocupada. Luz natural cálida desde ventana."
-              style={{ width: "100%", height: "100%", borderRadius: 0, border: "none" }}
-            />
+            <img src={ehiHeroBg} alt="Mujer preocupada mirando su celular al amanecer" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} loading="eager" />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(6,6,15,0.55) 0%, rgba(6,6,15,0.40) 40%, rgba(6,6,15,0.85) 85%, rgba(6,6,15,1) 100%)" }} />
           </div>
 
@@ -306,10 +307,12 @@ const ElHiloInvisible = () => {
         <section style={{ background: "var(--bg-card)", padding: "96px 24px" }}>
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr", gap: 64, alignItems: "center" }} className="md-grid-2">
             {/* Image */}
-            <ImagePlaceholder
-              text="Mujer colombiana de pie junto a ventana al atardecer, mano apoyada en el vidrio, expresión melancólica y distante, contraluz naranja."
-              style={{ height: 280, borderRadius: 16, border: "1px solid rgba(200,168,92,0.2)" }}
+            <img
+              src={ehiPain}
+              alt="Mujer junto a ventana al atardecer"
               className="ehi-pain-img"
+              style={{ width: "100%", height: 280, objectFit: "cover", borderRadius: 16, border: "1px solid rgba(200,168,92,0.2)" }}
+              loading="lazy"
             />
             {/* Text */}
             <Reveal>
@@ -362,8 +365,7 @@ const ElHiloInvisible = () => {
           <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr", gap: 64, alignItems: "center" }} className="md-grid-2">
             {/* Book visuals */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
-              <ImagePlaceholder text="Portada del libro El Hilo Invisible" style={{ width: 260, minHeight: 360, borderRadius: 8, filter: "drop-shadow(0 30px 80px rgba(200,168,92,0.25))", transform: "rotate(-3deg)", transition: "all 0.4s", zIndex: 2 }} />
-              <ImagePlaceholder text="Flat lay editorial: libro abierto, taza de café, flores secas, luz lateral cálida." style={{ width: 220, minHeight: 200, borderRadius: 12, border: "1px solid rgba(200,168,92,0.2)", position: "absolute", bottom: -20, right: "10%", zIndex: 1 }} />
+              <img src={ehiCover} alt="Portada del libro El Hilo Invisible" style={{ width: 260, borderRadius: 8, filter: "drop-shadow(0 30px 80px rgba(200,168,92,0.25))", transform: "rotate(-3deg)", transition: "all 0.4s", zIndex: 2, position: "relative", display: "block" }} loading="lazy" />
             </div>
             {/* Content */}
             <Reveal>
@@ -404,10 +406,7 @@ const ElHiloInvisible = () => {
             ════════════════════════════════════ */}
         <section style={{ position: "relative", minHeight: 500, overflow: "hidden" }}>
           <div style={{ position: "absolute", inset: 0 }}>
-            <ImagePlaceholder
-              text="Misma mujer colombiana, afuera en hora dorada, ojos cerrados, rostro alzado, sonrisa en paz. Cabello suelto, vestido blanco fluido. Sensación de liberación."
-              style={{ width: "100%", height: "100%", borderRadius: 0, border: "none" }}
-            />
+            <img src={ehiTransformation} alt="Mujer libre en hora dorada" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(rgba(6,6,15,0.60), rgba(6,6,15,0.75))" }} />
           </div>
           <Reveal style={{ position: "relative", zIndex: 10, padding: "128px 24px", textAlign: "center" }}>
@@ -460,16 +459,13 @@ const ElHiloInvisible = () => {
           <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr", gap: 48, alignItems: "center" }} className="md-grid-author">
             {/* Photo */}
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <ImagePlaceholder
-                text="Javier Vieira, psicólogo colombiano, late 30s, sonrisa cálida y directa, blazer casual, luz natural suave."
-                style={{ width: 240, height: 240, borderRadius: "50%", border: "2px solid var(--gold)", boxShadow: "0 0 0 8px rgba(200,168,92,0.08), 0 0 60px rgba(200,168,92,0.15)" }}
-              />
+              <img src={ehiAuthor} alt="Javier Vieira" style={{ width: 240, height: 240, borderRadius: "50%", objectFit: "cover", border: "2px solid var(--gold)", boxShadow: "0 0 0 8px rgba(200,168,92,0.08), 0 0 60px rgba(200,168,92,0.15)" }} loading="lazy" />
             </div>
             {/* Bio */}
             <Reveal>
               <p style={{ fontWeight: 500, color: "var(--gold)", fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 12 }}>QUIÉN ESCRIBE ESTO</p>
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", color: "var(--ivory)", fontSize: "clamp(36px, 5vw, 48px)", marginBottom: 4 }}>Javier Vieira</h2>
-              <p style={{ fontWeight: 300, color: "var(--gold)", fontSize: 14, marginBottom: 24 }}>Psicólogo Clínico · Lic. 293219 COLPSIC</p>
+              <p style={{ fontWeight: 300, color: "var(--gold)", fontSize: 14, marginBottom: 24 }}>Psicólogo Especialista</p>
               <div style={{ width: 50, height: 1, background: "var(--gold)", marginBottom: 24 }} />
               <p style={{ fontWeight: 300, color: "var(--ivory-dim)", fontSize: 16, lineHeight: 1.9, marginBottom: 12 }}>
                 Más de una década acompañando a mujeres que repiten patrones relacionales dolorosos. Especialista en abuso narcisista, trauma de apego y vinculación traumática.
@@ -659,6 +655,10 @@ const ElHiloInvisible = () => {
 
       {/* ── RESPONSIVE GRID STYLES ── */}
       <style>{`
+        @media (max-width: 767px) {
+          .ehi-pain-img { height: 260px !important }
+          .ehi-page section { padding-left: 16px !important; padding-right: 16px !important }
+        }
         @media (min-width: 768px) {
           .md-grid-2 { grid-template-columns: 1fr 1fr !important }
           .md-grid-author { grid-template-columns: 2fr 3fr !important }
