@@ -17,6 +17,9 @@ const HeroVideo = () => {
         playerVars: { autoplay: 1, mute: 0, loop: 0, controls: 0, rel: 0, playsinline: 1, modestbranding: 1, showinfo: 0 },
         events: {
           onReady: (e: any) => {
+            // Force the created iframe to fill its container
+            const iframe = document.querySelector("#ehi-yt-player") as HTMLElement;
+            if (iframe) { iframe.style.width = "100%"; iframe.style.height = "100%"; }
             setTimeout(() => {
               if (e.target.getPlayerState && e.target.getPlayerState() !== 1) setShowPlayBtn(true);
             }, 1500);
@@ -49,8 +52,9 @@ const HeroVideo = () => {
   const handlePlay = () => { playerRef.current?.playVideo?.(); setShowPlayBtn(false); };
 
   return (
-    <div style={{ position: "relative", width: "100%", maxWidth: 360, margin: "0 auto", aspectRatio: "9/16", border: "1px solid rgba(200,168,92,0.35)", borderRadius: 14, overflow: "hidden", boxShadow: "0 0 60px rgba(200,168,92,0.12)" }}>
-      <div id="ehi-yt-player" style={{ position: "absolute", top: "-10%", left: "-10%", width: "120%", height: "120%" }} />
+    <div style={{ position: "relative", width: "100%", maxWidth: 360, margin: "0 auto", aspectRatio: "9/16", maxHeight: "70vh", borderRadius: 14, overflow: "hidden", boxShadow: "0 0 60px rgba(200,168,92,0.12)", background: "#000", border: "1px solid rgba(200,168,92,0.35)" }}>
+      {/* Player div - YT API will create iframe here */}
+      <div id="ehi-yt-player" style={{ width: "100%", height: "100%", position: "relative", zIndex: 1 }} />
       {/* Overlay to block YT UI */}
       <div style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: showPlayBtn ? "auto" : "none" }} onClick={showPlayBtn ? handlePlay : undefined}>
         {showPlayBtn && (
