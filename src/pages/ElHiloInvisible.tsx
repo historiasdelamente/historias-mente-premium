@@ -4,7 +4,7 @@ import ehiHeroBg from "@/assets/ehi-hero-bg.jpg";
 import ehiPain from "@/assets/ehi-pain.jpg";
 import ehiCover from "@/assets/el-hilo-invisible-cover.jpg";
 import ehiTransformation from "@/assets/ehi-transformation.jpg";
-import ehiAuthor from "@/assets/ehi-author.jpg";
+import ehiAuthor from "@/assets/javier-vieira-nuevo.png";
 /* ═══════════════════════════════════════
    HERO VIDEO (YT IFrame API, vertical 9:16)
    ═══════════════════════════════════════ */
@@ -291,7 +291,7 @@ const ElHiloInvisible = () => {
               onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "scale(1.05)"; }}
               onMouseLeave={e => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
             >
-              QUIERO MI LIBRO — $27 →
+              EMPIEZA A SANAR HOY — $12.97 →
             </a>
 
             {/* Microcopy */}
@@ -395,7 +395,7 @@ const ElHiloInvisible = () => {
                 onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "var(--black)"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)"; }}
               >
-                Quiero este libro →
+                Mereces entenderte →
               </a>
             </Reveal>
           </div>
@@ -465,7 +465,7 @@ const ElHiloInvisible = () => {
             <Reveal>
               <p style={{ fontWeight: 500, color: "var(--gold)", fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 12 }}>QUIÉN ESCRIBE ESTO</p>
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", color: "var(--ivory)", fontSize: "clamp(36px, 5vw, 48px)", marginBottom: 4 }}>Javier Vieira</h2>
-              <p style={{ fontWeight: 300, color: "var(--gold)", fontSize: 14, marginBottom: 24 }}>Psicólogo Especialista</p>
+              <p style={{ fontWeight: 300, color: "var(--gold)", fontSize: 14, marginBottom: 24 }}>Psicólogo</p>
               <div style={{ width: 50, height: 1, background: "var(--gold)", marginBottom: 24 }} />
               <p style={{ fontWeight: 300, color: "var(--ivory-dim)", fontSize: 16, lineHeight: 1.9, marginBottom: 12 }}>
                 Más de una década acompañando a mujeres que repiten patrones relacionales dolorosos. Especialista en abuso narcisista, trauma de apego y vinculación traumática.
@@ -531,8 +531,8 @@ const ElHiloInvisible = () => {
 
               {/* Pricing */}
               <div style={{ textAlign: "center", marginBottom: 32 }}>
-                <p style={{ fontWeight: 300, color: "var(--muted-ehi)", fontSize: 16, textDecoration: "line-through", marginBottom: 4 }}>Precio regular: $37 USD</p>
-                <p style={{ fontWeight: 800, color: "var(--gold)", fontSize: 72, lineHeight: 1 }}>$27</p>
+                <p style={{ fontWeight: 300, color: "var(--muted-ehi)", fontSize: 16, textDecoration: "line-through", marginBottom: 4 }}>Precio regular: $27 USD</p>
+                <p style={{ fontWeight: 800, color: "var(--gold)", fontSize: 72, lineHeight: 1 }}>$12<span style={{ fontSize: 40 }}>.97</span></p>
                 <p style={{ fontWeight: 300, color: "var(--muted-ehi)", fontSize: 14, marginTop: 4 }}>USD · Pago único · Tuyo para siempre</p>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 9999, padding: "6px 16px", marginTop: 12, fontWeight: 500, fontSize: 14, color: "#4ade80" }}>
                   🟢 Precio de lanzamiento — Por tiempo limitado
@@ -567,7 +567,7 @@ const ElHiloInvisible = () => {
                 onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.15)"; e.currentTarget.style.transform = "scale(1.02)"; }}
                 onMouseLeave={e => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
               >
-                QUIERO TRANSFORMAR MI APEGO →
+                HOY ELIJO SANAR — $12.97 →
               </a>
 
               {/* Security */}
@@ -610,7 +610,7 @@ const ElHiloInvisible = () => {
             onMouseEnter={e => { e.currentTarget.style.background = "var(--gold)"; e.currentTarget.style.color = "var(--black)"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--gold)"; }}
           >
-            Quiero El Hilo Invisible — $27 →
+            Este es mi primer paso — $12.97 →
           </a>
           <div style={{ display: "flex", justifyContent: "center", gap: 16, marginBottom: 40 }}>
             {["TikTok", "Instagram"].map((s, i) => (
@@ -632,7 +632,7 @@ const ElHiloInvisible = () => {
             style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 50, background: "linear-gradient(to right, #C8A85C, #E1BE69)", color: "var(--black)", fontWeight: 700, fontSize: 16, padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", textDecoration: "none", boxShadow: "0 -4px 30px rgba(200,168,92,0.3)" }}
           >
             <span>El Hilo Invisible</span>
-            <span>COMPRAR $27 →</span>
+            <span>SANAR $12.97 →</span>
           </a>
         )}
 
@@ -648,7 +648,7 @@ const ElHiloInvisible = () => {
           onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-50%) scale(1.1)"; e.currentTarget.style.filter = "brightness(1.1)"; }}
           onMouseLeave={e => { e.currentTarget.style.transform = "translateY(-50%)"; e.currentTarget.style.filter = ""; }}
         >
-          COMPRAR $27 →
+          SANAR $12.97 →
         </a>
 
       </div>
