@@ -1,41 +1,32 @@
 
 
-# Plan: Imagenes Brutales para APEGO DETOX
+## Cambiar todas las fechas a "Sabado 14 de Marzo"
 
-## Resumen
+Se actualizaran 4 archivos con un total de ~13 cambios de texto:
 
-Voy a regenerar las 4 imagenes desde cero con mi propio criterio creativo, pensando en lo que realmente impacta emocionalmente y se adapta a cada seccion de la landing page de lanzamiento. Nada de prompts genericos -- cada imagen tendra un concepto visual unico que golpee.
+### 1. `src/pages/ClaseMeet.tsx`
+- **Linea 44**: `TARGET_DATE` de `"2026-02-28T16:00:00Z"` a `"2026-03-14T16:00:00Z"`
+- **Linea 158**: Titulo SEO: "28 de Febrero" a "14 de Marzo"
+- **Linea 177**: Badge: "SABADO 28 DE FEBRERO" a "SABADO 14 DE MARZO"
+- **Linea 187**: Subtexto: "Sabado 28 de febrero" a "Sabado 14 de marzo"
+- **Linea 305**: Seccion descubrimientos: "el 28 de febrero" a "el 14 de marzo"
+- **Linea 333**: Horarios: "Sabado 28 de febrero" a "Sabado 14 de marzo"
+- **Linea 369**: Confirmacion: "el 28 de febrero" a "el 14 de marzo"
+- **Linea 466**: CTA final: "El 28 de febrero" a "El 14 de marzo"
+- **Linea 472**: Texto final: "Sabado 28 de febrero" a "Sabado 14 de marzo"
 
----
+### 2. `src/pages/GraciasClaseMeet.tsx`
+- **Linea 165**: "sabado 28 de febrero" a "sabado 14 de marzo"
+- **Linea 219**: "Sabado 28 de febrero, 2026" a "Sabado 14 de marzo, 2026"
 
-## Las 4 Imagenes (Concepto Nuevo)
+### 3. `src/pages/ClaseApegoDetoxMarzo.tsx`
+- **Linea 163**: Meta description: "1 de Marzo 2026" a "14 de Marzo 2026"
+- **Linea 187**: Badge: "1 MARZO 2026" a "14 MARZO 2026"
+- **Linea 327**: Horarios: "1 de Marzo 2026" a "14 de Marzo 2026"
+- **Linea 389**: Formulario: "1 de Marzo" a "14 de Marzo"
 
-### 1. Hero -- `apego-detox-3am-hero.jpg`
-**Concepto**: Mujer colombiana de espaldas sentada en el piso de un pasillo oscuro, abrazando sus rodillas, con la unica luz viniendo de la pantalla de un celular tirado en el suelo frente a ella. Cabello largo cayendo sobre los brazos. Atmosfera de soledad absoluta, como una escena de pelicula. Cinematografico, intimo, desolador.
+### 4. `src/pages/GraciasClaseMarzo.tsx`
+- **Linea 68**: "Sabado 1 de Marzo 2026" a "Sabado 14 de Marzo 2026"
 
-### 2. Seccion Revelacion -- `apego-detox-ventana.jpg`
-**Concepto**: Primer plano del rostro de una mujer colombiana hermosa con los ojos cerrados, una lagrima cayendo por la mejilla, iluminada por luz natural lateral suave. Fondo completamente negro. Piel real con textura, sin filtros. Como un retrato de revista pero crudo y vulnerable. El tipo de foto que te detiene cuando la ves.
-
-### 3. Testimonios -- `apego-detox-grupo.jpg`
-**Concepto**: Dos mujeres colombianas abrazandose, una consolando a la otra, en una habitacion con luz calida dorada. Se ve la emocion genuina -- una tiene los ojos cerrados con alivio, la otra la sostiene con fuerza. Hermandad real, sanacion entre mujeres. Calido, intimo, poderoso.
-
-### 4. Cierre -- `apego-detox-libertad.jpg`
-**Concepto**: Mujer colombiana de pie en un campo abierto al amanecer dorado, vista desde atras con los brazos ligeramente abiertos, cabello al viento, vestido liviano. No es una pose de modelo -- es el momento justo despues de soltar algo enorme. Esperanza, fuerza silenciosa, libertad.
-
----
-
-## Ejecucion Tecnica
-
-- Modelo: **google/gemini-3-pro-image-preview** (Nano Banana Pro) para maxima calidad
-- Las 4 imagenes se generan y reemplazan los archivos existentes en `src/assets/`
-- No se modifica la estructura de la pagina, solo se reemplazan las imagenes
-- Se mantienen los overlays y opacidades actuales que ya funcionan bien en el codigo
-
-## Archivos Modificados
-- `src/assets/apego-detox-3am-hero.jpg` (regenerado)
-- `src/assets/apego-detox-ventana.jpg` (regenerado)
-- `src/assets/apego-detox-grupo.jpg` (regenerado)
-- `src/assets/apego-detox-libertad.jpg` (regenerado)
-
-No se toca el codigo de la pagina -- solo las imagenes cambian.
+Solo cambios de texto. Los horarios por pais se mantienen igual.
 
