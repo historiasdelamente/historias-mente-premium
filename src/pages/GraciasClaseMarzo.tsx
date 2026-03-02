@@ -65,7 +65,7 @@ const GraciasClaseMarzo = () => {
                 </div>
               </div>
               <div className="text-sm space-y-1" style={{ color: "rgba(255,255,255,0.55)" }}>
-                <p>Sábado 1 de Marzo 2026</p>
+                <p>Sábado 14 de Marzo 2026</p>
                 <p>1:00 PM hora Colombia</p>
                 <p>Google Meet</p>
               </div>

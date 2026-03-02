@@ -160,7 +160,7 @@ const ClaseApegoDetoxMarzo = () => {
     <>
       <Helmet>
         <title>APEGO DETOX — Clase Gratuita | Rompe el Lazo Invisible</title>
-        <meta name="description" content="Clase gratuita en vivo: Apego Detox. Descubre por qué no puedes dejarlo y cómo romper el ciclo. Sábado 1 de Marzo 2026, 1:00 PM Colombia." />
+        <meta name="description" content="Clase gratuita en vivo: Apego Detox. Descubre por qué no puedes dejarlo y cómo romper el ciclo. Sábado 14 de Marzo 2026, 1:00 PM Colombia." />
       </Helmet>
 
       <style>{`
@@ -184,7 +184,7 @@ const ClaseApegoDetoxMarzo = () => {
               className="inline-block text-[10px] md:text-[11px] font-semibold tracking-[3px] uppercase px-5 py-2 mb-4"
               style={{ border: `1px solid ${C.gold}`, color: C.gold }}
             >
-              CLASE GRATUITA EN VIVO · 1 MARZO 2026 · 1PM COL
+              CLASE GRATUITA EN VIVO · 14 MARZO 2026 · 1PM COL
             </div>
             <h1 className="serif text-3xl md:text-5xl lg:text-[56px] font-black leading-[1.12]">
               ¿Cuántas noches más vas a despertarte a las 3AM buscando su nombre en WhatsApp?
@@ -324,7 +324,7 @@ const ClaseApegoDetoxMarzo = () => {
                 Horarios según tu país
               </h2>
               <p className="text-center text-sm mb-12" style={{ color: "rgba(44,44,44,0.5)" }}>
-                Clase: Sábado 1 de Marzo 2026 · 1:00 PM Colombia (UTC-5)
+                Clase: Sábado 14 de Marzo 2026 · 1:00 PM Colombia (UTC-5)
               </p>
             </Fade>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -386,7 +386,7 @@ const ClaseApegoDetoxMarzo = () => {
                     Reserva tu lugar gratis
                   </h2>
                   <p className="text-center text-sm mb-8" style={{ color: "rgba(255,255,255,0.4)" }}>
-                    Sábado 1 de Marzo · 1:00 PM Colombia · Google Meet
+                    Sábado 14 de Marzo · 1:00 PM Colombia · Google Meet
                   </p>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div>

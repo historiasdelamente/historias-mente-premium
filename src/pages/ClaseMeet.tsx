@@ -41,7 +41,7 @@ const CTAButton = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 /* ── Countdown ── */
-const TARGET_DATE = new Date("2026-02-28T16:00:00Z"); // 11AM UTC-5
+const TARGET_DATE = new Date("2026-03-14T16:00:00Z"); // 11AM UTC-5
 
 function useCountdown() {
   const [diff, setDiff] = useState(() => TARGET_DATE.getTime() - Date.now());
@@ -155,7 +155,7 @@ const ClaseMeet = () => {
   return (
     <>
       <Helmet>
-        <title>Apego Detox — Clase en Vivo 28 de Febrero | Historias de la Mente</title>
+        <title>Apego Detox — Clase en Vivo 14 de Marzo | Historias de la Mente</title>
         <meta name="description" content="Entiende por que no puedes soltar al narcisista y aprende el primer paso para recuperar tu identidad. Clase en vivo, Javier Vieira, Psicologo Especialista." />
       </Helmet>
 
@@ -174,7 +174,7 @@ const ClaseMeet = () => {
           </div>
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-              CLASE EN VIVO — SABADO 28 DE FEBRERO
+              CLASE EN VIVO — SABADO 14 DE MARZO
             </span>
             <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
               "Acepte su maltrato solo para quedarme en su vida."
@@ -184,7 +184,7 @@ const ClaseMeet = () => {
             </p>
             <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
             <span className="text-white text-sm mt-4 block">
-              Sabado 28 de febrero — 11:00 AM Colombia
+              Sabado 14 de marzo — 11:00 AM Colombia
             </span>
           </div>
         </section>
@@ -302,7 +302,7 @@ const ClaseMeet = () => {
           <div className="max-w-4xl mx-auto">
             <Fade>
               <h2 className="text-white text-center font-bold text-[26px] md:text-[36px]">
-                Lo que vas a descubrir el 28 de febrero:
+                Lo que vas a descubrir el 14 de marzo:
               </h2>
             </Fade>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
@@ -330,7 +330,7 @@ const ClaseMeet = () => {
           <div className="max-w-lg mx-auto">
             <Fade>
               <h3 className="text-center font-semibold text-[20px] md:text-xl mb-8 text-black">
-                Sabado 28 de febrero — Clase en vivo
+                Sabado 14 de marzo — Clase en vivo
               </h3>
             </Fade>
             <Fade>
@@ -366,7 +366,7 @@ const ClaseMeet = () => {
                 <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
                   <h3 className="font-bold text-2xl text-black">Listo! Tu lugar esta reservado.</h3>
                   <p className="text-[#555] mt-3">
-                    Revisa tu correo — ahi recibiras el acceso. Nos vemos el 28 de febrero.
+                    Revisa tu correo — ahi recibiras el acceso. Nos vemos el 14 de marzo.
                   </p>
                 </div>
               </Fade>
@@ -463,13 +463,13 @@ const ClaseMeet = () => {
           <div className="relative z-10">
             <Fade>
               <h2 className="text-white font-bold text-[26px] md:text-[36px] max-w-lg mx-auto leading-tight">
-                No tienes que seguir viviendo asi. El 28 de febrero puede cambiar todo.
+                No tienes que seguir viviendo asi. El 14 de marzo puede cambiar todo.
               </h2>
               <div className="mt-8">
                 <CTAButton>INSCRIBIRME AHORA</CTAButton>
               </div>
               <span className="text-white text-sm mt-4 block">
-                Sabado 28 de febrero — 11:00 AM hora Colombia
+                Sabado 14 de marzo — 11:00 AM hora Colombia
               </span>
             </Fade>
           </div>

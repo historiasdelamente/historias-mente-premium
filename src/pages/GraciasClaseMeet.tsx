@@ -162,7 +162,7 @@ const GraciasClaseMeet = () => {
             <div className="max-w-md mx-auto mt-10 space-y-8">
               {[
                 { n: "1", text: "Entra al grupo de WhatsApp para confirmar tu lugar y recibir el acceso directo a la clase." },
-                { n: "2", text: "El sábado 28 de febrero a las 11:00 AM (hora Colombia) recibirás el link para conectarte en vivo." },
+                { n: "2", text: "El sábado 14 de marzo a las 11:00 AM (hora Colombia) recibirás el link para conectarte en vivo." },
                 { n: "3", text: "Llega puntual. Lo que vas a escuchar en esa clase puede ser el punto de quiebre que necesitas." },
               ].map((step) => (
                 <div key={step.n} className="flex items-start gap-4">
@@ -216,7 +216,7 @@ const GraciasClaseMeet = () => {
               </p>
               <div className="bg-[#F5F5F5] rounded-xl p-6 mt-8 text-left">
                 <p className="font-semibold text-sm text-black">Datos de la clase:</p>
-                <p className="text-[#555] text-sm mt-2">Sábado 28 de febrero, 2026</p>
+                <p className="text-[#555] text-sm mt-2">Sábado 14 de marzo, 2026</p>
                 <p className="text-[#555] text-sm">11:00 AM hora Colombia</p>
                 <p className="text-[#555] text-sm mt-2">Colombia, Perú, Ecuador: 11:00 AM</p>
                 <p className="text-[#555] text-sm">México: 10:00 AM</p>
