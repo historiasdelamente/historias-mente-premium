@@ -44,6 +44,11 @@ const ApegoDetoxClasesEnVivo = () => {
       });
 
       if (response.ok) {
+        // Advanced Matching: send user data to Meta Pixel before redirect
+        try {
+          const { updateMetaPixelAdvancedMatching } = await import("@/utils/cookieConsent");
+          updateMetaPixelAdvancedMatching({ em: email.trim().toLowerCase(), fn: nombre.trim().toLowerCase() });
+        } catch {}
         navigate("/gracias-apego-detox");
       } else {
         throw new Error("Error en el envío");

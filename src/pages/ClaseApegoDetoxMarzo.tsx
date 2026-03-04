@@ -108,6 +108,11 @@ const ClaseApegoDetoxMarzo = () => {
         body: JSON.stringify({ nombre: nombre.trim(), email: email.trim() }),
       });
       if (res.ok) {
+        // Advanced Matching: send user data to Meta Pixel before redirect
+        try {
+          const { updateMetaPixelAdvancedMatching } = await import("@/utils/cookieConsent");
+          updateMetaPixelAdvancedMatching({ em: email.trim().toLowerCase(), fn: nombre.trim().toLowerCase() });
+        } catch {}
         navigate("/gracias-clase-marzo");
       } else {
         throw new Error("Error");
