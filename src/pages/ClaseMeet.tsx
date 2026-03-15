@@ -41,7 +41,7 @@ const CTAButton = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 /* ── Countdown ── */
-const TARGET_DATE = new Date("2026-03-14T16:00:00Z"); // 11AM UTC-5
+const TARGET_DATE = new Date("2026-03-15T16:00:00Z"); // 11AM UTC-5
 
 function useCountdown() {
   const [diff, setDiff] = useState(() => TARGET_DATE.getTime() - Date.now());
@@ -144,19 +144,19 @@ const ClaseMeet = () => {
   ];
 
   const identItems = [
-    "Se que deberia irme pero algo me tiene pegada",
-    "Reviso su WhatsApp aunque se que me va a doler",
-    "Volvi con el y me siento patetica",
-    "Perdi mi identidad, ya no se quien soy",
-    "Tengo ansiedad constante y no puedo ni trabajar",
-    "Hago todo bien y nunca es suficiente para el",
+    "Se que me hace dano pero mi mente lo justifica",
+    "Un dia decido irme y al siguiente lo perdono",
+    "Me convenzo de que esta vez si va a cambiar",
+    "Me siento loca porque se que esta mal pero no puedo dejarlo",
+    "Minimizo lo que me hizo para no sentir tanto dolor",
+    "Todos me dicen que lo deje pero yo sigo ahi",
   ];
 
   return (
     <>
       <Helmet>
-        <title>Apego Detox — Clase en Vivo 14 de Marzo | Historias de la Mente</title>
-        <meta name="description" content="Entiende por que no puedes soltar al narcisista y aprende el primer paso para recuperar tu identidad. Clase en vivo, Javier Vieira, Psicologo Especialista." />
+        <title>Disonancia Cognitiva — Clase en Vivo 15 de Marzo | Historias de la Mente</title>
+        <meta name="description" content="Descubre como la disonancia cognitiva te mantiene atrapada en relaciones toxicas y aprende a romper ese patron. Clase en vivo, Javier Vieira, Psicologo Especialista." />
       </Helmet>
 
       <style>{`
@@ -174,17 +174,17 @@ const ClaseMeet = () => {
           </div>
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-              CLASE EN VIVO — SABADO 14 DE MARZO
+              CLASE EN VIVO — SABADO 15 DE MARZO
             </span>
             <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
-              "Acepte su maltrato solo para quedarme en su vida."
+              "Sabia que me hacia dano, pero mi mente lo justificaba."
             </h1>
             <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
-              Convenci a mi mente de que su frialdad era mi culpa. Hoy entiendo que no era amor. Era apego traumatico. Y tiene salida.
+              Te convences de que va a cambiar. Minimizas lo que te hizo. Eso se llama disonancia cognitiva. Y en esta clase vas a entender como desactivarla.
             </p>
             <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
             <span className="text-white text-sm mt-4 block">
-              Sabado 14 de marzo — 11:00 AM Colombia
+              Sabado 15 de marzo — 11:00 AM Colombia
             </span>
           </div>
         </section>
@@ -221,14 +221,14 @@ const ClaseMeet = () => {
               </div>
               <div>
                 <h2 className="font-bold text-[26px] md:text-[36px] text-black leading-tight">
-                  Sabes que te destruye. Pero no puedes soltar.
+                  Tu mente te dice que no es tan malo. Pero tu cuerpo dice otra cosa.
                 </h2>
                 <p className="text-[#555] text-[15px] md:text-[17px] leading-relaxed mt-6">
-                  Revisas su ultima conexion a las 3AM. Ensayas conversaciones que nunca tendras. Perdiste amigas, sueno, peso, pelo. Y lo peor: perdiste la mujer que eras.
+                  Un dia lloras de rabia. Al siguiente lo justificas. Te dices "quizas exagere", "el tambien tiene cosas buenas". Esa guerra interna te esta agotando.
                 </p>
                 <div className="border-l-4 border-[#FFD300] pl-4 mt-8">
                   <p className="font-semibold text-[16px] md:text-lg text-black">
-                    Eso no es amor. Es un vinculo que secuestro tu cerebro. Y no se rompe con fuerza de voluntad.
+                    Eso se llama disonancia cognitiva. Y es la razon por la que no puedes irte aunque sabes que deberias.
                   </p>
                 </div>
               </div>
@@ -302,14 +302,14 @@ const ClaseMeet = () => {
           <div className="max-w-4xl mx-auto">
             <Fade>
               <h2 className="text-white text-center font-bold text-[26px] md:text-[36px]">
-                Lo que vas a descubrir el 14 de marzo:
+                Lo que vas a descubrir el 15 de marzo:
               </h2>
             </Fade>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
               {[
-                { title: "Por que no puedes soltarlo", text: "No es que lo ames demasiado. Es que tu cerebro esta enganchado a un patron de adiccion emocional." },
-                { title: "El mecanismo invisible que te atrapa", text: "Como el narcisista uso tu necesidad de amor para crear una dependencia que parece imposible de romper." },
-                { title: "El primer paso para volver a ser tu", text: "Que hacer hoy para empezar a desactivar el vinculo y recuperar tu identidad." },
+                { title: "Que es la disonancia cognitiva", text: "Por que tu mente te convence de quedarte aunque sabes que te hace dano. La trampa mental que no te deja ver la realidad." },
+                { title: "Como el narcisista la usa contra ti", text: "Las tacticas que crean esa confusion interna: el ciclo de idealizacion y devaluacion que te mantiene atrapada." },
+                { title: "Como romper el patron", text: "El primer paso concreto para dejar de justificarlo y empezar a confiar en lo que sientes." },
               ].map((card, i) => (
                 <Fade key={i}>
                   <div className="bg-[#1A1A1A] border-t-4 border-[#FFD300] rounded-lg p-8">
@@ -330,7 +330,7 @@ const ClaseMeet = () => {
           <div className="max-w-lg mx-auto">
             <Fade>
               <h3 className="text-center font-semibold text-[20px] md:text-xl mb-8 text-black">
-                Sabado 14 de marzo — Clase en vivo
+                Sabado 15 de marzo — Clase en vivo
               </h3>
             </Fade>
             <Fade>
@@ -463,13 +463,13 @@ const ClaseMeet = () => {
           <div className="relative z-10">
             <Fade>
               <h2 className="text-white font-bold text-[26px] md:text-[36px] max-w-lg mx-auto leading-tight">
-                No tienes que seguir viviendo asi. El 14 de marzo puede cambiar todo.
+                No tienes que seguir justificandolo. El 15 de marzo puede cambiar todo.
               </h2>
               <div className="mt-8">
                 <CTAButton>INSCRIBIRME AHORA</CTAButton>
               </div>
               <span className="text-white text-sm mt-4 block">
-                Sabado 14 de marzo — 11:00 AM hora Colombia
+                Sabado 15 de marzo — 11:00 AM hora Colombia
               </span>
             </Fade>
           </div>
