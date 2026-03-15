@@ -307,7 +307,7 @@ const ClaseMeet = () => {
             </Fade>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
               {[
-                { title: "Que es la disonancia cognitiva", text: "Por que tu mente te convence de quedarte aunque sabes que te hace dano. La trampa mental que no te deja ver la realidad." },
+                { title: "Que es la disonancia cognitiva", text: "Por que tu mente te convence de quedarte aunque sabes que te hace daño. La trampa mental que no te deja ver la realidad." },
                 { title: "Como el narcisista la usa contra ti", text: "Las tacticas que crean esa confusion interna: el ciclo de idealizacion y devaluacion que te mantiene atrapada." },
                 { title: "Como romper el patron", text: "El primer paso concreto para dejar de justificarlo y empezar a confiar en lo que sientes." },
               ].map((card, i) => (
