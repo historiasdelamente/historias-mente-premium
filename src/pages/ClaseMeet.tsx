@@ -174,17 +174,17 @@ const ClaseMeet = () => {
           </div>
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-              CLASE EN VIVO — SABADO 14 DE MARZO
+              CLASE EN VIVO — SABADO 15 DE MARZO
             </span>
             <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
-              "Acepte su maltrato solo para quedarme en su vida."
+              "Sabia que me hacia dano, pero mi mente lo justificaba."
             </h1>
             <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
-              Convenci a mi mente de que su frialdad era mi culpa. Hoy entiendo que no era amor. Era apego traumatico. Y tiene salida.
+              Te convences de que va a cambiar. Minimizas lo que te hizo. Eso se llama disonancia cognitiva. Y en esta clase vas a entender como desactivarla.
             </p>
             <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
             <span className="text-white text-sm mt-4 block">
-              Sabado 14 de marzo — 11:00 AM Colombia
+              Sabado 15 de marzo — 11:00 AM Colombia
             </span>
           </div>
         </section>
