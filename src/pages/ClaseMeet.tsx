@@ -41,7 +41,7 @@ const CTAButton = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 /* ── Countdown ── */
-const TARGET_DATE = new Date("2026-03-14T16:00:00Z"); // 11AM UTC-5
+const TARGET_DATE = new Date("2026-03-15T16:00:00Z"); // 11AM UTC-5
 
 function useCountdown() {
   const [diff, setDiff] = useState(() => TARGET_DATE.getTime() - Date.now());
