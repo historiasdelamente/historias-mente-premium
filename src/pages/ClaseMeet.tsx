@@ -177,7 +177,7 @@ const ClaseMeet = () => {
               CLASE EN VIVO — DOMINGO 15 DE MARZO
             </span>
             <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
-              "Sabia que me hacia dano, pero mi mente lo justificaba."
+              "Sabia que me hacia daño, pero mi mente lo justificaba."
             </h1>
             <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
               Te convences de que va a cambiar. Minimizas lo que te hizo. Eso se llama disonancia cognitiva. Y en esta clase vas a entender como desactivarla.
