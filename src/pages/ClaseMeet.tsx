@@ -307,9 +307,9 @@ const ClaseMeet = () => {
             </Fade>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
               {[
-                { title: "Por que no puedes soltarlo", text: "No es que lo ames demasiado. Es que tu cerebro esta enganchado a un patron de adiccion emocional." },
-                { title: "El mecanismo invisible que te atrapa", text: "Como el narcisista uso tu necesidad de amor para crear una dependencia que parece imposible de romper." },
-                { title: "El primer paso para volver a ser tu", text: "Que hacer hoy para empezar a desactivar el vinculo y recuperar tu identidad." },
+                { title: "Que es la disonancia cognitiva", text: "Por que tu mente te convence de quedarte aunque sabes que te hace dano. La trampa mental que no te deja ver la realidad." },
+                { title: "Como el narcisista la usa contra ti", text: "Las tacticas que crean esa confusion interna: el ciclo de idealizacion y devaluacion que te mantiene atrapada." },
+                { title: "Como romper el patron", text: "El primer paso concreto para dejar de justificarlo y empezar a confiar en lo que sientes." },
               ].map((card, i) => (
                 <Fade key={i}>
                   <div className="bg-[#1A1A1A] border-t-4 border-[#FFD300] rounded-lg p-8">
