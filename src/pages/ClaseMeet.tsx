@@ -463,13 +463,13 @@ const ClaseMeet = () => {
           <div className="relative z-10">
             <Fade>
               <h2 className="text-white font-bold text-[26px] md:text-[36px] max-w-lg mx-auto leading-tight">
-                No tienes que seguir viviendo asi. El 14 de marzo puede cambiar todo.
+                No tienes que seguir justificandolo. El 15 de marzo puede cambiar todo.
               </h2>
               <div className="mt-8">
                 <CTAButton>INSCRIBIRME AHORA</CTAButton>
               </div>
               <span className="text-white text-sm mt-4 block">
-                Sabado 14 de marzo — 11:00 AM hora Colombia
+                Sabado 15 de marzo — 11:00 AM hora Colombia
               </span>
             </Fade>
           </div>
