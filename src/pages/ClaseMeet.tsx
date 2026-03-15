@@ -144,7 +144,7 @@ const ClaseMeet = () => {
   ];
 
   const identItems = [
-    "Se que me hace dano pero mi mente lo justifica",
+    "Se que me hace daño pero mi mente lo justifica",
     "Un dia decido irme y al siguiente lo perdono",
     "Me convenzo de que esta vez si va a cambiar",
     "Me siento loca porque se que esta mal pero no puedo dejarlo",
