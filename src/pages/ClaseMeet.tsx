@@ -184,7 +184,7 @@ const ClaseMeet = () => {
             </p>
             <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
             <span className="text-white text-sm mt-4 block">
-              Sabado 15 de marzo — 11:00 AM Colombia
+              Domingo 15 de marzo — 11:00 AM Colombia
             </span>
           </div>
         </section>
