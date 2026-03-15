@@ -144,12 +144,12 @@ const ClaseMeet = () => {
   ];
 
   const identItems = [
-    "Se que deberia irme pero algo me tiene pegada",
-    "Reviso su WhatsApp aunque se que me va a doler",
-    "Volvi con el y me siento patetica",
-    "Perdi mi identidad, ya no se quien soy",
-    "Tengo ansiedad constante y no puedo ni trabajar",
-    "Hago todo bien y nunca es suficiente para el",
+    "Se que me hace dano pero mi mente lo justifica",
+    "Un dia decido irme y al siguiente lo perdono",
+    "Me convenzo de que esta vez si va a cambiar",
+    "Me siento loca porque se que esta mal pero no puedo dejarlo",
+    "Minimizo lo que me hizo para no sentir tanto dolor",
+    "Todos me dicen que lo deje pero yo sigo ahi",
   ];
 
   return (
