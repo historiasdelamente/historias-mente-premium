@@ -155,8 +155,8 @@ const ClaseMeet = () => {
   return (
     <>
       <Helmet>
-        <title>Apego Detox — Clase en Vivo 14 de Marzo | Historias de la Mente</title>
-        <meta name="description" content="Entiende por que no puedes soltar al narcisista y aprende el primer paso para recuperar tu identidad. Clase en vivo, Javier Vieira, Psicologo Especialista." />
+        <title>Disonancia Cognitiva — Clase en Vivo 15 de Marzo | Historias de la Mente</title>
+        <meta name="description" content="Descubre como la disonancia cognitiva te mantiene atrapada en relaciones toxicas y aprende a romper ese patron. Clase en vivo, Javier Vieira, Psicologo Especialista." />
       </Helmet>
 
       <style>{`
