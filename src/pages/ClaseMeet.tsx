@@ -469,7 +469,7 @@ const ClaseMeet = () => {
                 <CTAButton>INSCRIBIRME AHORA</CTAButton>
               </div>
               <span className="text-white text-sm mt-4 block">
-                Sabado 15 de marzo — 11:00 AM hora Colombia
+                Domingo 15 de marzo — 11:00 AM hora Colombia
               </span>
             </Fade>
           </div>
