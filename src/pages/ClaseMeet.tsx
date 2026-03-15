@@ -174,7 +174,7 @@ const ClaseMeet = () => {
           </div>
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-              CLASE EN VIVO — SABADO 15 DE MARZO
+              CLASE EN VIVO — DOMINGO 15 DE MARZO
             </span>
             <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
               "Sabia que me hacia dano, pero mi mente lo justificaba."
