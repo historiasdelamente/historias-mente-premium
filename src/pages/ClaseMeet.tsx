@@ -144,7 +144,7 @@ const ClaseMeet = () => {
   ];
 
   const identItems = [
-    "Se que me hace dano pero mi mente lo justifica",
+    "Se que me hace daño pero mi mente lo justifica",
     "Un dia decido irme y al siguiente lo perdono",
     "Me convenzo de que esta vez si va a cambiar",
     "Me siento loca porque se que esta mal pero no puedo dejarlo",
@@ -177,7 +177,7 @@ const ClaseMeet = () => {
               CLASE EN VIVO — DOMINGO 15 DE MARZO
             </span>
             <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
-              "Sabia que me hacia dano, pero mi mente lo justificaba."
+              "Sabia que me hacia daño, pero mi mente lo justificaba."
             </h1>
             <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
               Te convences de que va a cambiar. Minimizas lo que te hizo. Eso se llama disonancia cognitiva. Y en esta clase vas a entender como desactivarla.
@@ -307,7 +307,7 @@ const ClaseMeet = () => {
             </Fade>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
               {[
-                { title: "Que es la disonancia cognitiva", text: "Por que tu mente te convence de quedarte aunque sabes que te hace dano. La trampa mental que no te deja ver la realidad." },
+                { title: "Que es la disonancia cognitiva", text: "Por que tu mente te convence de quedarte aunque sabes que te hace daño. La trampa mental que no te deja ver la realidad." },
                 { title: "Como el narcisista la usa contra ti", text: "Las tacticas que crean esa confusion interna: el ciclo de idealizacion y devaluacion que te mantiene atrapada." },
                 { title: "Como romper el patron", text: "El primer paso concreto para dejar de justificarlo y empezar a confiar en lo que sientes." },
               ].map((card, i) => (
