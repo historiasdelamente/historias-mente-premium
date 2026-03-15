@@ -174,7 +174,7 @@ const ClaseMeet = () => {
           </div>
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-              CLASE EN VIVO — SABADO 15 DE MARZO
+              CLASE EN VIVO — DOMINGO 15 DE MARZO
             </span>
             <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
               "Sabia que me hacia dano, pero mi mente lo justificaba."
@@ -184,7 +184,7 @@ const ClaseMeet = () => {
             </p>
             <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
             <span className="text-white text-sm mt-4 block">
-              Sabado 15 de marzo — 11:00 AM Colombia
+              Domingo 15 de marzo — 11:00 AM Colombia
             </span>
           </div>
         </section>
@@ -330,7 +330,7 @@ const ClaseMeet = () => {
           <div className="max-w-lg mx-auto">
             <Fade>
               <h3 className="text-center font-semibold text-[20px] md:text-xl mb-8 text-black">
-                Sabado 15 de marzo — Clase en vivo
+                Domingo 15 de marzo — Clase en vivo
               </h3>
             </Fade>
             <Fade>
@@ -469,7 +469,7 @@ const ClaseMeet = () => {
                 <CTAButton>INSCRIBIRME AHORA</CTAButton>
               </div>
               <span className="text-white text-sm mt-4 block">
-                Sabado 15 de marzo — 11:00 AM hora Colombia
+                Domingo 15 de marzo — 11:00 AM hora Colombia
               </span>
             </Fade>
           </div>
