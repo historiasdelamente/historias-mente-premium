@@ -221,14 +221,14 @@ const ClaseMeet = () => {
               </div>
               <div>
                 <h2 className="font-bold text-[26px] md:text-[36px] text-black leading-tight">
-                  Sabes que te destruye. Pero no puedes soltar.
+                  Tu mente te dice que no es tan malo. Pero tu cuerpo dice otra cosa.
                 </h2>
                 <p className="text-[#555] text-[15px] md:text-[17px] leading-relaxed mt-6">
-                  Revisas su ultima conexion a las 3AM. Ensayas conversaciones que nunca tendras. Perdiste amigas, sueno, peso, pelo. Y lo peor: perdiste la mujer que eras.
+                  Un dia lloras de rabia. Al siguiente lo justificas. Te dices "quizas exagere", "el tambien tiene cosas buenas". Esa guerra interna te esta agotando.
                 </p>
                 <div className="border-l-4 border-[#FFD300] pl-4 mt-8">
                   <p className="font-semibold text-[16px] md:text-lg text-black">
-                    Eso no es amor. Es un vinculo que secuestro tu cerebro. Y no se rompe con fuerza de voluntad.
+                    Eso se llama disonancia cognitiva. Y es la razon por la que no puedes irte aunque sabes que deberias.
                   </p>
                 </div>
               </div>
