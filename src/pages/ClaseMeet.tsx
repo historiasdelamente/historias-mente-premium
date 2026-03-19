@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
-import heroBg from "@/assets/clase-hero-bg.jpg";
+import heroBg from "@/assets/clase-hero-mujer.png";
 import dolorImg from "@/assets/clase-dolor-img.jpg";
 import transfImg from "@/assets/clase-transf-img.jpg";
 import ctaBg from "@/assets/clase-cta-bg.jpg";
