@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/gracias-clase-hero-mujer.png";
+import heroImage from "@/assets/gracias-clase-hero-mujer.jpg";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/HQpn7BTfgyw9c8YkGogpXi";
 
