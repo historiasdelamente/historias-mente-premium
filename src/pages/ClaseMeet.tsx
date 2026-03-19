@@ -167,49 +167,98 @@ const ClaseMeet = () => {
       <div style={{ fontFamily: "'Montserrat', sans-serif", lineHeight: 1.7 }}>
 
         {/* ═══ 1. HERO ═══ */}
-        <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6">
+        <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+          {/* Background image */}
           <div className="absolute inset-0 z-0">
-            <img src={heroBg} alt="" className="w-full h-full object-cover object-[70%_center]" loading="eager" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
+            <img src={heroBg} alt="" className="w-full h-full object-cover object-[50%_20%]" loading="eager" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50" />
           </div>
+
+          {/* Decorative broken heart elements */}
+          <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+            {/* Top-left broken heart */}
+            <div className="absolute top-[8%] left-[6%] text-5xl md:text-7xl opacity-[0.07] rotate-[-15deg]" style={{ filter: 'blur(1px)' }}>💔</div>
+            {/* Top-right chain link */}
+            <div className="absolute top-[12%] right-[8%] text-4xl md:text-6xl opacity-[0.06] rotate-[10deg]" style={{ filter: 'blur(1px)' }}>🔗</div>
+            {/* Bottom-left */}
+            <div className="absolute bottom-[18%] left-[4%] text-4xl md:text-5xl opacity-[0.06] rotate-[20deg]" style={{ filter: 'blur(1px)' }}>💔</div>
+            {/* Bottom-right teddy */}
+            <div className="absolute bottom-[25%] right-[6%] text-4xl md:text-6xl opacity-[0.06] rotate-[-8deg]" style={{ filter: 'blur(1.5px)' }}>🧸</div>
+            {/* Vertical accent lines */}
+            <div className="absolute top-0 left-[12%] w-px h-full bg-gradient-to-b from-transparent via-[#FFD300]/10 to-transparent" />
+            <div className="absolute top-0 right-[12%] w-px h-full bg-gradient-to-b from-transparent via-[#FFD300]/10 to-transparent" />
+            {/* Horizontal subtle glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#FFD300]/[0.03] blur-[120px]" />
+          </div>
+
           <div className="relative z-10 max-w-2xl mx-auto">
+            {/* Badge */}
             <span 
-              className="inline-block uppercase tracking-[4px] text-xs font-bold px-5 py-2 rounded-full border border-[#FFD300]/40 mb-6"
+              className="inline-block uppercase tracking-[4px] text-xs font-bold px-5 py-2 rounded-full border mb-6"
               style={{ 
                 color: '#FFD300', 
-                background: 'rgba(255,211,0,0.08)',
-                textShadow: '0 0 20px rgba(255,211,0,0.5)'
+                background: 'rgba(255,211,0,0.1)',
+                borderColor: 'rgba(255,211,0,0.5)',
+                textShadow: '0 0 20px rgba(255,211,0,0.6)',
+                boxShadow: '0 0 25px rgba(255,211,0,0.15), inset 0 0 15px rgba(255,211,0,0.05)',
               }}
             >
               CLASE GRATUITA EN VIVO — 1 DE ABRIL
             </span>
+
+            {/* Main headline with deep 3D effect */}
             <h1 
-              className="font-extrabold text-[30px] md:text-[52px] leading-[1.1] max-w-2xl mt-4"
+              className="font-extrabold text-[28px] md:text-[50px] leading-[1.08] max-w-2xl mt-4"
               style={{ 
                 color: '#FFFFFF',
-                textShadow: '0 4px 8px rgba(0,0,0,0.9), 0 8px 25px rgba(0,0,0,0.7), 0 2px 0 rgba(0,0,0,1)',
+                textShadow: `
+                  0 1px 0 rgba(0,0,0,1),
+                  0 2px 0 rgba(0,0,0,0.95),
+                  0 3px 0 rgba(0,0,0,0.9),
+                  0 4px 0 rgba(0,0,0,0.85),
+                  0 6px 12px rgba(0,0,0,0.9),
+                  0 10px 30px rgba(0,0,0,0.7),
+                  0 20px 50px rgba(0,0,0,0.5)
+                `,
                 fontFamily: "'Montserrat', sans-serif",
+                letterSpacing: '-0.5px',
               }}
             >
               "Sabías que te hacía daño. Pero tu mente lo justificaba."
             </h1>
+
+            {/* Decorative line separator */}
+            <div className="flex items-center justify-center gap-3 mt-5 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#FFD300]/50" />
+              <span className="text-[#FFD300]/60 text-lg">✦</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#FFD300]/50" />
+            </div>
+
+            {/* Subtitle */}
             <p 
-              className="text-[15px] md:text-lg max-w-lg mx-auto mt-6 leading-relaxed"
+              className="text-[15px] md:text-lg max-w-lg mx-auto leading-relaxed"
               style={{ 
                 color: '#E8E8E8',
-                textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.6)',
+                textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 4px 20px rgba(0,0,0,0.7)',
               }}
             >
-              Se llama <strong style={{ color: '#FFD300' }}>disonancia cognitiva</strong>. Es la razón por la que sigues volviendo. En esta clase vas a aprender a desactivarla.
+              Se llama <strong style={{ color: '#FFD300', textShadow: '0 0 15px rgba(255,211,0,0.4)' }}>disonancia cognitiva</strong>. Es la razón por la que sigues volviendo. En esta clase vas a aprender a desactivarla.
             </p>
+
+            {/* CTA Button with glow */}
             <div className="mt-8">
-              <CTAButton className="shadow-[0_4px_30px_rgba(255,211,0,0.4),0_0_60px_rgba(255,211,0,0.15)] hover:shadow-[0_8px_40px_rgba(255,211,0,0.5),0_0_80px_rgba(255,211,0,0.2)]">
+              <CTAButton 
+                className="shadow-[0_4px_30px_rgba(255,211,0,0.4),0_0_60px_rgba(255,211,0,0.15)] hover:shadow-[0_8px_40px_rgba(255,211,0,0.5),0_0_80px_rgba(255,211,0,0.25)] transition-shadow duration-300"
+              >
                 QUIERO MI LUGAR EN LA CLASE
               </CTAButton>
             </div>
+
+            {/* Date info */}
             <span 
               className="text-sm mt-4 block font-medium"
-              style={{ color: '#CCC', textShadow: '0 2px 6px rgba(0,0,0,0.8)' }}
+              style={{ color: '#CCC', textShadow: '0 2px 8px rgba(0,0,0,0.9)' }}
             >
               Miércoles 1 de abril — 8:00 PM Colombia
             </span>
