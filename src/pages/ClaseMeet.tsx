@@ -134,13 +134,13 @@ const ClaseMeet = () => {
   };
 
   const schedules = [
-    { country: "Colombia, Peru, Ecuador", time: "11:00 AM" },
-    { country: "Mexico (CDMX)", time: "10:00 AM" },
-    { country: "Venezuela, Bolivia, Rep. Dom.", time: "12:00 PM" },
-    { country: "Argentina, Uruguay, Chile", time: "1:00 PM" },
-    { country: "Espana", time: "5:00 PM" },
-    { country: "USA (Este / Miami)", time: "11:00 AM" },
-    { country: "USA (Oeste / LA)", time: "8:00 AM" },
+    { country: "Colombia, Peru, Ecuador", time: "8:00 PM" },
+    { country: "Mexico (CDMX)", time: "7:00 PM" },
+    { country: "Venezuela, Bolivia, Rep. Dom.", time: "9:00 PM" },
+    { country: "Argentina, Uruguay, Chile", time: "10:00 PM" },
+    { country: "Espana", time: "3:00 AM (2 de abril)" },
+    { country: "USA (Este / Miami)", time: "8:00 PM" },
+    { country: "USA (Oeste / LA)", time: "5:00 PM" },
   ];
 
   const identItems = [
