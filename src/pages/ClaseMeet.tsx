@@ -357,7 +357,7 @@ const ClaseMeet = () => {
           <div className="max-w-lg mx-auto">
             <Fade>
               <h3 className="text-center font-semibold text-[20px] md:text-xl mb-8 text-black">
-                Domingo 15 de marzo — Clase en vivo
+                Miércoles 1 de abril — Clase en vivo
               </h3>
             </Fade>
             <Fade>
