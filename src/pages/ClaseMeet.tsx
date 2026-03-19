@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useCookieConsent } from "@/hooks/useCookieConsent";
-import heroBg from "@/assets/clase-hero-bg.jpg";
+import heroBg from "@/assets/clase-hero-mujer.png";
 import dolorImg from "@/assets/clase-dolor-img.jpg";
 import transfImg from "@/assets/clase-transf-img.jpg";
 import ctaBg from "@/assets/clase-cta-bg.jpg";
@@ -41,7 +41,7 @@ const CTAButton = ({ children, className = "" }: { children: React.ReactNode; cl
 );
 
 /* ── Countdown ── */
-const TARGET_DATE = new Date("2026-03-15T16:00:00Z"); // 11AM UTC-5
+const TARGET_DATE = new Date("2026-04-02T01:00:00Z"); // 8PM UTC-5 = April 1st
 
 function useCountdown() {
   const [diff, setDiff] = useState(() => TARGET_DATE.getTime() - Date.now());
@@ -134,13 +134,13 @@ const ClaseMeet = () => {
   };
 
   const schedules = [
-    { country: "Colombia, Peru, Ecuador", time: "11:00 AM" },
-    { country: "Mexico (CDMX)", time: "10:00 AM" },
-    { country: "Venezuela, Bolivia, Rep. Dom.", time: "12:00 PM" },
-    { country: "Argentina, Uruguay, Chile", time: "1:00 PM" },
-    { country: "Espana", time: "5:00 PM" },
-    { country: "USA (Este / Miami)", time: "11:00 AM" },
-    { country: "USA (Oeste / LA)", time: "8:00 AM" },
+    { country: "Colombia, Peru, Ecuador", time: "8:00 PM" },
+    { country: "Mexico (CDMX)", time: "7:00 PM" },
+    { country: "Venezuela, Bolivia, Rep. Dom.", time: "9:00 PM" },
+    { country: "Argentina, Uruguay, Chile", time: "10:00 PM" },
+    { country: "Espana", time: "3:00 AM (2 de abril)" },
+    { country: "USA (Este / Miami)", time: "8:00 PM" },
+    { country: "USA (Oeste / LA)", time: "5:00 PM" },
   ];
 
   const identItems = [
@@ -155,8 +155,8 @@ const ClaseMeet = () => {
   return (
     <>
       <Helmet>
-        <title>Disonancia Cognitiva — Clase en Vivo 15 de Marzo | Historias de la Mente</title>
-        <meta name="description" content="Descubre como la disonancia cognitiva te mantiene atrapada en relaciones toxicas y aprende a romper ese patron. Clase en vivo, Javier Vieira, Psicologo Especialista." />
+        <title>Disonancia Cognitiva — Clase en Vivo 1 de Abril | Historias de la Mente</title>
+        <meta name="description" content="Descubre como la disonancia cognitiva te mantiene atrapada en relaciones toxicas y aprende a romper ese patron. Clase en vivo, miercoles 1 de abril. Javier Vieira." />
       </Helmet>
 
       <style>{`
@@ -169,22 +169,49 @@ const ClaseMeet = () => {
         {/* ═══ 1. HERO ═══ */}
         <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6">
           <div className="absolute inset-0 z-0">
-            <img src={heroBg} alt="" className="w-full h-full object-cover" loading="eager" />
-            <div className="absolute inset-0 bg-black/50" />
+            <img src={heroBg} alt="" className="w-full h-full object-cover object-[70%_center]" loading="eager" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
           </div>
           <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-              CLASE EN VIVO — DOMINGO 15 DE MARZO
+            <span 
+              className="inline-block uppercase tracking-[4px] text-xs font-bold px-5 py-2 rounded-full border border-[#FFD300]/40 mb-6"
+              style={{ 
+                color: '#FFD300', 
+                background: 'rgba(255,211,0,0.08)',
+                textShadow: '0 0 20px rgba(255,211,0,0.5)'
+              }}
+            >
+              CLASE GRATUITA EN VIVO — 1 DE ABRIL
             </span>
-            <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
-              "Sabia que me hacia daño, pero mi mente lo justificaba."
+            <h1 
+              className="font-extrabold text-[30px] md:text-[52px] leading-[1.1] max-w-2xl mt-4"
+              style={{ 
+                color: '#FFFFFF',
+                textShadow: '0 4px 8px rgba(0,0,0,0.9), 0 8px 25px rgba(0,0,0,0.7), 0 2px 0 rgba(0,0,0,1)',
+                fontFamily: "'Montserrat', sans-serif",
+              }}
+            >
+              "Sabías que te hacía daño. Pero tu mente lo justificaba."
             </h1>
-            <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
-              Te convences de que va a cambiar. Minimizas lo que te hizo. Eso se llama disonancia cognitiva. Y en esta clase vas a entender como desactivarla.
+            <p 
+              className="text-[15px] md:text-lg max-w-lg mx-auto mt-6 leading-relaxed"
+              style={{ 
+                color: '#E8E8E8',
+                textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.6)',
+              }}
+            >
+              Se llama <strong style={{ color: '#FFD300' }}>disonancia cognitiva</strong>. Es la razón por la que sigues volviendo. En esta clase vas a aprender a desactivarla.
             </p>
-            <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
-            <span className="text-white text-sm mt-4 block">
-              Domingo 15 de marzo — 11:00 AM Colombia
+            <div className="mt-8">
+              <CTAButton className="shadow-[0_4px_30px_rgba(255,211,0,0.4),0_0_60px_rgba(255,211,0,0.15)] hover:shadow-[0_8px_40px_rgba(255,211,0,0.5),0_0_80px_rgba(255,211,0,0.2)]">
+                QUIERO MI LUGAR EN LA CLASE
+              </CTAButton>
+            </div>
+            <span 
+              className="text-sm mt-4 block font-medium"
+              style={{ color: '#CCC', textShadow: '0 2px 6px rgba(0,0,0,0.8)' }}
+            >
+              Miércoles 1 de abril — 8:00 PM Colombia
             </span>
           </div>
         </section>
@@ -302,7 +329,7 @@ const ClaseMeet = () => {
           <div className="max-w-4xl mx-auto">
             <Fade>
               <h2 className="text-white text-center font-bold text-[26px] md:text-[36px]">
-                Lo que vas a descubrir el 15 de marzo:
+                Lo que vas a descubrir el 1 de abril:
               </h2>
             </Fade>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
@@ -330,7 +357,7 @@ const ClaseMeet = () => {
           <div className="max-w-lg mx-auto">
             <Fade>
               <h3 className="text-center font-semibold text-[20px] md:text-xl mb-8 text-black">
-                Domingo 15 de marzo — Clase en vivo
+                Miércoles 1 de abril — Clase en vivo
               </h3>
             </Fade>
             <Fade>
@@ -366,7 +393,7 @@ const ClaseMeet = () => {
                 <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
                   <h3 className="font-bold text-2xl text-black">Listo! Tu lugar esta reservado.</h3>
                   <p className="text-[#555] mt-3">
-                    Revisa tu correo — ahi recibiras el acceso. Nos vemos el 14 de marzo.
+                    Revisa tu correo — ahi recibiras el acceso. Nos vemos el 1 de abril.
                   </p>
                 </div>
               </Fade>
@@ -463,13 +490,13 @@ const ClaseMeet = () => {
           <div className="relative z-10">
             <Fade>
               <h2 className="text-white font-bold text-[26px] md:text-[36px] max-w-lg mx-auto leading-tight">
-                No tienes que seguir justificandolo. El 15 de marzo puede cambiar todo.
+                 No tienes que seguir justificandolo. El 1 de abril puede cambiar todo.
               </h2>
               <div className="mt-8">
                 <CTAButton>INSCRIBIRME AHORA</CTAButton>
               </div>
               <span className="text-white text-sm mt-4 block">
-                Domingo 15 de marzo — 11:00 AM hora Colombia
+                Miércoles 1 de abril — 8:00 PM hora Colombia
               </span>
             </Fade>
           </div>
