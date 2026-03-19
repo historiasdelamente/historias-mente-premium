@@ -393,7 +393,7 @@ const ClaseMeet = () => {
                 <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
                   <h3 className="font-bold text-2xl text-black">Listo! Tu lugar esta reservado.</h3>
                   <p className="text-[#555] mt-3">
-                    Revisa tu correo — ahi recibiras el acceso. Nos vemos el 14 de marzo.
+                    Revisa tu correo — ahi recibiras el acceso. Nos vemos el 1 de abril.
                   </p>
                 </div>
               </Fade>
