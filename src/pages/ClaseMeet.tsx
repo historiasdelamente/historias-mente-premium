@@ -169,22 +169,49 @@ const ClaseMeet = () => {
         {/* ═══ 1. HERO ═══ */}
         <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6">
           <div className="absolute inset-0 z-0">
-            <img src={heroBg} alt="" className="w-full h-full object-cover" loading="eager" />
-            <div className="absolute inset-0 bg-black/50" />
+            <img src={heroBg} alt="" className="w-full h-full object-cover object-[70%_center]" loading="eager" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
           </div>
           <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-              CLASE EN VIVO — DOMINGO 15 DE MARZO
+            <span 
+              className="inline-block uppercase tracking-[4px] text-xs font-bold px-5 py-2 rounded-full border border-[#FFD300]/40 mb-6"
+              style={{ 
+                color: '#FFD300', 
+                background: 'rgba(255,211,0,0.08)',
+                textShadow: '0 0 20px rgba(255,211,0,0.5)'
+              }}
+            >
+              CLASE GRATUITA EN VIVO — 1 DE ABRIL
             </span>
-            <h1 className="text-white font-extrabold text-[32px] md:text-[52px] leading-tight max-w-2xl mt-6">
-              "Sabia que me hacia daño, pero mi mente lo justificaba."
+            <h1 
+              className="font-extrabold text-[30px] md:text-[52px] leading-[1.1] max-w-2xl mt-4"
+              style={{ 
+                color: '#FFFFFF',
+                textShadow: '0 4px 8px rgba(0,0,0,0.9), 0 8px 25px rgba(0,0,0,0.7), 0 2px 0 rgba(0,0,0,1)',
+                fontFamily: "'Montserrat', sans-serif",
+              }}
+            >
+              "Sabías que te hacía daño. Pero tu mente lo justificaba."
             </h1>
-            <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
-              Te convences de que va a cambiar. Minimizas lo que te hizo. Eso se llama disonancia cognitiva. Y en esta clase vas a entender como desactivarla.
+            <p 
+              className="text-[15px] md:text-lg max-w-lg mx-auto mt-6 leading-relaxed"
+              style={{ 
+                color: '#E8E8E8',
+                textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.6)',
+              }}
+            >
+              Se llama <strong style={{ color: '#FFD300' }}>disonancia cognitiva</strong>. Es la razón por la que sigues volviendo. En esta clase vas a aprender a desactivarla.
             </p>
-            <CTAButton className="mt-8">QUIERO MI LUGAR EN LA CLASE</CTAButton>
-            <span className="text-white text-sm mt-4 block">
-              Domingo 15 de marzo — 11:00 AM Colombia
+            <div className="mt-8">
+              <CTAButton className="shadow-[0_4px_30px_rgba(255,211,0,0.4),0_0_60px_rgba(255,211,0,0.15)] hover:shadow-[0_8px_40px_rgba(255,211,0,0.5),0_0_80px_rgba(255,211,0,0.2)]">
+                QUIERO MI LUGAR EN LA CLASE
+              </CTAButton>
+            </div>
+            <span 
+              className="text-sm mt-4 block font-medium"
+              style={{ color: '#CCC', textShadow: '0 2px 6px rgba(0,0,0,0.8)' }}
+            >
+              Miércoles 1 de abril — 8:00 PM Colombia
             </span>
           </div>
         </section>
