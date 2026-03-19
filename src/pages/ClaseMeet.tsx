@@ -167,7 +167,7 @@ const ClaseMeet = () => {
       <div style={{ fontFamily: "'Montserrat', sans-serif", lineHeight: 1.7 }}>
 
         {/* ═══ 1. HERO ═══ */}
-        <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+        <section className="relative min-h-[75vh] md:min-h-[85vh] flex flex-col justify-center items-center text-center px-4 py-10 md:py-14 overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0">
             <img src={heroBg} alt="" className="w-full h-full object-cover object-[50%_20%]" loading="eager" />
