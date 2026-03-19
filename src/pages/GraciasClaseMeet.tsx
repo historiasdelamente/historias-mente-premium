@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import graciasHeroBg from "@/assets/gracias-hero-bg.jpg";
+import heroImage from "@/assets/gracias-clase-hero-mujer.png";
 
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/GKWFbMiwfHE2sWUwykH3R1";
+const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/HQpn7BTfgyw9c8YkGogpXi";
 
 // --- Fade-up hook ---
 const useFadeIn = () => {
@@ -48,12 +48,14 @@ const WhatsAppButton = ({ children, className = "", fullWidth = false }: { child
       rel="noopener noreferrer"
       onClick={handleClick}
       className={`inline-flex items-center justify-center gap-3
-        bg-[#25D366] text-white font-extrabold uppercase tracking-wide
+        text-white font-extrabold uppercase tracking-wide
         px-10 py-5 rounded-lg text-base
-        shadow-[0_4px_20px_rgba(37,211,102,0.4)]
-        hover:shadow-[0_8px_32px_rgba(37,211,102,0.5)]
         hover:-translate-y-0.5 transition-all duration-300
         ${fullWidth ? "w-full" : ""} ${className}`}
+      style={{
+        background: 'linear-gradient(135deg, #00C853 0%, #00A843 100%)',
+        boxShadow: '0 4px 24px rgba(0,200,83,0.5), 0 0 40px rgba(0,200,83,0.25)',
+      }}
     >
       <WhatsAppIcon />
       {children}
@@ -80,81 +82,85 @@ const GraciasClaseMeet = () => {
   const fade2 = useFadeIn();
   const fade3 = useFadeIn();
   const fade4 = useFadeIn();
-  const fade5 = useFadeIn();
 
   return (
     <>
       <Helmet>
         <title>Tu lugar está reservado — Apego Detox | Historias de la Mente</title>
         <meta name="description" content="Confirma tu lugar en la clase Apego Detox. Entra al grupo de WhatsApp para recibir el acceso." />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Helmet>
 
       <div style={{ fontFamily: "'Montserrat', sans-serif" }} className="min-h-screen bg-black">
 
         {/* ===== 1. HERO ===== */}
-        <section
-          className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 relative"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${graciasHeroBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <span className="uppercase tracking-[4px] text-xs text-[#FFD300] font-semibold">
-            TU LUGAR ESTÁ RESERVADO
-          </span>
-
-          <h1 className="text-white font-extrabold text-[28px] md:text-[40px] leading-tight max-w-2xl mt-5">
-            Diste el primer paso.<br />
-            Eso ya te hace diferente.
-          </h1>
-
-          <p className="text-[#CCC] text-[15px] md:text-lg max-w-md mt-5 leading-relaxed">
-            La mayoría se queda en silencio.
-            Tú decidiste hacer algo. Ahora confirma tu lugar
-            en el grupo donde vas a recibir toda la información.
-          </p>
-
-          <div className="mt-6">
-            <WhatsAppButton>CONFIRMAR MI LUGAR POR WHATSAPP</WhatsAppButton>
+        <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-end overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={heroImage}
+              alt="Mujer mirando al horizonte - Apego Detox"
+              className="w-full h-full object-cover object-[70%_20%] md:object-center"
+            />
+            {/* Dark overlays for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
           </div>
 
-          <p className="text-white/60 text-sm mt-3">
-            Entra al grupo para recibir el link de la clase y recordatorios
-          </p>
-        </section>
-
-        {/* ===== 3. POR QUÉ IMPORTA ===== */}
-        <section className="bg-white py-20 px-6">
-          <div ref={fade1.ref} className={fade1.className}>
-            <h2 className="text-center font-bold text-[22px] md:text-[30px] max-w-lg mx-auto text-black leading-tight">
-              Mientras tú leías esto, ella seguía revisando si él la bloqueó.
-            </h2>
-
-            <div className="max-w-xl mx-auto mt-10 space-y-6">
-              <p className="text-[#333] text-[15px] md:text-[17px] leading-relaxed">
-                Hay una mujer que ahora mismo está acostada en su cama con el teléfono en la mano. Lleva cuarenta minutos revisando la última conexión de él. Sabe que le hace daño. Sabe que debería bloquearlo. Pero no puede. Porque soltar duele más que quedarse.
-              </p>
-              <p className="text-[#333] text-[15px] md:text-[17px] leading-relaxed">
-                Hay otra que ya lo dejó hace meses. Todos le dicen que está mejor. Pero por dentro se muere. Porque nadie sabe que anoche soñó con él y se despertó llorando. Porque sigue sintiendo ese vacío en el pecho que no se llena con nada.
-              </p>
-              <p className="text-[#333] text-[15px] md:text-[17px] leading-relaxed">
-                Y hay otra — quizás eres tú — que acaba de dar el paso más valiente que ha dado en mucho tiempo: registrarse en esta clase. Porque algo dentro de ella le dijo que ya es suficiente.
-              </p>
-              <div className="border-l-4 border-[#FFD300] pl-4 mt-8">
-                <p className="font-semibold text-lg text-black">
-                  Tú no eres la que se quedó paralizada.<br />
-                  Tú eres la que decidió moverse.
-                </p>
-              </div>
+          {/* Content */}
+          <div className="relative z-10 w-full max-w-2xl mx-auto px-6 pb-10 md:pb-16 text-center space-y-5">
+            {/* Badge */}
+            <div
+              className="inline-block px-5 py-2 rounded-full text-sm md:text-base font-black uppercase tracking-[3px]"
+              style={{
+                background: 'rgba(0,200,83,0.15)',
+                border: '2px solid #00C853',
+                color: '#00C853',
+                textShadow: '0 0 20px rgba(0,200,83,0.5)',
+              }}
+            >
+              YA DISTE EL PASO MÁS DIFÍCIL ✓
             </div>
+
+            {/* Title */}
+            <h1
+              className="text-[32px] md:text-[52px] font-black leading-[1.1] uppercase"
+              style={{
+                color: '#FFFFFF',
+                textShadow: '0 2px 0 rgba(0,0,0,1), 0 4px 0 rgba(0,0,0,0.9), 0 8px 20px rgba(0,0,0,0.8), 0 20px 50px rgba(0,0,0,0.6)',
+              }}
+            >
+              Ya estás dentro.<br />
+              <span style={{ color: '#FFD300' }}>Esta vez elegiste a ti.</span>
+            </h1>
+
+            {/* Subtitle */}
+            <p
+              className="text-[15px] md:text-[19px] leading-relaxed max-w-lg mx-auto"
+              style={{
+                color: '#E0E0E0',
+                textShadow: '0 2px 10px rgba(0,0,0,0.8)',
+              }}
+            >
+              Lo más difícil no es la clase. Lo más difícil era decidir que mereces algo diferente. <strong style={{ color: '#FFD300' }}>Eso ya lo hiciste.</strong> Ahora entra al grupo para que te llegue todo.
+            </p>
+
+            {/* WhatsApp CTA */}
+            <div className="pt-2">
+              <WhatsAppButton className="text-lg md:text-xl px-12 py-5 md:py-6 animate-pulse">
+                ENTRAR AL GRUPO DE WHATSAPP
+              </WhatsAppButton>
+            </div>
+
+            <p className="text-white/50 text-xs md:text-sm">
+              Entra al grupo para recibir el link de la clase y recordatorios
+            </p>
           </div>
         </section>
 
-        {/* ===== 4. LO QUE SIGUE ===== */}
+        {/* ===== 2. LO QUE SIGUE ===== */}
         <section className="bg-[#F5F5F5] py-16 px-6">
-          <div ref={fade2.ref} className={fade2.className}>
+          <div ref={fade1.ref} className={fade1.className}>
             <h2 className="text-center font-bold text-[22px] md:text-[30px] text-black">
               Esto es lo que sigue:
             </h2>
@@ -162,7 +168,7 @@ const GraciasClaseMeet = () => {
             <div className="max-w-md mx-auto mt-10 space-y-8">
               {[
                 { n: "1", text: "Entra al grupo de WhatsApp para confirmar tu lugar y recibir el acceso directo a la clase." },
-                { n: "2", text: "El sábado 14 de marzo a las 11:00 AM (hora Colombia) recibirás el link para conectarte en vivo." },
+                { n: "2", text: "El miércoles 1 de abril a las 8:00 PM (hora Colombia) recibirás el link para conectarte en vivo." },
                 { n: "3", text: "Llega puntual. Lo que vas a escuchar en esa clase puede ser el punto de quiebre que necesitas." },
               ].map((step) => (
                 <div key={step.n} className="flex items-start gap-4">
@@ -180,9 +186,9 @@ const GraciasClaseMeet = () => {
           </div>
         </section>
 
-        {/* ===== 5. TESTIMONIOS ===== */}
+        {/* ===== 3. TESTIMONIOS ===== */}
         <section className="bg-black py-20 px-6">
-          <div ref={fade3.ref} className={fade3.className}>
+          <div ref={fade2.ref} className={fade2.className}>
             <h2 className="text-white text-center font-bold text-[22px] md:text-[30px] mb-12">
               Ellas también pensaron que no podían salir:
             </h2>
@@ -203,9 +209,9 @@ const GraciasClaseMeet = () => {
           </div>
         </section>
 
-        {/* ===== 6. REVISA TU CORREO ===== */}
+        {/* ===== 4. REVISA TU CORREO ===== */}
         <section className="bg-white py-16 px-6">
-          <div ref={fade4.ref} className={fade4.className}>
+          <div ref={fade3.ref} className={fade3.className}>
             <div className="max-w-md mx-auto text-center">
               <h2 className="font-bold text-[22px] md:text-[30px] text-black">
                 Revisa tu correo electrónico.
@@ -216,22 +222,22 @@ const GraciasClaseMeet = () => {
               </p>
               <div className="bg-[#F5F5F5] rounded-xl p-6 mt-8 text-left">
                 <p className="font-semibold text-sm text-black">Datos de la clase:</p>
-                <p className="text-[#555] text-sm mt-2">Sábado 14 de marzo, 2026</p>
-                <p className="text-[#555] text-sm">11:00 AM hora Colombia</p>
-                <p className="text-[#555] text-sm mt-2">Colombia, Perú, Ecuador: 11:00 AM</p>
-                <p className="text-[#555] text-sm">México: 10:00 AM</p>
-                <p className="text-[#555] text-sm">Argentina, Chile: 1:00 PM</p>
-                <p className="text-[#555] text-sm">Venezuela: 12:00 PM</p>
-                <p className="text-[#555] text-sm">España: 5:00 PM</p>
-                <p className="text-[#555] text-sm">USA Este: 11:00 AM — USA Oeste: 8:00 AM</p>
+                <p className="text-[#555] text-sm mt-2">Miércoles 1 de abril, 2026</p>
+                <p className="text-[#555] text-sm">8:00 PM hora Colombia</p>
+                <p className="text-[#555] text-sm mt-2">Colombia, Perú, Ecuador: 8:00 PM</p>
+                <p className="text-[#555] text-sm">México: 7:00 PM</p>
+                <p className="text-[#555] text-sm">Argentina, Chile: 10:00 PM</p>
+                <p className="text-[#555] text-sm">Venezuela: 9:00 PM</p>
+                <p className="text-[#555] text-sm">España: 3:00 AM (jueves)</p>
+                <p className="text-[#555] text-sm">USA Este: 8:00 PM — USA Oeste: 5:00 PM</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ===== 7. CTA FINAL ===== */}
+        {/* ===== 5. CTA FINAL ===== */}
         <section className="bg-black py-16 px-6 text-center">
-          <div ref={fade5.ref} className={fade5.className}>
+          <div ref={fade4.ref} className={fade4.className}>
             <h2 className="text-white font-bold text-[22px] md:text-[30px] max-w-md mx-auto leading-tight">
               No dejes que el miedo te quite esto.<br />
               Confirma tu lugar ahora.
@@ -246,7 +252,7 @@ const GraciasClaseMeet = () => {
           </div>
         </section>
 
-        {/* ===== 8. FOOTER ===== */}
+        {/* ===== 6. FOOTER ===== */}
         <footer className="bg-black py-8 text-center border-t border-[#1A1A1A] pb-24 md:pb-8">
           <p className="text-gray-400 text-sm">Historias de la Mente — Javier Vieira</p>
           <p className="text-gray-500 text-xs mt-1">Psicólogo Clínico COLPSIC 293219 — © 2026</p>
@@ -257,7 +263,9 @@ const GraciasClaseMeet = () => {
         </footer>
 
         {/* ===== MOBILE STICKY WHATSAPP ===== */}
-        <div className="fixed bottom-0 left-0 right-0 bg-black p-3 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] md:hidden">
+        <div className="fixed bottom-0 left-0 right-0 p-3 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] md:hidden"
+          style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.95) 30%)' }}
+        >
           <WhatsAppButton fullWidth className="text-sm py-4">
             CONFIRMAR POR WHATSAPP
           </WhatsAppButton>
