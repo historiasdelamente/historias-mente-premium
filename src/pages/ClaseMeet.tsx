@@ -329,7 +329,7 @@ const ClaseMeet = () => {
           <div className="max-w-4xl mx-auto">
             <Fade>
               <h2 className="text-white text-center font-bold text-[26px] md:text-[36px]">
-                Lo que vas a descubrir el 15 de marzo:
+                Lo que vas a descubrir el 1 de abril:
               </h2>
             </Fade>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-10">
