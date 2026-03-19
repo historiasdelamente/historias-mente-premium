@@ -155,8 +155,8 @@ const ClaseMeet = () => {
   return (
     <>
       <Helmet>
-        <title>Disonancia Cognitiva — Clase en Vivo 15 de Marzo | Historias de la Mente</title>
-        <meta name="description" content="Descubre como la disonancia cognitiva te mantiene atrapada en relaciones toxicas y aprende a romper ese patron. Clase en vivo, Javier Vieira, Psicologo Especialista." />
+        <title>Disonancia Cognitiva — Clase en Vivo 1 de Abril | Historias de la Mente</title>
+        <meta name="description" content="Descubre como la disonancia cognitiva te mantiene atrapada en relaciones toxicas y aprende a romper ese patron. Clase en vivo, miercoles 1 de abril. Javier Vieira." />
       </Helmet>
 
       <style>{`
